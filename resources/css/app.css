@@ -92,6 +92,11 @@
         padding-inline: clamp(0.75rem, 2vw, 1.5rem);
     }
 
+    /* Public pages: never cover the body gradient */
+    main[class*='-page'] {
+        background: transparent;
+    }
+
     .ui-card {
         background: rgba(255, 255, 255, 0.82);
         border: 1px solid color-mix(in oklab, var(--color-text-secondary) 25%, transparent);

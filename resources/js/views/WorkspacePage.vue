@@ -1,12 +1,19 @@
 <template>
-    <div class="section-shell py-6">
-        <section class="ui-card">
-            <p class="text-secondary mb-2 text-sm">Workspace</p>
-            <h2 class="mb-3 text-2xl font-semibold">Zone d implementation</h2>
-            <p class="text-secondary">
-                Cette route est prete pour ajouter vos modules metier et vos futures pages. Le systeme de composants
-                est en place pour garder un rendu cohérent.
-            </p>
+    <AppNavbar />
+    <main class="workspace-page pb-10">
+        <section class="section-shell py-6">
+            <div class="ui-card glass-frame">
+                <h1 class="mb-3 text-2xl font-semibold">PC SOFT Workspace</h1>
+                <p class="text-secondary">
+                    Centralisez vos projets WINDEV, WEBDEV et WINDEV Mobile au sein d’un espace de travail unifié.
+                </p>
+            </div>
         </section>
-    </div>
+    </main>
+    <AppFooter />
 </template>
+
+<script setup>
+import AppNavbar from '../components/AppNavbar.vue';
+import AppFooter from '../components/AppFooter.vue';
+</script>
