@@ -206,13 +206,14 @@ import AppFooter from './AppFooter.vue';
 import { getPcsoftPage } from '../data/pcsoftPages.js';
 import distributorRegions from '../data/distributorRegions.json';
 import { PUBLIC_SITE_PAGES as publicSitePages } from '../data/publicSitePages.js';
+import { SHARED_IMAGES } from '../utils/pcsoftImages.js';
 
 const route = useRoute();
 const page = computed(() => getPcsoftPage(route.name));
 const isDistributors = computed(() => route.name === 'pcsoft.distributors');
 const isSitemap = computed(() => route.name === 'pcsoft.sitemap');
 
-const pcsoftLogoUrl = new URL('../../../public/pcsoft/LOGO_PCSOFT_Dark.svg', import.meta.url).href;
+const pcsoftLogoUrl = SHARED_IMAGES.pcsoftLogoDark.src;
 
 const sitemapGroupLabels = {
     home: 'Home',

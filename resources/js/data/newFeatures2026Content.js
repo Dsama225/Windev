@@ -1,17 +1,18 @@
 /** Content mirrored from https://windev.com/newfeatures */
 
+export { featureImage } from './newFeatures2026PageImages.js';
+
 export const NEW_FEATURES_PDF_EN =
     'https://us.pcsoft-windev-webdev.com/WX2026-Features.pdf?202510201505';
+
+export const NEW_FEATURES_PDF_FR =
+    'https://fr.pcsoft-windev-webdev.com/brochure-WX2026.pdf?202510201505';
 
 export const NEW_FEATURES_PAGE_FR = 'https://www.pcsoft.fr/annonce2024/index.html';
 
 export const NEW_FEATURES_EBOOK_EN = 'https://windev.com/storage/en_US/ebook/newfeatures/4';
 
 export const OFFICIAL_IMG_BASE = 'https://windev.com/storage/en_US/img/2026/newfeatures';
-
-export function featureImage(filename) {
-    return `/img/newfeatures/${filename.replace(/\.(png|jpg)$/i, '.webp')}`;
-}
 
 export function featureImageOfficial(filename) {
     return `${OFFICIAL_IMG_BASE}/${filename}`;
@@ -23,8 +24,10 @@ export const newFeaturesSections = [
         title: 'Conversational AI in the environment',
         badge: '001 to 009',
         products: ['WD', 'WB', 'WM'],
-        tone: 'yellow',
+        tone: 'white',
+        video: true,
         image: 'ia-conversationnelle.png',
+        imageCompact: true,
         pdfPage: 2,
         ebookUrl: 'https://windev.com/storage/en_US/ebook/newfeatures/4',
         subsections: [

@@ -2,172 +2,467 @@
     <AppNavbar />
     <main class="webdev-page pb-10">
         <section class="section-shell webdev-page__suite-line" aria-label="Product positioning">
-            <p class="webdev-page__suite-text">CROSS-PLATFORM APPLICATION DEVELOPMENT SOFTWARE SUITE</p>
-            <div class="webdev-page__os-row" aria-hidden="true">
-                <span v-for="n in 7" :key="n" class="webdev-page__os-dot" />
-            </div>
+            <p class="webdev-page__suite-text">
+                <strong>Cross-platform</strong> application development software suite
+            </p>
+            <figure class="webdev-page__suite-platforms">
+                <img
+                    :src="webdevSuiteCrossPlatform.src"
+                    alt="Integrated software for developing cross-platform applications"
+                    width="283"
+                    height="48"
+                    loading="eager"
+                    decoding="async"
+                    @error="onImageError($event, webdevSuiteCrossPlatform.fallback)"
+                />
+            </figure>
         </section>
 
-        <section class="section-shell webdev-page__hero">
-            <div class="webdev-page__hero-card">
-                <img class="webdev-page__hero-image" :src="'/img/new-version-update_accueil.jpg'" alt="New WEBDEV Suite" />
-                <div class="webdev-page__hero-buttons">
-                    <button type="button" class="webdev-page__hero-btn webdev-page__hero-btn--active">Aperçu</button>
-                    <button type="button" class="webdev-page__hero-btn">Nouvelles Fonctionnalités</button>
-                    <button type="button" class="webdev-page__hero-btn">S'abonner</button>
-                </div>
-            </div>
+        <section class="section-shell webdev-page__hero" aria-label="WINDEV Suite hero">
+            <HomeHeroCarousel />
         </section>
 
         <section class="section-shell webdev-page__intro" aria-labelledby="webdev-intro-title">
+            <h1 id="webdev-intro-title" class="webdev-page__intro-hero">DEVELOP 10 TIMES FASTER</h1>
             <div class="webdev-page__intro-card glass-frame">
-                <div class="webdev-page__intro-toolbar">
-                    <button type="button" class="webdev-page__btn-subscribe webdev-page__btn-subscribe--header">Subscribe</button>
-                </div>
                 <div class="webdev-page__intro-grid">
                     <figure class="webdev-page__figure webdev-page__figure--intro-pack">
-                        <div class="webdev-page__intro-pack-wrap">
-                            <img
-                                class="webdev-page__intro-pack-img"
-                                :src="'/img/webdevimg/package-webdev-2026.webp'"
-                                alt="WEBDEV 2026 package"
-                                loading="eager"
-                                decoding="async"
-                            />
-                        </div>
+                        <img
+                            class="webdev-page__intro-pack-img"
+                            :src="webdevPackage2026.src"
+                            alt="WEBDEV 2026"
+                            loading="lazy"
+                            decoding="async"
+                            @error="onImageError($event, webdevPackage2026.fallback)"
+                        />
                     </figure>
                     <div class="webdev-page__intro-copy">
-                        <h1 id="webdev-intro-title" class="webdev-page__intro-heading">WEBDEV 2026, WEB IDE</h1>
-                        <p class="webdev-page__intro-body">
-                            Responsive Web Design. WEBDEV allows you to easily develop Internet and Intranet sites and applications (WEB &amp; SaaS) to
-                            manage data and processes. WEBDEV also generates PHP.
-                        </p>
+                        <h2 class="webdev-page__intro-heading">WEBDEV 2026, WEB IDE</h2>
+                        <p class="webdev-page__intro-body">{{ introBody }}</p>
                     </div>
                     <div class="webdev-page__aside-media">
                         <figure class="webdev-page__figure webdev-page__figure--circle">
                             <img
                                 class="webdev-page__circle-badge"
-                                :src="'/img/webdev/logo-webdev.webp'"
+                                :src="webdevLogo.src"
                                 alt="WEBDEV"
                                 loading="lazy"
                                 decoding="async"
+                                @error="onImageError($event, webdevLogo.fallback)"
                             />
                         </figure>
+                        <CustomerLogoCarousel variant="compact" />
                     </div>
                 </div>
-                <div class="webdev-page__compat webdev-page__compat--in-card" aria-label="Compatibility">
-                    <span class="webdev-page__compat-tag">COMPATIBILITY</span>
-                    <a href="#" class="webdev-page__compat-link">
-                        Your WEBDEV code, pages and data are compatible with WINDEV and WINDEV Mobile &gt;
-                    </a>
-                </div>
             </div>
+        </section>
+
+        <section class="section-shell webdev-page__compat glass-frame" aria-label="Compatibility">
+            <a href="/software/windev" class="webdev-page__compat-link">
+                <img
+                    class="webdev-page__compat-badge"
+                    :src="webdevCompatibilityBadge.src"
+                    alt=""
+                    width="97"
+                    height="19"
+                    loading="lazy"
+                    decoding="async"
+                    aria-hidden="true"
+                    @error="onImageError($event, webdevCompatibilityBadge.fallback)"
+                />
+                <span>Your WEBDEV code, pages and data are compatible with WINDEV and WINDEV Mobile</span>
+                <img
+                    class="webdev-page__compat-arrow"
+                    :src="webdevSuiteArrow.src"
+                    alt=""
+                    width="10"
+                    height="8"
+                    loading="lazy"
+                    decoding="async"
+                    aria-hidden="true"
+                    @error="onImageError($event, webdevSuiteArrow.fallback)"
+                />
+            </a>
         </section>
 
         <section class="section-shell webdev-page__grid-section" aria-label="WEBDEV resources and downloads">
             <div class="webdev-page__columns glass-frame">
                 <div class="webdev-page__column">
                     <h2 class="webdev-page__section-heading">NEW FEATURES</h2>
-                    <img
-                        class="webdev-page__card-cover"
-                        :src="'/img/webdevimg/900-new-features.webp'"
-                        alt="WINDEV Suite 2026 new features"
-                        loading="lazy"
-                        decoding="async"
-                    />
+                    <a
+                        class="webdev-page__card-cover-link"
+                        :href="webdevNewFeatures2026En.href"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <img
+                            class="webdev-page__card-cover"
+                            :src="webdevNewFeatures.src"
+                            alt="Version 2026 brings you an incredible amount of useful features"
+                            loading="lazy"
+                            decoding="async"
+                            @error="onImageError($event, webdevNewFeatures.fallback)"
+                        />
+                    </a>
                     <ul class="webdev-page__link-list">
-                        <li><a href="#" class="webdev-page__text-link">Learn more</a></li>
                         <li>
-                            <span class="webdev-page__flag" aria-hidden="true">&#x1F1FA;&#x1F1F8;</span>
-                            <a href="#" class="webdev-page__text-link">New Features 2026 (Ebook / PDF)</a>
+                            <RouterLink class="webdev-page__text-link" to="/software/new-features-2026">Learn more</RouterLink>
                         </li>
-                        <li>
-                            <span class="webdev-page__flag" aria-hidden="true">&#x1F1EB;&#x1F1F7;</span>
-                            <a href="#" class="webdev-page__text-link">Nouveautés 2026 (Ebook / PDF)</a>
+                        <li class="webdev-page__ebook-row">
+                            <img
+                                class="webdev-page__flag-img"
+                                :src="webdevFlagUs.src"
+                                alt="English"
+                                width="18"
+                                height="12"
+                                loading="lazy"
+                                decoding="async"
+                                @error="onImageError($event, webdevFlagUs.fallback)"
+                            />
+                            <div class="webdev-page__ebook-copy">
+                                <a
+                                    class="webdev-page__text-link"
+                                    :href="webdevNewFeatures2026En.href"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    New Features 2026
+                                </a>
+                                <span class="webdev-page__ebook-formats">
+                                    (<a
+                                        class="webdev-page__text-link"
+                                        :href="webdevNewFeatures2026EbookEn"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >Ebook</a>
+                                    /
+                                    <a
+                                        class="webdev-page__text-link"
+                                        :href="webdevNewFeatures2026En.href"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >PDF</a>)
+                                </span>
+                            </div>
+                        </li>
+                        <li class="webdev-page__ebook-row">
+                            <img
+                                class="webdev-page__flag-img"
+                                :src="webdevFlagFr.src"
+                                alt="French"
+                                width="18"
+                                height="12"
+                                loading="lazy"
+                                decoding="async"
+                                @error="onImageError($event, webdevFlagFr.fallback)"
+                            />
+                            <div class="webdev-page__ebook-copy">
+                                <a
+                                    class="webdev-page__text-link"
+                                    :href="webdevNewFeatures2026Fr.href"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    Nouveautés 2026
+                                </a>
+                                <span class="webdev-page__ebook-formats">
+                                    (<a
+                                        class="webdev-page__text-link"
+                                        :href="webdevNewFeatures2026EbookFr"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >Ebook</a>
+                                    /
+                                    <a
+                                        class="webdev-page__text-link"
+                                        :href="webdevNewFeatures2026Fr.href"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >PDF</a>)
+                                </span>
+                            </div>
                         </li>
                     </ul>
                     <h2 class="webdev-page__section-heading">WINDEV SUITE</h2>
-                    <p class="webdev-page__column-text">This year, PC SOFT has introduced a new subscription offer.</p>
+                    <p class="webdev-page__column-text">
+                        This year, PC SOFT has introduced a <strong>new subscription offer</strong>.
+                    </p>
                     <img
                         class="webdev-page__suite-logo-img"
-                        :src="'/img/windevimg/logo_windev-suite_icone.svg'"
+                        :src="webdevSuiteIcon.src"
                         alt="WINDEV Suite"
                         loading="lazy"
                         decoding="async"
+                        @error="onImageError($event, webdevSuiteIcon.fallback)"
                     />
-                    <p class="webdev-page__column-text webdev-page__column-text--emph">Yearly plans</p>
-                    <button type="button" class="webdev-page__btn-subscribe">Subscribe</button>
+                    <p class="webdev-page__column-text webdev-page__column-text--emph">Yearly plans.</p>
+                    <RouterLink class="webdev-page__btn-subscribe" to="/software/subscribe">Subscribe</RouterLink>
                     <h2 class="webdev-page__section-heading">ADDITIONAL TOOLS</h2>
                     <ul class="webdev-page__link-list">
-                        <li><a href="#" class="webdev-page__text-link">Multilingual projects: WDMSG</a></li>
-                        <li><a href="#" class="webdev-page__text-link">Reports &amp; Queries (free)</a></li>
+                        <li><RouterLink class="webdev-page__text-link" to="/software/wdmsg">Multilingual projects: WDMSG</RouterLink></li>
+                        <li><RouterLink class="webdev-page__text-link" to="/software/reports-queries">Reports &amp; Queries (free)</RouterLink></li>
                     </ul>
                 </div>
 
                 <div class="webdev-page__column">
                     <h2 class="webdev-page__section-heading">DISCOVER WEBDEV</h2>
-                    <img
-                        class="webdev-page__card-cover"
-                        :src="'/img/webdevimg/webdev.jpg'"
-                        alt="WEBDEV product overview"
-                        loading="lazy"
-                        decoding="async"
-                    />
+                    <a
+                        class="webdev-page__card-cover-link"
+                        :href="webdevBrochureEn.href"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <img
+                            class="webdev-page__card-cover"
+                            :src="webdevBrochureCover.src"
+                            alt="WEBDEV brochure"
+                            loading="lazy"
+                            decoding="async"
+                            @error="onImageError($event, webdevBrochureCover.fallback)"
+                        />
+                    </a>
                     <ul class="webdev-page__link-list">
-                        <li class="webdev-page__link-row webdev-page__link-row--flags">
-                            <span class="webdev-page__flag" aria-hidden="true">&#x1F1FA;&#x1F1F8;</span>
-                            <span class="webdev-page__flag" aria-hidden="true">&#x1F1EB;&#x1F1F7;</span>
-                            <span class="webdev-page__flag" aria-hidden="true">&#x1F1EA;&#x1F1F8;</span>
-                            <a href="#" class="webdev-page__text-link">WEBDEV (Ebook / PDF)</a>
+                        <li class="webdev-page__ebook-row">
+                            <img
+                                class="webdev-page__flag-img"
+                                :src="webdevFlagUs.src"
+                                alt="English"
+                                width="18"
+                                height="12"
+                                loading="lazy"
+                                decoding="async"
+                                @error="onImageError($event, webdevFlagUs.fallback)"
+                            />
+                            <div class="webdev-page__ebook-copy">
+                                <a
+                                    class="webdev-page__text-link"
+                                    :href="webdevBrochureEn.href"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    WEBDEV
+                                </a>
+                                <span class="webdev-page__ebook-formats">
+                                    (<a
+                                        class="webdev-page__text-link"
+                                        :href="webdevBrochureEbookEn"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >Ebook</a>
+                                    /
+                                    <a
+                                        class="webdev-page__text-link"
+                                        :href="webdevBrochureEn.href"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >PDF</a>)
+                                </span>
+                            </div>
                         </li>
-                        <li><a href="#" class="webdev-page__text-link">Technical videos</a></li>
+                        <li class="webdev-page__ebook-row">
+                            <img
+                                class="webdev-page__flag-img"
+                                :src="webdevFlagFr.src"
+                                alt="French"
+                                width="18"
+                                height="12"
+                                loading="lazy"
+                                decoding="async"
+                                @error="onImageError($event, webdevFlagFr.fallback)"
+                            />
+                            <div class="webdev-page__ebook-copy">
+                                <a
+                                    class="webdev-page__text-link"
+                                    :href="webdevBrochureFr.href"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    WEBDEV
+                                </a>
+                                <span class="webdev-page__ebook-formats">
+                                    (<a
+                                        class="webdev-page__text-link"
+                                        :href="webdevBrochureEbookFr"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >Ebook</a>
+                                    /
+                                    <a
+                                        class="webdev-page__text-link"
+                                        :href="webdevBrochureFr.href"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >PDF</a>)
+                                </span>
+                            </div>
+                        </li>
+                        <li class="webdev-page__ebook-row">
+                            <img
+                                class="webdev-page__flag-img"
+                                :src="webdevFlagEs.src"
+                                alt="Spanish"
+                                width="18"
+                                height="12"
+                                loading="lazy"
+                                decoding="async"
+                                @error="onImageError($event, webdevFlagEs.fallback)"
+                            />
+                            <div class="webdev-page__ebook-copy">
+                                <a
+                                    class="webdev-page__text-link"
+                                    :href="webdevBrochureEs.href"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    WEBDEV
+                                </a>
+                                <span class="webdev-page__ebook-formats">
+                                    (<a
+                                        class="webdev-page__text-link"
+                                        :href="webdevBrochureEbookEs"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >Ebook</a>
+                                    /
+                                    <a
+                                        class="webdev-page__text-link"
+                                        :href="webdevBrochureEs.href"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >PDF</a>)
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul class="webdev-page__bullet-list">
                         <li>
-                            <a href="#" class="webdev-page__text-link">New features already available in the subscription version</a>
+                            <a
+                                class="webdev-page__text-link"
+                                href="https://windev.com/pcsoft/videos.html"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                Technical videos
+                            </a>
+                        </li>
+                        <li>
+                            <RouterLink class="webdev-page__text-link" to="/software/new-features-2026">
+                                New features already available in the subscription version
+                            </RouterLink>
                         </li>
                     </ul>
                     <h2 class="webdev-page__section-heading">DOWNLOAD CENTER</h2>
                     <ul class="webdev-page__link-list">
-                        <li><a href="#" class="webdev-page__text-link">WEBDEV</a></li>
-                        <li><a href="#" class="webdev-page__text-link">WEBDEV (Dongle-based version)</a></li>
+                        <li>
+                            <a
+                                class="webdev-page__text-link"
+                                href="https://download.windev.com/uk/index.awp"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                WEBDEV
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                class="webdev-page__text-link"
+                                href="https://download.windev.com/uk/dongle.awp"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                WEBDEV (Dongle-based version)
+                            </a>
+                        </li>
                     </ul>
                     <h2 class="webdev-page__section-heading">CONTACT US</h2>
                     <p><a href="mailto:info@windev.com" class="webdev-page__text-link">info@windev.com</a></p>
                     <h2 class="webdev-page__section-heading">WLANGUAGE</h2>
                     <ul class="webdev-page__link-list">
-                        <li><a href="#" class="webdev-page__text-link">29 WLanguage code samples</a></li>
+                        <li>
+                            <RouterLink class="webdev-page__text-link" to="/software/wlanguage">
+                                29 WLanguage code samples
+                            </RouterLink>
+                        </li>
                     </ul>
                 </div>
 
                 <div class="webdev-page__column">
                     <h2 class="webdev-page__section-heading">POWERED BY WEBDEV</h2>
-                    <img
-                        class="webdev-page__card-cover webdev-page__card-cover--gif"
-                        :src="'/img/webdevimg/1000-sites.gif'"
-                        alt="Websites developed with WEBDEV"
-                        loading="lazy"
-                        decoding="async"
-                    />
+                    <a
+                        class="webdev-page__card-cover-link"
+                        href="https://windev.com/webdev/list-of-sites.html"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <img
+                            class="webdev-page__card-cover webdev-page__card-cover--gif"
+                            :src="webdevSitesGif.src"
+                            alt="Examples of websites developed with WEBDEV"
+                            width="205"
+                            height="151"
+                            loading="lazy"
+                            decoding="async"
+                            @error="onImageError($event, webdevSitesGif.fallback)"
+                        />
+                    </a>
                     <ul class="webdev-page__link-list">
-                        <li><a href="#" class="webdev-page__text-link">Websites developed with WEBDEV</a></li>
-                        <li><a href="#" class="webdev-page__text-link">Native support for AJAX (Web 2.0)</a></li>
+                        <li>
+                            <a
+                                class="webdev-page__text-link"
+                                href="https://windev.com/webdev/list-of-sites.html"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                Websites developed with WEBDEV
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                class="webdev-page__text-link"
+                                href="https://windev.com/webdev/ajax.htm"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                Native support for AJAX (Web 2.0)
+                            </a>
+                        </li>
                     </ul>
                     <h2 class="webdev-page__section-heading">DATABASES</h2>
-                    <p class="webdev-page__column-text">WINDEV supports all databases.</p>
-                    <p class="webdev-page__db-list">
-                        HFSQL, AS/400, Oracle, SQL Server, DB2, MySQL, Informix, PostgreSQL, Progress, Sybase, xBase, SQLite, Access, MariaDB, Hadoop,
-                        MongoDB, Memcached, Redis, etc.
-                    </p>
+                    <p class="webdev-page__column-text">WEBDEV supports all databases.</p>
+                    <ul class="webdev-page__db-list">
+                        <li><RouterLink class="webdev-page__text-link" to="/software/hfsql">HFSQL</RouterLink></li>
+                        <li><RouterLink class="webdev-page__text-link" to="/software/native-connectors/as400-system-i">AS/400 &amp; IBM i</RouterLink></li>
+                        <li><RouterLink class="webdev-page__text-link" to="/software/native-connectors/oracle">Oracle</RouterLink></li>
+                        <li><RouterLink class="webdev-page__text-link" to="/software/native-connectors/sql-server">SQL Server</RouterLink></li>
+                        <li><RouterLink class="webdev-page__text-link" to="/software/native-connectors/db2">DB2</RouterLink></li>
+                        <li><RouterLink class="webdev-page__text-link" to="/software/native-connectors/mysql">MySQL</RouterLink></li>
+                        <li><RouterLink class="webdev-page__text-link" to="/software/native-connectors/informix">Informix</RouterLink></li>
+                        <li><RouterLink class="webdev-page__text-link" to="/software/native-connectors/postgresql">PostgreSQL</RouterLink></li>
+                        <li>
+                            <a
+                                class="webdev-page__text-link"
+                                href="https://windev.com/nativeconnectors/ANProgress.htm"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                Progress
+                            </a>
+                        </li>
+                        <li><RouterLink class="webdev-page__text-link" to="/software/native-connectors/sap-ase">SAP ASE</RouterLink></li>
+                        <li><RouterLink class="webdev-page__text-link" to="/software/native-connectors/xbase">xBase</RouterLink></li>
+                        <li><RouterLink class="webdev-page__text-link" to="/software/native-connectors/sqlite">SQLite</RouterLink></li>
+                        <li><RouterLink class="webdev-page__text-link" to="/software/native-connectors/access">Access</RouterLink></li>
+                        <li><RouterLink class="webdev-page__text-link" to="/software/native-connectors/mariadb">MariaDB</RouterLink></li>
+                        <li>Hadoop (HBASE, Hive, HDFS)</li>
+                        <li>MongoDB</li>
+                        <li>Memcached</li>
+                        <li>Redis</li>
+                        <li>…</li>
+                    </ul>
                     <p class="webdev-page__db-note">
-                        WEBDEV also supports all the databases that use ODBC drivers or OLEDB providers (InterSystems Caché, Firebird, EasySoft,
-                        MapInfo, etc.)
+                        WEBDEV also supports all the databases that use ODBC drivers or OLEDB providers
+                        (InterSystems Caché, Firebird, EasySoft, MapInfo, etc.)
                     </p>
-                </div>
-
-                <div class="webdev-page__column webdev-page__column--testimonials">
-                    <h2 class="webdev-page__section-heading">TESTIMONIALS</h2>
-                    <div class="webdev-page__testimonial-logo-box" role="img" aria-label="RICOH">
-                        <span class="webdev-page__ricoh-mark">RICOH</span>
-                    </div>
                 </div>
             </div>
         </section>
@@ -176,83 +471,54 @@
 </template>
 
 <script setup>
+import { onMounted } from 'vue';
 import AppNavbar from '../components/AppNavbar.vue';
 import AppFooter from '../components/AppFooter.vue';
+import HomeHeroCarousel from '../components/HomeHeroCarousel.vue';
+import CustomerLogoCarousel from '../components/CustomerLogoCarousel.vue';
+import {
+    webdevBrochureEbookEn,
+    webdevBrochureEbookEs,
+    webdevBrochureEbookFr,
+    webdevBrochureEn,
+    webdevBrochureEs,
+    webdevBrochureFr,
+    webdevNewFeatures2026EbookEn,
+    webdevNewFeatures2026EbookFr,
+    webdevNewFeatures2026En,
+    webdevNewFeatures2026Fr,
+} from '../data/webdevPageDocuments.js';
+import {
+    webdevBrochureCover,
+    webdevCompatibilityBadge,
+    webdevFlagEs,
+    webdevFlagFr,
+    webdevFlagUs,
+    webdevLogo,
+    webdevNewFeatures,
+    webdevPackage2026,
+    webdevSitesGif,
+    webdevSuiteArrow,
+    webdevSuiteCrossPlatform,
+    webdevSuiteIcon,
+} from '../data/webdevPageImages.js';
+import { applyImageFallback } from '../utils/pcsoftImages.js';
+
+const introBody =
+    'Responsive Web Design. WEBDEV allows you to easily develop Internet and Intranet sites and applications (WEB & SaaS) to manage data and processes. WEBDEV also generates PHP.';
+
+function onImageError(event, fallbackUrl) {
+    applyImageFallback(event, fallbackUrl);
+}
+
+onMounted(() => {
+    document.title = 'WEBDEV: DevOps IDE for Web';
+});
 </script>
 
 <style scoped>
 .webdev-page {
     color: #1f304f;
-}
-
-.webdev-page__top-nav {
-    margin-top: 0.5rem;
-}
-
-.webdev-page__top-row {
-    background: #fbfcff;
-    border: 1px solid #dfe3ea;
-    border-radius: 999px;
-    padding: 0.5rem 0.8rem;
-    display: flex;
-    align-items: center;
-    gap: 0.9rem;
-}
-
-.webdev-page__brand {
-    flex-shrink: 0;
-    text-decoration: none;
-    color: #1f304f;
-    font-size: 0.95rem;
-    font-weight: 800;
-}
-
-.webdev-page__menu {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 0.95rem;
-}
-
-.webdev-page__menu-link {
-    text-decoration: none;
-    color: #273755;
-    font-size: 0.78rem;
-    font-weight: 600;
-}
-
-.webdev-page__theme-chip {
-    border: 1px solid #c7ceda;
-    border-radius: 999px;
-    padding: 0.35rem 0.8rem;
-    background: #fff;
-    font-weight: 700;
-    font-size: 0.72rem;
-    color: #1f304f;
-}
-
-.webdev-page__alert {
-    margin-top: 0.75rem;
-    margin-bottom: 0.35rem;
-    padding: 0.45rem 0.75rem;
-    border-radius: var(--radius-md);
-    background: linear-gradient(135deg, #ffd400, #ffea66);
-    box-shadow: 0 8px 18px rgba(179, 144, 3, 0.18);
-    text-align: center;
-}
-
-.webdev-page__alert-link {
-    font-size: 0.88rem;
-    font-weight: 700;
-    color: #16203a;
-    text-decoration: none;
-}
-
-.webdev-page__alert-link:hover {
-    text-decoration: underline;
-    text-underline-offset: 0.15rem;
 }
 
 .webdev-page__suite-line {
@@ -262,85 +528,40 @@ import AppFooter from '../components/AppFooter.vue';
 }
 
 .webdev-page__suite-text {
-    margin: 0 0 0.5rem;
-    font-size: 0.62rem;
-    font-weight: 700;
-    letter-spacing: 0.11em;
-    text-transform: uppercase;
-    color: #5f6f8c;
+    margin: 0 0 0.45rem;
+    font-size: clamp(0.95rem, 2vw, 1.15rem);
+    color: #1a2744;
 }
 
-.webdev-page__os-row {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: 0.45rem;
+.webdev-page__suite-platforms {
+    margin: 0 auto;
+    max-width: 18rem;
 }
 
-.webdev-page__os-dot {
-    width: 0.85rem;
-    height: 0.85rem;
-    border-radius: 9999px;
-    border: 2px solid #d6dce7;
-    background: #f4f6fa;
-}
-
-.webdev-page__hero-card {
-    border-radius: 1rem;
-    border: 1px solid #e7ebf3;
-    padding: 1rem;
-    background: #fff;
-}
-
-.webdev-page__hero-image {
+.webdev-page__suite-platforms img {
     display: block;
     width: 100%;
-    border-radius: 0.9rem;
-}
-
-.webdev-page__hero-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 0.65rem;
-    margin-top: 0.75rem;
-}
-
-.webdev-page__hero-btn {
-    border: 1px solid #e1e6f0;
-    background: #f6f8fc;
-    color: #2f405f;
-    border-radius: 999px;
-    font-size: 0.75rem;
-    font-weight: 700;
-    padding: 0.35rem 0.85rem;
-}
-
-.webdev-page__hero-btn--active {
-    background: #0b56bf;
-    color: #fff;
-    border-color: #0b56bf;
+    height: auto;
 }
 
 .webdev-page__intro {
-    margin-top: 1.25rem;
+    margin-top: 0.9rem;
+}
+
+.webdev-page__intro-hero {
+    margin: 0 0 0.6rem;
+    text-align: center;
+    font-size: clamp(1.95rem, 4vw, 2.85rem);
+    color: #1a2c56;
+    font-weight: 900;
+    font-style: italic;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
 }
 
 .webdev-page__intro-card {
-    position: relative;
-    padding: clamp(1rem, 2vw, 1.5rem);
-    padding-top: clamp(2.5rem, 4vw, 3rem);
-}
-
-.webdev-page__intro-toolbar {
-    position: absolute;
-    top: clamp(0.65rem, 1.5vw, 0.85rem);
-    right: clamp(0.65rem, 1.5vw, 0.85rem);
-}
-
-.webdev-page__btn-subscribe--header {
-    border-radius: 9999px;
-    padding: 0.45rem 1rem;
+    padding: clamp(1rem, 2vw, 1.35rem);
+    background: #fff;
 }
 
 .webdev-page__intro-grid {
@@ -356,33 +577,22 @@ import AppFooter from '../components/AppFooter.vue';
 
 .webdev-page__figure--intro-pack {
     display: flex;
-    align-items: flex-start;
-    justify-content: center;
-}
-
-.webdev-page__intro-pack-wrap {
-    display: flex;
-    justify-content: center;
     align-items: center;
-    width: 100%;
+    justify-content: center;
 }
 
 .webdev-page__intro-pack-img {
     width: min(100%, 230px);
     height: auto;
     display: block;
-    border-radius: 0.2rem;
-}
-
-.webdev-page__intro-copy {
-    min-width: 0;
+    object-fit: contain;
 }
 
 .webdev-page__aside-media {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    gap: 1rem;
+    gap: 1.2rem;
 }
 
 .webdev-page__figure--circle {
@@ -393,7 +603,7 @@ import AppFooter from '../components/AppFooter.vue';
     width: min(100%, 170px);
     aspect-ratio: 1;
     border-radius: 9999px;
-    border: 5px solid #1e6bd6;
+    border: 5px solid #31c6ef;
     object-fit: contain;
     object-position: center;
     display: block;
@@ -408,53 +618,44 @@ import AppFooter from '../components/AppFooter.vue';
     font-weight: 800;
     letter-spacing: 0.02em;
     line-height: 1.25;
+    color: #14264d;
 }
 
 .webdev-page__intro-body {
     margin: 0;
     font-size: 0.95rem;
     line-height: 1.65;
-    color: var(--color-text-secondary);
+    color: #42526d;
 }
 
 .webdev-page__compat {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 0.5rem 0.75rem;
     margin-top: 1.25rem;
     margin-bottom: 0.25rem;
-}
-
-.webdev-page__compat--in-card {
-    margin-top: clamp(1rem, 2vw, 1.35rem);
-    margin-bottom: 0;
-    padding-top: clamp(0.75rem, 1.5vw, 1rem);
-    border-top: 1px solid color-mix(in oklab, var(--color-text-secondary) 18%, transparent);
-}
-
-.webdev-page__compat-tag {
-    display: inline-flex;
-    align-items: center;
-    border-radius: 0.25rem;
-    padding: 0.2rem 0.45rem;
-    font-size: 0.68rem;
-    font-weight: 800;
-    letter-spacing: 0.06em;
-    color: #fff;
-    background: #e85a00;
+    padding: 1rem 1.25rem;
+    background: #fff;
 }
 
 .webdev-page__compat-link {
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.35rem 0.5rem;
+    width: 100%;
     font-size: 0.9rem;
     font-weight: 600;
-    color: var(--color-brand);
+    color: #3966ad;
     text-decoration: none;
 }
 
 .webdev-page__compat-link:hover {
     text-decoration: underline;
     text-underline-offset: 0.15rem;
+}
+
+.webdev-page__compat-badge,
+.webdev-page__compat-arrow {
+    display: inline-block;
+    vertical-align: middle;
 }
 
 .webdev-page__grid-section {
@@ -464,8 +665,9 @@ import AppFooter from '../components/AppFooter.vue';
 .webdev-page__columns {
     display: grid;
     gap: clamp(1rem, 2vw, 1.5rem);
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     padding: clamp(1rem, 2vw, 1.35rem);
+    background: #fff;
 }
 
 .webdev-page__column {
@@ -482,80 +684,64 @@ import AppFooter from '../components/AppFooter.vue';
     font-size: 0.72rem;
     font-weight: 800;
     letter-spacing: 0.1em;
+    text-transform: uppercase;
     line-height: 1.2;
+    color: #14264d;
 }
 
 .webdev-page__column-text {
     margin: 0;
-    color: var(--color-text-secondary);
+    color: #42526d;
 }
 
 .webdev-page__column-text--emph {
     font-weight: 700;
-    color: var(--color-text-primary);
+    color: #1f304f;
+}
+
+.webdev-page__card-cover-link {
+    display: inline-block;
+    max-width: 205px;
 }
 
 .webdev-page__card-cover {
     width: 100%;
-    max-width: 200px;
+    max-width: 205px;
     height: auto;
-    border: 1px solid color-mix(in oklab, var(--color-text-secondary) 20%, transparent);
-    border-radius: 0.2rem;
-    object-fit: cover;
     display: block;
+    object-fit: contain;
 }
 
 .webdev-page__card-cover--gif {
     object-fit: contain;
-    background: color-mix(in oklab, var(--color-surface) 92%, #f1f5f9 8%);
 }
 
 .webdev-page__suite-logo-img {
-    width: 2.65rem;
+    width: 95px;
     height: auto;
     display: block;
-    border-radius: 0.45rem;
 }
 
-.webdev-page__column--testimonials {
-    align-items: stretch;
-}
-
-.webdev-page__testimonial-logo-box {
+.webdev-page__ebook-row {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 120px;
-    padding: 1rem 0.85rem;
-    border: 1px solid color-mix(in oklab, var(--color-text-secondary) 28%, transparent);
-    border-radius: 0.25rem;
-    background: color-mix(in oklab, var(--color-surface) 94%, #e2e8f0 6%);
+    align-items: flex-start;
+    gap: 0.5rem;
 }
 
-.webdev-page__ricoh-mark {
-    font-family: system-ui, sans-serif;
-    font-size: clamp(1.35rem, 2.5vw, 1.75rem);
-    font-weight: 800;
-    letter-spacing: 0.02em;
-    color: #c4001a;
+.webdev-page__ebook-copy {
+    font-size: 0.82rem;
+    line-height: 1.45;
 }
 
-.webdev-page__flag {
-    margin-right: 0.28rem;
-    font-size: 0.95rem;
-    line-height: 1;
-    vertical-align: -0.08em;
+.webdev-page__ebook-formats {
+    display: block;
+    margin-top: 0.15rem;
+    color: #42526d;
 }
 
-.webdev-page__link-row--flags {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 0.15rem 0.35rem;
-}
-
-.webdev-page__link-row--flags .webdev-page__text-link {
-    margin-left: 0.15rem;
+.webdev-page__flag-img {
+    flex-shrink: 0;
+    margin-top: 0.15rem;
 }
 
 .webdev-page__link-list {
@@ -566,8 +752,14 @@ import AppFooter from '../components/AppFooter.vue';
     gap: 0.35rem;
 }
 
+.webdev-page__bullet-list {
+    margin: 0.25rem 0 0;
+    padding-left: 1.1rem;
+    color: #42526d;
+}
+
 .webdev-page__text-link {
-    color: var(--color-brand);
+    color: #2e5ea8;
     font-weight: 600;
     text-decoration: none;
 }
@@ -579,7 +771,8 @@ import AppFooter from '../components/AppFooter.vue';
 
 .webdev-page__db-list {
     margin: 0;
-    color: var(--color-text-secondary);
+    padding-left: 1.1rem;
+    color: #42526d;
     font-size: 0.82rem;
     line-height: 1.55;
 }
@@ -588,19 +781,19 @@ import AppFooter from '../components/AppFooter.vue';
     margin: 0;
     font-size: 0.78rem;
     line-height: 1.5;
-    color: var(--color-text-secondary);
+    color: #42526d;
 }
 
 .webdev-page__btn-subscribe {
     align-self: flex-start;
     margin-top: 0.25rem;
     padding: 0.55rem 1.1rem;
-    border-radius: 0.35rem;
-    border: 0;
-    cursor: pointer;
+    border-radius: 9999px;
     font-weight: 700;
     color: #fff;
     background: #111;
+    text-decoration: none;
+    display: inline-flex;
 }
 
 .webdev-page__btn-subscribe:hover {
@@ -618,39 +811,14 @@ import AppFooter from '../components/AppFooter.vue';
         grid-template-columns: 1fr;
     }
 
-    .webdev-page__aside-media {
-        align-items: center;
-    }
-
+    .webdev-page__aside-media,
     .webdev-page__figure--circle {
+        align-items: center;
         justify-self: center;
-    }
-
-    .webdev-page__intro-toolbar {
-        position: static;
-        margin-bottom: 0.75rem;
-        text-align: right;
-    }
-
-    .webdev-page__intro-card {
-        padding-top: clamp(1rem, 2vw, 1.5rem);
     }
 
     .webdev-page__columns {
         grid-template-columns: 1fr;
     }
-
-    .webdev-page__card-cover {
-        max-width: 220px;
-        margin-inline: auto;
-    }
-
-    .webdev-page__intro-pack-wrap {
-        justify-content: center;
-    }
-}
-
-:global(.theme-dark) .webdev-page__alert-link {
-    color: #0b1f4d;
 }
 </style>

@@ -2,62 +2,60 @@
     <AppNavbar />
     <main class="nf-page pb-10">
         <section class="section-shell nf-page__suite-line" aria-label="Product positioning">
-            <p class="nf-page__suite-text">Cross-platform application development software suite</p>
-            <div class="nf-page__os-row" aria-hidden="true">
-                <span v-for="n in 7" :key="n" class="nf-page__os-dot" />
+            <p class="nf-page__suite-text">
+                <strong>Cross-platform</strong> application development software suite
+            </p>
+            <figure class="nf-page__suite-platforms">
+                <img
+                    :src="homeSuiteCrossPlatform.src"
+                    alt="Integrated software for developing cross-platform applications"
+                    width="283"
+                    height="48"
+                    loading="eager"
+                    decoding="async"
+                    @error="onImageError($event, homeSuiteCrossPlatform.fallback)"
+                />
+            </figure>
+        </section>
+
+        <section class="section-shell nf-page__hero" aria-label="WINDEV Suite hero">
+            <HomeHeroCarousel />
+        </section>
+
+        <section class="section-shell nf-page__strip" aria-label="Documentation shortcuts">
+            <p class="nf-page__strip-text">Discover the 900 new features in version 2026</p>
+            <div class="nf-page__strip-actions">
+                <a
+                    class="nf-page__pill nf-page__pill--primary"
+                    :href="NEW_FEATURES_EBOOK_EN"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    eBook
+                </a>
+                <a
+                    class="nf-page__pill"
+                    :href="newFeaturesPdfEn.href"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    PDF
+                </a>
+                <RouterLink class="nf-page__pill" to="/software/subscribe">Subscribe</RouterLink>
             </div>
         </section>
 
-        <section class="section-shell nf-page__hero" aria-label="New features 2026">
-            <div class="nf-page__hero-card">
-                <figure class="nf-page__hero-figure">
-                    <img
-                        class="nf-page__hero-image"
-                        :src="heroImageSrc"
-                        alt="Discover the 900 new features in WINDEV, WEBDEV and WINDEV Mobile 2026"
-                        loading="eager"
-                        decoding="async"
-                        @error="onHeroImageError"
-                    />
-                </figure>
-                <div class="nf-page__hero-copy">
-                    <img
-                        class="nf-page__badge"
-                        :src="newFeatureBadgeUrl"
-                        alt=""
-                        width="48"
-                        height="48"
-                        loading="lazy"
-                        aria-hidden="true"
-                        @error="hideImage"
-                    />
-                    <h1 class="nf-page__hero-title">
-                        Discover the 900 new features in WINDEV, WEBDEV and WINDEV Mobile 2026
-                    </h1>
-                    <p class="nf-page__hero-lead">
-                        Version 2026 is available now — explore the major innovations across the entire suite.
-                    </p>
-                    <div class="nf-page__hero-actions">
-                        <a
-                            class="nf-page__pill nf-page__pill--primary"
-                            :href="NEW_FEATURES_EBOOK_EN"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            eBook
-                        </a>
-                        <a
-                            class="nf-page__pill"
-                            :href="NEW_FEATURES_PDF_EN"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            PDF
-                        </a>
-                        <RouterLink class="nf-page__pill" to="/software/subscribe">Subscribe</RouterLink>
-                    </div>
-                </div>
-            </div>
+        <section class="section-shell nf-page__figure-hero" aria-label="New features 2026">
+            <figure class="nf-page__hero-figure">
+                <img
+                    class="nf-page__hero-image"
+                    :src="newFeaturesHero.src"
+                    alt="Discover the 900 new features in WINDEV, WEBDEV and WINDEV Mobile 2026"
+                    loading="eager"
+                    decoding="async"
+                    @error="onImageError($event, newFeaturesHero.fallback)"
+                />
+            </figure>
         </section>
 
         <section class="section-shell nf-page__layout">
@@ -77,11 +75,11 @@
                 </aside>
 
                 <article
-                    v-for="(section, index) in newFeaturesSections"
+                    v-for="section in newFeaturesSections"
                     :id="section.id"
                     :key="section.id"
                     class="nf-page__section"
-                    :class="sectionToneClass(section)"
+                    :class="[sectionToneClass(section), section.imageCompact && 'nf-page__section--image-compact']"
                     :aria-labelledby="`${section.id}-title`"
                 >
                     <header class="nf-page__section-header">
@@ -106,7 +104,7 @@
                             <a
                                 v-if="section.pdfPage"
                                 class="nf-page__meta-link"
-                                :href="`${NEW_FEATURES_PDF_EN}#page=${section.pdfPage}`"
+                                :href="`${newFeaturesPdfEn.href}#page=${section.pdfPage}`"
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
@@ -124,59 +122,92 @@
                         </div>
                     </header>
 
-                    <figure v-if="section.image" class="nf-page__section-hero-img">
+                    <figure
+                        v-if="section.video || section.image"
+                        class="nf-page__section-media"
+                        :class="{ 'nf-page__section-media--compact-image': section.imageCompact }"
+                        :aria-label="section.video ? 'Demonstration video' : undefined"
+                    >
+                        <video
+                            v-if="section.video"
+                            class="nf-page__section-video"
+                            muted
+                            autoplay
+                            loop
+                            playsinline
+                            preload="metadata"
+                        >
+                            <source :src="conversationalAiIdeVideo.src" type="video/mp4" />
+                            <source :src="conversationalAiIdeVideo.fallback" type="video/mp4" />
+                        </video>
                         <img
-                            :src="sectionImageSrc(section)"
+                            v-if="section.image && !section.imageIsAbsolute"
+                            class="nf-page__section-media-img"
+                            :src="featureImage(section.image).src"
                             :alt="section.title"
                             loading="lazy"
                             decoding="async"
-                            @error="(event) => onSectionImageError(event, section)"
+                            @error="onImageError($event, featureImage(section.image).fallback)"
+                        />
+                        <img
+                            v-else-if="section.image"
+                            class="nf-page__section-media-img"
+                            :src="section.image"
+                            :alt="section.title"
+                            loading="lazy"
+                            decoding="async"
                         />
                     </figure>
 
-                    <div
-                        v-for="(subsection, subIndex) in section.subsections"
-                        :key="`${section.id}-sub-${subIndex}`"
-                        class="nf-page__subsection"
-                    >
-                        <h3 class="nf-page__subsection-title">{{ subsection.title }}</h3>
-
-                        <p
-                            v-for="(paragraph, pIndex) in subsection.paragraphs"
-                            :key="`${section.id}-p-${subIndex}-${pIndex}`"
-                            class="nf-page__paragraph"
+                    <div class="nf-page__section-body">
+                        <div
+                            v-for="(subsection, subIndex) in section.subsections"
+                            :key="`${section.id}-sub-${subIndex}`"
+                            class="nf-page__subsection"
                         >
-                            {{ paragraph }}
-                        </p>
+                            <h3 class="nf-page__subsection-title">{{ subsection.title }}</h3>
 
-                        <ul v-if="subsection.list?.length" class="nf-page__list">
-                            <li v-for="(item, liIndex) in subsection.list" :key="`${section.id}-li-${subIndex}-${liIndex}`">
-                                {{ item }}
-                            </li>
-                        </ul>
-
-                        <p v-if="subsection.afterList" class="nf-page__paragraph">{{ subsection.afterList }}</p>
-
-                        <ul v-if="subsection.list2?.length" class="nf-page__list">
-                            <li
-                                v-for="(item, liIndex) in subsection.list2"
-                                :key="`${section.id}-li2-${subIndex}-${liIndex}`"
+                            <p
+                                v-for="(paragraph, pIndex) in subsection.paragraphs"
+                                :key="`${section.id}-p-${subIndex}-${pIndex}`"
+                                class="nf-page__paragraph"
                             >
-                                {{ item }}
-                            </li>
-                        </ul>
+                                {{ paragraph }}
+                            </p>
 
-                        <pre v-if="subsection.code" class="nf-page__code"><code>{{ subsection.code }}</code></pre>
+                            <ul v-if="subsection.list?.length" class="nf-page__list">
+                                <li
+                                    v-for="(item, liIndex) in subsection.list"
+                                    :key="`${section.id}-li-${subIndex}-${liIndex}`"
+                                >
+                                    {{ item }}
+                                </li>
+                            </ul>
 
-                        <figure v-if="subsection.image" class="nf-page__subsection-figure">
-                            <img
-                                :src="subsectionImageSrc(subsection.image)"
-                                :alt="subsection.title"
-                                loading="lazy"
-                                decoding="async"
-                                @error="(event) => onSubsectionImageError(event, subsection.image)"
-                            />
-                        </figure>
+                            <p v-if="subsection.afterList" class="nf-page__paragraph">{{ subsection.afterList }}</p>
+
+                            <ul v-if="subsection.list2?.length" class="nf-page__list">
+                                <li
+                                    v-for="(item, liIndex) in subsection.list2"
+                                    :key="`${section.id}-li2-${subIndex}-${liIndex}`"
+                                >
+                                    {{ item }}
+                                </li>
+                            </ul>
+
+                            <pre v-if="subsection.code" class="nf-page__code"><code>{{ subsection.code }}</code></pre>
+
+                            <figure v-if="subsection.image" class="nf-page__subsection-media">
+                                <img
+                                    class="nf-page__subsection-media-img"
+                                    :src="featureImage(subsection.image).src"
+                                    :alt="subsection.title"
+                                    loading="lazy"
+                                    decoding="async"
+                                    @error="onImageError($event, featureImage(subsection.image).fallback)"
+                                />
+                            </figure>
+                        </div>
                     </div>
                 </article>
 
@@ -187,22 +218,40 @@
                             <span class="nf-page__flag" aria-hidden="true">🇺🇸</span>
                             <a
                                 class="nf-page__text-link"
-                                :href="NEW_FEATURES_PDF_EN"
+                                :href="newFeaturesPdfEn.href"
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                New features 2026 (eBook / PDF)
+                                New features 2026 (PDF)
+                            </a>
+                            <span class="nf-page__docs-sep">·</span>
+                            <a
+                                class="nf-page__text-link"
+                                :href="NEW_FEATURES_EBOOK_EN"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                eBook
                             </a>
                         </li>
                         <li>
                             <span class="nf-page__flag" aria-hidden="true">🇫🇷</span>
                             <a
                                 class="nf-page__text-link"
+                                :href="newFeaturesPdfFr.href"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                Nouveautés 2026 (PDF)
+                            </a>
+                            <span class="nf-page__docs-sep">·</span>
+                            <a
+                                class="nf-page__text-link"
                                 :href="NEW_FEATURES_PAGE_FR"
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                Nouveautés 2026 (site / eBook)
+                                Site PC SOFT
                             </a>
                         </li>
                     </ul>
@@ -224,11 +273,11 @@
 
                 <figure class="nf-page__sidebar-packages">
                     <img
-                        :src="packagesImageSrc"
+                        :src="newFeaturesPackages.src"
                         alt="WINDEV 2026, WEBDEV 2026, WINDEV Mobile 2026"
                         loading="lazy"
                         decoding="async"
-                        @error="onPackagesImageError"
+                        @error="onImageError($event, newFeaturesPackages.fallback)"
                     />
                 </figure>
 
@@ -266,15 +315,7 @@
 
                 <div class="nf-page__customer">
                     <p class="nf-page__customer-title">They are using WINDEV</p>
-                    <figure class="nf-page__customer-box">
-                        <img
-                            class="nf-page__customer-logo"
-                            :src="customerCarouselLogos[currentCustomerLogoIndex]"
-                            alt="WINDEV customer logo"
-                            loading="lazy"
-                            decoding="async"
-                        />
-                    </figure>
+                    <CustomerLogoCarousel variant="compact" />
                 </div>
             </aside>
         </section>
@@ -283,43 +324,33 @@
 </template>
 
 <script setup>
-import { onBeforeUnmount, onMounted, ref } from 'vue';
+import { onMounted } from 'vue';
 import AppNavbar from '../components/AppNavbar.vue';
 import AppFooter from '../components/AppFooter.vue';
+import CustomerLogoCarousel from '../components/CustomerLogoCarousel.vue';
+import HomeHeroCarousel from '../components/HomeHeroCarousel.vue';
+import { homeSuiteCrossPlatform } from '../data/homePageImages.js';
 import {
     NEW_FEATURES_EBOOK_EN,
     NEW_FEATURES_PAGE_FR,
-    NEW_FEATURES_PDF_EN,
-    featureImage,
-    featureImageOfficial,
     newFeaturesSections,
     newFeaturesToc,
 } from '../data/newFeatures2026Content.js';
+import {
+    conversationalAiIdeVideo,
+    featureImage,
+    newFeaturesHero,
+    newFeaturesPackages,
+} from '../data/newFeatures2026PageImages.js';
+import { windevNewFeatures2026En, windevNewFeatures2026Fr } from '../data/windevPageDocuments.js';
+import { applyImageFallback } from '../utils/pcsoftImages.js';
 
-const newFeatureBadgeUrl = '/img/newfeatures/newfeature.gif';
-const heroImageSrc = ref('/img/newfeatures/hero.webp');
-const packagesImageSrc = ref('/img/newfeatures/packages-windev-webdev-windev-mobile-2026.webp');
+const newFeaturesPdfEn = windevNewFeatures2026En;
+const newFeaturesPdfFr = windevNewFeatures2026Fr;
 
-const customerCarouselLogos = [
-    '/img/bande/1.jpg',
-    '/img/bande/2.jpg',
-    '/img/bande/3.jpg',
-    '/img/bande/4.jpg',
-    '/img/bande/5.jpg',
-    '/img/bande/6.png',
-    '/img/bande/7.jpg',
-    '/img/bande/8.jpg',
-    '/img/bande/9.jpg',
-    '/img/bande/10.svg',
-    '/img/bande/11.gif',
-    '/img/bande/12.jpg',
-    '/img/bande/13.jpg',
-    '/img/bande/14.svg',
-    '/img/bande/15.png',
-];
-
-const currentCustomerLogoIndex = ref(0);
-let customerCarouselTimer = null;
+function onImageError(event, fallbackUrl) {
+    applyImageFallback(event, fallbackUrl);
+}
 
 function sectionToneClass(section) {
     if (section.tone === 'dark') {
@@ -331,53 +362,8 @@ function sectionToneClass(section) {
     return 'nf-page__section--white';
 }
 
-function sectionImageSrc(section) {
-    if (section.imageIsAbsolute) {
-        return section.image;
-    }
-    return featureImage(section.image);
-}
-
-function subsectionImageSrc(filename) {
-    return featureImage(filename);
-}
-
-function onHeroImageError(event) {
-    event.target.src = featureImageOfficial('hero.png');
-}
-
-function onPackagesImageError(event) {
-    event.target.src =
-        'https://windev.com/storage/en_US/img/2026/packages-windev-webdev-windev-mobile-2026.png';
-}
-
-function onSectionImageError(event, section) {
-    if (section.imageIsAbsolute) {
-        return;
-    }
-    event.target.src = featureImageOfficial(section.image);
-}
-
-function onSubsectionImageError(event, filename) {
-    event.target.src = featureImageOfficial(filename);
-}
-
-function hideImage(event) {
-    event.target.style.display = 'none';
-}
-
 onMounted(() => {
     document.title = 'New features 2026 — WINDEV, WEBDEV, WINDEV Mobile | PC SOFT';
-    customerCarouselTimer = window.setInterval(() => {
-        currentCustomerLogoIndex.value =
-            (currentCustomerLogoIndex.value + 1) % customerCarouselLogos.length;
-    }, 2200);
-});
-
-onBeforeUnmount(() => {
-    if (customerCarouselTimer) {
-        window.clearInterval(customerCarouselTimer);
-    }
 });
 </script>
 
@@ -386,94 +372,74 @@ onBeforeUnmount(() => {
     color: #1a2744;
 }
 
-.nf-page__suite-line {
-    text-align: center;
-    margin-top: 0.35rem;
-    margin-bottom: 0.85rem;
-}
-
-.nf-page__suite-text {
-    margin: 0 0 0.45rem;
-    font-size: 0.62rem;
-    font-weight: 700;
-    letter-spacing: 0.11em;
-    text-transform: uppercase;
-    color: #5f6f8c;
-}
-
-.nf-page__os-row {
+.nf-page__strip {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    gap: 0.45rem;
-}
-
-.nf-page__os-dot {
-    width: 0.85rem;
-    height: 0.85rem;
-    border-radius: 9999px;
-    border: 2px solid #d6dce7;
+    gap: 0.65rem 1rem;
+    margin-top: 0.75rem;
+    margin-bottom: 0.5rem;
+    padding: 0.85rem 1rem;
+    border-radius: 1rem;
     background: #f4f6fa;
+    border: 1px solid #dbe1ec;
+    text-align: center;
 }
 
-.nf-page__hero-card {
-    display: grid;
-    gap: 1rem;
-    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-    align-items: center;
-    padding: clamp(1rem, 2vw, 1.35rem);
-    border-radius: 1.35rem;
-    background: linear-gradient(145deg, #ffe566 0%, #f5d020 55%, #e8c018 100%);
-    border: 1px solid #e0c018;
-    box-shadow: 0 10px 28px rgba(30, 45, 80, 0.1);
+.nf-page__strip-text {
+    margin: 0;
+    font-size: 0.9rem;
+    font-weight: 800;
+    color: #1a2744;
+}
+
+.nf-page__strip-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+.nf-page__suite-line {
+    text-align: center;
+    margin-top: 0.6rem;
+    margin-bottom: 1rem;
+}
+
+.nf-page__suite-text {
+    margin: 0 0 0.45rem;
+    font-size: clamp(0.95rem, 2vw, 1.15rem);
+    color: #1a2744;
+}
+
+.nf-page__suite-platforms {
+    margin: 0 auto;
+    max-width: 18rem;
+}
+
+.nf-page__suite-platforms img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.nf-page__figure-hero {
+    margin-top: 1.9rem;
+    margin-bottom: 4%;
 }
 
 .nf-page__hero-figure {
     margin: 0;
-    border-radius: 1rem;
-    overflow: hidden;
-    border: 2px solid rgba(255, 255, 255, 0.55);
+    text-align: center;
 }
 
 .nf-page__hero-image {
     display: block;
     width: 100%;
-    max-height: 14rem;
-    object-fit: cover;
-}
-
-.nf-page__hero-copy {
-    display: grid;
-    gap: 0.55rem;
-}
-
-.nf-page__badge {
-    width: 3rem;
-    height: 3rem;
-    object-fit: contain;
-}
-
-.nf-page__hero-title {
-    margin: 0;
-    font-size: clamp(1.15rem, 2.4vw, 1.55rem);
-    font-weight: 900;
-    line-height: 1.2;
-    color: #0d2d6e;
-}
-
-.nf-page__hero-lead {
-    margin: 0;
-    font-size: 0.9rem;
-    line-height: 1.55;
-    color: #2a3d5c;
-}
-
-.nf-page__hero-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-top: 0.25rem;
+    max-width: 70rem;
+    height: auto;
+    margin: 0 auto;
 }
 
 .nf-page__pill {
@@ -481,26 +447,26 @@ onBeforeUnmount(() => {
     align-items: center;
     padding: 0.4rem 0.95rem;
     border-radius: 999px;
-    border: 1px solid rgba(255, 255, 255, 0.85);
-    background: rgba(255, 255, 255, 0.72);
-    color: #1a3a72;
+    border: 2px solid #1a2744;
+    background: #fff;
+    color: #1a2744;
     font-size: 0.78rem;
     font-weight: 700;
     text-decoration: none;
 }
 
 .nf-page__pill:hover {
-    background: #fff;
+    background: #ffe566;
+    border-color: #e0c018;
 }
 
 .nf-page__pill--primary {
-    background: #0b56bf;
-    border-color: #0b56bf;
-    color: #fff;
+    background: #ffe566;
+    border-color: #1a2744;
 }
 
 .nf-page__pill--primary:hover {
-    background: #0949a3;
+    background: #f5d020;
 }
 
 .nf-page__layout {
@@ -553,9 +519,9 @@ onBeforeUnmount(() => {
 
 .nf-page__section {
     scroll-margin-top: 5.5rem;
-    padding: clamp(1rem, 2vw, 1.25rem);
     border-radius: 1.35rem;
     border: 1px solid #dbe1ec;
+    overflow: hidden;
 }
 
 .nf-page__section--white {
@@ -580,7 +546,6 @@ onBeforeUnmount(() => {
 }
 
 .nf-page__section--dark .nf-page__paragraph,
-.nf-page__section--dark .nf-page__subsection-title,
 .nf-page__section--dark .nf-page__list {
     color: #dce6f8;
 }
@@ -602,7 +567,8 @@ onBeforeUnmount(() => {
 .nf-page__section-header {
     display: grid;
     gap: 0.65rem;
-    margin-bottom: 1rem;
+    padding: clamp(1rem, 2vw, 1.25rem);
+    padding-bottom: 0.75rem;
 }
 
 .nf-page__section-title {
@@ -680,16 +646,43 @@ onBeforeUnmount(() => {
     text-decoration: underline;
 }
 
-.nf-page__section-hero-img {
-    margin: 0 0 1rem;
-    text-align: center;
+.nf-page__section-media {
+    margin: 0;
+    width: 100%;
+    line-height: 0;
+    background: #0a0a0a;
 }
 
-.nf-page__section-hero-img img,
-.nf-page__subsection-figure img {
-    max-width: 100%;
+.nf-page__section-media--compact-image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #fff;
+}
+
+.nf-page__section-media--compact-image .nf-page__section-video {
+    width: 100%;
+    align-self: stretch;
+}
+
+.nf-page__section-media--compact-image .nf-page__section-media-img {
+    width: 50%;
+    max-width: 50%;
+    margin: 1rem auto 0;
+    object-fit: contain;
+}
+
+.nf-page__section-video,
+.nf-page__section-media-img {
+    display: block;
+    width: 100%;
     height: auto;
-    border-radius: 0.65rem;
+    object-fit: cover;
+}
+
+.nf-page__section-body {
+    padding: clamp(1rem, 2vw, 1.25rem);
+    padding-top: 0.85rem;
 }
 
 .nf-page__subsection {
@@ -747,9 +740,18 @@ onBeforeUnmount(() => {
     word-break: break-word;
 }
 
-.nf-page__subsection-figure {
-    margin: 0.65rem 0 0;
-    text-align: center;
+.nf-page__subsection-media {
+    margin: 0.75rem 0 0;
+    border-radius: 0.65rem;
+    overflow: hidden;
+    border: 1px solid rgba(30, 45, 80, 0.08);
+}
+
+.nf-page__subsection-media-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
 }
 
 .nf-page__docs {
@@ -777,8 +779,13 @@ onBeforeUnmount(() => {
 
 .nf-page__docs-list li {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.35rem 0.5rem;
+}
+
+.nf-page__docs-sep {
+    color: #9aa8bc;
 }
 
 .nf-page__flag {
@@ -852,24 +859,6 @@ onBeforeUnmount(() => {
     color: #5f6f8c;
 }
 
-.nf-page__customer-box {
-    margin: 0;
-    min-height: 3.25rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.5rem;
-    border-radius: 0.75rem;
-    border: 1px solid #dbe1ec;
-    background: #f8fafc;
-}
-
-.nf-page__customer-logo {
-    max-width: 100%;
-    max-height: 2.75rem;
-    object-fit: contain;
-}
-
 @media (max-width: 1024px) {
     .nf-page__layout {
         grid-template-columns: 1fr;
@@ -885,10 +874,6 @@ onBeforeUnmount(() => {
 
     .nf-page__toc-mobile {
         display: block;
-    }
-
-    .nf-page__hero-card {
-        grid-template-columns: 1fr;
     }
 }
 </style>

@@ -21,6 +21,11 @@ export const homeSeminar = pcsoftImage(
     '2026/new-version-update_accueil.jpg',
 );
 
+export const homeHeroVersionMobile = pcsoftImage(
+    'img/new-version-update_accueil_mobile.jpg',
+    '2026/new-version-update_accueil_mobile.jpg',
+);
+
 export const homeDatabases = pcsoftImage('img/home/all-the-databases.jpg', '2014/all-the-databases.jpg');
 
 export const homePackages = pcsoftImage(

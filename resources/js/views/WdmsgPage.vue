@@ -2,13 +2,21 @@
     <AppNavbar />
     <main class="wdmsg-page pb-10">
         <section class="section-shell wdmsg-page__suite-line" aria-label="Product positioning">
-            <p class="wdmsg-page__suite-text">Cross-platform application development software suite</p>
-            <div class="wdmsg-page__os-row" aria-hidden="true">
-                <span v-for="n in 7" :key="n" class="wdmsg-page__os-dot" title="OS icon placeholder" />
-            </div>
+            <p class="wdmsg-page__suite-text">
+                <strong>Cross-platform</strong> application development software suite
+            </p>
+            <figure class="wdmsg-page__suite-platforms">
+                <img
+                    :src="suiteCrossPlatform.src"
+                    alt="Integrated software for developing cross-platform applications"
+                    width="283"
+                    height="48"
+                    loading="eager"
+                    decoding="async"
+                    @error="onImageError($event, suiteCrossPlatform.fallback)"
+                />
+            </figure>
         </section>
-
-        <HeroSection :slides="heroSlides" />
 
         <section class="section-shell wdmsg-page__layout" aria-label="WDMSG overview">
             <div class="wdmsg-page__main glass-frame">
@@ -21,22 +29,23 @@
                     <div class="wdmsg-page__intro-copy">
                         <p class="wdmsg-page__body">
                             Your project is intended to be used abroad? Your application must be multilingual?
-                            <a href="#" class="wdmsg-page__text-link">Find out more</a>
+                            <a href="#multilingue" class="wdmsg-page__text-link">Find out more</a>
                         </p>
                         <p class="wdmsg-page__body">
                             Do you want to check the grammar, spelling and syntax of the information messages in your applications?
-                            <a href="#" class="wdmsg-page__text-link">Learn more</a>
+                            <a href="#grammaire" class="wdmsg-page__text-link">Learn more</a>
                         </p>
                         <p class="wdmsg-page__body">
                             You are developing an application with words, sentences and expressions that change depending on the profession of the user,
                             but you only want to have one source code?
-                            <a href="#" class="wdmsg-page__text-link">Learn more</a>
+                            <a href="#metier" class="wdmsg-page__text-link">Learn more</a>
                         </p>
                         <p class="wdmsg-page__body">
-                            <a href="#" class="wdmsg-page__text-link">WDINT</a> is included in WDMSG.
+                            <a :href="WDINT_PAGE_URL" class="wdmsg-page__text-link" target="_blank" rel="noopener noreferrer">WDINT</a>
+                            is included in WDMSG.
                         </p>
                         <p class="wdmsg-page__body">
-                            <a href="#" class="wdmsg-page__text-link">Subscribe</a>
+                            <RouterLink class="wdmsg-page__text-link" to="/software/subscribe">Subscribe</RouterLink>
                         </p>
                     </div>
 
@@ -50,7 +59,7 @@
 
                 <hr class="wdmsg-page__divider" />
 
-                <section class="wdmsg-page__section" aria-labelledby="wdmsg-grammar-title">
+                <section id="grammaire" class="wdmsg-page__section" aria-labelledby="wdmsg-grammar-title">
                     <h2 id="wdmsg-grammar-title" class="wdmsg-page__section-title">WDMSG and grammar</h2>
                     <p class="wdmsg-page__body">
                         Spelling errors, typos, grammar errors and incomprehensible messages can damage the image of a software editor.
@@ -74,7 +83,7 @@
                     </p>
                 </section>
 
-                <section class="wdmsg-page__section" aria-labelledby="wdmsg-vocab-title">
+                <section id="metier" class="wdmsg-page__section" aria-labelledby="wdmsg-vocab-title">
                     <h2 id="wdmsg-vocab-title" class="wdmsg-page__section-title">WDMSG and domain-specific vocabulary</h2>
                     <p class="wdmsg-page__body">
                         What is domain-specific vocabulary? Let's illustrate this concept with an example: A small business owner may use the word "Estimate", while a
@@ -93,7 +102,7 @@
                     </ol>
                 </section>
 
-                <section class="wdmsg-page__section" aria-labelledby="wdmsg-i18n-title">
+                <section id="multilingue" class="wdmsg-page__section" aria-labelledby="wdmsg-i18n-title">
                     <h2 id="wdmsg-i18n-title" class="wdmsg-page__section-title">WDMSG and multilingual projects</h2>
                     <p class="wdmsg-page__body">
                         Projects created with WINDEV and WEBDEV can be multilingual. In this case, each message, window, report or control must be translated into the
@@ -133,7 +142,11 @@
                     </p>
                     <p class="wdmsg-page__body wdmsg-page__body--strong">A real time saver!</p>
                     <p class="wdmsg-page__body">
-                        <a href="#" class="wdmsg-page__text-link">WDINT</a> is included in WDMSG.
+                        <a :href="WDINT_PAGE_URL" class="wdmsg-page__text-link" target="_blank" rel="noopener noreferrer">WDINT</a>
+                        is included in WDMSG.
+                    </p>
+                    <p class="wdmsg-page__body">
+                        <RouterLink class="wdmsg-page__text-link" to="/software/subscribe">Subscribe</RouterLink>
                     </p>
                 </section>
             </div>
@@ -154,25 +167,95 @@
                 <div class="wdmsg-page__sidebar-block">
                     <h3 class="wdmsg-page__sidebar-title">Documentation overview</h3>
                     <ul class="wdmsg-page__sidebar-list">
-                        <li><a href="#" class="wdmsg-page__text-link">New Features</a></li>
-                        <li><a href="#" class="wdmsg-page__text-link">WINDEV</a></li>
-                        <li><a href="#" class="wdmsg-page__text-link">WEBDEV</a></li>
-                        <li><a href="#" class="wdmsg-page__text-link">WINDEV Mobile</a></li>
+                        <li>
+                            <a
+                                class="wdmsg-page__text-link"
+                                :href="windevNewFeatures2026En.href"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                title="New features"
+                            >
+                                New Features
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                class="wdmsg-page__text-link"
+                                :href="windevBrochureEn.href"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                title="WINDEV"
+                            >
+                                WINDEV
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                class="wdmsg-page__text-link"
+                                :href="webdevBrochureEn.href"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                title="WEBDEV"
+                            >
+                                WEBDEV
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                class="wdmsg-page__text-link"
+                                :href="windevMobileBrochureEn.href"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                title="WINDEV Mobile"
+                            >
+                                WINDEV Mobile
+                            </a>
+                        </li>
                     </ul>
                 </div>
 
                 <div class="wdmsg-page__sidebar-block">
                     <h3 class="wdmsg-page__sidebar-title">Overview diagrams</h3>
                     <ul class="wdmsg-page__sidebar-list">
-                        <li><a href="#" class="wdmsg-page__text-link">Client/server database connectors</a></li>
-                        <li><a href="#" class="wdmsg-page__text-link">Cross-platform development</a></li>
+                        <li>
+                            <a
+                                class="wdmsg-page__text-link"
+                                :href="wdmsgOverviewUniversalDatabaseConnectors.href"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                title="Universal database connectors"
+                            >
+                                Client/server database connectors
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                class="wdmsg-page__text-link"
+                                :href="wdmsgOverviewCrossPlatformDevelopment.href"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                title="Cross-platform development"
+                            >
+                                Cross-platform development
+                            </a>
+                        </li>
                     </ul>
                 </div>
 
                 <div class="wdmsg-page__sidebar-block">
                     <h3 class="wdmsg-page__sidebar-title">Videos</h3>
                     <ul class="wdmsg-page__sidebar-list">
-                        <li><a href="#" class="wdmsg-page__text-link">Technical videos</a></li>
+                        <li>
+                            <a
+                                class="wdmsg-page__text-link"
+                                :href="WDMSG_TECHNICAL_VIDEOS_URL"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                title="Technical videos"
+                            >
+                                Technical videos
+                            </a>
+                        </li>
                     </ul>
                 </div>
 
@@ -192,25 +275,6 @@
                 </div>
             </aside>
         </section>
-
-        <section class="section-shell wdmsg-page__bottom-nav glass-frame" aria-label="Secondary navigation">
-            <div class="wdmsg-page__bottom-nav__row">
-                <div class="wdmsg-page__brand-mark" aria-hidden="true" />
-                <nav class="wdmsg-page__bottom-nav__links" aria-label="Site sections">
-                    <a href="#" class="wdmsg-page__bottom-link">Software <span class="wdmsg-page__caret" aria-hidden="true">v</span></a>
-                    <a href="#" class="wdmsg-page__bottom-link">Subscribe <span class="wdmsg-page__caret" aria-hidden="true">v</span></a>
-                    <a href="#" class="wdmsg-page__bottom-link">Download <span class="wdmsg-page__caret" aria-hidden="true">v</span></a>
-                    <a href="#" class="wdmsg-page__bottom-link">Technical Support <span class="wdmsg-page__caret" aria-hidden="true">v</span></a>
-                    <a href="#" class="wdmsg-page__bottom-link">Training <span class="wdmsg-page__caret" aria-hidden="true">v</span></a>
-                    <a href="#" class="wdmsg-page__bottom-link">PC SOFT <span class="wdmsg-page__caret" aria-hidden="true">v</span></a>
-                    <a href="#" class="wdmsg-page__bottom-link">Contact form</a>
-                </nav>
-                <div class="wdmsg-page__bottom-nav__tools" aria-label="Utilities">
-                    <span class="wdmsg-page__icon-ph" title="Search placeholder" />
-                    <span class="wdmsg-page__icon-ph wdmsg-page__icon-ph--flag" title="Language placeholder" />
-                </div>
-            </div>
-        </section>
     </main>
     <AppFooter />
 </template>
@@ -219,7 +283,23 @@
 import { onBeforeUnmount, onMounted, ref } from 'vue';
 import AppNavbar from '../components/AppNavbar.vue';
 import AppFooter from '../components/AppFooter.vue';
-import HeroSection from '../components/HeroSection.vue';
+import {
+    WDINT_PAGE_URL,
+    WDMSG_TECHNICAL_VIDEOS_URL,
+    webdevBrochureEn,
+    windevBrochureEn,
+    windevMobileBrochureEn,
+    windevNewFeatures2026En,
+    wdmsgOverviewCrossPlatformDevelopment,
+    wdmsgOverviewUniversalDatabaseConnectors,
+} from '../data/wdmsgPageDocuments.js';
+import { applyImageFallback, SHARED_IMAGES } from '../utils/pcsoftImages.js';
+
+const suiteCrossPlatform = SHARED_IMAGES.crossPlatform;
+
+function onImageError(event, fallbackUrl) {
+    applyImageFallback(event, fallbackUrl);
+}
 
 /** Same banner strip assets as WindevPage / BrandLogoStrip; bound URLs avoid Vite static import. */
 const customerCarouselLogos = [
@@ -244,6 +324,7 @@ const currentCustomerLogoIndex = ref(0);
 let customerCarouselTimer = null;
 
 onMounted(() => {
+    document.title = 'WDMSG: Overview';
     customerCarouselTimer = window.setInterval(() => {
         currentCustomerLogoIndex.value =
             (currentCustomerLogoIndex.value + 1) % customerCarouselLogos.length;
@@ -258,7 +339,7 @@ onBeforeUnmount(() => {
 
 /** Public asset; use binding so Vite does not treat `/img/...` as a module import. */
 const productBoxesImageUrl =
-    '/img/newfeatures/packages-windev-webdev-windev-mobile-2026.webp';
+    '/img/newfeatures/packages-windev-webdev-windev-mobile-2026.png';
 
 const supportedResources = [
     'Project messages',
@@ -280,31 +361,6 @@ const supportedResources = [
     'Help system index keywords',
     'Title and content of help pages',
     'Error messages customized when creating the executable',
-];
-
-const heroSlides = [
-    {
-        id: 'wdmsg-overview',
-        description:
-            'WDMSG enables you to easily translate an entire application (WINDEV, WEBDEV and/or WINDEV Mobile).',
-        topImage: '/img/nouveau.svg',
-        topImageAlt: 'Nouveau',
-        image: '/img/logo_windev-suite_texte-noir-light.svg',
-        imageAlt: 'Logo WINDEV Suite',
-        buttons: [
-            { label: 'Find out more', variant: 'primary' },
-            { label: 'Learn more', variant: 'ghost' },
-            { label: 'Subscribe', variant: 'ghost' },
-        ],
-    },
-    {
-        id: 'wdmsg-release',
-        description: '',
-        responsiveImageDesktop: '/img/new-version-update_accueil.jpg',
-        responsiveImageMobile: '/img/new-version-update_accueil_mobile.jpg',
-        responsiveImageAlt: 'Nouvelle version WINDEV',
-        buttons: [],
-    },
 ];
 </script>
 
@@ -342,28 +398,20 @@ const heroSlides = [
 }
 
 .wdmsg-page__suite-text {
-    margin: 0 0 0.5rem;
-    font-size: 0.62rem;
-    font-weight: 700;
-    letter-spacing: 0.11em;
-    text-transform: uppercase;
-    color: #5f6f8c;
+    margin: 0 0 0.45rem;
+    font-size: clamp(0.95rem, 2vw, 1.15rem);
+    color: #1a2744;
 }
 
-.wdmsg-page__os-row {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: 0.45rem;
+.wdmsg-page__suite-platforms {
+    margin: 0 auto;
+    max-width: 18rem;
 }
 
-.wdmsg-page__os-dot {
-    width: 0.85rem;
-    height: 0.85rem;
-    border-radius: 9999px;
-    border: 2px solid #d6dce7;
-    background: #f4f6fa;
+.wdmsg-page__suite-platforms img {
+    display: block;
+    width: 100%;
+    height: auto;
 }
 
 .wdmsg-page__layout {
@@ -594,75 +642,6 @@ const heroSlides = [
     background: color-mix(in oklab, #ffffff 94%, #c5d8ff 6%);
 }
 
-.wdmsg-page__bottom-nav {
-    margin-top: 1.25rem;
-    padding: 0.65rem 0.85rem;
-    background: color-mix(in oklab, #fff 92%, transparent);
-}
-
-.wdmsg-page__bottom-nav__row {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    gap: 0.75rem;
-}
-
-.wdmsg-page__brand-mark {
-    width: 2.25rem;
-    height: 2.25rem;
-    border-radius: 0.35rem;
-    background: linear-gradient(135deg, #ff7a00, #0058d9);
-    box-shadow: 0 6px 14px rgba(15, 23, 42, 0.12);
-}
-
-.wdmsg-page__bottom-nav__links {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: 0.65rem 0.85rem;
-    flex: 1;
-}
-
-.wdmsg-page__bottom-link {
-    font-size: 0.82rem;
-    font-weight: 700;
-    color: var(--color-text-primary);
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.25rem;
-}
-
-.wdmsg-page__bottom-link:hover {
-    color: var(--color-brand);
-}
-
-.wdmsg-page__caret {
-    font-size: 0.72rem;
-    transform: translateY(1px);
-    opacity: 0.75;
-}
-
-.wdmsg-page__bottom-nav__tools {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.45rem;
-}
-
-.wdmsg-page__icon-ph {
-    width: 2rem;
-    height: 2rem;
-    border-radius: 0.45rem;
-    border: 1px dashed color-mix(in oklab, var(--color-text-secondary) 35%, transparent);
-    background: color-mix(in oklab, var(--color-surface) 88%, transparent);
-}
-
-.wdmsg-page__icon-ph--flag {
-    border-radius: 9999px;
-}
-
 @media (max-width: 1100px) {
     .wdmsg-page__layout {
         grid-template-columns: 1fr;
@@ -677,9 +656,5 @@ const heroSlides = [
 
 ::global(.theme-dark) .wdmsg-page__alert-link {
     color: #0b1f4d;
-}
-
-::global(.theme-dark) .wdmsg-page__bottom-nav {
-    background: color-mix(in oklab, var(--color-surface) 92%, transparent);
 }
 </style>

@@ -19,43 +19,7 @@
         </section>
 
         <section class="section-shell home-page__hero" aria-label="WINDEV Suite hero">
-            <div class="home-page__hero-card">
-                <div
-                    class="home-page__hero-visual"
-                    :style="{ backgroundImage: `url(${homeHeroBackground.src})` }"
-                >
-                    <img
-                        class="home-page__hero-badge"
-                        :src="homeHeroBadge.src"
-                        alt=""
-                        width="100"
-                        height="100"
-                        loading="eager"
-                        decoding="async"
-                        aria-hidden="true"
-                        @error="onImageError($event, homeHeroBadge.fallback)"
-                    />
-                    <img
-                        class="home-page__hero-suite-logo"
-                        :src="homeSuiteLogo.src"
-                        alt="WINDEV Suite"
-                        loading="eager"
-                        decoding="async"
-                        @error="onImageError($event, homeSuiteLogo.fallback)"
-                    />
-                </div>
-                <div class="home-page__hero-buttons">
-                    <RouterLink class="home-page__hero-btn home-page__hero-btn--primary" to="/software/windev">
-                        Overview
-                    </RouterLink>
-                    <RouterLink class="home-page__hero-btn" to="/software/new-features-2026">
-                        New features
-                    </RouterLink>
-                    <RouterLink class="home-page__hero-btn home-page__hero-btn--dark" to="/software/subscribe">
-                        Subscribe
-                    </RouterLink>
-                </div>
-            </div>
+            <HomeHeroCarousel />
         </section>
 
         <section class="section-shell home-page__platform" aria-labelledby="home-platform-title">
@@ -156,15 +120,6 @@
                     <span aria-hidden="true"> · </span>
                     <RouterLink class="home-page__news-link" to="/software/subscribe">Subscribe</RouterLink>
                 </p>
-                <figure class="home-page__news-figure">
-                    <img
-                        :src="homeSeminar.src"
-                        alt="PC SOFT seminar audience"
-                        loading="lazy"
-                        decoding="async"
-                        @error="onImageError($event, homeSeminar.fallback)"
-                    />
-                </figure>
             </div>
         </section>
 
@@ -272,15 +227,13 @@
 import { computed, onBeforeUnmount, onMounted, ref } from 'vue';
 import AppNavbar from '../components/AppNavbar.vue';
 import AppFooter from '../components/AppFooter.vue';
+import HomeHeroCarousel from '../components/HomeHeroCarousel.vue';
 import {
     homeCrossDevices,
     homeCustomerLogos,
     homeDatabases,
-    homeHeroBackground,
-    homeHeroBadge,
     homePackages,
     homeProducts,
-    homeSeminar,
     homeSuiteCrossPlatform,
     homeSuiteLogo,
 } from '../data/homePageImages.js';
@@ -369,82 +322,6 @@ onBeforeUnmount(() => {
     display: block;
     width: 100%;
     height: auto;
-}
-
-.home-page__hero-card {
-    border-radius: 1.35rem;
-    overflow: hidden;
-    border: 1px solid #e0c018;
-    box-shadow: 0 10px 28px rgba(30, 45, 80, 0.1);
-}
-
-.home-page__hero-visual {
-    position: relative;
-    min-height: 12rem;
-    padding: 1.25rem 1rem 1.5rem;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 0.75rem;
-}
-
-.home-page__hero-badge {
-    position: absolute;
-    top: 0.75rem;
-    left: 0.75rem;
-    width: 4.5rem;
-    height: auto;
-}
-
-.home-page__hero-suite-logo {
-    max-width: min(100%, 22rem);
-    height: auto;
-}
-
-.home-page__hero-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.55rem;
-    padding: 0.75rem;
-    background: linear-gradient(145deg, #ffe566 0%, #f5d020 55%, #e8c018 100%);
-}
-
-.home-page__hero-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.4rem 0.95rem;
-    border-radius: 999px;
-    border: 1px solid rgba(255, 255, 255, 0.85);
-    background: rgba(255, 255, 255, 0.72);
-    color: #1a3a72;
-    font-size: 0.78rem;
-    font-weight: 700;
-    text-decoration: none;
-}
-
-.home-page__hero-btn:hover {
-    background: #fff;
-}
-
-.home-page__hero-btn--primary {
-    background: #fff;
-    border-color: #fff;
-}
-
-.home-page__hero-btn--dark {
-    background: #1a2744;
-    border-color: #1a2744;
-    color: #fff;
-}
-
-.home-page__hero-btn--dark:hover {
-    background: #0f1a30;
 }
 
 .home-page__platform {
@@ -654,7 +531,7 @@ onBeforeUnmount(() => {
 }
 
 .home-page__news-actions {
-    margin: 0 0 1rem;
+    margin: 0;
     font-size: 0.88rem;
     font-weight: 700;
 }
@@ -666,19 +543,6 @@ onBeforeUnmount(() => {
 
 .home-page__news-link:hover {
     text-decoration: underline;
-}
-
-.home-page__news-figure {
-    margin: 0;
-    border-radius: 1rem;
-    overflow: hidden;
-}
-
-.home-page__news-figure img {
-    display: block;
-    width: 100%;
-    max-height: 16rem;
-    object-fit: cover;
 }
 
 .home-page__databases {

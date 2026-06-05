@@ -1,7 +1,17 @@
 <template>
     <header class="section-shell app-navbar">
         <div class="app-navbar__row">
-            <RouterLink to="/" class="app-navbar__brand" @click="uiStore.closeMobileMenu()">PC SOFT</RouterLink>
+            <RouterLink to="/" class="app-navbar__brand" @click="uiStore.closeMobileMenu()">
+                <img
+                    :src="brandLogo.src"
+                    alt="PC SOFT"
+                    class="app-navbar__brand-logo"
+                    width="108"
+                    height="28"
+                    decoding="async"
+                    @error="onBrandLogoError"
+                />
+            </RouterLink>
             <nav class="app-navbar__links" aria-label="Main menu">
                 <div class="app-navbar__dropdown">
                     <button
@@ -279,6 +289,13 @@
 import { onBeforeUnmount, onMounted, ref } from 'vue';
 import { useThemeStore } from '../stores/theme';
 import { useUiStore } from '../stores/ui';
+import { applyImageFallback, SHARED_IMAGES } from '../utils/pcsoftImages.js';
+
+const brandLogo = SHARED_IMAGES.pcsoftLogoDark;
+
+function onBrandLogoError(event) {
+    applyImageFallback(event, brandLogo.fallback);
+}
 
 const themeStore = useThemeStore();
 const uiStore = useUiStore();
@@ -340,10 +357,17 @@ onBeforeUnmount(() => {
 
 .app-navbar__brand {
     flex-shrink: 0;
+    display: flex;
+    align-items: center;
     text-decoration: none;
-    color: #1f304f;
-    font-size: 1rem;
-    font-weight: 800;
+    line-height: 0;
+}
+
+.app-navbar__brand-logo {
+    display: block;
+    height: 28px;
+    width: auto;
+    max-width: none;
 }
 
 .app-navbar__links {

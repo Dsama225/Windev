@@ -51,6 +51,8 @@ export const DOWNLOAD_LINKS = {
     dongleVersion: 'https://download.windev.com/uk/dongle.awp',
 };
 
+const pcsoftLogoDarkSrc = new URL('../../../public/pcsoft/LOGO_PCSOFT_Dark.svg', import.meta.url).href;
+
 export const SHARED_IMAGES = {
     crossPlatform: pcsoftImage('img/home/cross-plateformes.png', 'home/cross-plateformes.png'),
     packagesSuite: pcsoftImage(
@@ -58,7 +60,7 @@ export const SHARED_IMAGES = {
         '2026/packages-windev-webdev-windev-mobile-2026.png',
     ),
     pcsoftLogoDark: {
-        src: '/pcsoft/LOGO_PCSOFT_Dark.svg',
+        src: pcsoftLogoDarkSrc,
         fallback: 'https://logo.assets.pcsoft.fr/svg/LOGO_PCSOFT_Dark.svg',
     },
 };
