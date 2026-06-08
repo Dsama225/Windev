@@ -1,14 +1,14 @@
 <template>
     <AppNavbar />
     <main class="wdmsg-page pb-10">
-        <section class="section-shell wdmsg-page__suite-line" aria-label="Product positioning">
+        <section class="section-shell wdmsg-page__suite-line" aria-label="Positionnement produit">
             <p class="wdmsg-page__suite-text">
-                <strong>Cross-platform</strong> application development software suite
+                <strong>Multiplateforme</strong> — suite logicielle de développement d'applications multiplateformes
             </p>
             <figure class="wdmsg-page__suite-platforms">
                 <img
                     :src="suiteCrossPlatform.src"
-                    alt="Integrated software for developing cross-platform applications"
+                    alt="Logiciel intégré pour développer des applications multiplateformes"
                     width="283"
                     height="48"
                     loading="eager"
@@ -18,39 +18,39 @@
             </figure>
         </section>
 
-        <section class="section-shell wdmsg-page__layout" aria-label="WDMSG overview">
+        <section class="section-shell wdmsg-page__layout" aria-label="Présentation WDMSG">
             <div class="wdmsg-page__main glass-frame">
-                <h1 class="wdmsg-page__title">OVERVIEW OF WDMSG</h1>
+                <h1 class="wdmsg-page__title">PRÉSENTATION DE WDMSG</h1>
                 <p class="wdmsg-page__lead">
-                    WDMSG enables you to easily translate an entire application (WINDEV, WEBDEV and/or WINDEV Mobile).
+                    WDMSG vous permet de traduire facilement une application entière (WINDEV, WEBDEV et/ou WINDEV Mobile).
                 </p>
 
                 <div class="wdmsg-page__intro-grid">
                     <div class="wdmsg-page__intro-copy">
                         <p class="wdmsg-page__body">
-                            Your project is intended to be used abroad? Your application must be multilingual?
-                            <a href="#multilingue" class="wdmsg-page__text-link">Find out more</a>
+                            Votre projet est destiné à être utilisé à l'étranger ? Votre application doit être multilingue ?
+                            <a href="#multilingue" class="wdmsg-page__text-link">En savoir plus</a>
                         </p>
                         <p class="wdmsg-page__body">
-                            Do you want to check the grammar, spelling and syntax of the information messages in your applications?
-                            <a href="#grammaire" class="wdmsg-page__text-link">Learn more</a>
+                            Vous souhaitez vérifier la grammaire, l'orthographe et la syntaxe des messages d'information de vos applications ?
+                            <a href="#grammaire" class="wdmsg-page__text-link">En savoir plus</a>
                         </p>
                         <p class="wdmsg-page__body">
-                            You are developing an application with words, sentences and expressions that change depending on the profession of the user,
-                            but you only want to have one source code?
-                            <a href="#metier" class="wdmsg-page__text-link">Learn more</a>
+                            Vous développez une application avec des mots, des phrases et des expressions qui changent selon le métier de l'utilisateur,
+                            mais vous ne voulez avoir qu'un seul code source ?
+                            <a href="#metier" class="wdmsg-page__text-link">En savoir plus</a>
                         </p>
                         <p class="wdmsg-page__body">
                             <a :href="WDINT_PAGE_URL" class="wdmsg-page__text-link" target="_blank" rel="noopener noreferrer">WDINT</a>
-                            is included in WDMSG.
+                            est inclus dans WDMSG.
                         </p>
                         <p class="wdmsg-page__body">
-                            <RouterLink class="wdmsg-page__text-link" to="/software/subscribe">Subscribe</RouterLink>
+                            <RouterLink class="wdmsg-page__text-link" to="/software/subscribe">S'abonner</RouterLink>
                         </p>
                     </div>
 
-                    <aside class="wdmsg-page__resources" aria-label="Resources supported by WDMSG">
-                        <h2 class="wdmsg-page__resources-title">Resources supported by WDMSG:</h2>
+                    <aside class="wdmsg-page__resources" aria-label="Ressources prises en charge par WDMSG">
+                        <h2 class="wdmsg-page__resources-title">Ressources prises en charge par WDMSG :</h2>
                         <ul class="wdmsg-page__resources-list">
                             <li v-for="item in supportedResources" :key="item">{{ item }}</li>
                         </ul>
@@ -60,112 +60,112 @@
                 <hr class="wdmsg-page__divider" />
 
                 <section id="grammaire" class="wdmsg-page__section" aria-labelledby="wdmsg-grammar-title">
-                    <h2 id="wdmsg-grammar-title" class="wdmsg-page__section-title">WDMSG and grammar</h2>
+                    <h2 id="wdmsg-grammar-title" class="wdmsg-page__section-title">WDMSG et la grammaire</h2>
                     <p class="wdmsg-page__body">
-                        Spelling errors, typos, grammar errors and incomprehensible messages can damage the image of a software editor.
+                        Les fautes d'orthographe, les coquilles, les erreurs de grammaire et les messages incompréhensibles peuvent nuire à l'image d'un éditeur de logiciels.
                     </p>
                     <p class="wdmsg-page__body">
-                        How to check the messages or expressions your developers have entered in their modules?: window titles, control captions, button captions,
-                        tooltips, information messages, error messages, wait messages, title and content of help pages, etc.
+                        Comment vérifier les messages ou expressions saisis par vos développeurs dans leurs modules ? : titres de fenêtres, libellés de champs, libellés de boutons,
+                        infobulles, messages d'information, messages d'erreur, messages d'attente, titre et contenu des pages d'aide, etc.
                     </p>
                     <p class="wdmsg-page__body">
-                        WDMSG, the ideal complement for WINDEV and WEBDEV, is a powerful tool that checks the messages in the application.
+                        WDMSG, le complément idéal de WINDEV et WEBDEV, est un outil puissant qui vérifie les messages de l'application.
                     </p>
-                    <p class="wdmsg-page__body wdmsg-page__body--strong">The principle is simple:</p>
+                    <p class="wdmsg-page__body wdmsg-page__body--strong">Le principe est simple :</p>
                     <ol class="wdmsg-page__ordered">
-                        <li>All messages, captions and text are extracted from the project and exported to a text file.</li>
-                        <li>All the expressions in this file are checked (e.g. using a spelling and grammar checker).</li>
-                        <li>The corrected messages are reintegrated into the original project.</li>
+                        <li>Tous les messages, libellés et textes sont extraits du projet et exportés vers un fichier texte.</li>
+                        <li>Toutes les expressions de ce fichier sont vérifiées (par exemple à l'aide d'un correcteur orthographique et grammatical).</li>
+                        <li>Les messages corrigés sont réintégrés dans le projet d'origine.</li>
                     </ol>
                     <p class="wdmsg-page__body">
-                        Main advantage: your developers take care of the code, and one person (not necessarily a programming expert) can check all the text in your
-                        application.You release applications with better grammar and syntax.
+                        Avantage principal : vos développeurs s'occupent du code, et une personne (pas nécessairement experte en programmation) peut vérifier tout le texte de votre
+                        application. Vous publiez des applications avec une meilleure grammaire et syntaxe.
                     </p>
                 </section>
 
                 <section id="metier" class="wdmsg-page__section" aria-labelledby="wdmsg-vocab-title">
-                    <h2 id="wdmsg-vocab-title" class="wdmsg-page__section-title">WDMSG and domain-specific vocabulary</h2>
+                    <h2 id="wdmsg-vocab-title" class="wdmsg-page__section-title">WDMSG et le vocabulaire métier</h2>
                     <p class="wdmsg-page__body">
-                        What is domain-specific vocabulary? Let's illustrate this concept with an example: A small business owner may use the word "Estimate", while a
-                        business consultant will use "Business proposal".
+                        Qu'est-ce que le vocabulaire métier ? Illustrons ce concept par un exemple : un artisan peut utiliser le mot « Devis », tandis qu'un
+                        consultant en entreprise utilisera « Proposition commerciale ».
                     </p>
-                    <p class="wdmsg-page__body">WINDEV and WDMSG can easily manage the concept of domain-specifc vocabulary.</p>
-                    <p class="wdmsg-page__body wdmsg-page__body--strong">The principle for WDMSG is very simple:</p>
+                    <p class="wdmsg-page__body">WINDEV et WDMSG gèrent facilement le concept de vocabulaire métier.</p>
+                    <p class="wdmsg-page__body wdmsg-page__body--strong">Le principe pour WDMSG est très simple :</p>
                     <ol class="wdmsg-page__ordered">
-                        <li>All messages, captions, and text from your project are extracted and exported to a text file.</li>
-                        <li>The expressions are adapted and registered (via a provided tool) according to each domain.</li>
-                        <li>The domain-specific vocabulary is integrated into the original project.</li>
+                        <li>Tous les messages, libellés et textes de votre projet sont extraits et exportés vers un fichier texte.</li>
+                        <li>Les expressions sont adaptées et enregistrées (via un outil fourni) selon chaque métier.</li>
+                        <li>Le vocabulaire métier est intégré dans le projet d'origine.</li>
                         <li>
-                            In your project, simply add one line of WLanguage code to dynamically define the type of domain-specific vocabulary to display in your
-                            application depending on the user (up to 20 different sets of domain-specific vocabulary supported).
+                            Dans votre projet, il suffit d'ajouter une ligne de code WLanguage pour définir dynamiquement le type de vocabulaire métier à afficher dans votre
+                            application selon l'utilisateur (jusqu'à 20 jeux de vocabulaire métier différents pris en charge).
                         </li>
                     </ol>
                 </section>
 
                 <section id="multilingue" class="wdmsg-page__section" aria-labelledby="wdmsg-i18n-title">
-                    <h2 id="wdmsg-i18n-title" class="wdmsg-page__section-title">WDMSG and multilingual projects</h2>
+                    <h2 id="wdmsg-i18n-title" class="wdmsg-page__section-title">WDMSG et les projets multilingues</h2>
                     <p class="wdmsg-page__body">
-                        Projects created with WINDEV and WEBDEV can be multilingual. In this case, each message, window, report or control must be translated into the
-                        different languages supported by the project.
+                        Les projets créés avec WINDEV et WEBDEV peuvent être multilingues. Dans ce cas, chaque message, fenêtre, état ou champ doit être traduit dans les
+                        différentes langues prises en charge par le projet.
                     </p>
-                    <p class="wdmsg-page__body wdmsg-page__body--strong">A project can be translated in different ways:</p>
+                    <p class="wdmsg-page__body wdmsg-page__body--strong">Un projet peut être traduit de différentes manières :</p>
                     <ol class="wdmsg-page__ordered">
                         <li>
-                            You can translate the different elements as you create them, via the "Details" tab of the description windows. However, this solution is
-                            only ideal for small applications, and can quickly become cumbersome.
+                            Vous pouvez traduire les différents éléments au fur et à mesure de leur création, via l'onglet « Détails » des fenêtres de description. Cependant, cette solution n'est
+                            idéale que pour les petites applications et peut rapidement devenir lourde.
                         </li>
                         <li>
-                            You can use WDMSG. WDMSG lets you extract all the text and resources to translate from a WINDEV project. Once translated, WDMSG will
-                            automatically reintegrate this text and these resources. The elements from the text file can be:
+                            Vous pouvez utiliser WDMSG. WDMSG permet d'extraire tout le texte et les ressources à traduire d'un projet WINDEV. Une fois traduits, WDMSG
+                            réintègre automatiquement ce texte et ces ressources. Les éléments du fichier texte peuvent être :
                             <ul class="wdmsg-page__bullets">
-                                <li>translated directly,</li>
-                                <li>translated with a dedicated translation software,</li>
-                                <li>translated by a translation agency,</li>
-                                <li>translated via WDTRAD: the translation tool provided with WDMSG,</li>
-                                <li>checked by a spelling checker,</li>
-                                <li>modified to standardize messages, titles, etc.</li>
+                                <li>traduits directement,</li>
+                                <li>traduits avec un logiciel de traduction dédié,</li>
+                                <li>traduits par une agence de traduction,</li>
+                                <li>traduits via WDTRAD : l'outil de traduction fourni avec WDMSG,</li>
+                                <li>vérifiés par un correcteur orthographique,</li>
+                                <li>modifiés pour standardiser messages, titres, etc.</li>
                             </ul>
                         </li>
                     </ol>
                     <p class="wdmsg-page__body">
-                        In your original project, simply add one line of WLanguage code to dynamically define the language to display for your application depending on
-                        the user (up to <span class="wdmsg-page__accent">64 different languages supported</span>).
+                        Dans votre projet d'origine, il suffit d'ajouter une ligne de code WLanguage pour définir dynamiquement la langue à afficher pour votre application selon
+                        l'utilisateur (jusqu'à <span class="wdmsg-page__accent">64 langues différentes prises en charge</span>).
                     </p>
                     <p class="wdmsg-page__body">
-                        WDMSG comes with a dictionary.This translation memory contains the translation of the same source into several languages. For example, in the same
-                        dictionary, the expression "Close application" can be translated into Spanish, French, German, etc.
+                        WDMSG est livré avec un dictionnaire. Cette mémoire de traduction contient la traduction d'une même source en plusieurs langues. Par exemple, dans le même
+                        dictionnaire, l'expression « Fermer l'application » peut être traduite en espagnol, en français, en allemand, etc.
                     </p>
                     <p class="wdmsg-page__body">
-                        When translating with WDTRAD, the dictionary will be browsed automatically and if there is a matching translation, it will be proposed. Thus,
-                        you won't have to translate the same sentence twice. This dictionary will be enriched as you translate new text. WDTRAD allows you to import
-                        translation memories. This feature enables you to automatically import existing translations into the WDTRAD dictionary.
+                        Lors d'une traduction avec WDTRAD, le dictionnaire sera parcouru automatiquement et, s'il existe une traduction correspondante, elle sera proposée. Ainsi,
+                        vous n'aurez pas à traduire deux fois la même phrase. Ce dictionnaire sera enrichi au fur et à mesure de vos traductions. WDTRAD permet d'importer
+                        des mémoires de traduction. Cette fonctionnalité permet d'importer automatiquement des traductions existantes dans le dictionnaire WDTRAD.
                     </p>
-                    <p class="wdmsg-page__body wdmsg-page__body--strong">A real time saver!</p>
+                    <p class="wdmsg-page__body wdmsg-page__body--strong">Un véritable gain de temps !</p>
                     <p class="wdmsg-page__body">
                         <a :href="WDINT_PAGE_URL" class="wdmsg-page__text-link" target="_blank" rel="noopener noreferrer">WDINT</a>
-                        is included in WDMSG.
+                        est inclus dans WDMSG.
                     </p>
                     <p class="wdmsg-page__body">
-                        <RouterLink class="wdmsg-page__text-link" to="/software/subscribe">Subscribe</RouterLink>
+                        <RouterLink class="wdmsg-page__text-link" to="/software/subscribe">S'abonner</RouterLink>
                     </p>
                 </section>
             </div>
 
-            <aside class="wdmsg-page__sidebar glass-frame" aria-label="Related links">
+            <aside class="wdmsg-page__sidebar glass-frame" aria-label="Liens associés">
                 <div class="wdmsg-page__product-boxes">
                     <img
                         :src="productBoxesImageUrl"
-                        alt="WINDEV 2026, WEBDEV 2026, and WINDEV Mobile 2026 product boxes"
+                        alt="Boîtes produits WINDEV 2026, WEBDEV 2026 et WINDEV Mobile 2026"
                         loading="lazy"
                         decoding="async"
                     />
                 </div>
                 <p class="wdmsg-page__sidebar-text">
-                    Your WINDEV code, windows and data are compatible with WEBDEV and WINDEV Mobile.
+                    Votre code WINDEV, vos fenêtres et vos données sont compatibles avec WEBDEV et WINDEV Mobile.
                 </p>
 
                 <div class="wdmsg-page__sidebar-block">
-                    <h3 class="wdmsg-page__sidebar-title">Documentation overview</h3>
+                    <h3 class="wdmsg-page__sidebar-title">Présentation de la documentation</h3>
                     <ul class="wdmsg-page__sidebar-list">
                         <li>
                             <a
@@ -173,9 +173,9 @@
                                 :href="windevNewFeatures2026En.href"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                title="New features"
+                                title="Nouveautés"
                             >
-                                New Features
+                                Nouveautés
                             </a>
                         </li>
                         <li>
@@ -215,7 +215,7 @@
                 </div>
 
                 <div class="wdmsg-page__sidebar-block">
-                    <h3 class="wdmsg-page__sidebar-title">Overview diagrams</h3>
+                    <h3 class="wdmsg-page__sidebar-title">Schémas de présentation</h3>
                     <ul class="wdmsg-page__sidebar-list">
                         <li>
                             <a
@@ -223,9 +223,9 @@
                                 :href="wdmsgOverviewUniversalDatabaseConnectors.href"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                title="Universal database connectors"
+                                title="Connecteurs bases de données universels"
                             >
-                                Client/server database connectors
+                                Connecteurs bases de données client/serveur
                             </a>
                         </li>
                         <li>
@@ -234,16 +234,16 @@
                                 :href="wdmsgOverviewCrossPlatformDevelopment.href"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                title="Cross-platform development"
+                                title="Développement multiplateforme"
                             >
-                                Cross-platform development
+                                Développement multiplateforme
                             </a>
                         </li>
                     </ul>
                 </div>
 
                 <div class="wdmsg-page__sidebar-block">
-                    <h3 class="wdmsg-page__sidebar-title">Videos</h3>
+                    <h3 class="wdmsg-page__sidebar-title">Vidéos</h3>
                     <ul class="wdmsg-page__sidebar-list">
                         <li>
                             <a
@@ -251,22 +251,22 @@
                                 :href="WDMSG_TECHNICAL_VIDEOS_URL"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                title="Technical videos"
+                                title="Vidéos techniques"
                             >
-                                Technical videos
+                                Vidéos techniques
                             </a>
                         </li>
                     </ul>
                 </div>
 
-                <div class="wdmsg-page__customer" aria-label="Customer references">
-                    <p class="wdmsg-page__customer-title">They are using WINDEV</p>
+                <div class="wdmsg-page__customer" aria-label="Références clients">
+                    <p class="wdmsg-page__customer-title">Ils utilisent WINDEV</p>
                     <figure class="wdmsg-page__customer-figure">
                         <div class="wdmsg-page__customer-logo-box">
                             <img
                                 class="wdmsg-page__customer-logo-img"
                                 :src="customerCarouselLogos[currentCustomerLogoIndex]"
-                                alt="WINDEV customer logo"
+                                alt="Logo client WINDEV"
                                 loading="lazy"
                                 decoding="async"
                             />
@@ -324,7 +324,7 @@ const currentCustomerLogoIndex = ref(0);
 let customerCarouselTimer = null;
 
 onMounted(() => {
-    document.title = 'WDMSG: Overview';
+    document.title = 'WDMSG : Présentation';
     customerCarouselTimer = window.setInterval(() => {
         currentCustomerLogoIndex.value =
             (currentCustomerLogoIndex.value + 1) % customerCarouselLogos.length;
@@ -342,25 +342,25 @@ const productBoxesImageUrl =
     '/img/newfeatures/packages-windev-webdev-windev-mobile-2026.png';
 
 const supportedResources = [
-    'Project messages',
-    'Project class messages',
-    'Project report messages',
-    'Project window messages',
-    'Window titles',
-    'Control labels',
-    'Control help messages',
-    'Control tooltips',
-    'Title and text of control help windows',
-    'Control content (List Box , Combo Box, Check Box and Radio Button)',
-    'Captions and messages of menu options',
-    'Messages displayed by the program',
-    'Report wait messages',
-    'RAD control characteristics entered in the analysis',
-    'Help system titles',
-    'Help system copyright',
-    'Help system index keywords',
-    'Title and content of help pages',
-    'Error messages customized when creating the executable',
+    'Messages du projet',
+    'Messages des classes du projet',
+    'Messages des états du projet',
+    'Messages des fenêtres du projet',
+    'Titres de fenêtres',
+    'Libellés de champs',
+    'Messages d\'aide des champs',
+    'Infobulles des champs',
+    'Titre et texte des fenêtres d\'aide des champs',
+    'Contenu des champs (Liste, Combo, Case à cocher et Bouton radio)',
+    'Libellés et messages des options de menu',
+    'Messages affichés par le programme',
+    'Messages d\'attente des états',
+    'Caractéristiques RAD des champs saisies dans l\'analyse',
+    'Titres du système d\'aide',
+    'Copyright du système d\'aide',
+    'Mots-clés de l\'index du système d\'aide',
+    'Titre et contenu des pages d\'aide',
+    'Messages d\'erreur personnalisés lors de la création de l\'exécutable',
 ];
 </script>
 
@@ -400,7 +400,7 @@ const supportedResources = [
 .wdmsg-page__suite-text {
     margin: 0 0 0.45rem;
     font-size: clamp(0.95rem, 2vw, 1.15rem);
-    color: #1a2744;
+    color: var(--color-text-primary);
 }
 
 .wdmsg-page__suite-platforms {
@@ -479,9 +479,10 @@ const supportedResources = [
 
 .wdmsg-page__resources {
     border-radius: var(--radius-lg);
-    border: 1px solid color-mix(in oklab, var(--color-text-secondary) 18%, transparent);
-    background: color-mix(in oklab, var(--color-text-secondary) 10%, #fff);
+    border: 1px solid var(--color-border-subtle);
+    background: var(--color-elevated-bg);
     padding: clamp(0.85rem, 1.6vw, 1.1rem);
+    color: var(--color-text-primary);
 }
 
 .wdmsg-page__resources-title {
@@ -504,7 +505,7 @@ const supportedResources = [
 
 .wdmsg-page__divider {
     border: 0;
-    border-top: 1px solid color-mix(in oklab, var(--color-text-secondary) 22%, transparent);
+    border-top: 1px solid var(--color-border-subtle);
     margin: 1.25rem 0;
 }
 
@@ -535,6 +536,7 @@ const supportedResources = [
     padding-left: 1.1rem;
     display: grid;
     gap: 0.35rem;
+    color: var(--color-text-secondary);
 }
 
 .wdmsg-page__accent {
@@ -557,7 +559,7 @@ const supportedResources = [
 
 .wdmsg-page__sidebar-block {
     padding-top: 0.35rem;
-    border-top: 1px solid color-mix(in oklab, var(--color-text-secondary) 18%, transparent);
+    border-top: 1px solid var(--color-border-subtle);
 }
 
 .wdmsg-page__sidebar-title {
@@ -573,13 +575,14 @@ const supportedResources = [
     display: grid;
     gap: 0.35rem;
     font-size: 0.88rem;
+    color: var(--color-text-secondary);
 }
 
 .wdmsg-page__customer {
-    border: 1px solid color-mix(in oklab, var(--color-text-secondary) 22%, transparent);
+    border: 1px solid var(--color-border-subtle);
     border-radius: var(--radius-md);
     padding: 0.75rem;
-    background: color-mix(in oklab, var(--color-surface) 92%, transparent);
+    background: var(--color-muted-surface);
     text-align: center;
 }
 
@@ -605,12 +608,10 @@ const supportedResources = [
     align-items: center;
     justify-content: center;
     padding: clamp(0.65rem, 3vw, 1rem);
-    border: 1px solid color-mix(in oklab, var(--color-text-secondary) 28%, transparent);
+    border: 1px solid var(--color-border-strong);
     border-radius: var(--radius-md);
-    background: #fff;
-    box-shadow:
-        0 1px 2px rgba(15, 23, 42, 0.05),
-        0 8px 18px rgba(15, 23, 42, 0.06);
+    background: var(--color-input-bg);
+    box-shadow: var(--shadow-glass);
     overflow: hidden;
 }
 
@@ -628,7 +629,8 @@ const supportedResources = [
 .wdmsg-page__product-boxes {
     border-radius: var(--radius-md);
     overflow: hidden;
-    background: color-mix(in oklab, var(--color-surface) 92%, transparent);
+    background: var(--color-muted-surface);
+    border: 1px solid var(--color-border-subtle);
 }
 
 .wdmsg-page__product-boxes img {
@@ -637,9 +639,15 @@ const supportedResources = [
     height: auto;
 }
 
-::global(.theme-dark) .wdmsg-page__customer-logo-box {
-    border-color: color-mix(in oklab, var(--color-brand) 22%, var(--color-surface-border));
-    background: color-mix(in oklab, #ffffff 94%, #c5d8ff 6%);
+html.theme-dark .wdmsg-page__resources {
+    background: var(--color-input-bg);
+    border-color: var(--color-border);
+}
+
+html.theme-dark .wdmsg-page__customer,
+html.theme-dark .wdmsg-page__product-boxes {
+    background: var(--color-input-bg);
+    border-color: var(--color-border);
 }
 
 @media (max-width: 1100px) {
@@ -652,9 +660,5 @@ const supportedResources = [
     .wdmsg-page__intro-grid {
         grid-template-columns: 1fr;
     }
-}
-
-::global(.theme-dark) .wdmsg-page__alert-link {
-    color: #0b1f4d;
 }
 </style>

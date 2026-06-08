@@ -1,6 +1,6 @@
 /**
  * 31 pages publiques avec composant Vue (spec §18.1, router/index.js).
- * Hors redirections support : online-help, forums, faq, online-repository.
+ * Catalogue des pages publiques Vue (router/index.js).
  */
 import definitions from '../../../resources/data/public-site-pages.json';
 

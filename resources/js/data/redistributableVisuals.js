@@ -23,13 +23,13 @@ export const redistributableVisualRows = [
         key: 'logos',
         columns: 4,
         items: [
-            { ...visual('logo-windev.png', 'visual/logo-windev.png'), label: 'WINDEV logo' },
-            { ...visual('logo-webdev.png', 'visual/logo-webdev.png'), label: 'WEBDEV logo' },
+            { ...visual('logo-windev.png', 'visual/logo-windev.png'), label: 'Logo WINDEV' },
+            { ...visual('logo-webdev.png', 'visual/logo-webdev.png'), label: 'Logo WEBDEV' },
             {
                 ...visual('logo-windev-mobile.png', 'visual/logo-windev-mobile.png'),
-                label: 'WINDEV Mobile logo',
+                label: 'Logo WINDEV Mobile',
             },
-            { ...visual('logo-pcsoft.png', 'visual/logo-pcsoft.png'), label: 'PC SOFT logo' },
+            { ...visual('logo-pcsoft.png', 'visual/logo-pcsoft.png'), label: 'Logo PC SOFT' },
         ],
     },
     {
@@ -38,17 +38,17 @@ export const redistributableVisualRows = [
         items: [
             {
                 ...visual('package-windev.png', '2026/package-windev.png'),
-                label: 'WINDEV 2026 package',
+                label: 'Pack WINDEV 2026',
             },
             {
                 ...visual('package-webdev.png', '2026/package-webdev.png'),
-                label: 'WEBDEV 2026 package',
+                label: 'Pack WEBDEV 2026',
             },
             {
                 ...visual('package-windev-mobile.png', '2026/package-windev-mobile.png'),
-                label: 'WINDEV Mobile 2026 package',
+                label: 'Pack WINDEV Mobile 2026',
             },
-            { ...visual('logo-jaune.png', '2026/logo-jaune.png'), label: '2026 logo (yellow)' },
+            { ...visual('logo-jaune.png', '2026/logo-jaune.png'), label: 'Logo 2026 (jaune)' },
         ],
     },
     {
@@ -60,9 +60,9 @@ export const redistributableVisualRows = [
                     'packages-windev-webdev-windev-mobile-2026.png',
                     '2026/packages-windev-webdev-windev-mobile-2026.png',
                 ),
-                label: 'WINDEV, WEBDEV and WINDEV Mobile 2026 packages',
+                label: 'Packs WINDEV, WEBDEV et WINDEV Mobile 2026',
             },
-            { ...visual('hfsql.png', 'visual/hfsql.png'), label: 'HFSQL logo' },
+            { ...visual('hfsql.png', 'visual/hfsql.png'), label: 'Logo HFSQL' },
         ],
     },
 ];

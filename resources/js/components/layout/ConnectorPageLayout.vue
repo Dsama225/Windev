@@ -1,12 +1,12 @@
 <template>
     <AppNavbar />
     <main class="connector-page pb-10">
-        <section class="section-shell connector-page__suite-line" aria-label="Product positioning">
-            <p class="connector-page__suite-text">Cross-platform application development software suite</p>
+        <section class="section-shell connector-page__suite-line" aria-label="Positionnement produit">
+            <p class="connector-page__suite-text">Suite de logiciels de développement d'applications multi-plateformes</p>
             <figure v-if="crossPlatformImageUrl" class="connector-page__cross-platform">
                 <img
                     :src="crossPlatformImageUrl"
-                    alt="Platform icons: Windows, Java, PHP, HTML5, Linux, Android, iOS, and Web."
+                    alt="Icônes des plateformes : Windows, Java, PHP, HTML5, Linux, Android, iOS et Web."
                     width="520"
                     height="48"
                     loading="lazy"
@@ -22,29 +22,29 @@
                         <h1 :id="titleId" class="connector-page__title">{{ pageTitle }}</h1>
                     </article>
 
-                    <aside class="connector-page__side-col" aria-label="Related resources">
+                    <aside class="connector-page__side-col" aria-label="Ressources associées">
                         <figure v-if="packagesImageUrl" class="connector-page__packages">
                             <img
                                 :src="packagesImageUrl"
-                                alt="WINDEV 2026, WEBDEV 2026, and WINDEV Mobile 2026 product boxes."
+                                alt="Boîtes produits WINDEV 2026, WEBDEV 2026 et WINDEV Mobile 2026."
                                 loading="lazy"
                                 decoding="async"
                             />
                         </figure>
 
                         <p class="connector-page__side-copy">
-                            The <strong>WINDEV, WEBDEV and WINDEV Mobile</strong> environments are compatible and share
-                            project elements. It has never been easier to build multi-target applications.
+                            Les environnements <strong>WINDEV, WEBDEV et WINDEV Mobile</strong> sont compatibles et partagent
+                            les éléments de projet. Il n'a jamais été aussi simple de créer des applications multi-cibles.
                         </p>
 
-                        <section class="connector-page__customer" aria-label="Customer references">
-                            <h2 class="connector-page__customer-title">They are using WINDEV</h2>
+                        <section class="connector-page__customer" aria-label="Références clients">
+                            <h2 class="connector-page__customer-title">Ils utilisent WINDEV</h2>
                             <figure class="connector-page__customer-figure">
                                 <div class="connector-page__customer-logo-box">
                                     <img
                                         class="connector-page__customer-logo-img"
                                         :src="customerCarouselLogos[currentCustomerLogoIndex]"
-                                        alt="WINDEV customer logo"
+                                        alt="Logo client WINDEV"
                                         loading="lazy"
                                         decoding="async"
                                     />
@@ -83,7 +83,7 @@ const CONNECTOR_ASSET_FOLDERS = {
 
 const route = useRoute();
 const meta = computed(() => publicSitePageByRoute(route.name));
-const pageTitle = computed(() => meta.value?.title ?? 'Connector');
+const pageTitle = computed(() => meta.value?.title ?? 'Connecteur');
 const titleId = computed(() => `connector-title-${route.name}`);
 const assetFolder = computed(() => CONNECTOR_ASSET_FOLDERS[route.name] ?? 'Oracle');
 const crossPlatformImageUrl = computed(() => `/img/${assetFolder.value}/cross-plateformes.webp`);
@@ -126,7 +126,7 @@ onBeforeUnmount(() => {
     font-weight: 700;
     letter-spacing: 0.11em;
     text-transform: uppercase;
-    color: #5f6f8c;
+    color: var(--color-eyebrow);
 }
 .connector-page__cross-platform {
     margin: 0;

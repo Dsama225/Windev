@@ -1,0 +1,111 @@
+.pec-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0.75rem 1rem;
+    margin-bottom: 1rem;
+}
+
+.pec-header__hint {
+    margin: 0;
+    flex: 1 1 14rem;
+}
+
+.pec-view-toggle {
+    display: inline-flex;
+    border: 1px solid rgba(11, 31, 77, 0.15);
+    border-radius: 0.55rem;
+    overflow: hidden;
+}
+
+.pec-view-toggle__btn {
+    border: 0;
+    background: #fff;
+    padding: 0.4rem 0.65rem;
+    font-size: 1rem;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.pec-view-toggle__btn--active {
+    background: #0058d9;
+    color: #fff;
+}
+
+.pec-add {
+    margin-bottom: 1.25rem;
+    padding: 0.85rem;
+    border-radius: 0.75rem;
+    background: rgba(0, 88, 217, 0.05);
+}
+
+.pec-add__label {
+    margin: 0 0 0.5rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.pec-add__types {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.pec-add-type {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    border: 1px solid rgba(11, 31, 77, 0.12);
+    background: #fff;
+    border-radius: 0.55rem;
+    padding: 0.45rem 0.7rem;
+    cursor: pointer;
+}
+
+.pec-card {
+    border: 1px solid rgba(11, 31, 77, 0.1);
+    border-radius: 0.75rem;
+    padding: 0.85rem;
+    margin-bottom: 0.75rem;
+    background: #fff;
+}
+
+.pec-card--drag-over {
+    border-color: #0058d9;
+}
+
+.pec-card__head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.pec-card__actions {
+    display: flex;
+    gap: 0.25rem;
+    margin-left: auto;
+}
+
+.comp-badge {
+    display: inline-block;
+    padding: 0.15rem 0.45rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    background: #f2f4f7;
+}
+
+.pec-empty {
+    padding: 1.25rem;
+    text-align: center;
+    border: 1px dashed rgba(11, 31, 77, 0.15);
+    border-radius: 0.75rem;
+}
+
+.pec-form-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}

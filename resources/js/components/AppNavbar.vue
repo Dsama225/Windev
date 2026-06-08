@@ -12,7 +12,7 @@
                     @error="onBrandLogoError"
                 />
             </RouterLink>
-            <nav class="app-navbar__links" aria-label="Main menu">
+            <nav class="app-navbar__links" aria-label="Menu principal">
                 <div class="app-navbar__dropdown">
                     <button
                         type="button"
@@ -22,30 +22,30 @@
                         aria-haspopup="menu"
                         @click.stop="toggleDropdown('software')"
                     >
-                        Software
+                        Logiciels
                         <span class="app-navbar__caret" aria-hidden="true">▾</span>
                     </button>
                     <div
                         v-if="isDropdownOpen('software')"
                         class="app-navbar__dropdown-menu app-navbar__dropdown-menu--software"
                         role="menu"
-                        aria-label="Software pages"
+                        aria-label="Pages logiciels"
                     >
-                        <section class="app-navbar__menu-col" aria-label="Software suite">
-                            <p class="app-navbar__dropdown-title">Software Suite</p>
+                        <section class="app-navbar__menu-col" aria-label="Suite logicielle">
+                            <p class="app-navbar__dropdown-title">Suite logicielle</p>
                             <RouterLink class="app-navbar__dropdown-item" to="/software/windev">WINDEV</RouterLink>
                             <RouterLink class="app-navbar__dropdown-item" to="/software/webdev">WEBDEV</RouterLink>
                             <RouterLink class="app-navbar__dropdown-item" to="/software/windevmobile">WINDEV Mobile</RouterLink>
-                            <RouterLink class="app-navbar__dropdown-item" to="/software/new-features-2026">New Features of version 2026</RouterLink>
+                            <RouterLink class="app-navbar__dropdown-item" to="/software/new-features-2026">Nouveautés de la version 2026</RouterLink>
                             <div class="app-navbar__menu-sep" aria-hidden="true"></div>
                             <RouterLink class="app-navbar__dropdown-item" to="/software/wdmsg">WDMSG</RouterLink>
                             <RouterLink class="app-navbar__dropdown-item" to="/software/hfsql">HFSQL</RouterLink>
                             <RouterLink class="app-navbar__dropdown-item" to="/software/wlanguage">WLanguage</RouterLink>
-                            <RouterLink class="app-navbar__dropdown-item" to="/software/reports-queries">Reports &amp; Queries</RouterLink>
+                            <RouterLink class="app-navbar__dropdown-item" to="/software/reports-queries">Etats &amp; Requêtes</RouterLink>
                             <RouterLink class="app-navbar__dropdown-item" to="/software/clouds">Cloud</RouterLink>
                         </section>
-                        <section class="app-navbar__menu-col" aria-label="Native connectors">
-                            <p class="app-navbar__dropdown-title">Native Connectors</p>
+                        <section class="app-navbar__menu-col" aria-label="Connecteurs natifs">
+                            <p class="app-navbar__dropdown-title">Connecteurs natifs</p>
                             <RouterLink class="app-navbar__dropdown-item" to="/software/hfsql">HFSQL</RouterLink>
                             <RouterLink class="app-navbar__dropdown-item" to="/software/native-connectors/as400-system-i">AS/400 &amp; System i</RouterLink>
                             <RouterLink class="app-navbar__dropdown-item" to="/software/native-connectors/oracle">Oracle</RouterLink>
@@ -60,13 +60,13 @@
                             <RouterLink class="app-navbar__dropdown-item" to="/software/native-connectors/access">Access</RouterLink>
                             <RouterLink class="app-navbar__dropdown-item" to="/software/native-connectors/mariadb">MariaDB</RouterLink>
                         </section>
-                        <section class="app-navbar__menu-col" aria-label="Subscribe">
-                            <p class="app-navbar__dropdown-title">Subscribe</p>
-                            <RouterLink class="app-navbar__dropdown-item" to="/software/subscribe">Subscribe</RouterLink>
+                        <section class="app-navbar__menu-col" aria-label="Abonnement">
+                            <p class="app-navbar__dropdown-title">Abonnement</p>
+                            <RouterLink class="app-navbar__dropdown-item" to="/software/subscribe">S'abonner</RouterLink>
                         </section>
                     </div>
                 </div>
-                <RouterLink class="app-navbar__link" to="/software/subscribe">Subscribe</RouterLink>
+                <RouterLink class="app-navbar__link" to="/software/subscribe">S'abonner</RouterLink>
                 <div class="app-navbar__dropdown">
                     <button
                         type="button"
@@ -76,26 +76,26 @@
                         aria-haspopup="menu"
                         @click.stop="toggleDropdown('download')"
                     >
-                        Download
+                        Télécharger
                         <span class="app-navbar__caret" aria-hidden="true">▾</span>
                     </button>
                     <div
                         v-if="isDropdownOpen('download')"
                         class="app-navbar__dropdown-menu"
                         role="menu"
-                        aria-label="Download pages"
+                        aria-label="Pages de téléchargement"
                     >
-                        <p class="app-navbar__dropdown-title">Express version (free)</p>
+                        <p class="app-navbar__dropdown-title">Version Express (gratuite)</p>
                         <RouterLink class="app-navbar__dropdown-item" to="/download/windev-express">WINDEV Express</RouterLink>
                         <RouterLink class="app-navbar__dropdown-item" to="/download/windev-mobile-express">WINDEV Mobile Express</RouterLink>
-                        <p class="app-navbar__dropdown-title app-navbar__dropdown-title--spaced">Download center</p>
+                        <p class="app-navbar__dropdown-title app-navbar__dropdown-title--spaced">Centre de téléchargement</p>
                         <a
                             class="app-navbar__dropdown-item"
                             href="https://download.windev.com/uk/index.awp"
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            Subscription version
+                            Version abonnement
                         </a>
                         <a
                             class="app-navbar__dropdown-item"
@@ -103,68 +103,11 @@
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            Dongle version
+                            Version dongle
                         </a>
-                        <p class="app-navbar__dropdown-title app-navbar__dropdown-title--spaced">Resources</p>
-                        <RouterLink class="app-navbar__dropdown-item" to="/download/redistributable-images">Redistributable Images</RouterLink>
-                        <a class="app-navbar__dropdown-item" href="https://repository.windev.com/">Online repository</a>
-                    </div>
-                </div>
-                <div class="app-navbar__dropdown">
-                    <button
-                        type="button"
-                        class="app-navbar__link app-navbar__link--with-caret app-navbar__dropdown-trigger"
-                        :class="{ 'app-navbar__dropdown-trigger--active': isDropdownOpen('support') }"
-                        :aria-expanded="isDropdownOpen('support')"
-                        aria-haspopup="menu"
-                        @click.stop="toggleDropdown('support')"
-                    >
-                        Technical Support
-                        <span class="app-navbar__caret" aria-hidden="true">▾</span>
-                    </button>
-                    <div
-                        v-if="isDropdownOpen('support')"
-                        class="app-navbar__dropdown-menu"
-                        role="menu"
-                        aria-label="Technical support pages"
-                    >
-                        <p class="app-navbar__dropdown-title">Our services</p>
-                        <RouterLink class="app-navbar__dropdown-item" to="/support/technical-support">Technical support</RouterLink>
-                        <RouterLink class="app-navbar__dropdown-item" to="/support/direct-assistance">Direct assistance</RouterLink>
-                        <RouterLink class="app-navbar__dropdown-item" to="/support/remote-consulting">Remote consulting</RouterLink>
-                        <p class="app-navbar__dropdown-title app-navbar__dropdown-title--spaced">Community / Help</p>
-                        <a class="app-navbar__dropdown-item" href="https://help.windev.com/en-US/">Online help</a>
-                        <a class="app-navbar__dropdown-item" href="https://forum.pcsoft.fr/en-US/index.awp">Forums</a>
-                        <a class="app-navbar__dropdown-item" href="https://faq.windev.com/index.awp">FAQ</a>
-                        <a class="app-navbar__dropdown-item" href="https://repository.windev.com/">Online repository</a>
-                        <p class="app-navbar__dropdown-title app-navbar__dropdown-title--spaced">Additional information</p>
-                        <RouterLink class="app-navbar__dropdown-item" to="/support/resources">Resources</RouterLink>
-                    </div>
-                </div>
-                <div class="app-navbar__dropdown">
-                    <button
-                        type="button"
-                        class="app-navbar__link app-navbar__link--with-caret app-navbar__dropdown-trigger"
-                        :class="{ 'app-navbar__dropdown-trigger--active': isDropdownOpen('training') }"
-                        :aria-expanded="isDropdownOpen('training')"
-                        aria-haspopup="menu"
-                        @click.stop="toggleDropdown('training')"
-                    >
-                        Training
-                        <span class="app-navbar__caret" aria-hidden="true">▾</span>
-                    </button>
-                    <div
-                        v-if="isDropdownOpen('training')"
-                        class="app-navbar__dropdown-menu"
-                        role="menu"
-                        aria-label="Training pages"
-                    >
-                        <p class="app-navbar__dropdown-title">Train your developers</p>
-                        <RouterLink class="app-navbar__dropdown-item" to="/training/in-house">In-house training</RouterLink>
-                        <RouterLink class="app-navbar__dropdown-item" to="/support/remote-consulting">Remote consulting</RouterLink>
-                        <p class="app-navbar__dropdown-title app-navbar__dropdown-title--spaced">Education</p>
-                        <RouterLink class="app-navbar__dropdown-item" to="/training/education">Education</RouterLink>
-                        <RouterLink class="app-navbar__dropdown-item" to="/download/windev-express">Express version (free)</RouterLink>
+                        <p class="app-navbar__dropdown-title app-navbar__dropdown-title--spaced">Ressources</p>
+                        <RouterLink class="app-navbar__dropdown-item" to="/download/redistributable-images">Images redistribuables</RouterLink>
+                        <a class="app-navbar__dropdown-item" href="https://repository.windev.com/">Dépôt en ligne</a>
                     </div>
                 </div>
                 <div class="app-navbar__dropdown">
@@ -183,46 +126,36 @@
                         v-if="isDropdownOpen('pcsoft')"
                         class="app-navbar__dropdown-menu app-navbar__dropdown-menu--pcsoft"
                         role="menu"
-                        aria-label="PC SOFT pages"
+                        aria-label="Pages PC SOFT"
                     >
-                        <section class="app-navbar__menu-col" aria-label="Find information">
-                            <p class="app-navbar__dropdown-title">Find information</p>
-                            <RouterLink class="app-navbar__dropdown-item" to="/pc-soft">About PC SOFT</RouterLink>
-                            <RouterLink class="app-navbar__dropdown-item" to="/pc-soft/sitemap">Site map</RouterLink>
+                        <section class="app-navbar__menu-col" aria-label="Informations">
+                            <p class="app-navbar__dropdown-title">Informations</p>
+                            <RouterLink class="app-navbar__dropdown-item" to="/pc-soft">À propos de PC SOFT</RouterLink>
+                            <RouterLink class="app-navbar__dropdown-item" to="/pc-soft/sitemap">Plan du site</RouterLink>
                         </section>
-                        <section class="app-navbar__menu-col" aria-label="Contact us">
-                            <p class="app-navbar__dropdown-title">Contact us</p>
-                            <a
-                                class="app-navbar__dropdown-item"
-                                href="https://pcsoft.fr/fr-fr/contact"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                Contact form
-                            </a>
+                        <section class="app-navbar__menu-col" aria-label="Nous contacter">
+                            <p class="app-navbar__dropdown-title">Nous contacter</p>
+                            <RouterLink class="app-navbar__dropdown-item" to="/pc-soft/contact">
+                                Formulaire de contact
+                            </RouterLink>
                             <RouterLink class="app-navbar__dropdown-item" to="/pc-soft/distributors">
-                                International distributors
+                                Distributeurs internationaux
                             </RouterLink>
                         </section>
                     </div>
                 </div>
-                <a
-                    class="app-navbar__link"
-                    href="https://pcsoft.fr/fr-fr/contact"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Contact form
-                </a>
+                <RouterLink class="app-navbar__link" to="/pc-soft/contact">
+                    Formulaire de contact
+                </RouterLink>
             </nav>
             <div class="app-navbar__actions">
                 <button type="button" class="app-navbar__theme-chip" @click="themeStore.toggleTheme()">
-                    {{ themeStore.isDark ? 'Light' : 'Dark' }}
+                    {{ themeStore.isDark ? 'Clair' : 'Sombre' }}
                 </button>
                 <button
                     class="ui-button ui-button-ghost app-navbar__mobile-toggle"
                     :aria-expanded="uiStore.mobileMenuOpen"
-                    aria-label="Open mobile menu"
+                    aria-label="Ouvrir le menu mobile"
                     @click="uiStore.toggleMobileMenu()"
                 >
                     <span class="visually-hidden">Menu</span>
@@ -233,53 +166,32 @@
             </div>
         </div>
         <Transition name="fade">
-            <nav v-if="uiStore.mobileMenuOpen" class="app-navbar__mobile-links" aria-label="Mobile menu">
-                <RouterLink class="app-navbar__link" to="/software/windev" @click="uiStore.closeMobileMenu()">Software</RouterLink>
+            <nav v-if="uiStore.mobileMenuOpen" class="app-navbar__mobile-links" aria-label="Menu mobile">
+                <RouterLink class="app-navbar__link" to="/software/windev" @click="uiStore.closeMobileMenu()">Logiciels</RouterLink>
                 <RouterLink class="app-navbar__link app-navbar__link--sub" to="/software/webdev" @click="uiStore.closeMobileMenu()">- WEBDEV 2026</RouterLink>
                 <RouterLink class="app-navbar__link app-navbar__link--sub" to="/software/windevmobile" @click="uiStore.closeMobileMenu()">- WINDEV Mobile 2026</RouterLink>
-                <RouterLink class="app-navbar__link app-navbar__link--sub" to="/software/new-features-2026" @click="uiStore.closeMobileMenu()">- New Features 2026</RouterLink>
+                <RouterLink class="app-navbar__link app-navbar__link--sub" to="/software/new-features-2026" @click="uiStore.closeMobileMenu()">- Nouveautés 2026</RouterLink>
                 <RouterLink class="app-navbar__link app-navbar__link--sub" to="/software/hfsql" @click="uiStore.closeMobileMenu()">- HFSQL</RouterLink>
                 <RouterLink class="app-navbar__link app-navbar__link--sub" to="/software/wdmsg" @click="uiStore.closeMobileMenu()">- WDMSG</RouterLink>
                 <RouterLink class="app-navbar__link app-navbar__link--sub" to="/software/wlanguage" @click="uiStore.closeMobileMenu()">- WLanguage</RouterLink>
-                <RouterLink class="app-navbar__link app-navbar__link--sub" to="/software/reports-queries" @click="uiStore.closeMobileMenu()">- Reports &amp; Queries</RouterLink>
+                <RouterLink class="app-navbar__link app-navbar__link--sub" to="/software/reports-queries" @click="uiStore.closeMobileMenu()">- Etats &amp; Requêtes</RouterLink>
                 <RouterLink class="app-navbar__link app-navbar__link--sub" to="/software/clouds" @click="uiStore.closeMobileMenu()">- PCSCloud</RouterLink>
-                <RouterLink class="app-navbar__link" to="/software/subscribe" @click="uiStore.closeMobileMenu()">Subscribe</RouterLink>
-                <RouterLink class="app-navbar__link" to="/download/windev-express" @click="uiStore.closeMobileMenu()">Download</RouterLink>
+                <RouterLink class="app-navbar__link" to="/software/subscribe" @click="uiStore.closeMobileMenu()">S'abonner</RouterLink>
+                <RouterLink class="app-navbar__link" to="/download/windev-express" @click="uiStore.closeMobileMenu()">Télécharger</RouterLink>
                 <RouterLink class="app-navbar__link app-navbar__link--sub" to="/download/windev-mobile-express" @click="uiStore.closeMobileMenu()">- WINDEV Mobile Express</RouterLink>
-                <RouterLink class="app-navbar__link app-navbar__link--sub" to="/download/redistributable-images" @click="uiStore.closeMobileMenu()">- Redistributable Images</RouterLink>
-                <RouterLink class="app-navbar__link" to="/support/technical-support" @click="uiStore.closeMobileMenu()">Technical Support</RouterLink>
-                <RouterLink class="app-navbar__link app-navbar__link--sub" to="/support/direct-assistance" @click="uiStore.closeMobileMenu()">- Direct assistance</RouterLink>
-                <RouterLink class="app-navbar__link app-navbar__link--sub" to="/support/remote-consulting" @click="uiStore.closeMobileMenu()">- Remote consulting</RouterLink>
-                <RouterLink class="app-navbar__link app-navbar__link--sub" to="/support/resources" @click="uiStore.closeMobileMenu()">- Resources</RouterLink>
-                <RouterLink class="app-navbar__link" to="/training/in-house" @click="uiStore.closeMobileMenu()">Training</RouterLink>
-                <RouterLink class="app-navbar__link app-navbar__link--sub" to="/training/in-house" @click="uiStore.closeMobileMenu()">- In-house training</RouterLink>
-                <RouterLink class="app-navbar__link app-navbar__link--sub" to="/support/remote-consulting" @click="uiStore.closeMobileMenu()">- Remote consulting</RouterLink>
-                <RouterLink class="app-navbar__link app-navbar__link--sub" to="/training/education" @click="uiStore.closeMobileMenu()">- Education</RouterLink>
-                <RouterLink class="app-navbar__link app-navbar__link--sub" to="/download/windev-express" @click="uiStore.closeMobileMenu()">- Express version (free)</RouterLink>
+                <RouterLink class="app-navbar__link app-navbar__link--sub" to="/download/redistributable-images" @click="uiStore.closeMobileMenu()">- Images redistribuables</RouterLink>
                 <RouterLink class="app-navbar__link" to="/pc-soft" @click="uiStore.closeMobileMenu()">PC SOFT</RouterLink>
-                <RouterLink class="app-navbar__link app-navbar__link--sub" to="/pc-soft" @click="uiStore.closeMobileMenu()">- About PC SOFT</RouterLink>
-                <RouterLink class="app-navbar__link app-navbar__link--sub" to="/pc-soft/sitemap" @click="uiStore.closeMobileMenu()">- Site map</RouterLink>
-                <a
-                    class="app-navbar__link app-navbar__link--sub"
-                    href="https://pcsoft.fr/fr-fr/contact"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click="uiStore.closeMobileMenu()"
-                >
-                    - Contact form
-                </a>
-                <RouterLink class="app-navbar__link app-navbar__link--sub" to="/pc-soft/distributors" @click="uiStore.closeMobileMenu()">
-                    - International distributors
+                <RouterLink class="app-navbar__link app-navbar__link--sub" to="/pc-soft" @click="uiStore.closeMobileMenu()">- À propos de PC SOFT</RouterLink>
+                <RouterLink class="app-navbar__link app-navbar__link--sub" to="/pc-soft/sitemap" @click="uiStore.closeMobileMenu()">- Plan du site</RouterLink>
+                <RouterLink class="app-navbar__link app-navbar__link--sub" to="/pc-soft/contact" @click="uiStore.closeMobileMenu()">
+                    - Formulaire de contact
                 </RouterLink>
-                <a
-                    class="app-navbar__link"
-                    href="https://pcsoft.fr/fr-fr/contact"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    @click="uiStore.closeMobileMenu()"
-                >
-                    Contact form
-                </a>
+                <RouterLink class="app-navbar__link app-navbar__link--sub" to="/pc-soft/distributors" @click="uiStore.closeMobileMenu()">
+                    - Distributeurs internationaux
+                </RouterLink>
+                <RouterLink class="app-navbar__link" to="/pc-soft/contact" @click="uiStore.closeMobileMenu()">
+                    Formulaire de contact
+                </RouterLink>
             </nav>
         </Transition>
     </header>
@@ -336,21 +248,20 @@ onBeforeUnmount(() => {
 
 <style scoped>
 .app-navbar {
-    margin-top: 2%;
-    transform: translateY(2%);
+    margin-top: 0.75rem;
     position: relative;
     z-index: 4000;
 }
 
 .app-navbar__row {
-    background: #fbfcff;
-    border: 1px solid #dfe3ea;
+    background: var(--color-elevated-bg);
+    border: 1px solid var(--color-border);
     border-radius: 999px;
     padding: 1rem 1.5rem;
     display: flex;
     align-items: center;
     gap: 0.9rem;
-    box-shadow: 0 8px 22px rgba(23, 40, 72, 0.12);
+    box-shadow: var(--shadow-elevated);
     position: relative;
     z-index: 4001;
 }
@@ -370,6 +281,10 @@ onBeforeUnmount(() => {
     max-width: none;
 }
 
+html.theme-dark .app-navbar__brand-logo {
+    filter: brightness(0) invert(1);
+}
+
 .app-navbar__links {
     flex: 1;
     display: flex;
@@ -381,7 +296,7 @@ onBeforeUnmount(() => {
 
 .app-navbar__link {
     text-decoration: none;
-    color: #273755;
+    color: var(--color-text-primary);
     font-size: 0.9rem;
     font-weight: 600;
 }
@@ -397,12 +312,12 @@ onBeforeUnmount(() => {
 }
 
 .app-navbar__dropdown-trigger:hover {
-    background: #f8cbde;
+    background: var(--color-nav-accent-hover);
 }
 
 .app-navbar__dropdown-trigger--active {
-    background: #f8cbde;
-    color: #102a54;
+    background: var(--color-nav-accent-hover);
+    color: var(--color-text-primary);
     text-decoration: none;
 }
 
@@ -434,10 +349,10 @@ onBeforeUnmount(() => {
     width: max-content;
     max-width: min(86vw, 64rem);
     padding: 0.5rem;
-    border: 1px solid #dfe3ea;
+    border: 1px solid var(--color-border);
     border-radius: 0.6rem;
-    background: rgba(251, 252, 255, 0.92);
-    box-shadow: 0 12px 28px rgba(25, 47, 84, 0.16);
+    background: color-mix(in oklab, var(--color-elevated-bg) 94%, transparent);
+    box-shadow: var(--shadow-dropdown);
     opacity: 1;
     pointer-events: auto;
     transform: translateY(0);
@@ -474,7 +389,7 @@ onBeforeUnmount(() => {
     display: block;
     padding: 0.36rem 0.62rem;
     border-radius: 0.4rem;
-    color: #273755;
+    color: var(--color-text-primary);
     font-size: 0.76rem;
     font-weight: 600;
     text-decoration: none;
@@ -482,7 +397,7 @@ onBeforeUnmount(() => {
 }
 
 .app-navbar__dropdown-item:hover {
-    background: #eef2f8;
+    background: var(--color-hover-surface);
 }
 
 .app-navbar__dropdown-title {
@@ -492,19 +407,19 @@ onBeforeUnmount(() => {
     font-weight: 800;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: #5f6f8c;
+    color: var(--color-eyebrow);
     break-inside: avoid;
 }
 
 .app-navbar__dropdown-title--spaced {
     margin-top: 0.2rem;
     padding-top: 0.38rem;
-    border-top: 1px solid #e3e9f2;
+    border-top: 1px solid var(--color-border-subtle);
 }
 
 .app-navbar__menu-sep {
     margin: 0.28rem 0 0.35rem;
-    border-top: 1px solid #e3e9f2;
+    border-top: 1px solid var(--color-border-subtle);
 }
 
 @media (max-width: 1200px) {
@@ -531,13 +446,13 @@ onBeforeUnmount(() => {
 }
 
 .app-navbar__theme-chip {
-    border: 1px solid #c7ceda;
+    border: 1px solid var(--color-chip-border);
     border-radius: 999px;
     padding: 0.37rem 0.84rem;
-    background: #fff;
+    background: var(--color-chip-bg);
     font-weight: 700;
     font-size: 0.76rem;
-    color: #1f304f;
+    color: var(--color-text-primary);
 }
 
 .app-navbar__mobile-toggle {
@@ -580,9 +495,9 @@ onBeforeUnmount(() => {
     .app-navbar__mobile-links {
         margin-top: 0.45rem;
         padding: 0.65rem 0.8rem;
-        border: 1px solid #dfe3ea;
+        border: 1px solid var(--color-border);
         border-radius: 0.8rem;
-        background: #fbfcff;
+        background: var(--color-elevated-bg);
         display: flex;
         flex-direction: column;
         gap: 0.45rem;

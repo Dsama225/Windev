@@ -1,14 +1,14 @@
 <template>
     <AppNavbar />
     <main class="home-page pb-10">
-        <section class="section-shell home-page__suite-line" aria-label="Product positioning">
+        <section class="section-shell home-page__suite-line" aria-label="Positionnement produit">
             <p class="home-page__suite-text">
-                <strong>Cross-platform</strong> application development software suite
+                Suite logicielle de développement d'applications <strong>multiplateformes</strong>
             </p>
             <figure class="home-page__suite-platforms">
                 <img
                     :src="homeSuiteCrossPlatform.src"
-                    alt="Integrated software for developing cross-platform applications"
+                    alt="Logiciels intégrés pour développer des applications multiplateformes"
                     width="283"
                     height="48"
                     loading="eager"
@@ -18,13 +18,21 @@
             </figure>
         </section>
 
-        <section class="section-shell home-page__hero" aria-label="WINDEV Suite hero">
+        <section class="section-shell home-page__hero" aria-label="Carrousel WINDEV Suite">
             <HomeHeroCarousel />
         </section>
 
+        <section
+            v-if="cmsComponents.length"
+            class="section-shell home-page__cms"
+            aria-label="Contenu éditorial"
+        >
+            <PageComponents :components="cmsComponents" />
+        </section>
+
         <section class="section-shell home-page__platform" aria-labelledby="home-platform-title">
-            <p class="home-page__platform-eyebrow">Integrated DevOps platform</p>
-            <h1 id="home-platform-title" class="home-page__platform-title">DEVELOP 10 TIMES FASTER</h1>
+            <p class="home-page__platform-eyebrow">Plateforme DevOps intégrée</p>
+            <h1 id="home-platform-title" class="home-page__platform-title">DÉVELOPPEZ 10 FOIS PLUS VITE</h1>
 
             <div class="home-page__product-grid">
                 <article
@@ -36,7 +44,7 @@
                         <img
                             class="home-page__product-logo"
                             :src="product.logo.src"
-                            :alt="`${product.title} logo`"
+                            :alt="`Logo ${product.title}`"
                             loading="lazy"
                             decoding="async"
                             @error="onImageError($event, product.logo.fallback)"
@@ -59,13 +67,13 @@
 
             <p class="home-page__platform-cta-wrap">
                 <RouterLink class="home-page__platform-cta" to="/software/new-features-2026">
-                    See what's new in version 2026
+                    Découvrir les nouveautés de la version 2026
                 </RouterLink>
             </p>
         </section>
 
-        <section class="section-shell home-page__customers" aria-label="Customer references">
-            <p class="home-page__customers-title">They are using WINDEV</p>
+        <section class="section-shell home-page__customers" aria-label="Références clients">
+            <p class="home-page__customers-title">Ils utilisent WINDEV</p>
             <div class="home-page__customers-strip">
                 <img
                     class="home-page__customers-logo"
@@ -81,20 +89,20 @@
         <section class="section-shell home-page__cross" aria-labelledby="home-cross-title">
             <div class="home-page__cross-card">
                 <div class="home-page__cross-copy">
-                    <h2 id="home-cross-title" class="home-page__cross-title">Native cross-platform applications</h2>
+                    <h2 id="home-cross-title" class="home-page__cross-title">Applications natives multiplateformes</h2>
                     <p class="home-page__cross-body">
-                        One code, same interface, same reports… for all target platforms.
+                        Un seul code, la même interface, les mêmes états… pour toutes les plateformes cibles.
                     </p>
                     <p class="home-page__cross-body">
-                        With WINDEV, WEBDEV and WINDEV Mobile, the same source application runs natively on Windows,
-                        Linux, Android, iOS, Windows 10 IoT, Internet, SaaS, and more.
+                        Avec WINDEV, WEBDEV et WINDEV Mobile, la même application source s'exécute nativement sous
+                        Windows, Linux, Android, iOS, Windows 10 IoT, Internet, SaaS, et bien plus encore.
                     </p>
-                    <RouterLink class="home-page__cross-link" to="/software/windev">Learn more</RouterLink>
+                    <RouterLink class="home-page__cross-link" to="/software/windev">En savoir plus</RouterLink>
                 </div>
                 <figure class="home-page__cross-figure">
                     <img
                         :src="homeCrossDevices.src"
-                        alt="Cross-platform applications on multiple devices"
+                        alt="Applications multiplateformes sur plusieurs appareils"
                         loading="lazy"
                         decoding="async"
                         @error="onImageError($event, homeCrossDevices.fallback)"
@@ -103,11 +111,11 @@
             </div>
         </section>
 
-        <section class="section-shell home-page__news" aria-label="Version 2026 news">
+        <section class="section-shell home-page__news" aria-label="Actualités version 2026">
             <div class="home-page__news-card">
-                <h2 class="home-page__news-title">Version 2026 is now available!</h2>
+                <h2 class="home-page__news-title">La version 2026 est disponible !</h2>
                 <p class="home-page__news-actions">
-                    <RouterLink class="home-page__news-link" to="/software/new-features-2026">Learn more</RouterLink>
+                    <RouterLink class="home-page__news-link" to="/software/new-features-2026">En savoir plus</RouterLink>
                     <span aria-hidden="true"> · </span>
                     <a
                         class="home-page__news-link"
@@ -115,10 +123,10 @@
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        Download
+                        Télécharger
                     </a>
                     <span aria-hidden="true"> · </span>
-                    <RouterLink class="home-page__news-link" to="/software/subscribe">Subscribe</RouterLink>
+                    <RouterLink class="home-page__news-link" to="/software/subscribe">S'abonner</RouterLink>
                 </p>
             </div>
         </section>
@@ -126,10 +134,10 @@
         <section class="section-shell home-page__databases" aria-labelledby="home-databases-title">
             <div class="home-page__databases-card">
                 <div class="home-page__databases-copy">
-                    <h2 id="home-databases-title" class="home-page__databases-title">Access all databases</h2>
+                    <h2 id="home-databases-title" class="home-page__databases-title">Accédez à toutes les bases de données</h2>
                     <p class="home-page__databases-body">
-                        WINDEV, WEBDEV and WINDEV Mobile come with a powerful, free-to-deploy database (local,
-                        network, mobile, Cloud, Client/Server, Cluster):
+                        WINDEV, WEBDEV et WINDEV Mobile incluent une base de données puissante, gratuite à déployer
+                        (locale, réseau, mobile, Cloud, Client/Serveur, Cluster) :
                     </p>
                     <p class="home-page__databases-list">
                         <RouterLink class="home-page__inline-link" to="/software/hfsql">HFSQL</RouterLink>,
@@ -167,13 +175,13 @@
                         <RouterLink class="home-page__inline-link" to="/software/native-connectors/mariadb">
                             MariaDB
                         </RouterLink>
-                        and more.
+                        et bien d'autres.
                     </p>
                 </div>
                 <figure class="home-page__databases-figure">
                     <img
                         :src="homeDatabases.src"
-                        alt="Database connectors"
+                        alt="Connecteurs de bases de données"
                         loading="lazy"
                         decoding="async"
                         @error="onImageError($event, homeDatabases.fallback)"
@@ -182,7 +190,7 @@
             </div>
         </section>
 
-        <section class="section-shell home-page__suite-banner" aria-label="WINDEV Suite subscription">
+        <section class="section-shell home-page__suite-banner" aria-label="Abonnement WINDEV Suite">
             <div class="home-page__suite-banner-inner">
                 <figure class="home-page__suite-packages">
                     <img
@@ -202,14 +210,14 @@
                         decoding="async"
                         @error="onImageError($event, homeSuiteLogo.fallback)"
                     />
-                    <RouterLink class="home-page__suite-subscribe" to="/software/subscribe">Subscribe</RouterLink>
+                    <RouterLink class="home-page__suite-subscribe" to="/software/subscribe">S'abonner</RouterLink>
                 </div>
             </div>
         </section>
 
-        <section class="section-shell home-page__express" aria-label="Free express versions">
+        <section class="section-shell home-page__express" aria-label="Versions Express gratuites">
             <p class="home-page__express-text">
-                Try WINDEV and WINDEV Mobile — Download the FREE and TIME-UNLIMITED version.
+                Essayez WINDEV et WINDEV Mobile — Téléchargez la version GRATUITE et ILLIMITÉE dans le temps.
             </p>
             <p class="home-page__express-links">
                 <RouterLink class="home-page__express-link" to="/download/windev-express">WINDEV Express</RouterLink>
@@ -228,6 +236,8 @@ import { computed, onBeforeUnmount, onMounted, ref } from 'vue';
 import AppNavbar from '../components/AppNavbar.vue';
 import AppFooter from '../components/AppFooter.vue';
 import HomeHeroCarousel from '../components/HomeHeroCarousel.vue';
+import PageComponents from '../components/cms/PageComponents.vue';
+import { useCmsPage } from '../composables/useCmsPage';
 import {
     homeCrossDevices,
     homeCustomerLogos,
@@ -238,6 +248,9 @@ import {
     homeSuiteLogo,
 } from '../data/homePageImages.js';
 import { applyImageFallback } from '../utils/pcsoftImages.js';
+
+const { page: cmsPage } = useCmsPage('home');
+const cmsComponents = computed(() => cmsPage.value?.payload?.components ?? []);
 
 const customerLogoMeta = [
     { alt: 'Porsche' },
@@ -260,7 +273,7 @@ const customerLogoMeta = [
 const customerLogos = homeCustomerLogos.map((logo, index) => ({
     src: logo.src,
     fallback: logo.fallback,
-    alt: customerLogoMeta[index]?.alt ?? 'WINDEV customer logo',
+    alt: customerLogoMeta[index]?.alt ?? 'Logo client WINDEV',
 }));
 
 const currentCustomerLogoIndex = ref(0);
@@ -283,7 +296,7 @@ function productRoute(id) {
 }
 
 onMounted(() => {
-    document.title = 'PC SOFT WINDEV: Develop 10 times faster';
+    document.title = 'PC SOFT WINDEV : Développez 10 fois plus vite';
     customerCarouselTimer = window.setInterval(() => {
         currentCustomerLogoIndex.value = (currentCustomerLogoIndex.value + 1) % customerLogos.length;
     }, 2200);

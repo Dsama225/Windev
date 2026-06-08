@@ -4,7 +4,7 @@
         class="home-hero-carousel"
         role="region"
         aria-roledescription="carousel"
-        aria-label="Promotional banners"
+        aria-label="Bannières promotionnelles"
         tabindex="0"
         @mouseenter="pauseHeroCarousel"
         @mouseleave="onHeroCarouselMouseLeave"
@@ -51,13 +51,13 @@
                         </div>
                         <div class="home-hero-carousel__buttons">
                             <RouterLink class="home-hero-carousel__btn home-hero-carousel__btn--primary" to="/software/windev">
-                                Overview
+                                Présentation
                             </RouterLink>
                             <RouterLink class="home-hero-carousel__btn" to="/software/new-features-2026">
-                                New features
+                                Nouveautés
                             </RouterLink>
                             <RouterLink class="home-hero-carousel__btn home-hero-carousel__btn--dark" to="/software/subscribe">
-                                Subscribe
+                                S'abonner
                             </RouterLink>
                         </div>
                     </div>
@@ -77,7 +77,7 @@
                         <img
                             class="home-hero-carousel__version-image"
                             :src="homeSeminar.src"
-                            alt="Version 2026 is now available — WINDEV, WEBDEV and WINDEV Mobile"
+                            alt="La version 2026 est disponible — WINDEV, WEBDEV et WINDEV Mobile"
                             loading="eager"
                             decoding="async"
                             @error="onImageError($event, homeSeminar.fallback)"
@@ -86,7 +86,7 @@
                 </RouterLink>
             </Transition>
         </div>
-        <div class="home-hero-carousel__dots" role="tablist" aria-label="Choose banner">
+        <div class="home-hero-carousel__dots" role="tablist" aria-label="Choisir une bannière">
             <button
                 v-for="(slide, index) in heroSlides"
                 :id="`home-hero-tab-${slide.id}`"
@@ -325,12 +325,12 @@ onBeforeUnmount(() => {
 }
 
 .home-hero-carousel:focus-visible {
-    outline: 2px solid #0b56bf;
+    outline: 2px solid var(--color-brand);
     outline-offset: 3px;
 }
 
 .home-hero-carousel__dot:focus-visible {
-    outline: 2px solid #0b56bf;
+    outline: 2px solid var(--color-brand);
     outline-offset: 2px;
 }
 
@@ -394,11 +394,11 @@ onBeforeUnmount(() => {
     justify-content: center;
     padding: 0.4rem 0.95rem;
     border-radius: 999px;
-    border: 1px solid rgba(255, 255, 255, 0.72);
-    background: rgba(255, 255, 255, 0.52);
+    border: 1px solid color-mix(in oklab, var(--color-surface-border) 80%, transparent);
+    background: color-mix(in oklab, var(--color-input-bg) 55%, transparent);
     backdrop-filter: blur(10px) saturate(140%);
     -webkit-backdrop-filter: blur(10px) saturate(140%);
-    color: #1a3a72;
+    color: var(--color-text-primary);
     font-size: 0.78rem;
     font-weight: 700;
     text-decoration: none;
@@ -406,12 +406,12 @@ onBeforeUnmount(() => {
 }
 
 .home-hero-carousel__btn:hover {
-    background: rgba(255, 255, 255, 0.82);
+    background: color-mix(in oklab, var(--color-input-bg) 82%, transparent);
 }
 
 .home-hero-carousel__btn--primary {
-    background: rgba(255, 255, 255, 0.78);
-    border-color: rgba(255, 255, 255, 0.9);
+    background: color-mix(in oklab, var(--color-input-bg) 78%, transparent);
+    border-color: var(--color-surface-border);
 }
 
 .home-hero-carousel__btn--dark {

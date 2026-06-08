@@ -1,14 +1,14 @@
 <template>
     <AppNavbar />
     <main class="nf-page pb-10">
-        <section class="section-shell nf-page__suite-line" aria-label="Product positioning">
+        <section class="section-shell nf-page__suite-line" aria-label="Positionnement produit">
             <p class="nf-page__suite-text">
-                <strong>Cross-platform</strong> application development software suite
+                Suite de logiciels de développement d'applications <strong>multi-plateformes</strong>
             </p>
             <figure class="nf-page__suite-platforms">
                 <img
                     :src="homeSuiteCrossPlatform.src"
-                    alt="Integrated software for developing cross-platform applications"
+                    alt="Logiciels intégrés pour le développement d'applications multi-plateformes"
                     width="283"
                     height="48"
                     loading="eager"
@@ -18,12 +18,12 @@
             </figure>
         </section>
 
-        <section class="section-shell nf-page__hero" aria-label="WINDEV Suite hero">
+        <section class="section-shell nf-page__hero" aria-label="Suite WINDEV">
             <HomeHeroCarousel />
         </section>
 
-        <section class="section-shell nf-page__strip" aria-label="Documentation shortcuts">
-            <p class="nf-page__strip-text">Discover the 900 new features in version 2026</p>
+        <section class="section-shell nf-page__strip" aria-label="Raccourcis documentation">
+            <p class="nf-page__strip-text">Découvrez les 900 nouveautés de la version 2026</p>
             <div class="nf-page__strip-actions">
                 <a
                     class="nf-page__pill nf-page__pill--primary"
@@ -41,16 +41,16 @@
                 >
                     PDF
                 </a>
-                <RouterLink class="nf-page__pill" to="/software/subscribe">Subscribe</RouterLink>
+                <RouterLink class="nf-page__pill" to="/software/subscribe">S'abonner</RouterLink>
             </div>
         </section>
 
-        <section class="section-shell nf-page__figure-hero" aria-label="New features 2026">
+        <section class="section-shell nf-page__figure-hero" aria-label="Nouveautés 2026">
             <figure class="nf-page__hero-figure">
                 <img
                     class="nf-page__hero-image"
                     :src="newFeaturesHero.src"
-                    alt="Discover the 900 new features in WINDEV, WEBDEV and WINDEV Mobile 2026"
+                    alt="Découvrez les 900 nouveautés de WINDEV, WEBDEV et WINDEV Mobile 2026"
                     loading="eager"
                     decoding="async"
                     @error="onImageError($event, newFeaturesHero.fallback)"
@@ -60,8 +60,8 @@
 
         <section class="section-shell nf-page__layout">
             <div class="nf-page__main">
-                <aside class="nf-page__toc-mobile" aria-label="On this page">
-                    <p class="nf-page__toc-label">On this page</p>
+                <aside class="nf-page__toc-mobile glass-frame" aria-label="Sur cette page">
+                    <p class="nf-page__toc-label">Sur cette page</p>
                     <nav class="nf-page__toc-nav">
                         <a
                             v-for="item in newFeaturesToc"
@@ -90,7 +90,7 @@
                             <p v-if="section.titleSub" class="nf-page__section-subtitle">{{ section.titleSub }}</p>
                         </div>
                         <div class="nf-page__section-meta">
-                            <span class="nf-page__badge-range">New features {{ section.badge }}</span>
+                            <span class="nf-page__badge-range">Nouveautés {{ section.badge }}</span>
                             <span
                                 v-for="product in section.products"
                                 :key="`${section.id}-${product}`"
@@ -126,7 +126,7 @@
                         v-if="section.video || section.image"
                         class="nf-page__section-media"
                         :class="{ 'nf-page__section-media--compact-image': section.imageCompact }"
-                        :aria-label="section.video ? 'Demonstration video' : undefined"
+                        :aria-label="section.video ? 'Vidéo de démonstration' : undefined"
                     >
                         <video
                             v-if="section.video"
@@ -211,7 +211,7 @@
                     </div>
                 </article>
 
-                <section class="nf-page__docs" aria-labelledby="nf-docs-title">
+                <section class="nf-page__docs glass-frame" aria-labelledby="nf-docs-title">
                     <h2 id="nf-docs-title" class="nf-page__docs-title">Documentation</h2>
                     <ul class="nf-page__docs-list">
                         <li>
@@ -222,7 +222,7 @@
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                New features 2026 (PDF)
+                                Nouveautés 2026 (PDF)
                             </a>
                             <span class="nf-page__docs-sep">·</span>
                             <a
@@ -258,9 +258,9 @@
                 </section>
             </div>
 
-            <aside class="nf-page__sidebar" aria-label="Navigation and related links">
-                <nav class="nf-page__toc-desktop" aria-label="On this page">
-                    <p class="nf-page__sidebar-title">On this page</p>
+            <aside class="nf-page__sidebar glass-frame" aria-label="Navigation et liens associés">
+                <nav class="nf-page__toc-desktop" aria-label="Sur cette page">
+                    <p class="nf-page__sidebar-title">Sur cette page</p>
                     <a
                         v-for="item in newFeaturesToc"
                         :key="`toc-${item.id}`"
@@ -282,11 +282,11 @@
                 </figure>
 
                 <p class="nf-page__sidebar-text">
-                    Your WINDEV code, windows and data are compatible with WEBDEV and WINDEV Mobile.
+                    Votre code WINDEV, vos fenêtres et vos données sont compatibles avec WEBDEV et WINDEV Mobile.
                 </p>
 
                 <div class="nf-page__sidebar-block">
-                    <h3 class="nf-page__sidebar-heading">Products</h3>
+                    <h3 class="nf-page__sidebar-heading">Produits</h3>
                     <ul class="nf-page__sidebar-list">
                         <li><RouterLink class="nf-page__text-link" to="/software/windev">WINDEV</RouterLink></li>
                         <li><RouterLink class="nf-page__text-link" to="/software/webdev">WEBDEV</RouterLink></li>
@@ -299,9 +299,9 @@
                 </div>
 
                 <div class="nf-page__sidebar-block">
-                    <h3 class="nf-page__sidebar-heading">Subscribe &amp; download</h3>
+                    <h3 class="nf-page__sidebar-heading">S'abonner et télécharger</h3>
                     <ul class="nf-page__sidebar-list">
-                        <li><RouterLink class="nf-page__text-link" to="/software/subscribe">Subscribe</RouterLink></li>
+                        <li><RouterLink class="nf-page__text-link" to="/software/subscribe">S'abonner</RouterLink></li>
                         <li>
                             <RouterLink class="nf-page__text-link" to="/download/windev-express">WINDEV Express</RouterLink>
                         </li>
@@ -314,7 +314,7 @@
                 </div>
 
                 <div class="nf-page__customer">
-                    <p class="nf-page__customer-title">They are using WINDEV</p>
+                    <p class="nf-page__customer-title">Ils utilisent WINDEV</p>
                     <CustomerLogoCarousel variant="compact" />
                 </div>
             </aside>
@@ -359,17 +359,18 @@ function sectionToneClass(section) {
     if (section.tone === 'yellow') {
         return 'nf-page__section--yellow';
     }
-    return 'nf-page__section--white';
+    return 'nf-page__section--white glass-frame';
 }
 
 onMounted(() => {
-    document.title = 'New features 2026 — WINDEV, WEBDEV, WINDEV Mobile | PC SOFT';
+    document.title = 'Nouveautés 2026 — WINDEV, WEBDEV, WINDEV Mobile | PC SOFT';
 });
 </script>
 
 <style scoped>
 .nf-page {
-    color: #1a2744;
+    color: var(--color-text-primary);
+    background: transparent;
 }
 
 .nf-page__strip {
@@ -381,17 +382,15 @@ onMounted(() => {
     margin-top: 0.75rem;
     margin-bottom: 0.5rem;
     padding: 0.85rem 1rem;
-    border-radius: 1rem;
-    background: #f4f6fa;
-    border: 1px solid #dbe1ec;
     text-align: center;
+    background: transparent;
 }
 
 .nf-page__strip-text {
     margin: 0;
     font-size: 0.9rem;
     font-weight: 800;
-    color: #1a2744;
+    color: var(--color-text-primary);
 }
 
 .nf-page__strip-actions {
@@ -410,7 +409,7 @@ onMounted(() => {
 .nf-page__suite-text {
     margin: 0 0 0.45rem;
     font-size: clamp(0.95rem, 2vw, 1.15rem);
-    color: #1a2744;
+    color: var(--color-text-primary);
 }
 
 .nf-page__suite-platforms {
@@ -427,6 +426,7 @@ onMounted(() => {
 .nf-page__figure-hero {
     margin-top: 1.9rem;
     margin-bottom: 4%;
+    background: transparent;
 }
 
 .nf-page__hero-figure {
@@ -447,26 +447,26 @@ onMounted(() => {
     align-items: center;
     padding: 0.4rem 0.95rem;
     border-radius: 999px;
-    border: 2px solid #1a2744;
-    background: #fff;
-    color: #1a2744;
+    border: 2px solid var(--color-text-primary);
+    background: color-mix(in oklab, var(--color-surface) 88%, var(--color-input-bg));
+    color: var(--color-text-primary);
     font-size: 0.78rem;
     font-weight: 700;
     text-decoration: none;
 }
 
 .nf-page__pill:hover {
-    background: #ffe566;
-    border-color: #e0c018;
+    background: var(--color-accent);
+    border-color: color-mix(in oklab, var(--color-accent) 70%, var(--color-text-primary));
 }
 
 .nf-page__pill--primary {
-    background: #ffe566;
-    border-color: #1a2744;
+    background: var(--color-accent);
+    border-color: var(--color-text-primary);
 }
 
 .nf-page__pill--primary:hover {
-    background: #f5d020;
+    background: color-mix(in oklab, var(--color-accent) 85%, #f5d020);
 }
 
 .nf-page__layout {
@@ -485,9 +485,6 @@ onMounted(() => {
 .nf-page__toc-mobile {
     display: none;
     padding: 0.85rem 1rem;
-    border-radius: 1rem;
-    background: #fff;
-    border: 1px solid #dbe1ec;
 }
 
 .nf-page__toc-label,
@@ -497,7 +494,7 @@ onMounted(() => {
     font-weight: 800;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: #5f6f8c;
+    color: var(--color-eyebrow);
 }
 
 .nf-page__toc-nav {
@@ -509,7 +506,7 @@ onMounted(() => {
 .nf-page__toc-link {
     font-size: 0.78rem;
     font-weight: 700;
-    color: #0b56bf;
+    color: var(--color-brand);
     text-decoration: none;
 }
 
@@ -519,24 +516,23 @@ onMounted(() => {
 
 .nf-page__section {
     scroll-margin-top: 5.5rem;
-    border-radius: 1.35rem;
-    border: 1px solid #dbe1ec;
     overflow: hidden;
 }
 
 .nf-page__section--white {
-    background: #fff;
-    box-shadow: 0 6px 18px rgba(22, 38, 68, 0.06);
+    border-color: var(--color-surface-border);
 }
 
 .nf-page__section--yellow {
+    border-radius: var(--radius-xl);
+    border: 1px solid #e8d878;
     background: linear-gradient(145deg, #fff9d6 0%, #fff4b8 100%);
-    border-color: #e8d878;
 }
 
 .nf-page__section--dark {
+    border-radius: var(--radius-xl);
+    border: 1px solid #0a2558;
     background: linear-gradient(145deg, #0d2d6e 0%, #1a4a8e 100%);
-    border-color: #0a2558;
     color: #eef3ff;
 }
 
@@ -556,7 +552,7 @@ onMounted(() => {
 }
 
 .nf-page__section--dark .nf-page__meta-link {
-    color: #ffe566;
+    color: var(--color-accent);
 }
 
 .nf-page__section--dark .nf-page__code {
@@ -577,14 +573,14 @@ onMounted(() => {
     font-weight: 900;
     text-transform: uppercase;
     line-height: 1.2;
-    color: #123d8c;
+    color: var(--color-brand-strong);
 }
 
 .nf-page__section-subtitle {
     margin: 0.2rem 0 0;
     font-size: 1rem;
     font-weight: 700;
-    color: #42526d;
+    color: var(--color-text-secondary);
 }
 
 .nf-page__section--dark .nf-page__section-subtitle {
@@ -601,10 +597,10 @@ onMounted(() => {
 .nf-page__badge-range {
     padding: 0.25rem 0.55rem;
     border-radius: 0.35rem;
-    background: #eef3fb;
+    background: color-mix(in oklab, var(--color-surface) 82%, var(--color-hover-surface));
     font-size: 0.72rem;
     font-weight: 800;
-    color: #123d8c;
+    color: var(--color-brand-strong);
 }
 
 .nf-page__product-tag {
@@ -638,7 +634,7 @@ onMounted(() => {
 .nf-page__meta-link {
     font-size: 0.82rem;
     font-weight: 800;
-    color: #0b56bf;
+    color: var(--color-brand);
     text-decoration: none;
 }
 
@@ -653,11 +649,16 @@ onMounted(() => {
     background: #0a0a0a;
 }
 
+.nf-page__layout,
+.nf-page__main {
+    background: transparent;
+}
+
 .nf-page__section-media--compact-image {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: #fff;
+    background: transparent;
 }
 
 .nf-page__section-media--compact-image .nf-page__section-video {
@@ -688,7 +689,7 @@ onMounted(() => {
 .nf-page__subsection {
     padding-top: 0.85rem;
     margin-top: 0.85rem;
-    border-top: 1px solid rgba(30, 45, 80, 0.1);
+    border-top: 1px solid var(--color-border);
 }
 
 .nf-page__section--dark .nf-page__subsection {
@@ -705,14 +706,14 @@ onMounted(() => {
     margin: 0 0 0.45rem;
     font-size: 1rem;
     font-weight: 800;
-    color: #1a2744;
+    color: var(--color-text-primary);
 }
 
 .nf-page__paragraph {
     margin: 0 0 0.5rem;
     font-size: 0.9rem;
     line-height: 1.65;
-    color: #42526d;
+    color: var(--color-text-secondary);
 }
 
 .nf-page__list {
@@ -720,19 +721,19 @@ onMounted(() => {
     padding-left: 1.2rem;
     font-size: 0.88rem;
     line-height: 1.55;
-    color: #42526d;
+    color: var(--color-text-secondary);
 }
 
 .nf-page__code {
     margin: 0.5rem 0 0.75rem;
     padding: 0.75rem 1rem;
     border-radius: 0.65rem;
-    background: #f4f6fa;
-    border: 1px solid #dbe1ec;
+    background: color-mix(in oklab, var(--color-surface) 90%, var(--color-muted-surface));
+    border: 1px solid var(--color-surface-border);
     overflow-x: auto;
     font-size: 0.78rem;
     line-height: 1.5;
-    color: #1a2744;
+    color: var(--color-text-primary);
 }
 
 .nf-page__code code {
@@ -744,7 +745,7 @@ onMounted(() => {
     margin: 0.75rem 0 0;
     border-radius: 0.65rem;
     overflow: hidden;
-    border: 1px solid rgba(30, 45, 80, 0.08);
+    border: 1px solid var(--color-border);
 }
 
 .nf-page__subsection-media-img {
@@ -756,9 +757,6 @@ onMounted(() => {
 
 .nf-page__docs {
     padding: 1rem 1.15rem;
-    border-radius: 1.35rem;
-    background: #fff;
-    border: 1px solid #dbe1ec;
 }
 
 .nf-page__docs-title {
@@ -785,7 +783,7 @@ onMounted(() => {
 }
 
 .nf-page__docs-sep {
-    color: #9aa8bc;
+    color: var(--color-eyebrow);
 }
 
 .nf-page__flag {
@@ -793,7 +791,7 @@ onMounted(() => {
 }
 
 .nf-page__text-link {
-    color: #0b56bf;
+    color: var(--color-brand);
     font-weight: 700;
     text-decoration: none;
 }
@@ -808,10 +806,6 @@ onMounted(() => {
     display: grid;
     gap: 1rem;
     padding: clamp(0.85rem, 1.5vw, 1.1rem);
-    border-radius: 1.35rem;
-    background: #fff;
-    border: 1px solid #dbe1ec;
-    box-shadow: 0 6px 18px rgba(22, 38, 68, 0.06);
 }
 
 .nf-page__toc-desktop {
@@ -831,7 +825,7 @@ onMounted(() => {
     margin: 0;
     font-size: 0.84rem;
     line-height: 1.55;
-    color: #42526d;
+    color: var(--color-text-secondary);
 }
 
 .nf-page__sidebar-heading {
@@ -850,13 +844,41 @@ onMounted(() => {
     gap: 0.35rem;
 }
 
+.nf-page__customer {
+    padding: 0;
+}
+
 .nf-page__customer-title {
     margin: 0 0 0.45rem;
     font-size: 0.72rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.06em;
-    color: #5f6f8c;
+    color: var(--color-eyebrow);
+}
+
+html.theme-dark .nf-page__section--yellow {
+    background: linear-gradient(
+        145deg,
+        color-mix(in oklab, var(--color-accent) 28%, var(--color-bg-end)) 0%,
+        color-mix(in oklab, var(--color-accent) 16%, var(--color-bg-start)) 100%
+    );
+    border: 1px solid color-mix(in oklab, var(--color-accent) 42%, var(--color-border-strong));
+    box-shadow: var(--shadow-glass);
+}
+
+html.theme-dark .nf-page__section--yellow .nf-page__section-title,
+html.theme-dark .nf-page__section--yellow .nf-page__subsection-title {
+    color: var(--color-text-primary);
+}
+
+html.theme-dark .nf-page__section--yellow .nf-page__paragraph,
+html.theme-dark .nf-page__section--yellow .nf-page__list {
+    color: var(--color-text-secondary);
+}
+
+html.theme-dark .nf-page__pill--primary {
+    color: #0b1f4d;
 }
 
 @media (max-width: 1024px) {

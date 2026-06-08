@@ -1,12 +1,12 @@
 <template>
     <AppNavbar />
     <main class="wexpress-page pb-10">
-        <section class="section-shell wexpress-page__suite-line" aria-label="Product positioning">
-            <p class="wexpress-page__suite-text">Cross-platform application development software suite</p>
+        <section class="section-shell wexpress-page__suite-line" aria-label="Positionnement produit">
+            <p class="wexpress-page__suite-text">Suite de logiciels de développement d'applications multi-plateformes</p>
             <figure class="wexpress-page__cross-platform">
                 <img
                     :src="crossPlatform.src"
-                    alt="Platform icons: Windows, Java, PHP, HTML5, Linux, Android, iOS, and Web."
+                    alt="Icônes des plateformes : Windows, Java, PHP, HTML5, Linux, Android, iOS et Web."
                     width="520"
                     height="48"
                     loading="lazy"
@@ -21,20 +21,20 @@
                 <div class="wexpress-page__grid">
                     <article class="wexpress-page__main-col">
                         <h1 id="express-title" class="wexpress-page__title">WINDEV EXPRESS:</h1>
-                        <p class="wexpress-page__subtitle">Free and time-unlimited</p>
+                        <p class="wexpress-page__subtitle">Gratuit et sans limitation de durée</p>
 
                         <p class="wexpress-page__copy">
-                            These are the main advantages of the Express version:
+                            Voici les principaux avantages de la version Express :
                         </p>
                         <ul class="wexpress-page__bullets">
-                            <li>unparalleled quick development,</li>
-                            <li>limitless functionalities,</li>
-                            <li>total integration of your IS and existing source code,</li>
-                            <li>high-quality UI &amp; UX.</li>
+                            <li>développement rapide inégalé,</li>
+                            <li>fonctionnalités illimitées,</li>
+                            <li>intégration totale de votre SI et de votre code source existant,</li>
+                            <li>UI et UX de haute qualité.</li>
                         </ul>
 
                         <p class="wexpress-page__caution">
-                            Caution: after trying the Express version, your perception of development will be different!
+                            Attention : après avoir essayé la version Express, votre perception du développement sera différente !
                         </p>
 
                         <div class="wexpress-page__cta-row">
@@ -44,76 +44,76 @@
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                Download
+                                Télécharger
                             </a>
-                            <span class="wexpress-page__cta-note">(free and time-unlimited)</span>
+                            <span class="wexpress-page__cta-note">(gratuit et sans limitation de durée)</span>
                         </div>
 
                         <section class="wexpress-page__section" aria-labelledby="express-devops">
                             <h2 id="express-devops" class="wexpress-page__section-title">
-                                WINDEV is a professional DevOps IDE:
+                                WINDEV est un IDE DevOps professionnel :
                             </h2>
                             <p class="wexpress-page__copy">
-                                WINDEV is a powerful Integrated Development Environment,
+                                WINDEV est un environnement de développement intégré puissant,
                             </p>
                         </section>
 
                         <section class="wexpress-page__section" aria-labelledby="express-limits">
                             <h2 id="express-limits" class="wexpress-page__section-title">
-                                Develop your projects without limits:
+                                Développez vos projets sans limites :
                             </h2>
                             <p class="wexpress-page__copy">
-                                Millions of PCs all over the world run applications developed with WINDEV. Some of the
-                                programs developed with WINDEV have over 200,000 distributed copies and manage billions
-                                of Euros, tables with millions of records, or networks with thousands of remote
-                                computers in real time. With WINDEV, your projects have no limits.
+                                Des millions de PC dans le monde exécutent des applications développées avec WINDEV. Certains
+                                programmes développés avec WINDEV comptent plus de 200 000 copies distribuées et gèrent des
+                                milliards d'euros, des tables avec des millions d'enregistrements, ou des réseaux avec des
+                                milliers d'ordinateurs distants en temps réel. Avec WINDEV, vos projets n'ont pas de limites.
                             </p>
                         </section>
 
                         <section class="wexpress-page__section" aria-labelledby="express-tutorial">
                             <h2 id="express-tutorial" class="wexpress-page__section-title">
-                                Follow the tutorial to discover WINDEV
+                                Suivez le tutoriel pour découvrir WINDEV
                             </h2>
                             <div class="wexpress-page__cta-row">
-                                <a href="#" class="wexpress-page__cta-btn">Follow tutorial</a>
-                                <span class="wexpress-page__cta-note">(free)</span>
+                                <a href="#" class="wexpress-page__cta-btn">Suivre le tutoriel</a>
+                                <span class="wexpress-page__cta-note">(gratuit)</span>
                             </div>
                             <p class="wexpress-page__copy">
-                                Use the examples included in WINDEV to create your first applications. The tutorial was
-                                designed to progressively teach you how to develop on WINDEV.
+                                Utilisez les exemples inclus dans WINDEV pour créer vos premières applications. Le tutoriel a
+                                été conçu pour vous apprendre progressivement à développer avec WINDEV.
                             </p>
-                            <p class="wexpress-page__copy">By following this tutorial:</p>
+                            <p class="wexpress-page__copy">En suivant ce tutoriel :</p>
                             <ul class="wexpress-page__bullets">
-                                <li>you will discover the main concepts explained in a clear way,</li>
+                                <li>vous découvrirez les principaux concepts expliqués de manière claire,</li>
                                 <li>
-                                    you will also be asked to perform operations that illustrate the concepts just
-                                    explained.
+                                    vous serez également invité à effectuer des opérations qui illustrent les concepts
+                                    qui viennent d'être expliqués.
                                 </li>
                             </ul>
                         </section>
 
                         <section class="wexpress-page__section" aria-labelledby="express-links">
-                            <h2 id="express-links" class="wexpress-page__section-title">Additional links:</h2>
+                            <h2 id="express-links" class="wexpress-page__section-title">Liens complémentaires :</h2>
                             <ul class="wexpress-page__link-list">
                                 <li>
-                                    See also:
+                                    Voir aussi :
                                     <RouterLink class="wexpress-page__link" to="/download/windev-mobile-express">
                                         WINDEV Mobile Express
                                     </RouterLink>
                                 </li>
-                                <li><a href="#" class="wexpress-page__link">Uninstall procedure</a></li>
+                                <li><a href="#" class="wexpress-page__link">Procédure de désinstallation</a></li>
                                 <li>
-                                    <a href="#" class="wexpress-page__link">Specific features of the Express version</a>
+                                    <a href="#" class="wexpress-page__link">Fonctionnalités spécifiques de la version Express</a>
                                 </li>
                             </ul>
                         </section>
                     </article>
 
-                    <aside class="wexpress-page__side-col" aria-label="Related resources">
+                    <aside class="wexpress-page__side-col" aria-label="Ressources associées">
                         <figure class="wexpress-page__packages">
                             <img
                                 :src="packagesSuite.src"
-                                alt="WINDEV 2026, WEBDEV 2026, and WINDEV Mobile 2026 product boxes."
+                                alt="Boîtes produits WINDEV 2026, WEBDEV 2026 et WINDEV Mobile 2026."
                                 loading="lazy"
                                 decoding="async"
                                 @error="onImageError($event, packagesSuite.fallback)"
@@ -121,16 +121,16 @@
                         </figure>
 
                         <p class="wexpress-page__side-copy">
-                            The <strong>WINDEV, WEBDEV and WINDEV Mobile</strong> environments are compatible and share
-                            project elements. It has never been easier to build multi-target applications.
+                            Les environnements <strong>WINDEV, WEBDEV et WINDEV Mobile</strong> sont compatibles et partagent
+                            les éléments de projet. Il n'a jamais été aussi simple de créer des applications multi-cibles.
                         </p>
 
                         <section class="wexpress-page__side-group">
-                            <h2 class="wexpress-page__group-title">Documentation overview</h2>
+                            <h2 class="wexpress-page__group-title">Aperçu de la documentation</h2>
                             <ul class="wexpress-page__group-list">
                                 <li>
                                     <RouterLink class="wexpress-page__link" to="/software/new-features-2026">
-                                        New features
+                                        Nouveautés
                                     </RouterLink>
                                 </li>
                                 <li>
@@ -148,28 +148,28 @@
                         </section>
 
                         <section class="wexpress-page__side-group">
-                            <h2 class="wexpress-page__group-title">Overview diagrams</h2>
+                            <h2 class="wexpress-page__group-title">Schémas de synthèse</h2>
                             <ul class="wexpress-page__group-list">
-                                <li><a href="#" class="wexpress-page__link">Universal database connectors</a></li>
-                                <li><a href="#" class="wexpress-page__link">Cross-platform development</a></li>
+                                <li><a href="#" class="wexpress-page__link">Connecteurs universels de bases de données</a></li>
+                                <li><a href="#" class="wexpress-page__link">Développement multi-plateforme</a></li>
                             </ul>
                         </section>
 
                         <section class="wexpress-page__side-group">
-                            <h2 class="wexpress-page__group-title">Videos</h2>
+                            <h2 class="wexpress-page__group-title">Vidéos</h2>
                             <ul class="wexpress-page__group-list">
-                                <li><a href="#" class="wexpress-page__link">Technical videos</a></li>
+                                <li><a href="#" class="wexpress-page__link">Vidéos techniques</a></li>
                             </ul>
                         </section>
 
-                        <section class="wexpress-page__customer" aria-label="Customer references">
-                            <h2 class="wexpress-page__customer-title">They are using WINDEV</h2>
+                        <section class="wexpress-page__customer" aria-label="Références clients">
+                            <h2 class="wexpress-page__customer-title">Ils utilisent WINDEV</h2>
                             <figure class="wexpress-page__customer-figure">
                                 <div class="wexpress-page__customer-logo-box">
                                     <img
                                         class="wexpress-page__customer-logo-img"
                                         :src="customerCarouselLogos[currentCustomerLogoIndex]"
-                                        alt="WINDEV customer logo"
+                                        alt="Logo client WINDEV"
                                         loading="lazy"
                                         decoding="async"
                                     />
@@ -479,9 +479,9 @@ onBeforeUnmount(() => {
     align-items: center;
     justify-content: center;
     padding: clamp(0.65rem, 3vw, 1rem);
-    border: 1px solid color-mix(in oklab, var(--color-text-secondary) 28%, transparent);
+    border: 1px solid var(--color-border-strong);
     border-radius: var(--radius-md);
-    background: #fff;
+    background: var(--color-input-bg);
     box-shadow:
         0 1px 2px rgba(15, 23, 42, 0.05),
         0 8px 18px rgba(15, 23, 42, 0.06);
@@ -498,12 +498,7 @@ onBeforeUnmount(() => {
     display: block;
 }
 
-:global(.theme-dark) .wexpress-page__customer-logo-box {
-    border-color: color-mix(in oklab, var(--color-brand) 22%, var(--color-surface-border));
-    background: color-mix(in oklab, #ffffff 94%, #c5d8ff 6%);
-}
-
-:global(.theme-dark) .wexpress-page__cta-btn {
+html.theme-dark .wexpress-page__cta-btn {
     color: #16203a;
 }
 

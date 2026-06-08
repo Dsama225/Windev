@@ -1,8 +1,8 @@
 <template>
     <AppNavbar />
     <main class="wlanguage-page pb-10">
-        <section class="section-shell wlanguage-page__suite-line" aria-label="Product positioning">
-            <p class="wlanguage-page__suite-text">Cross-platform application development software suite</p>
+        <section class="section-shell wlanguage-page__suite-line" aria-label="Positionnement produit">
+            <p class="wlanguage-page__suite-text">Suite logicielle de développement d'applications multiplateformes</p>
             <div class="wlanguage-page__os-row" aria-hidden="true">
                 <span v-for="n in 7" :key="n" class="wlanguage-page__os-dot" />
             </div>
@@ -10,28 +10,28 @@
 
         <HeroSection :slides="heroSlides" />
 
-        <section class="section-shell wlanguage-page__layout" aria-label="WLanguage overview">
+        <section class="section-shell wlanguage-page__layout" aria-label="Présentation WLanguage">
             <div class="wlanguage-page__main glass-frame">
                 <header class="wlanguage-page__product-header">
                     <figure class="wlanguage-page__logo-figure">
                         <img
                             class="wlanguage-page__logo-img"
                             :src="logoImageUrl"
-                            alt="WLanguage — 5th generation programming language"
+                            alt="WLanguage — langage de programmation de 5e génération"
                             width="320"
                             height="80"
                             loading="lazy"
                             decoding="async"
                         />
                     </figure>
-                    <p class="wlanguage-page__tagline">The 5th generation programming language of PC SOFT</p>
+                    <p class="wlanguage-page__tagline">Le langage de programmation de 5e génération de PC SOFT</p>
                 </header>
 
-                <h1 id="wlanguage-main-title" class="wlanguage-page__title">29 WLANGUAGE CODE SAMPLES (5GL)</h1>
+                <h1 id="wlanguage-main-title" class="wlanguage-page__title">29 EXEMPLES DE CODE WLANGUAGE (5GL)</h1>
                 <p class="wlanguage-page__lead">
-                    This page presents WLanguage code samples. This is what 5GL code looks like — and remember that for many
-                    functions there is nothing to code: the IDE proposes the choices for you. These examples present the
-                    language only.
+                    Cette page présente des exemples de code WLanguage. Voici à quoi ressemble du code 5GL — et rappelez-vous que pour de
+                    nombreuses fonctions, il n'y a rien à coder : l'IDE vous propose les choix. Ces exemples présentent uniquement le
+                    langage.
                 </p>
 
                 <section
@@ -41,31 +41,31 @@
                     :aria-labelledby="'wlanguage-sample-' + sample.id"
                 >
                     <h2 :id="'wlanguage-sample-' + sample.id" class="wlanguage-page__sample-title">
-                        Example {{ sample.id }}: {{ sample.title }}
+                        Exemple {{ sample.id }} : {{ sample.title }}
                     </h2>
                     <p v-if="sample.description" class="wlanguage-page__body">{{ sample.description }}</p>
                     <pre class="wlanguage-page__code"><code>{{ sample.code }}</code></pre>
                 </section>
             </div>
 
-            <aside class="wlanguage-page__sidebar glass-frame" aria-label="Related links">
+            <aside class="wlanguage-page__sidebar glass-frame" aria-label="Liens associés">
                 <figure class="wlanguage-page__product-boxes">
                     <img
                         :src="packagesImageUrl"
-                        alt="WINDEV 2026, WEBDEV 2026, and WINDEV Mobile 2026 product boxes"
+                        alt="Boîtes produits WINDEV 2026, WEBDEV 2026 et WINDEV Mobile 2026"
                         loading="lazy"
                         decoding="async"
                     />
                 </figure>
                 <p class="wlanguage-page__sidebar-text">
-                    The <strong>WINDEV, WEBDEV and WINDEV Mobile</strong> environments share the same language: WLanguage.
+                    Les environnements <strong>WINDEV, WEBDEV et WINDEV Mobile</strong> partagent le même langage : WLanguage.
                 </p>
 
                 <div class="wlanguage-page__sidebar-block">
-                    <h3 class="wlanguage-page__sidebar-title">Documentation overview</h3>
+                    <h3 class="wlanguage-page__sidebar-title">Présentation de la documentation</h3>
                     <ul class="wlanguage-page__sidebar-list">
                         <li>
-                            <RouterLink class="wlanguage-page__text-link" to="/software/new-features-2026">New features</RouterLink>
+                            <RouterLink class="wlanguage-page__text-link" to="/software/new-features-2026">Nouveautés</RouterLink>
                         </li>
                         <li><RouterLink class="wlanguage-page__text-link" to="/software/windev">WINDEV</RouterLink></li>
                         <li><RouterLink class="wlanguage-page__text-link" to="/software/webdev">WEBDEV</RouterLink></li>
@@ -76,28 +76,28 @@
                 </div>
 
                 <div class="wlanguage-page__sidebar-block">
-                    <h3 class="wlanguage-page__sidebar-title">Overview diagrams</h3>
+                    <h3 class="wlanguage-page__sidebar-title">Schémas de présentation</h3>
                     <ul class="wlanguage-page__sidebar-list">
-                        <li><a href="#" class="wlanguage-page__text-link">Client/server database connectors</a></li>
-                        <li><a href="#" class="wlanguage-page__text-link">Cross-platform development</a></li>
+                        <li><a href="#" class="wlanguage-page__text-link">Connecteurs bases de données client/serveur</a></li>
+                        <li><a href="#" class="wlanguage-page__text-link">Développement multiplateforme</a></li>
                     </ul>
                 </div>
 
                 <div class="wlanguage-page__sidebar-block">
-                    <h3 class="wlanguage-page__sidebar-title">Videos</h3>
+                    <h3 class="wlanguage-page__sidebar-title">Vidéos</h3>
                     <ul class="wlanguage-page__sidebar-list">
-                        <li><a href="#" class="wlanguage-page__text-link">Technical videos</a></li>
+                        <li><a href="#" class="wlanguage-page__text-link">Vidéos techniques</a></li>
                     </ul>
                 </div>
 
-                <div class="wlanguage-page__customer" aria-label="Customer references">
-                    <p class="wlanguage-page__customer-title">They are using WINDEV</p>
+                <div class="wlanguage-page__customer" aria-label="Références clients">
+                    <p class="wlanguage-page__customer-title">Ils utilisent WINDEV</p>
                     <figure class="wlanguage-page__customer-figure">
                         <div class="wlanguage-page__customer-logo-box">
                             <img
                                 class="wlanguage-page__customer-logo-img"
                                 :src="customerCarouselLogos[currentCustomerLogoIndex]"
-                                alt="WINDEV customer logo"
+                                alt="Logo client WINDEV"
                                 loading="lazy"
                                 decoding="async"
                             />
@@ -144,15 +144,15 @@ let customerCarouselTimer = null;
 const heroSlides = [
     {
         id: 'wlanguage-overview',
-        description: 'WLanguage is the 5th generation language shared by WINDEV, WEBDEV and WINDEV Mobile.',
+        description: 'WLanguage est le langage de 5e génération partagé par WINDEV, WEBDEV et WINDEV Mobile.',
         topImage: '/img/nouveau.svg',
         topImageAlt: 'Nouveau',
         image: '/img/logo_windev-suite_texte-noir-light.svg',
         imageAlt: 'Logo WINDEV Suite',
         buttons: [
-            { label: 'Code samples', variant: 'primary' },
+            { label: 'Exemples de code', variant: 'primary' },
             { label: 'Documentation', variant: 'ghost' },
-            { label: 'Subscribe', variant: 'ghost' },
+            { label: 'S\'abonner', variant: 'ghost' },
         ],
     },
     {

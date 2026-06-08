@@ -2,7 +2,7 @@
     <AdminPanel title="Bandeau d’alerte" centered>
         <p class="admin-muted">
             Message en haut de page (<code>PageAlert</code>). Peut être surchargé par
-            <RouterLink to="/windevadmin/advertisements">Publicités</RouterLink>.
+            le module publicités (retiré).
         </p>
         <label class="admin-field">
             <span>Texte du bandeau</span>

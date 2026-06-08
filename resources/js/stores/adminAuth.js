@@ -1,7 +1,7 @@
 import { computed, ref } from 'vue';
 import { defineStore } from 'pinia';
 import { adminAuthService } from '../services/adminAuthService';
-import { ensureCsrfCookie } from '../services/api';
+import { ensureAdminCsrfCookie } from '../services/adminApi';
 
 export const AUTH_CHECK_TIMEOUT_MS = 15_000;
 
@@ -40,7 +40,7 @@ export const useAdminAuthStore = defineStore('adminAuth', () => {
             try {
                 const me = await withAuthTimeout(
                     (async () => {
-                        await ensureCsrfCookie();
+                        await ensureAdminCsrfCookie();
                         return adminAuthService.me();
                     })(),
                 );
@@ -60,7 +60,7 @@ export const useAdminAuthStore = defineStore('adminAuth', () => {
     async function login(email, password, remember = false) {
         loading.value = true;
         try {
-            await ensureCsrfCookie();
+            await ensureAdminCsrfCookie();
             const result = await adminAuthService.login(email, password, remember);
             if (!result.mfa_required) {
                 user.value = result;
@@ -75,7 +75,7 @@ export const useAdminAuthStore = defineStore('adminAuth', () => {
     async function verifyMfa(challengeToken, code) {
         loading.value = true;
         try {
-            await ensureCsrfCookie();
+            await ensureAdminCsrfCookie();
             user.value = await adminAuthService.verifyMfa(challengeToken, code);
             checked.value = true;
             return user.value;

@@ -2,7 +2,7 @@
     <AdminPanel title="Zones accueil" centered>
         <p class="admin-muted">
             CTA et note de page. Le <strong>carrousel hero</strong> et les cartes produits se gèrent via
-            <RouterLink to="/windevadmin/advertisements">Publicités</RouterLink> (emplacement hero-home) et le seed CMS.
+            les publicités hero-home (module retiré) et le seed CMS.
         </p>
         <label class="admin-field">
             <span>Titre CTA</span>

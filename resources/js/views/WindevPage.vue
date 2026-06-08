@@ -1,14 +1,14 @@
 <template>
     <AppNavbar />
     <main class="windev-page pb-10">
-        <section class="section-shell windev-page__suite-line" aria-label="Product positioning">
+        <section class="section-shell windev-page__suite-line" aria-label="Positionnement produit">
             <p class="windev-page__suite-text">
-                <strong>Cross-platform</strong> application development software suite
+                Suite logicielle de développement d'applications <strong>multiplateformes</strong>
             </p>
             <figure class="windev-page__suite-platforms">
                 <img
                     :src="windevSuiteCrossPlatform.src"
-                    alt="Integrated software for developing cross-platform applications"
+                    alt="Logiciel intégré pour développer des applications multiplateformes"
                     width="283"
                     height="48"
                     loading="eager"
@@ -18,12 +18,12 @@
             </figure>
         </section>
 
-        <section class="section-shell windev-page__hero" aria-label="WINDEV Suite hero">
+        <section class="section-shell windev-page__hero" aria-label="Bannière WINDEV Suite">
             <HomeHeroCarousel />
         </section>
 
         <section class="section-shell windev-page__intro" aria-labelledby="windev-intro-title">
-            <h1 id="windev-intro-title" class="windev-page__intro-hero">DEVELOP 10 TIMES FASTER</h1>
+            <h1 id="windev-intro-title" class="windev-page__intro-hero">DÉVELOPPEZ 10 FOIS PLUS VITE</h1>
             <div class="windev-page__intro-card glass-frame">
                 <div class="windev-page__intro-grid">
                     <figure class="windev-page__figure windev-page__figure--intro-pack">
@@ -38,7 +38,7 @@
                     </figure>
                     <div class="windev-page__intro-copy">
                         <h2 class="windev-page__intro-heading">
-                            WINDEV 2026, A POWERFUL IDE & ALM SUITE
+                            WINDEV 2026, UNE PUISSANTE SUITE IDE ET ALM
                         </h2>
                         <p class="windev-page__intro-body">{{ introBody }}</p>
                     </div>
@@ -59,7 +59,7 @@
             </div>
         </section>
 
-        <section class="section-shell windev-page__compat glass-frame" aria-label="Compatibility">
+        <section class="section-shell windev-page__compat glass-frame" aria-label="Compatibilité">
             <a href="/software/windev" class="windev-page__compat-link">
                 <img
                     class="windev-page__compat-badge"
@@ -72,7 +72,7 @@
                     aria-hidden="true"
                     @error="onImageError($event, windevCompatibilityBadge.fallback)"
                 />
-                <span>Your WINDEV code, windows and data are compatible with WEBDEV and WINDEV Mobile</span>
+                <span>Votre code WINDEV, vos fenêtres et vos données sont compatibles avec WEBDEV et WINDEV Mobile</span>
                 <img
                     class="windev-page__compat-arrow"
                     :src="windevSuiteArrow.src"
@@ -87,10 +87,10 @@
             </a>
         </section>
 
-        <section class="section-shell windev-page__grid-section" aria-label="WINDEV resources and downloads">
+        <section class="section-shell windev-page__grid-section" aria-label="Ressources et téléchargements WINDEV">
             <div class="windev-page__columns glass-frame">
                 <div class="windev-page__column">
-                    <h3 class="windev-page__column-title">NEW FEATURES</h3>
+                    <h3 class="windev-page__column-title">NOUVEAUTÉS</h3>
                     <a
                         class="windev-page__card-cover-link"
                         :href="windevNewFeatures2026En.href"
@@ -100,7 +100,7 @@
                         <img
                             class="windev-page__card-cover"
                             :src="windevNewFeatures.src"
-                            alt="Version 2026 brings you an incredible amount of useful features"
+                            alt="La version 2026 vous apporte une quantité incroyable de fonctionnalités utiles"
                             loading="lazy"
                             decoding="async"
                             @error="onImageError($event, windevNewFeatures.fallback)"
@@ -108,13 +108,13 @@
                     </a>
                     <ul class="windev-page__link-list">
                         <li>
-                            <RouterLink class="windev-page__text-link" to="/software/new-features-2026">Learn more</RouterLink>
+                            <RouterLink class="windev-page__text-link" to="/software/new-features-2026">En savoir plus</RouterLink>
                         </li>
                         <li class="windev-page__ebook-row">
                             <img
                                 class="windev-page__flag"
                                 :src="windevFlagUs.src"
-                                alt="English"
+                                alt="Anglais"
                                 width="18"
                                 height="12"
                                 loading="lazy"
@@ -128,7 +128,7 @@
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
-                                    New Features 2026
+                                    Nouveautés 2026
                                 </a>
                                 <span class="windev-page__ebook-formats">
                                     (<a
@@ -151,7 +151,7 @@
                             <img
                                 class="windev-page__flag"
                                 :src="windevFlagFr.src"
-                                alt="French"
+                                alt="Français"
                                 width="18"
                                 height="12"
                                 loading="lazy"
@@ -187,7 +187,7 @@
                     </ul>
                     <h3 class="windev-page__column-title">WINDEV SUITE</h3>
                     <p class="windev-page__column-text">
-                        This year, PC SOFT has introduced a <strong>new subscription offer</strong>.
+                        Cette année, PC SOFT a lancé une <strong>nouvelle offre par abonnement</strong>.
                     </p>
                     <img
                         class="windev-page__suite-logo"
@@ -197,20 +197,20 @@
                         decoding="async"
                         @error="onImageError($event, windevSuiteIcon.fallback)"
                     />
-                    <p class="windev-page__column-text">Yearly plans.</p>
-                    <RouterLink class="windev-page__btn-subscribe" to="/software/subscribe">Subscribe</RouterLink>
+                    <p class="windev-page__column-text">Formules annuelles.</p>
+                    <RouterLink class="windev-page__btn-subscribe" to="/software/subscribe">S'abonner</RouterLink>
                     <h3 class="windev-page__column-title windev-page__column-title--small">WLANGUAGE</h3>
                     <ul class="windev-page__link-list">
                         <li>
                             <RouterLink class="windev-page__text-link" to="/software/wlanguage">
-                                29 WLanguage code samples
+                                29 exemples de code WLanguage
                             </RouterLink>
                         </li>
                     </ul>
                 </div>
 
                 <div class="windev-page__column">
-                    <h3 class="windev-page__column-title">DISCOVER WINDEV</h3>
+                    <h3 class="windev-page__column-title">DÉCOUVREZ WINDEV</h3>
                     <a
                         class="windev-page__card-cover-link"
                         :href="windevBrochureEn.href"
@@ -220,7 +220,7 @@
                         <img
                             class="windev-page__card-cover"
                             :src="windevBrochureCover.src"
-                            alt="WINDEV brochure"
+                            alt="Brochure WINDEV"
                             loading="lazy"
                             decoding="async"
                             @error="onImageError($event, windevBrochureCover.fallback)"
@@ -231,7 +231,7 @@
                             <img
                                 class="windev-page__flag"
                                 :src="windevFlagUs.src"
-                                alt="English"
+                                alt="Anglais"
                                 width="18"
                                 height="12"
                                 loading="lazy"
@@ -268,7 +268,7 @@
                             <img
                                 class="windev-page__flag"
                                 :src="windevFlagFr.src"
-                                alt="French"
+                                alt="Français"
                                 width="18"
                                 height="12"
                                 loading="lazy"
@@ -305,7 +305,7 @@
                             <img
                                 class="windev-page__flag"
                                 :src="windevFlagEs.src"
-                                alt="Spanish"
+                                alt="Espagnol"
                                 width="18"
                                 height="12"
                                 loading="lazy"
@@ -347,7 +347,7 @@
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                Technical videos
+                                Vidéos techniques
                             </a>
                         </li>
                         <li>
@@ -357,26 +357,26 @@
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                WINDEV Press Releases
+                                Communiqués de presse WINDEV
                             </a>
                         </li>
                         <li>
                             <RouterLink class="windev-page__text-link" to="/software/new-features-2026">
-                                New features already available in the subscription version
+                                Nouveautés déjà disponibles dans la version par abonnement
                             </RouterLink>
                         </li>
                     </ul>
-                    <p class="windev-page__contact-label">Contact us</p>
+                    <p class="windev-page__contact-label">Contactez-nous</p>
                     <p><a href="mailto:info@windev.com" class="windev-page__text-link">info@windev.com</a></p>
-                    <h3 class="windev-page__column-title windev-page__column-title--small">ADDITIONAL TOOLS</h3>
+                    <h3 class="windev-page__column-title windev-page__column-title--small">OUTILS COMPLÉMENTAIRES</h3>
                     <ul class="windev-page__link-list windev-page__link-list--tight">
-                        <li><RouterLink class="windev-page__text-link" to="/software/wdmsg">Multilingual projects: WDMSG</RouterLink></li>
-                        <li><RouterLink class="windev-page__text-link" to="/software/reports-queries">Reports &amp; Queries (free)</RouterLink></li>
+                        <li><RouterLink class="windev-page__text-link" to="/software/wdmsg">Projets multilingues : WDMSG</RouterLink></li>
+                        <li><RouterLink class="windev-page__text-link" to="/software/reports-queries">Etats &amp; Requêtes (gratuit)</RouterLink></li>
                     </ul>
                 </div>
 
                 <div class="windev-page__column">
-                    <h3 class="windev-page__column-title windev-page__column-title--small">Download</h3>
+                    <h3 class="windev-page__column-title windev-page__column-title--small">Télécharger</h3>
                     <ul class="windev-page__link-list">
                         <li>
                             <a
@@ -395,19 +395,19 @@
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                WINDEV (Dongle-based version)
+                                WINDEV (version avec clé dongle)
                             </a>
                         </li>
                         <li>
                             <RouterLink class="windev-page__text-link" to="/download/windev-express">
-                                Download WINDEV Express (free and time-unlimited)
+                                Télécharger WINDEV Express (gratuit et sans limite de temps)
                             </RouterLink>
                         </li>
                     </ul>
                     <RouterLink class="windev-page__express-visual" to="/download/windev-express">
                         <img
                             :src="windevExpressDownload.src"
-                            alt="Download Express version (free, click here)"
+                            alt="Télécharger la version Express (gratuite, cliquez ici)"
                             width="205"
                             height="96"
                             loading="lazy"
@@ -415,8 +415,8 @@
                             @error="onImageError($event, windevExpressDownload.fallback)"
                         />
                     </RouterLink>
-                    <h3 class="windev-page__column-title windev-page__column-title--small">Databases</h3>
-                    <p class="windev-page__db-lead">WINDEV supports all databases.</p>
+                    <h3 class="windev-page__column-title windev-page__column-title--small">Bases de données</h3>
+                    <p class="windev-page__db-lead">WINDEV prend en charge toutes les bases de données.</p>
                     <ul class="windev-page__db-list">
                         <li><RouterLink class="windev-page__text-link" to="/software/hfsql">HFSQL</RouterLink></li>
                         <li><RouterLink class="windev-page__text-link" to="/software/native-connectors/as400-system-i">AS/400 &amp; IBM i</RouterLink></li>
@@ -448,7 +448,7 @@
                         <li>…</li>
                     </ul>
                     <p class="windev-page__db-note">
-                        WINDEV also supports all the databases that use ODBC drivers or OLEDB providers
+                        WINDEV prend également en charge toutes les bases de données utilisant des pilotes ODBC ou des providers OLEDB
                         (InterSystems Caché, Firebird, EasySoft, MapInfo, etc.)
                     </p>
                 </div>
@@ -492,20 +492,20 @@ import {
 import { applyImageFallback } from '../utils/pcsoftImages.js';
 
 const introBody =
-    'Thanks to its full integration, legendary ease of use and advanced technology, WINDEV allows you to easily develop large-scale projects in Windows, Linux, .NET, Java and much more! (Full compatibility with Web, Mobile, Android, iOS, etc.)';
+    'Grâce à son intégration complète, sa facilité d\'utilisation légendaire et sa technologie avancée, WINDEV vous permet de développer facilement des projets de grande envergure sous Windows, Linux, .NET, Java et bien plus encore ! (Compatibilité totale avec Web, Mobile, Android, iOS, etc.)';
 
 function onImageError(event, fallbackUrl) {
     applyImageFallback(event, fallbackUrl);
 }
 
 onMounted(() => {
-    document.title = 'WINDEV: Develop 10 times faster';
+    document.title = 'WINDEV : Développez 10 fois plus vite';
 });
 </script>
 
 <style scoped>
 .windev-page {
-    color: #1f304f;
+    color: var(--color-text-primary);
 }
 
 .windev-page__suite-line {
@@ -517,7 +517,7 @@ onMounted(() => {
 .windev-page__suite-text {
     margin: 0 0 0.45rem;
     font-size: clamp(0.95rem, 2vw, 1.15rem);
-    color: #1a2744;
+    color: var(--color-text-primary);
 }
 
 .windev-page__suite-platforms {
@@ -539,7 +539,7 @@ onMounted(() => {
     margin: 0 0 0.6rem;
     text-align: center;
     font-size: clamp(1.95rem, 4vw, 2.85rem);
-    color: #1a2c56;
+    color: var(--color-text-primary);
     font-weight: 900;
     font-style: italic;
     letter-spacing: 0.03em;
@@ -548,7 +548,6 @@ onMounted(() => {
 
 .windev-page__intro-card {
     padding: clamp(1rem, 2vw, 1.35rem);
-    background: #fff;
 }
 
 .windev-page__intro-grid {
@@ -588,7 +587,7 @@ onMounted(() => {
 .windev-page__intro-heading {
     margin: 0 0 0.65rem;
     font-size: clamp(1.15rem, 1.8vw, 1.75rem);
-    color: #14264d;
+    color: var(--color-text-primary);
     font-weight: 800;
     letter-spacing: 0.02em;
     line-height: 1.25;
@@ -598,7 +597,7 @@ onMounted(() => {
     margin: 0;
     font-size: 1.04rem;
     line-height: 1.55;
-    color: #42526d;
+    color: var(--color-text-secondary);
 }
 
 .windev-page__circle-image {
@@ -611,7 +610,6 @@ onMounted(() => {
     margin-top: 1.25rem;
     margin-bottom: 0.25rem;
     padding: 1rem 1.25rem;
-    background: #fff;
 }
 
 .windev-page__compat-link {
@@ -621,7 +619,7 @@ onMounted(() => {
     gap: 0.35rem 0.5rem;
     font-size: 0.9rem;
     font-weight: 600;
-    color: #3966ad;
+    color: var(--color-brand);
     text-decoration: none;
 }
 
@@ -645,7 +643,6 @@ onMounted(() => {
     gap: clamp(1rem, 2vw, 1.5rem);
     grid-template-columns: repeat(3, minmax(0, 1fr));
     padding: clamp(1rem, 2vw, 1.35rem);
-    background: #fff;
 }
 
 .windev-page__column {
@@ -671,7 +668,7 @@ onMounted(() => {
 
 .windev-page__column-text {
     margin: 0;
-    color: #42526d;
+    color: var(--color-text-secondary);
 }
 
 .windev-page__card-cover {
@@ -712,7 +709,7 @@ onMounted(() => {
 .windev-page__ebook-formats {
     display: block;
     margin-top: 0.15rem;
-    color: #42526d;
+    color: var(--color-text-secondary);
 }
 
 .windev-page__flag {
@@ -721,7 +718,7 @@ onMounted(() => {
 }
 
 .windev-page__text-link {
-    color: #2e5ea8;
+    color: var(--color-brand-strong);
     font-weight: 600;
     text-decoration: none;
 }
@@ -734,7 +731,7 @@ onMounted(() => {
 .windev-page__bullet-list {
     margin: 0.25rem 0 0;
     padding-left: 1.1rem;
-    color: #42526d;
+    color: var(--color-text-secondary);
 }
 
 .windev-page__contact-label {
@@ -759,20 +756,20 @@ onMounted(() => {
 
 .windev-page__db-lead {
     margin: 0;
-    color: #42526d;
+    color: var(--color-text-secondary);
 }
 
 .windev-page__db-list {
     margin: 0;
     padding-left: 1.1rem;
-    color: #42526d;
+    color: var(--color-text-secondary);
     font-size: 0.82rem;
     line-height: 1.55;
 }
 
 .windev-page__db-note {
     margin: 0;
-    color: #42526d;
+    color: var(--color-text-secondary);
     font-size: 0.82rem;
     line-height: 1.55;
 }

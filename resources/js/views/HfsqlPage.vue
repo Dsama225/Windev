@@ -1,14 +1,14 @@
 <template>
     <AppNavbar />
     <main class="hfsql-page pb-10">
-        <section class="section-shell hfsql-page__suite-line" aria-label="Product positioning">
+        <section class="section-shell hfsql-page__suite-line" aria-label="Positionnement produit">
             <p class="hfsql-page__suite-text">
-                <strong>Cross-platform</strong> application development software suite
+                <strong>Multiplateforme</strong> — suite logicielle de développement d'applications multiplateformes
             </p>
             <figure class="hfsql-page__suite-platforms">
                 <img
                     :src="hfsqlSuiteCrossPlatform.src"
-                    alt="Integrated software for developing cross-platform applications"
+                    alt="Logiciel intégré pour développer des applications multiplateformes"
                     width="283"
                     height="48"
                     loading="eager"
@@ -18,54 +18,54 @@
             </figure>
         </section>
 
-        <section class="section-shell hfsql-page__hero" aria-label="WINDEV Suite hero">
+        <section class="section-shell hfsql-page__hero" aria-label="Bannière WINDEV Suite">
             <HomeHeroCarousel />
         </section>
 
-        <section class="section-shell hfsql-page__layout" aria-label="HFSQL overview">
+        <section class="section-shell hfsql-page__layout" aria-label="Présentation HFSQL">
             <div class="hfsql-page__main glass-frame">
                 <header class="hfsql-page__product-header">
                     <img
                         class="hfsql-page__logo-img"
                         :src="hfsqlLogo.src"
-                        alt="Portable, free, unlimited SQL database"
+                        alt="Base de données SQL portable, gratuite et illimitée"
                         width="150"
                         height="42"
                         loading="eager"
                         decoding="async"
                         @error="onImageError($event, hfsqlLogo.fallback)"
                     />
-                    <h1 class="hfsql-page__title">Portable, free, unlimited SQL database</h1>
+                    <h1 class="hfsql-page__title">Base de données SQL portable, gratuite et illimitée</h1>
                 </header>
 
                 <div class="hfsql-page__intro">
-                    <p class="hfsql-page__body"><strong>HFSQL is powerful, fast and reliable.</strong></p>
-                    <p class="hfsql-page__body">HFSQL is used on millions of websites around the world.</p>
+                    <p class="hfsql-page__body"><strong>HFSQL est puissant, rapide et fiable.</strong></p>
+                    <p class="hfsql-page__body">HFSQL est utilisé sur des millions de sites Web dans le monde.</p>
                     <p class="hfsql-page__body">
-                        HFSQL runs on <strong>Windows</strong> and <strong>Linux</strong>, on <strong>Mobiles</strong>, on networks of any size and type, and
-                        automatically manages hundreds of simultaneous accesses. You can freely distribute the HFSQL engine with your WINDEV applications.
+                        HFSQL fonctionne sous <strong>Windows</strong> et <strong>Linux</strong>, sur les <strong>Mobiles</strong>, sur des réseaux de toute taille et de tout type, et
+                        gère automatiquement des centaines d'accès simultanés. Vous pouvez distribuer librement le moteur HFSQL avec vos applications WINDEV.
                     </p>
                     <p class="hfsql-page__body">
-                        During the WINDEV Tour, the operations performed on HFSQL use a database with 29 billion records.
+                        Lors du WINDEV Tour, les opérations effectuées sur HFSQL utilisaient une base de données de 29 milliards d'enregistrements.
                     </p>
                 </div>
 
                 <section class="hfsql-page__section" aria-labelledby="hfsql-reliable-title">
                     <h2 id="hfsql-reliable-title" class="hfsql-page__section-title">
-                        Do you need a reliable, fast and free SQL Database?
+                        Vous avez besoin d'une base de données SQL fiable, rapide et gratuite ?
                     </h2>
                     <p class="hfsql-page__body">
-                        HFSQL is an SQL database integrated in WINDEV, WINDEV Mobile and WEBDEV environments. HFSQL is available in the following versions:
-                        Network, Cluster, Client/Server (Windows and Linux), Cloud and Mobile.
+                        HFSQL est une base de données SQL intégrée aux environnements WINDEV, WINDEV Mobile et WEBDEV. HFSQL est disponible dans les versions suivantes :
+                        Réseau, Cluster, Client/Serveur (Windows et Linux), Cloud et Mobile.
                     </p>
                 </section>
 
                 <section class="hfsql-page__section" aria-labelledby="hfsql-open-title">
-                    <h2 id="hfsql-open-title" class="hfsql-page__section-title">HFSQL: Open and compatible</h2>
+                    <h2 id="hfsql-open-title" class="hfsql-page__section-title">HFSQL : ouvert et compatible</h2>
                     <figure class="hfsql-page__figure">
                         <img
                             :src="hfsqlPowerfulDatabase.src"
-                            alt="HFSQL Powerful database"
+                            alt="HFSQL — base de données puissante"
                             loading="lazy"
                             decoding="async"
                             @error="onImageError($event, hfsqlPowerfulDatabase.fallback)"
@@ -74,12 +74,12 @@
                 </section>
 
                 <section class="hfsql-page__section" aria-labelledby="hfsql-cross-title">
-                    <h2 id="hfsql-cross-title" class="hfsql-page__section-title">HFSQL: Cross-Platform</h2>
-                    <p class="hfsql-page__body">HFSQL offers a binary storage format compatible between all platforms.</p>
+                    <h2 id="hfsql-cross-title" class="hfsql-page__section-title">HFSQL : multiplateforme</h2>
+                    <p class="hfsql-page__body">HFSQL propose un format de stockage binaire compatible entre toutes les plateformes.</p>
                     <figure class="hfsql-page__figure">
                         <img
                             :src="hfsqlCrossPlatform.src"
-                            alt="HFSQL Cross platform"
+                            alt="HFSQL multiplateforme"
                             loading="lazy"
                             decoding="async"
                             @error="onImageError($event, hfsqlCrossPlatform.fallback)"
@@ -88,7 +88,7 @@
                 </section>
 
                 <section class="hfsql-page__section" aria-labelledby="hfsql-docs-title">
-                    <h2 id="hfsql-docs-title" class="hfsql-page__section-title">See the HFSQL documentation :</h2>
+                    <h2 id="hfsql-docs-title" class="hfsql-page__section-title">Consultez la documentation HFSQL :</h2>
                     <ul class="hfsql-page__doc-list">
                         <li>
                             <img
@@ -103,7 +103,7 @@
                                 @error="onImageError($event, hfsqlDocEbookIcon.fallback)"
                             />
                             <a class="hfsql-page__text-link" :href="hfsqlEbookUrl" target="_blank" rel="noopener noreferrer">
-                                eBook - Click here
+                                eBook — Cliquez ici
                             </a>
                         </li>
                         <li>
@@ -124,28 +124,28 @@
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                PDF - Click here
+                                PDF — Cliquez ici
                             </a>
                         </li>
                     </ul>
                 </section>
             </div>
 
-            <aside class="hfsql-page__sidebar glass-frame" aria-label="HFSQL highlights and related links">
+            <aside class="hfsql-page__sidebar glass-frame" aria-label="Points forts HFSQL et liens associés">
                 <figure class="hfsql-page__figure hfsql-page__figure--sidebar">
                     <img
                         :src="hfsqlPackages.src"
-                        alt="WINDEV, WEBDEV and WINDEV Mobile"
+                        alt="WINDEV, WEBDEV et WINDEV Mobile"
                         loading="lazy"
                         decoding="async"
                         @error="onImageError($event, hfsqlPackages.fallback)"
                     />
                 </figure>
                 <p class="hfsql-page__sidebar-text">
-                    The <RouterLink class="hfsql-page__text-link" to="/software/windev">WINDEV</RouterLink>,
-                    <RouterLink class="hfsql-page__text-link" to="/software/webdev">WEBDEV</RouterLink> and
+                    Les environnements <RouterLink class="hfsql-page__text-link" to="/software/windev">WINDEV</RouterLink>,
+                    <RouterLink class="hfsql-page__text-link" to="/software/webdev">WEBDEV</RouterLink> et
                     <RouterLink class="hfsql-page__text-link" to="/software/windevmobile">WINDEV Mobile</RouterLink>
-                    environments are compatible and share project elements. It has never been easier to build multi-target applications.
+                    sont compatibles et partagent les éléments de projet. Il n'a jamais été aussi simple de créer des applications multi-cibles.
                 </p>
 
                 <div class="hfsql-page__sidebar-block hfsql-page__sidebar-block--flush">
@@ -156,7 +156,7 @@
                 </div>
 
                 <div class="hfsql-page__sidebar-block">
-                    <h3 class="hfsql-page__sidebar-title">Documentation overview</h3>
+                    <h3 class="hfsql-page__sidebar-title">Présentation de la documentation</h3>
                     <ul class="hfsql-page__sidebar-list">
                         <li>
                             <a
@@ -165,7 +165,7 @@
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                New features
+                                Nouveautés
                             </a>
                         </li>
                         <li>
@@ -202,7 +202,7 @@
                 </div>
 
                 <div class="hfsql-page__sidebar-block">
-                    <h3 class="hfsql-page__sidebar-title">Overview diagrams</h3>
+                    <h3 class="hfsql-page__sidebar-title">Schémas de présentation</h3>
                     <ul class="hfsql-page__sidebar-list">
                         <li>
                             <a
@@ -211,7 +211,7 @@
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                Universal database connectors
+                                Connecteurs bases de données universels
                             </a>
                         </li>
                         <li>
@@ -221,14 +221,14 @@
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                Cross-platform development
+                                Développement multiplateforme
                             </a>
                         </li>
                     </ul>
                 </div>
 
                 <div class="hfsql-page__sidebar-block">
-                    <h3 class="hfsql-page__sidebar-title">Videos</h3>
+                    <h3 class="hfsql-page__sidebar-title">Vidéos</h3>
                     <ul class="hfsql-page__sidebar-list">
                         <li>
                             <a
@@ -237,14 +237,14 @@
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                Technical videos
+                                Vidéos techniques
                             </a>
                         </li>
                     </ul>
                 </div>
 
-                <div class="hfsql-page__customer" aria-label="Customer references">
-                    <p class="hfsql-page__customer-title">They are using WINDEV</p>
+                <div class="hfsql-page__customer" aria-label="Références clients">
+                    <p class="hfsql-page__customer-title">Ils utilisent WINDEV</p>
                     <CustomerLogoCarousel variant="compact" />
                 </div>
             </aside>
@@ -285,49 +285,49 @@ function onImageError(event, fallbackUrl) {
 }
 
 const featureList = [
-    'SQL Database',
+    'Base de données SQL',
     'Windows, Linux, Mac, iOS, Android',
     'Local',
     'Mobile',
-    'Embedded',
-    'Client/Server',
+    'Embarqué',
+    'Client/Serveur',
     'Cluster',
-    'Large capacity',
-    'All types of data',
+    'Grande capacité',
+    'Tous types de données',
     'Unicode',
-    'Index, multi-column index, keys',
-    'Referential integrity',
+    'Index, index multi-colonnes, clés',
+    'Intégrité référentielle',
     'Full text',
-    'Stored procedures',
+    'Procédures stockées',
     'Triggers',
-    'Logs',
+    'Journaux',
     'Transactions',
-    'Data compression',
-    'Frame compression',
-    'Automatic row locking',
-    'Automatic reconnection',
-    'Scheduler',
-    'Replication',
+    'Compression des données',
+    'Compression des trames',
+    'Verrouillage automatique des enregistrements',
+    'Reconnexion automatique',
+    'Planificateur',
+    'Réplication',
     'SDD',
-    'Management of rights',
-    'Protection against SQL injection',
-    'Encryption',
-    'OLEDB Provider',
-    'ODBC driver',
-    'Control Center',
-    'Real-time administration',
-    'Backups',
-    'Database modeling',
-    'Querier',
-    'Reporting',
-    'Data viewer',
-    'Monitoring robot',
-    'Native link to WINDEV, WEBDEV and WINDEV Mobile',
-    'Free deployment*',
+    'Gestion des droits',
+    'Protection contre l\'injection SQL',
+    'Chiffrement',
+    'Provider OLEDB',
+    'Pilote ODBC',
+    'Centre de contrôle',
+    'Administration en temps réel',
+    'Sauvegardes',
+    'Modélisation de bases de données',
+    'Requêteur',
+    'Etats',
+    'Visualiseur de données',
+    'Robot de surveillance',
+    'Liaison native à WINDEV, WEBDEV et WINDEV Mobile',
+    'Déploiement gratuit*',
 ];
 
 onMounted(() => {
-    document.title = 'HFSQL — Portable, free, unlimited SQL database | PC SOFT';
+    document.title = 'HFSQL — Base de données SQL portable, gratuite et illimitée | PC SOFT';
 });
 </script>
 

@@ -1,10 +1,3 @@
-const REDIRECT_ROUTES = new Set([
-    'support.online-help',
-    'support.forums',
-    'support.faq',
-    'support.online-repository',
-]);
-
 export function resolveSection(route) {
     const name = route.name ?? '';
     const path = route.path ?? '';
@@ -15,15 +8,13 @@ export function resolveSection(route) {
     if (path.startsWith('/software/native-connectors')) return 'native-connectors';
     if (path.startsWith('/software/')) return 'software-suite';
     if (path.startsWith('/download')) return 'download';
-    if (path.startsWith('/support')) return 'support';
-    if (path.startsWith('/training')) return 'training';
     if (path.startsWith('/pc-soft')) return 'pcsoft';
 
     return 'other';
 }
 
 export function shouldTrackPageView(route) {
-    if (!route.name || REDIRECT_ROUTES.has(route.name)) {
+    if (!route.name) {
         return false;
     }
 

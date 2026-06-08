@@ -1,8 +1,7 @@
 <template>
     <AdminPanel title="Médias" centered>
         <p class="admin-muted">
-            <code>payload.media[]</code> — images par rôle (<code>hero</code> géré dans l’onglet Hero). URLs depuis
-            <RouterLink to="/windevadmin/media">Médias</RouterLink>.
+            <code>payload.media[]</code> — images par rôle (<code>hero</code> géré dans l’onglet Hero). Téléversement ou URL manuelle.
         </p>
         <button type="button" class="admin-btn admin-btn--secondary" @click="editor.addMedia()">Ajouter un média</button>
 
@@ -11,27 +10,34 @@
                 <span>Rôle</span>
                 <input v-model="item.role" type="text" placeholder="image, sidebar…" />
             </label>
-            <label class="admin-field">
-                <span>URL</span>
-                <input v-model="item.src" type="text" placeholder="/img/…" />
-            </label>
+            <AdminImageUploadField v-model="item.src" label="Image" :route-name="routeName" :preview-alt="item.alt" />
             <label class="admin-field">
                 <span>Alt</span>
                 <input v-model="item.alt" type="text" />
             </label>
-            <button type="button" class="admin-btn admin-btn--danger admin-btn--compact" @click="editor.removeMedia(index)">Supprimer</button>
+            <button type="button" class="admin-btn admin-btn--danger admin-btn--compact" @click="removeMedia(index)">Supprimer</button>
         </div>
         <p v-if="!media.length" class="admin-muted">Aucun média additionnel.</p>
     </AdminPanel>
 </template>
 
 <script setup>
+import AdminImageUploadField from '../AdminImageUploadField.vue';
 import AdminPanel from '../AdminPanel.vue';
 
-defineProps({
+const props = defineProps({
     media: { type: Array, required: true },
     editor: { type: Object, required: true },
+    routeName: { type: String, default: '' },
 });
+
+async function removeMedia(index) {
+    if (!window.confirm('Supprimer ce média ?')) {
+        return;
+    }
+
+    await props.editor.removeMedia(index, props.routeName);
+}
 </script>
 
 <style scoped>

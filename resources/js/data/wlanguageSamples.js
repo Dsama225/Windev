@@ -2,62 +2,62 @@
 export const wlanguageSamples = [
     {
         id: 1,
-        title: 'Scanning a document',
-        description: 'Saves the document found in the scanner in the "MyPhoto.JPEG" file. The document will be saved in black and white.',
-        code: `// Saves the document found in the scanner
+        title: 'Numérisation d\'un document',
+        description: 'Enregistre le document trouvé dans le scanner dans le fichier « MyPhoto.JPEG ». Le document sera enregistré en noir et blanc.',
+        code: `// Enregistre le document trouvé dans le scanner
 IF TwainToBMP("C:\\Temp\\MyPhoto.BMP", False, TwainBlackWhite) = True THEN
-    Info("The document was saved")
+    Info("Le document a été enregistré")
 ELSE
-    Error("The document was not scanned")
+    Error("Le document n'a pas été numérisé")
 END`,
     },
     {
         id: 2,
-        title: 'Reading a registry key',
-        description: 'Reads the "Language" value in the registry key.',
+        title: 'Lecture d\'une clé de registre',
+        description: 'Lit la valeur « Language » dans la clé de registre.',
         code: `ResRead is string
 ResExecute is boolean
 ResExecute = RegistryQueryValue("HKEY_LOCAL_MACHINE\\SOFTWARE\\App", "Language", ResRead)
 IF ResExecute = True THEN
-    Info("The value was read and it is set to: " + ResRead)
+    Info("La valeur a été lue et vaut : " + ResRead)
 END`,
     },
     {
         id: 3,
-        title: 'Selecting a color',
+        title: 'Sélection d\'une couleur',
         code: `Value is int
 SelectionResult is boolean
 Value = RGB(10, 17, 69)
-Info("Initial color: " + Value)
+Info("Couleur initiale : " + Value)
 SelectionResult = SelectColor(Value, scInit)
-Info("Final color: " + Value)`,
+Info("Couleur finale : " + Value)`,
     },
     {
         id: 4,
-        title: 'Calculating the number of days between 2 dates',
-        code: `Info(NumToString(DateDifference("19980101", DateSys())) + " days spent")`,
+        title: 'Calcul du nombre de jours entre 2 dates',
+        code: `Info(NumToString(DateDifference("19980101", DateSys())) + " jours écoulés")`,
     },
     {
         id: 5,
-        title: 'Extracting part of a file path',
+        title: 'Extraction d\'une partie d\'un chemin de fichier',
         code: `sFilePath is string = "C:\\MyDirectories\\File.psw"
 sResFileName is string = fExtractPath(sFilePath, fFileName)
-// sResFileName corresponds to "File"`,
+// sResFileName correspond à "File"`,
     },
     {
         id: 6,
-        title: 'Transforms a number into words',
+        title: 'Transformation d\'un nombre en lettres',
         code: `Info(NumberInWords(83.335))
 Info(NumberInWords(1.10, "Euro(s)"))
 Info(NumberInWords(1.01, "Euro(s)", "cent(s)"))`,
     },
     {
         id: 7,
-        title: 'Sending an email',
+        title: 'Envoi d\'un e-mail',
         code: `IF EmailStartSession(USER, PASSWORD, "pop3.gmail.com", "smtp.gmail.com") = True THEN
     UserName = USER
 ELSE
-    Error("Unable to establish the connection")
+    Error("Impossible d'établir la connexion")
 END
 Email.Sender = ""
 Email.Recipient[1] = RECIPIENT
@@ -68,17 +68,17 @@ IF EmailSendMessage(UserName) = False THEN Error() END`,
     },
     {
         id: 8,
-        title: 'Adding an icon in the systray',
-        code: `ResAddIcon = SysIconAdd("C:\\Icons\\Icon.ICO", "", "Sales 2013")`,
+        title: 'Ajout d\'une icône dans la barre des tâches',
+        code: `ResAddIcon = SysIconAdd("C:\\Icons\\Icon.ICO", "", "Ventes 2013")`,
     },
     {
         id: 9,
-        title: 'Saving a screen shot',
+        title: 'Enregistrement d\'une capture d\'écran',
         code: `ResSave = dSaveImageJPEG(IMG_ImageDrawing, inMemory)`,
     },
     {
         id: 10,
-        title: 'Declaring variables',
+        title: 'Déclaration de variables',
         code: `Value is int
 SelectionResult is boolean
 Price is real
@@ -86,25 +86,25 @@ x, j, k are int`,
     },
     {
         id: 11,
-        title: 'Code / Interface interaction',
+        title: 'Interaction code / interface',
         code: `ExecuteProcess(BTN_Save, trtClick)`,
     },
     {
         id: 12,
-        title: 'Managing threads by programming',
+        title: 'Gestion des threads par programmation',
         code: `sDate is string = DateSys()
 ThreadExecute("THREADNAME", threadNormal, "pExecQry", sDate)`,
     },
     {
         id: 13,
-        title: 'Print preview',
+        title: 'Aperçu avant impression',
         code: `iParameterPreview(iButtonNone)
 iPreview()
 iPrintReport(RPT_MyReport)`,
     },
     {
         id: 14,
-        title: 'Printing in HTML',
+        title: 'Impression en HTML',
         code: `MyReportFile is string = fWebDir() + "\\ReportQuery_" + DateSys() + TimeSys() + ".htm"
 iDestination(iHTML, MyReportFile)
 iPrintReport(RPT_QueryReport)
@@ -112,7 +112,7 @@ PageDisplay(fExtractPath(MyReportFile, fFileName + fExtension))`,
     },
     {
         id: 15,
-        title: 'Generating a PDF file',
+        title: 'Génération d\'un fichier PDF',
         code: `AFile is string = fWebDir() + "\\" + DateSys() + TimeSys() + ".pdf"
 iDestination(iPDF, AFile)
 iPrintReport(RPT_InvoicePDF)
@@ -121,40 +121,40 @@ fDelete(AFile)`,
     },
     {
         id: 16,
-        title: 'Protecting a PDF file',
+        title: 'Protection d\'un fichier PDF',
         code: `iParameterPDF("opening", "password", iProtectionPrinting + iProtectionSelection)
 iPreview(iPDF, "MyPDF.PDF")
 iCreateFont(1, 16, iBold, iRoman)
-iPrintWord("First line of my PDF" + CR + "Second line of my PDF")
+iPrintWord("Première ligne de mon PDF" + CR + "Deuxième ligne de mon PDF")
 iEndPrinting()
 ShellExecute(iLastFile())`,
     },
     {
         id: 17,
-        title: 'Selecting a PCL printer (mobile)',
+        title: 'Sélection d\'une imprimante PCL (mobile)',
         code: `iDestination(iPCL, "\\\\MyNetwork\\MyPrinter")`,
     },
     {
         id: 18,
-        title: 'Print in PCL format (mobile)',
+        title: 'Impression au format PCL (mobile)',
         code: `iDestination(iPCL, "\\MyDocuments\\MyFile.PCL")`,
     },
     {
         id: 19,
-        title: 'Dialing a phone number',
+        title: 'Composition d\'un numéro de téléphone',
         code: `IF tapiDial(EDT_PhoneNumber, "LineStatus") = True THEN
-    Info("Click OK to hang up")
+    Info("Cliquez sur OK pour raccrocher")
     tapiHangUp()
 END`,
     },
     {
         id: 20,
-        title: 'Financial calculations',
+        title: 'Calculs financiers',
         code: `ResInterestRate = FinInterestRate(6, -5000, 25000)`,
     },
     {
         id: 21,
-        title: 'Reading a text file line by line',
+        title: 'Lecture d\'un fichier texte ligne par ligne',
         code: `LOOP
     ALine = fReadLine(FileNum)
     IF ALine = EOT THEN BREAK
@@ -163,7 +163,7 @@ END`,
     },
     {
         id: 22,
-        title: 'Exit according to a WHILE condition',
+        title: 'Sortie selon une condition WHILE',
         code: `WHILE Keyword <> ""
     nb = nb + 1
     Keyword = ExtractString(MyList, nb + 1, CR)
@@ -171,7 +171,7 @@ END`,
     },
     {
         id: 23,
-        title: 'Exit according to an iteration',
+        title: 'Sortie selon une itération',
         code: `LOOP (10)
     ALine = fReadLine(FileNum)
     ProcessLine(ALine)
@@ -179,50 +179,50 @@ END`,
     },
     {
         id: 24,
-        title: 'Export to Excel',
-        code: `sFile = fSelect("", "", "Choose the export file", "Excel files (*.xls) *.xls", "xls", fselCreate + fselExist)
+        title: 'Export vers Excel',
+        code: `sFile = fSelect("", "", "Choisissez le fichier d'export", "Fichiers Excel (*.xls) *.xls", "xls", fselCreate + fselExist)
 IF sFile <> "" THEN TableToWord(TABLE_TABLE1, sFile, taNoTitle)`,
     },
     {
         id: 25,
-        title: 'Export to XML',
-        code: `sFile = fSelect("", "", "Choose the export file", "XML files (*.XML) *.xml", "xml", fselCreate + fselExist)
+        title: 'Export vers XML',
+        code: `sFile = fSelect("", "", "Choisissez le fichier d'export", "Fichiers XML (*.XML) *.xml", "xml", fselCreate + fselExist)
 IF sFile <> "" THEN TableToXML(TABLE_TABLE1, sFile, taNoTitle)`,
     },
     {
         id: 26,
-        title: 'Export to Word',
-        code: `sFile = fSelect("", "", "Choose the export file", "Word files (*.rtf) *.rtf", "rtf", fselCreate + fselExist)
+        title: 'Export vers Word',
+        code: `sFile = fSelect("", "", "Choisissez le fichier d'export", "Fichiers Word (*.rtf) *.rtf", "rtf", fselCreate + fselExist)
 IF sFile <> "" THEN TableToWord(TABLE_TABLE1, sFile, taNoTitle)`,
     },
     {
         id: 27,
-        title: 'Sending an SMS',
+        title: 'Envoi d\'un SMS',
         code: `SMS.Number = "0610203040"
-SMS.Message = "I am sending SMSs with WINDEV Mobile!"
+SMS.Message = "J'envoie des SMS avec WINDEV Mobile !"
 IF SMSSend() = False THEN Error(ErrorInfo(errMessage)) END`,
     },
     {
         id: 28,
-        title: 'Sending a fax',
+        title: 'Envoi d\'un fax',
         code: `ConnectID = FaxConnect()
 IF ConnectID = 0 THEN
-    Error("The connection to the fax server failed.")
+    Error("La connexion au serveur fax a échoué.")
 ELSE
     ListAdd(LIST_FaxSend, FaxOutbox(ConnectID))
 END`,
     },
     {
         id: 29,
-        title: 'Acquisition on the serial port',
-        description: 'This code is generated by a wizard — you do not even have to type it.',
+        title: 'Acquisition sur le port série',
+        description: 'Ce code est généré par un assistant — vous n\'avez même pas à le saisir.',
         code: `Result1 = sOpen(1, 2000, 2000)
 IF Result1 = True THEN
     sParameter(1, 9600, 1, 8, 0)
     // ...
     sClose(1)
 ELSE
-    Error("Error while opening COM1")
+    Error("Erreur lors de l'ouverture de COM1")
 END`,
     },
 ];

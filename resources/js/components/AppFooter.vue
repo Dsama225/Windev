@@ -2,7 +2,7 @@
     <footer class="section-shell app-footer">
         <div class="app-footer__inner">
             <p class="app-footer__copy">© {{ year }} PC SOFT — Tous droits réservés.</p>
-            <nav class="app-footer__links" aria-label="Legal links">
+            <nav class="app-footer__links" aria-label="Liens légaux">
                 <a
                     class="app-footer__link"
                     href="https://windev.com/pcsoft/general-terms-and-conditions.htm"
@@ -19,14 +19,9 @@
                 >
                     Confidentialité
                 </a>
-                <a
-                    class="app-footer__link"
-                    href="https://pcsoft.fr/fr-fr/contact"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
+                <RouterLink class="app-footer__link" to="/pc-soft/contact">
                     Contact
-                </a>
+                </RouterLink>
             </nav>
         </div>
     </footer>
@@ -52,7 +47,7 @@ const year = new Date().getFullYear();
 .app-footer__copy {
     margin: 0;
     font-size: 0.82rem;
-    color: #5f6f8c;
+    color: var(--color-eyebrow);
 }
 
 .app-footer__links {
@@ -64,7 +59,7 @@ const year = new Date().getFullYear();
 .app-footer__link {
     font-size: 0.84rem;
     font-weight: 700;
-    color: #0b56bf;
+    color: var(--color-brand);
     text-decoration: none;
 }
 

@@ -13,11 +13,13 @@
             <span>Sous-titre hero</span>
             <input v-model="heroForm.subtitle" type="text" placeholder="Cross-platform application development…" />
         </label>
-        <div class="admin-grid admin-grid--3">
-            <label class="admin-field">
-                <span>Image hero (URL)</span>
-                <input v-model="heroForm.image_src" type="text" placeholder="/img/…" />
-            </label>
+        <div class="admin-grid admin-grid--2">
+            <AdminImageUploadField
+                v-model="heroForm.image_src"
+                label="Image hero"
+                :route-name="routeName"
+                :preview-alt="heroForm.image_alt"
+            />
             <label class="admin-field">
                 <span>Texte alternatif image</span>
                 <input v-model="heroForm.image_alt" type="text" />
@@ -27,9 +29,11 @@
 </template>
 
 <script setup>
+import AdminImageUploadField from '../AdminImageUploadField.vue';
 import AdminPanel from '../AdminPanel.vue';
 
 defineProps({
     heroForm: { type: Object, required: true },
+    routeName: { type: String, default: '' },
 });
 </script>

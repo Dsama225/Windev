@@ -1,12 +1,12 @@
 <template>
     <AppNavbar />
     <main class="rq-page pb-10">
-        <section class="section-shell rq-page__suite-line" aria-label="Product positioning">
-            <p class="rq-page__suite-text">Cross-platform application development software suite</p>
+        <section class="section-shell rq-page__suite-line" aria-label="Positionnement produit">
+            <p class="rq-page__suite-text">Suite logicielle de développement d'applications multiplateformes</p>
             <figure class="rq-page__cross-platform">
                 <img
                     :src="crossPlatformImageUrl"
-                    alt="Platform icons: Windows, Java, PHP, HTML5, Linux, Android, iOS, and Web."
+                    alt="Icônes de plateformes : Windows, Java, PHP, HTML5, Linux, Android, iOS et Web."
                     width="520"
                     height="48"
                     loading="lazy"
@@ -19,41 +19,40 @@
             <div class="rq-page__layout glass-frame">
                 <div class="rq-page__main">
                     <h1 id="rq-main-title" class="rq-page__title">
-                        "REPORTS &amp; QUERIES": YOUR USERS CAN CREATE THEIR OWN REPORTS &amp; QUERIES!
+                        « ETATS &amp; REQUÊTES » : VOS UTILISATEURS CRÉENT LEURS PROPRES ETATS &amp; REQUÊTES !
                     </h1>
 
                     <div class="rq-page__prose">
                         <p>
-                            "Reports &amp; Queries" is a module <strong>intended for the end users</strong> of applications
-                            developed with WINDEV.
+                            « Etats &amp; Requêtes » est un module <strong>destiné aux utilisateurs finaux</strong> des applications
+                            développées avec WINDEV.
                         </p>
                         <p>
-                            "<strong>Reports &amp; Queries</strong>" can be <strong>freely distributed</strong> with each one
-                            of your WINDEV applications (<a href="#" class="rq-page__red-link">see license</a>).
+                            « <strong>Etats &amp; Requêtes</strong> » peut être <strong>distribué librement</strong> avec chacune
+                            de vos applications WINDEV (<a href="#" class="rq-page__red-link">voir la licence</a>).
                         </p>
-                        <p>"Reports &amp; Queries" allows end users to:</p>
+                        <p>« Etats &amp; Requêtes » permet aux utilisateurs finaux de :</p>
                         <ul class="rq-page__list rq-page__list--bullets">
-                            <li><strong>create their own reports</strong></li>
-                            <li><strong>create their own queries</strong> on the database</li>
+                            <li><strong>créer leurs propres états</strong></li>
+                            <li><strong>créer leurs propres requêtes</strong> sur la base de données</li>
                         </ul>
                         <p>
-                            End users can also <strong>modify the reports</strong> created by a developer. For example, end
-                            users can:
+                            Les utilisateurs finaux peuvent également <strong>modifier les états</strong> créés par un développeur. Par exemple, les
+                            utilisateurs finaux peuvent :
                         </p>
                         <ul class="rq-page__list rq-page__list--bullets">
-                            <li>change a logo</li>
-                            <li>change the position of a label</li>
+                            <li>changer un logo</li>
+                            <li>changer la position d'un libellé</li>
                             <li>etc.</li>
                         </ul>
                         <p>
-                            End users can make these changes directly (developers can prevent "sensitive" resources from being
-                            modified).
+                            Les utilisateurs finaux peuvent effectuer ces modifications directement (les développeurs peuvent empêcher la modification des ressources « sensibles »).
                         </p>
-                        <p>It's a win-win situation for developers and end users!</p>
+                        <p>C'est gagnant-gagnant pour les développeurs et les utilisateurs finaux !</p>
                         <p>
-                            (This "User" version of "Reports &amp; Queries" has the
-                            <strong>same features as the report editor included in WINDEV</strong>, except for programming,
-                            since the WLanguage commands to modify, add and delete records are not enabled.)
+                            (Cette version « Utilisateur » d'« Etats &amp; Requêtes » possède les
+                            <strong>mêmes fonctionnalités que l'éditeur d'états inclus dans WINDEV</strong>, sauf la programmation,
+                            car les commandes WLanguage pour modifier, ajouter et supprimer des enregistrements ne sont pas activées.)
                         </p>
                     </div>
 
@@ -61,47 +60,47 @@
                         <figure class="rq-page__figure">
                             <img
                                 :src="printPreviewImageUrl"
-                                alt="Print preview of a data table with Reports &amp; Queries."
+                                alt="Aperçu avant impression d'un tableau de données avec Etats &amp; Requêtes."
                                 loading="lazy"
                                 decoding="async"
                             />
                             <figcaption class="rq-page__caption">
-                                Example of print preview with 'Reports &amp; Queries'
+                                Exemple d'aperçu avant impression avec « Etats &amp; Requêtes »
                             </figcaption>
                         </figure>
                         <figure class="rq-page__figure">
                             <img
                                 :src="queryBuilderImageUrl"
-                                alt="Query Editor — graphical interface for building a database query."
+                                alt="Editeur de requêtes — interface graphique pour construire une requête sur la base de données."
                                 loading="lazy"
                                 decoding="async"
                             />
                             <figcaption class="rq-page__caption">
-                                Create queries without effort and see the results
+                                Créez des requêtes sans effort et visualisez les résultats
                             </figcaption>
                         </figure>
                     </div>
                 </div>
 
-                <aside class="rq-page__sidebar" aria-label="Related products and resources">
+                <aside class="rq-page__sidebar" aria-label="Produits et ressources associés">
                     <figure class="rq-page__product-boxes">
                         <img
                             :src="productBoxesImageUrl"
-                            alt="WINDEV 2026, WEBDEV 2026, and WINDEV Mobile 2026 product boxes."
+                            alt="Boîtes produits WINDEV 2026, WEBDEV 2026 et WINDEV Mobile 2026."
                             loading="lazy"
                             decoding="async"
                         />
                     </figure>
 
                     <p class="rq-page__sidebar-lead">
-                        The <strong>WINDEV</strong>, <strong>WEBDEV</strong> and <strong>WINDEV Mobile</strong> environments
-                        are compatible and share project elements. It has never been easier to build multi-target applications.
+                        Les environnements <strong>WINDEV</strong>, <strong>WEBDEV</strong> et <strong>WINDEV Mobile</strong>
+                        sont compatibles et partagent les éléments de projet. Il n'a jamais été aussi simple de créer des applications multi-cibles.
                     </p>
 
                     <div class="rq-page__sidebar-block">
-                        <h2 class="rq-page__sidebar-heading">Documentation overview</h2>
+                        <h2 class="rq-page__sidebar-heading">Présentation de la documentation</h2>
                         <ul class="rq-page__list rq-page__list--dots">
-                            <li class="rq-page__dot rq-page__dot--primary"><a href="#" class="rq-page__sidebar-link">New features</a></li>
+                            <li class="rq-page__dot rq-page__dot--primary"><a href="#" class="rq-page__sidebar-link">Nouveautés</a></li>
                             <li class="rq-page__dot rq-page__dot--muted"><a href="#" class="rq-page__sidebar-link">WINDEV</a></li>
                             <li class="rq-page__dot rq-page__dot--muted"><a href="#" class="rq-page__sidebar-link">WEBDEV</a></li>
                             <li class="rq-page__dot rq-page__dot--muted"><a href="#" class="rq-page__sidebar-link">WINDEV Mobile</a></li>
@@ -109,28 +108,28 @@
                     </div>
 
                     <div class="rq-page__sidebar-block">
-                        <h2 class="rq-page__sidebar-heading">Overview diagrams</h2>
+                        <h2 class="rq-page__sidebar-heading">Schémas de présentation</h2>
                         <ul class="rq-page__list rq-page__list--dots">
-                            <li class="rq-page__dot rq-page__dot--muted"><a href="#" class="rq-page__sidebar-link">Universal database connectors</a></li>
-                            <li class="rq-page__dot rq-page__dot--muted"><a href="#" class="rq-page__sidebar-link">Cross-platform development</a></li>
+                            <li class="rq-page__dot rq-page__dot--muted"><a href="#" class="rq-page__sidebar-link">Connecteurs bases de données universels</a></li>
+                            <li class="rq-page__dot rq-page__dot--muted"><a href="#" class="rq-page__sidebar-link">Développement multiplateforme</a></li>
                         </ul>
                     </div>
 
                     <div class="rq-page__sidebar-block">
-                        <h2 class="rq-page__sidebar-heading">Videos</h2>
+                        <h2 class="rq-page__sidebar-heading">Vidéos</h2>
                         <ul class="rq-page__list rq-page__list--dots">
-                            <li class="rq-page__dot rq-page__dot--muted"><a href="#" class="rq-page__sidebar-link">Technical videos</a></li>
+                            <li class="rq-page__dot rq-page__dot--muted"><a href="#" class="rq-page__sidebar-link">Vidéos techniques</a></li>
                         </ul>
                     </div>
 
-                    <div class="rq-page__customer" aria-label="Customer references">
-                        <p id="rq-success-heading" class="rq-page__customer-title">They are using WINDEV</p>
+                    <div class="rq-page__customer" aria-label="Références clients">
+                        <p id="rq-success-heading" class="rq-page__customer-title">Ils utilisent WINDEV</p>
                         <figure class="rq-page__customer-figure">
                             <div class="rq-page__customer-logo-box">
                                 <img
                                     class="rq-page__customer-logo-img"
                                     :src="customerCarouselLogos[currentCustomerLogoIndex]"
-                                    alt="WINDEV customer logo"
+                                    alt="Logo client WINDEV"
                                     loading="lazy"
                                     decoding="async"
                                 />
@@ -477,9 +476,9 @@ onBeforeUnmount(() => {
     align-items: center;
     justify-content: center;
     padding: clamp(0.65rem, 3vw, 1rem);
-    border: 1px solid color-mix(in oklab, var(--color-text-secondary) 28%, transparent);
+    border: 1px solid var(--color-border-strong);
     border-radius: var(--radius-md);
-    background: #fff;
+    background: var(--color-input-bg);
     box-shadow:
         0 1px 2px rgba(15, 23, 42, 0.05),
         0 8px 18px rgba(15, 23, 42, 0.06);
@@ -495,11 +494,6 @@ onBeforeUnmount(() => {
     object-position: center;
     display: block;
     filter: saturate(1.03) contrast(1.02);
-}
-
-:global(.theme-dark) .rq-page__customer-logo-box {
-    border-color: color-mix(in oklab, var(--color-brand) 22%, var(--color-surface-border));
-    background: color-mix(in oklab, #ffffff 94%, #c5d8ff 6%);
 }
 
 @media (max-width: 900px) {
@@ -518,7 +512,7 @@ onBeforeUnmount(() => {
     }
 }
 
-:global(.theme-dark) .rq-page__alert-link {
+html.theme-dark .rq-page__alert-link {
     color: #0b1f4d;
 }
 </style>

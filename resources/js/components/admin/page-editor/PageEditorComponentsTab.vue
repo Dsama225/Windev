@@ -201,7 +201,7 @@
 
                 <div v-show="expandedIndex === index" class="pec-card__body">
                     <template v-if="component.type === 'card'">
-                        <AdminImageUploadField v-model="component.image_src" label="Image" :preview-alt="component.image_alt" />
+                        <AdminImageUploadField v-model="component.image_src" label="Image" :route-name="routeName" :preview-alt="component.image_alt" />
                         <label class="admin-field">
                             <span>Texte alternatif</span>
                             <input v-model="component.image_alt" type="text" />
@@ -239,12 +239,12 @@
                                     v-if="component.slides.length > 1"
                                     type="button"
                                     class="admin-btn admin-btn--danger admin-btn--compact"
-                                    @click="editor.removeCarouselSlide(index, slideIndex)"
+                                    @click="removeCarouselSlide(index, slideIndex)"
                                 >
                                     Supprimer
                                 </button>
                             </header>
-                            <AdminImageUploadField v-model="slide.image_src" label="Image" />
+                            <AdminImageUploadField v-model="slide.image_src" label="Image" :route-name="routeName" />
                             <label class="admin-field">
                                 <span>Titre</span>
                                 <input v-model="slide.title" type="text" />
@@ -308,6 +308,7 @@ import { useAdminToast } from '../../../composables/useAdminToast';
 const props = defineProps({
     components: { type: Array, required: true },
     editor: { type: Object, required: true },
+    routeName: { type: String, default: '' },
     loading: { type: Boolean, default: false },
 });
 
@@ -341,8 +342,15 @@ function move(index, direction) {
     toast.push('Composant déplacé.', 'info', 2200);
 }
 
-function remove(index) {
-    props.editor.removeComponent(index);
+async function remove(index) {
+    const component = props.components[index];
+
+    if (!window.confirm(`Supprimer ce composant (${getPageComponentMeta(component?.type).label}) ?`)) {
+        return;
+    }
+
+    await props.editor.removeComponent(index, props.routeName);
+
     if (expandedIndex.value === index) {
         expandedIndex.value = null;
     } else if (expandedIndex.value !== null && expandedIndex.value > index) {
@@ -354,6 +362,14 @@ function remove(index) {
         previewIndex.value -= 1;
     }
     toast.push('Composant supprimé.', 'warning');
+}
+
+async function removeCarouselSlide(componentIndex, slideIndex) {
+    if (!window.confirm('Supprimer cette diapositive ?')) {
+        return;
+    }
+
+    await props.editor.removeCarouselSlide(componentIndex, slideIndex, props.routeName);
 }
 
 function duplicate(index) {

@@ -46,17 +46,19 @@
                     :page-status-hint="pageStatusHint"
                 />
                 <PageEditorAlertTab v-show="activeTab === 'alert'" :alert-form="alertForm" />
-                <PageEditorHeroTab v-show="activeTab === 'hero'" :hero-form="heroForm" />
+                <PageEditorHeroTab v-show="activeTab === 'hero'" :hero-form="heroForm" :route-name="routeName" />
                 <PageEditorComponentsTab
                     v-show="activeTab === 'components'"
                     :components="components"
                     :editor="editor"
+                    :route-name="routeName"
                     :loading="loading"
                 />
                 <PageEditorSectionsTab
                     v-show="activeTab === 'sections'"
                     :sections="sections"
                     :editor="editor"
+                    :route-name="routeName"
                     :loading="loading"
                 />
                 <PageEditorLinksTab
@@ -65,10 +67,19 @@
                     :editor="editor"
                     :loading="loading"
                 />
+                <PageEditorDocumentsTab
+                    v-show="activeTab === 'documents'"
+                    :documents="documents"
+                    :editor="editor"
+                    :route-name="routeName"
+                    :page-title="page?.title ?? ''"
+                    :loading="loading"
+                />
                 <PageEditorMediaTab
                     v-show="activeTab === 'media'"
                     :media="media"
                     :editor="editor"
+                    :route-name="routeName"
                     :loading="loading"
                 />
                 <PageEditorConnectorTab
@@ -101,6 +112,7 @@ const PageEditorAlertTab = defineAsyncComponent(() => import('../../components/a
 const PageEditorHeroTab = defineAsyncComponent(() => import('../../components/admin/page-editor/PageEditorHeroTab.vue'));
 const PageEditorSectionsTab = defineAsyncComponent(() => import('../../components/admin/page-editor/PageEditorSectionsTab.vue'));
 const PageEditorLinksTab = defineAsyncComponent(() => import('../../components/admin/page-editor/PageEditorLinksTab.vue'));
+const PageEditorDocumentsTab = defineAsyncComponent(() => import('../../components/admin/page-editor/PageEditorDocumentsTab.vue'));
 const PageEditorMediaTab = defineAsyncComponent(() => import('../../components/admin/page-editor/PageEditorMediaTab.vue'));
 const PageEditorConnectorTab = defineAsyncComponent(() => import('../../components/admin/page-editor/PageEditorConnectorTab.vue'));
 const PageEditorPublicationTab = defineAsyncComponent(() => import('../../components/admin/page-editor/PageEditorPublicationTab.vue'));
@@ -124,7 +136,7 @@ const page = ref(null);
 const activeTab = ref('general');
 
 const editor = createPageEditorState();
-const { form, alertForm, heroForm, sections, components, links, media, features, resourceLinks, publicationBody, homeForm, hydrateFromPage, buildPayload } = editor;
+const { form, alertForm, heroForm, sections, components, links, documents, media, features, resourceLinks, publicationBody, homeForm, hydrateFromPage, buildPayload } = editor;
 
 const tabs = computed(() => editorTabsForPageType(page.value?.page_type ?? 'product'));
 

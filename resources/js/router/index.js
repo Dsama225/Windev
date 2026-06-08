@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import { useRedirectStore } from '../stores/redirects.js';
 import { trackPageView } from '../services/analytics';
 
 const HomePage = () => import('../views/HomePage.vue');
@@ -18,53 +17,17 @@ const SubscribePage = () => import('../views/SubscribePage.vue');
 const WindevExpressPage = () => import('../views/WindevExpressPage.vue');
 const WindevMobileExpressPage = () => import('../views/WindevMobileExpressPage.vue');
 const RedistributableImagesPage = () => import('../views/RedistributableImagesPage.vue');
-const TechnicalSupportPage = () => import('../views/support/TechnicalSupportPage.vue');
-const DirectAssistancePage = () => import('../views/support/DirectAssistancePage.vue');
-const RemoteConsultingPage = () => import('../views/support/RemoteConsultingPage.vue');
-const ResourcesPage = () => import('../views/support/ResourcesPage.vue');
-const InHouseTrainingPage = () => import('../views/training/InHouseTrainingPage.vue');
-const EducationPage = () => import('../views/training/EducationPage.vue');
 const AboutPcsoftPage = () => import('../views/pcsoft/AboutPcsoftPage.vue');
 const ContactPcsoftPage = () => import('../views/pcsoft/ContactPcsoftPage.vue');
 const DistributorsPcsoftPage = () => import('../views/pcsoft/DistributorsPcsoftPage.vue');
 const SitemapPage = () => import('../views/pcsoft/SitemapPage.vue');
-
-function externalRedirect(routeName) {
-    return () => {
-        const redirectStore = useRedirectStore();
-        const url = redirectStore.urlForRoute(routeName);
-        if (url) {
-            window.location.assign(url);
-        }
-        return false;
-    };
-}
-
-const supportRedirectRoutes = [
-    { path: '/support/online-help', name: 'support.online-help', beforeEnter: externalRedirect('support.online-help') },
-    { path: '/support/forums', name: 'support.forums', beforeEnter: externalRedirect('support.forums') },
-    { path: '/support/faq', name: 'support.faq', beforeEnter: externalRedirect('support.faq') },
-    { path: '/support/online-repository', name: 'support.online-repository', beforeEnter: externalRedirect('support.online-repository') },
-];
-
-const supportRoutes = [
-    { path: '/support/technical-support', name: 'support.technical-support', component: TechnicalSupportPage },
-    { path: '/support/direct-assistance', name: 'support.direct-assistance', component: DirectAssistancePage },
-    { path: '/support/remote-consulting', name: 'support.remote-consulting', component: RemoteConsultingPage },
-    { path: '/support/resources', name: 'support.resources', component: ResourcesPage },
-    ...supportRedirectRoutes,
-];
-
-const trainingRoutes = [
-    { path: '/training/in-house', name: 'training.in-house', component: InHouseTrainingPage },
-    { path: '/training/education', name: 'training.education', component: EducationPage },
-];
 
 const pcsoftRoutes = [
     { path: '/pc-soft', name: 'pcsoft.about', component: AboutPcsoftPage },
     { path: '/pc-soft/contact', name: 'pcsoft.contact', component: ContactPcsoftPage },
     { path: '/pc-soft/distributors', name: 'pcsoft.distributors', component: DistributorsPcsoftPage },
     { path: '/pc-soft/sitemap', name: 'pcsoft.sitemap', component: SitemapPage },
+    { path: '/contact', redirect: '/pc-soft/contact' },
 ];
 
 const publicRoutes = [
@@ -107,8 +70,6 @@ const publicRoutes = [
         name: 'download.redistributable-images',
         component: RedistributableImagesPage,
     },
-    ...supportRoutes,
-    ...trainingRoutes,
     ...pcsoftRoutes,
 ];
 
@@ -125,8 +86,15 @@ const publicRoutesWithCmsMeta = publicRoutes.map((route) => ({
     },
 }));
 
+const removedModuleRedirects = [
+    { path: '/support/:pathMatch(.*)*', redirect: '/' },
+    { path: '/training/:pathMatch(.*)*', redirect: '/' },
+];
+
 const routes = [
     ...publicRoutesWithCmsMeta,
+    ...removedModuleRedirects,
+    { path: '/:pathMatch(.*)*', name: 'not-found', redirect: '/' },
 ];
 
 const router = createRouter({

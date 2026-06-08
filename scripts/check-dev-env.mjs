@@ -86,3 +86,8 @@ if (errors.length > 0) {
 }
 
 console.log(`[check-dev-env] OK — Vite ${viteHost}:${vitePort}, APP_URL=${appUrl ?? '(défaut)'}, build admin prêt`);
+console.log('');
+console.log('[check-dev-env] ➜ Ouvrez le site dans le navigateur :');
+console.log(`[check-dev-env]    ${appUrl ?? 'http://127.0.0.1:8000'}`);
+console.log('[check-dev-env]    (pas le port Vite 4173 — réservé aux assets / hot reload)');
+console.log('');

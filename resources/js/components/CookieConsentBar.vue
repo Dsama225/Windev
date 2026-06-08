@@ -8,12 +8,12 @@
             aria-label="Gestion des cookies"
         >
             <p class="text-sm text-secondary">
-                Nous utilisons des cookies pour mesurer l audience et ameliorer votre experience.
+                Nous utilisons des cookies pour mesurer l'audience et améliorer votre expérience.
             </p>
             <div class="mt-3 flex flex-wrap items-center gap-2">
                 <button class="ui-button ui-button-primary" @click="consentStore.acceptAll()">Accepter</button>
                 <button class="ui-button ui-button-ghost" @click="consentStore.refuseAll()">Refuser</button>
-                <button class="ui-button ui-button-ghost" @click="consentStore.manage()">Gerer les cookies</button>
+                <button class="ui-button ui-button-ghost" @click="consentStore.manage()">Gérer les cookies</button>
             </div>
         </aside>
     </Transition>

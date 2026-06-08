@@ -1,13 +1,13 @@
 <template>
     <AppNavbar />
     <main class="clouds-page pb-10">
-        <section class="section-shell clouds-page__top-nav" aria-label="Cloud navigation">
+        <section class="section-shell clouds-page__top-nav" aria-label="Navigation Cloud">
             <div class="glass-frame clouds-page__top-nav-inner">
-                <RouterLink to="/software/clouds" class="clouds-page__brand-link">Discover PCSCloud</RouterLink>
+                <RouterLink to="/software/clouds" class="clouds-page__brand-link">Découvrir PCSCloud</RouterLink>
                 <a href="#" class="clouds-page__top-link">FAQ</a>
                 <a href="#" class="clouds-page__top-link">Guides</a>
                 <a href="#" class="clouds-page__top-link">Contact</a>
-                <a href="#" class="clouds-page__dashboard-link">Dashboard</a>
+                <a href="#" class="clouds-page__dashboard-link">Tableau de bord</a>
             </div>
         </section>
 
@@ -22,13 +22,13 @@
                 />
                 <div class="clouds-page__hero-overlay" aria-hidden="true"></div>
                 <div class="clouds-page__hero-copy">
-                    <h1 id="clouds-hero-title" class="clouds-page__hero-title">CLOUD solutions</h1>
-                    <p class="clouds-page__hero-subtitle">for WINDEV, WEBDEV, WINDEV Mobile and HFSQL applications</p>
+                    <h1 id="clouds-hero-title" class="clouds-page__hero-title">Solutions CLOUD</h1>
+                    <p class="clouds-page__hero-subtitle">pour les applications WINDEV, WEBDEV, WINDEV Mobile et HFSQL</p>
                 </div>
             </div>
         </section>
 
-        <section class="section-shell clouds-page__services" aria-label="Cloud services">
+        <section class="section-shell clouds-page__services" aria-label="Services Cloud">
             <div class="clouds-page__services-grid">
                 <article v-for="service in services" :key="service.title" class="ui-card clouds-page__service-card">
                     <h2 class="clouds-page__service-title">{{ service.title }}</h2>
@@ -41,25 +41,25 @@
                         />
                     </div>
                     <p class="clouds-page__service-description">{{ service.description }}</p>
-                    <a href="#" class="clouds-page__learn-more">Learn more</a>
+                    <a href="#" class="clouds-page__learn-more">En savoir plus</a>
                 </article>
             </div>
         </section>
 
-        <section class="section-shell clouds-page__about" aria-label="PCSCloud details">
+        <section class="section-shell clouds-page__about" aria-label="Détails PCSCloud">
             <div class="glass-frame clouds-page__about-layout">
                 <div class="clouds-page__about-copy">
-                    <p>PCSCloud offers optimized Cloud solutions for WINDEV, WEBDEV, WINDEV Mobile development environments and for HFSQL.</p>
+                    <p>PCSCloud propose des solutions Cloud optimisées pour les environnements de développement WINDEV, WEBDEV, WINDEV Mobile et pour HFSQL.</p>
                     <p>
-                        PCSCloud provides you with one or multiple scalable platforms that allow you to use HFSQL databases, applications, and
-                        WEBDEV sites.
+                        PCSCloud met à votre disposition une ou plusieurs plateformes évolutives permettant d'utiliser des bases de données HFSQL, des applications et des
+                        sites WEBDEV.
                     </p>
-                    <p>PCSCloud also offers platforms for virtualizing PCSoft development projects.</p>
+                    <p>PCSCloud propose également des plateformes pour virtualiser les projets de développement PC SOFT.</p>
                 </div>
                 <figure class="clouds-page__about-figure">
                     <img
                         :src="'/img/PCSCloud/cloud_nuage.png'"
-                        alt="Stylized yellow cloud with security, settings, and analytics icons."
+                        alt="Nuage jaune stylisé avec des icônes de sécurité, paramètres et analytique."
                         loading="lazy"
                         decoding="async"
                     />
@@ -67,14 +67,14 @@
             </div>
         </section>
 
-        <section class="section-shell clouds-page__bottom-links" aria-label="Cloud footer links">
+        <section class="section-shell clouds-page__bottom-links" aria-label="Liens de pied de page Cloud">
             <div class="glass-frame clouds-page__bottom-links-inner">
-                <a href="#" class="clouds-page__footer-link">Home</a>
-                <a href="#" class="clouds-page__footer-link">Open an account</a>
-                <a href="#" class="clouds-page__footer-link">Dashboard</a>
+                <a href="#" class="clouds-page__footer-link">Accueil</a>
+                <a href="#" class="clouds-page__footer-link">Ouvrir un compte</a>
+                <a href="#" class="clouds-page__footer-link">Tableau de bord</a>
                 <a href="#" class="clouds-page__footer-link">Guides</a>
-                <a href="#" class="clouds-page__footer-link">Contact us</a>
-                <a href="#" class="clouds-page__footer-link">Legal</a>
+                <a href="#" class="clouds-page__footer-link">Contactez-nous</a>
+                <a href="#" class="clouds-page__footer-link">Mentions légales</a>
             </div>
         </section>
     </main>
@@ -89,39 +89,39 @@ import AppFooter from '../components/AppFooter.vue';
 const services = [
     {
         title: 'Applications',
-        description: 'Operating platform (WEBDEV sites, Webservices, HFSQL databases, etc.)',
+        description: 'Plateforme d\'exploitation (sites WEBDEV, Webservices, bases de données HFSQL, etc.)',
         image: '/img/PCSCloud/type_exploitation.svg',
-        imageAlt: 'Globe icon representing the operating platform.',
+        imageAlt: 'Icône globe représentant la plateforme d\'exploitation.',
     },
     {
         title: 'WEBDEV Cluster',
-        description: 'WEBDEV application cluster (WEBDEV sites and Webservices)',
+        description: 'Cluster d\'applications WEBDEV (sites WEBDEV et Webservices)',
         image: '/img/PCSCloud/type_cluster.svg',
-        imageAlt: 'Server cluster icon for WEBDEV applications.',
+        imageAlt: 'Icône de cluster de serveurs pour les applications WEBDEV.',
     },
     {
-        title: 'Development',
-        description: 'Development platform (GDS Source Code Manager, Control Centers, etc.)',
+        title: 'Développement',
+        description: 'Plateforme de développement (GDS Gestionnaire de sources, Centres de contrôle, etc.)',
         image: '/img/PCSCloud/type_gds.svg',
-        imageAlt: 'Team collaboration icon for the development platform.',
+        imageAlt: 'Icône de collaboration d\'équipe pour la plateforme de développement.',
     },
     {
-        title: 'Telemetry',
-        description: 'Telemetry platform',
+        title: 'Télémétrie',
+        description: 'Plateforme de télémétrie',
         image: '/img/PCSCloud/type_tlm.svg',
-        imageAlt: 'Gear and chart icon for the telemetry platform.',
+        imageAlt: 'Icône engrenage et graphique pour la plateforme de télémétrie.',
     },
     {
-        title: 'Email sending',
-        description: 'Email sending platform',
+        title: 'Envoi d\'e-mails',
+        description: 'Plateforme d\'envoi d\'e-mails',
         image: '/img/PCSCloud/type_SMTP.svg',
-        imageAlt: 'Cloud and envelope icon for the email sending platform.',
+        imageAlt: 'Icône nuage et enveloppe pour la plateforme d\'envoi d\'e-mails.',
     },
     {
-        title: 'AI Service',
-        description: 'AI service (text embedding)',
+        title: 'Service IA',
+        description: 'Service IA (embedding de texte)',
         image: '/img/PCSCloud/type_ServiceIA.svg',
-        imageAlt: 'Binary code icon for the AI service.',
+        imageAlt: 'Icône de code binaire pour le service IA.',
     },
 ];
 </script>
@@ -385,7 +385,7 @@ const services = [
     }
 }
 
-:global(.theme-dark) .clouds-page__dashboard-link {
+html.theme-dark .clouds-page__dashboard-link {
     color: #0b1f4d;
 }
 </style>

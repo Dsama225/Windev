@@ -1,7 +1,8 @@
 <template>
     <AdminPanel title="Liens & PDF" centered>
         <p class="admin-muted">
-            <code>payload.links[]</code> — liens internes, documents PDF (<code>/documents/{slug}/download</code>) ou externes.
+            <code>payload.links[]</code> — liens internes, PDF téléversés (<code>/uploads/cms/…</code>) ou externes.
+            Utilisez l’onglet <strong>Documents</strong> pour téléverser un PDF puis « Ajouter comme lien ».
         </p>
         <button type="button" class="admin-btn admin-btn--secondary" @click="editor.addLink()">Ajouter un lien</button>
 
@@ -29,11 +30,11 @@
                             v-model="link.target"
                             type="text"
                             class="admin-page-editor-inline-input"
-                            :placeholder="link.type === 'document' ? 'slug-du-pdf' : '/software/windev'"
+                            :placeholder="link.type === 'document' ? '/uploads/cms/…/documents/…' : '/software/windev'"
                         />
                     </td>
                     <td>
-                        <button type="button" class="admin-btn admin-btn--danger admin-btn--compact" @click="editor.removeLink(index)">×</button>
+                        <button type="button" class="admin-btn admin-btn--danger admin-btn--compact" title="Supprimer" @click="removeLink(index)">×</button>
                     </td>
                 </tr>
             </tbody>
@@ -45,10 +46,18 @@
 <script setup>
 import AdminPanel from '../AdminPanel.vue';
 
-defineProps({
+const props = defineProps({
     links: { type: Array, required: true },
     editor: { type: Object, required: true },
 });
+
+function removeLink(index) {
+    if (!window.confirm('Supprimer ce lien ?')) {
+        return;
+    }
+
+    props.editor.removeLink(index);
+}
 </script>
 
 <style scoped>

@@ -85,16 +85,14 @@ onBeforeUnmount(() => {
 .customer-logo-carousel--compact {
     width: 186px;
     height: 142px;
-    border: 1px solid #d8deeb;
+    border: 1px solid var(--color-border-strong);
     border-radius: 0.35rem;
-    background: #fff;
+    background: var(--color-input-bg);
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 0.65rem;
-    box-shadow:
-        0 1px 2px rgba(15, 23, 42, 0.05),
-        0 10px 22px rgba(15, 23, 42, 0.08);
+    box-shadow: var(--shadow-glass);
     overflow: hidden;
 }
 

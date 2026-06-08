@@ -1,12 +1,12 @@
 <template>
     <AppNavbar />
     <main class="wmexpress-page pb-10">
-        <section class="section-shell wmexpress-page__suite-line" aria-label="Product positioning">
-            <p class="wmexpress-page__suite-text">Cross-platform application development software suite</p>
+        <section class="section-shell wmexpress-page__suite-line" aria-label="Positionnement produit">
+            <p class="wmexpress-page__suite-text">Suite de logiciels de développement d'applications multi-plateformes</p>
             <figure class="wmexpress-page__cross-platform">
                 <img
                     :src="crossPlatform.src"
-                    alt="Platform icons: Windows, Java, PHP, HTML5, Linux, Android, iOS, and Web."
+                    alt="Icônes des plateformes : Windows, Java, PHP, HTML5, Linux, Android, iOS et Web."
                     width="520"
                     height="48"
                     loading="lazy"
@@ -21,25 +21,25 @@
                 <div class="wmexpress-page__grid">
                     <article class="wmexpress-page__main-col">
                         <h1 id="mobile-express-title" class="wmexpress-page__title">WINDEV MOBILE EXPRESS:</h1>
-                        <p class="wmexpress-page__subtitle">Free and time-unlimited</p>
+                        <p class="wmexpress-page__subtitle">Gratuit et sans limitation de durée</p>
 
                         <p class="wmexpress-page__copy">
-                            These are the main advantages of the Express version:
+                            Voici les principaux avantages de la version Express :
                         </p>
                         <ul class="wmexpress-page__bullets">
-                            <li>unparalleled quick development,</li>
-                            <li>limitless functionalities,</li>
-                            <li>total integration of your IS and existing source code,</li>
-                            <li>high quality UI &amp; UX,</li>
-                            <li>one single language (WLanguage) for Windows, Android and iOS&reg;,</li>
+                            <li>développement rapide inégalé,</li>
+                            <li>fonctionnalités illimitées,</li>
+                            <li>intégration totale de votre SI et de votre code source existant,</li>
+                            <li>UI et UX de haute qualité,</li>
+                            <li>un seul langage (WLanguage) pour Windows, Android et iOS&reg;,</li>
                             <li>
-                                total openness: possibility to use external resources written in Java, .Net and
+                                ouverture totale : possibilité d'utiliser des ressources externes écrites en Java, .Net et
                                 Objective C&reg;.
                             </li>
                         </ul>
 
                         <p class="wmexpress-page__caution">
-                            Caution: after trying the Express version, your perception of development will be different!
+                            Attention : après avoir essayé la version Express, votre perception du développement sera différente !
                         </p>
 
                         <div class="wmexpress-page__cta-row">
@@ -49,69 +49,69 @@
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                Download
+                                Télécharger
                             </a>
-                            <span class="wmexpress-page__cta-note">(free and time-unlimited)</span>
+                            <span class="wmexpress-page__cta-note">(gratuit et sans limitation de durée)</span>
                         </div>
 
                         <section class="wmexpress-page__section" aria-labelledby="mobile-express-devops">
                             <h2 id="mobile-express-devops" class="wmexpress-page__section-title">
-                                WINDEV Mobile is a professional DevOps IDE:
+                                WINDEV Mobile est un IDE DevOps professionnel :
                             </h2>
                             <ul class="wmexpress-page__bullets">
-                                <li>WINDEV Mobile was awarded as the &quot;Most productive language on the market&quot;,</li>
-                                <li>WINDEV Mobile is a powerful Integrated Development Environment,</li>
-                                <li>Total support for Android &trade;, iOS &reg;, UWP.</li>
+                                <li>WINDEV Mobile a été récompensé comme le « langage le plus productif du marché »,</li>
+                                <li>WINDEV Mobile est un environnement de développement intégré puissant,</li>
+                                <li>Prise en charge totale d'Android &trade;, iOS &reg;, UWP.</li>
                             </ul>
                         </section>
 
                         <section class="wmexpress-page__section" aria-labelledby="mobile-express-limits">
                             <h2 id="mobile-express-limits" class="wmexpress-page__section-title">
-                                Develop your projects without limits:
+                                Développez vos projets sans limites :
                             </h2>
                             <p class="wmexpress-page__copy">
-                                WINDEV Mobile allows you to create stand-alone applications for mobile devices. You can
-                                develop order management applications, delivery tracking applications, applications with
-                                data replication via Wi-Fi, 3G, 4G, 5G, GPRS, EDGE, UMTS, HSDPA, Bluetooth, etc.
+                                WINDEV Mobile vous permet de créer des applications autonomes pour appareils mobiles. Vous pouvez
+                                développer des applications de gestion de commandes, de suivi de livraisons, des applications avec
+                                réplication de données via Wi-Fi, 3G, 4G, 5G, GPRS, EDGE, UMTS, HSDPA, Bluetooth, etc.
                             </p>
                         </section>
 
                         <section class="wmexpress-page__section" aria-labelledby="mobile-express-tutorial">
                             <h2 id="mobile-express-tutorial" class="wmexpress-page__section-title">
-                                Follow the tutorial to discover WINDEV Mobile
+                                Suivez le tutoriel pour découvrir WINDEV Mobile
                             </h2>
                             <div class="wmexpress-page__cta-row">
-                                <a href="#" class="wmexpress-page__cta-btn">Follow tutorial</a>
-                                <span class="wmexpress-page__cta-note">(free)</span>
+                                <a href="#" class="wmexpress-page__cta-btn">Suivre le tutoriel</a>
+                                <span class="wmexpress-page__cta-note">(gratuit)</span>
                             </div>
                             <p class="wmexpress-page__copy">
-                                Use the examples included in WINDEV Mobile to create your first applications. The
-                                tutorial was designed to progressively teach you how to develop on WINDEV Mobile.
+                                Utilisez les exemples inclus dans WINDEV Mobile pour créer vos premières applications. Le
+                                tutoriel a été conçu pour vous apprendre progressivement à développer avec WINDEV Mobile.
                             </p>
                         </section>
 
                         <section class="wmexpress-page__section" aria-labelledby="mobile-express-links">
-                            <h2 id="mobile-express-links" class="wmexpress-page__section-title">Additional links:</h2>
+                            <h2 id="mobile-express-links" class="wmexpress-page__section-title">Liens complémentaires :</h2>
                             <ul class="wmexpress-page__link-list">
                                 <li>
-                                    See also:
+                                    Voir aussi :
                                     <RouterLink class="wmexpress-page__link" to="/download/windev-express">
                                         WINDEV Express
                                     </RouterLink>
                                 </li>
-                                <li><a href="#" class="wmexpress-page__link">Uninstall procedure</a></li>
+                                <li><a href="#" class="wmexpress-page__link">Procédure de désinstallation</a></li>
                                 <li>
-                                    <a href="#" class="wmexpress-page__link">Specific features of the Express version</a>
+                                    <a href="#" class="wmexpress-page__link">Fonctionnalités spécifiques de la version Express</a>
                                 </li>
                             </ul>
                         </section>
                     </article>
 
-                    <aside class="wmexpress-page__side-col" aria-label="Related resources">
+                    <aside class="wmexpress-page__side-col" aria-label="Ressources associées">
                         <figure class="wmexpress-page__packages">
                             <img
                                 :src="packagesSuite.src"
-                                alt="WINDEV 2026, WEBDEV 2026, and WINDEV Mobile 2026 product boxes."
+                                alt="Boîtes produits WINDEV 2026, WEBDEV 2026 et WINDEV Mobile 2026."
                                 loading="lazy"
                                 decoding="async"
                                 @error="onImageError($event, packagesSuite.fallback)"
@@ -119,16 +119,16 @@
                         </figure>
 
                         <p class="wmexpress-page__side-copy">
-                            The <strong>WINDEV, WEBDEV and WINDEV Mobile</strong> environments are compatible and share
-                            project elements. It has never been easier to build multi-target applications.
+                            Les environnements <strong>WINDEV, WEBDEV et WINDEV Mobile</strong> sont compatibles et partagent
+                            les éléments de projet. Il n'a jamais été aussi simple de créer des applications multi-cibles.
                         </p>
 
                         <section class="wmexpress-page__side-group">
-                            <h2 class="wmexpress-page__group-title">Documentation overview</h2>
+                            <h2 class="wmexpress-page__group-title">Aperçu de la documentation</h2>
                             <ul class="wmexpress-page__group-list">
                                 <li>
                                     <RouterLink class="wmexpress-page__link" to="/software/new-features-2026">
-                                        New features
+                                        Nouveautés
                                     </RouterLink>
                                 </li>
                                 <li>
@@ -146,28 +146,28 @@
                         </section>
 
                         <section class="wmexpress-page__side-group">
-                            <h2 class="wmexpress-page__group-title">Overview diagrams</h2>
+                            <h2 class="wmexpress-page__group-title">Schémas de synthèse</h2>
                             <ul class="wmexpress-page__group-list">
-                                <li><a href="#" class="wmexpress-page__link">Universal database connectors</a></li>
-                                <li><a href="#" class="wmexpress-page__link">Cross-platform development</a></li>
+                                <li><a href="#" class="wmexpress-page__link">Connecteurs universels de bases de données</a></li>
+                                <li><a href="#" class="wmexpress-page__link">Développement multi-plateforme</a></li>
                             </ul>
                         </section>
 
                         <section class="wmexpress-page__side-group">
-                            <h2 class="wmexpress-page__group-title">Videos</h2>
+                            <h2 class="wmexpress-page__group-title">Vidéos</h2>
                             <ul class="wmexpress-page__group-list">
-                                <li><a href="#" class="wmexpress-page__link">Technical videos</a></li>
+                                <li><a href="#" class="wmexpress-page__link">Vidéos techniques</a></li>
                             </ul>
                         </section>
 
-                        <section class="wmexpress-page__customer" aria-label="Customer references">
-                            <h2 class="wmexpress-page__customer-title">They are using WINDEV</h2>
+                        <section class="wmexpress-page__customer" aria-label="Références clients">
+                            <h2 class="wmexpress-page__customer-title">Ils utilisent WINDEV</h2>
                             <figure class="wmexpress-page__customer-figure">
                                 <div class="wmexpress-page__customer-logo-box">
                                     <img
                                         class="wmexpress-page__customer-logo-img"
                                         :src="customerCarouselLogos[currentCustomerLogoIndex]"
-                                        alt="WINDEV customer logo"
+                                        alt="Logo client WINDEV"
                                         loading="lazy"
                                         decoding="async"
                                     />
@@ -478,9 +478,9 @@ onBeforeUnmount(() => {
     align-items: center;
     justify-content: center;
     padding: clamp(0.65rem, 3vw, 1rem);
-    border: 1px solid color-mix(in oklab, var(--color-text-secondary) 28%, transparent);
+    border: 1px solid var(--color-border-strong);
     border-radius: var(--radius-md);
-    background: #fff;
+    background: var(--color-input-bg);
     box-shadow:
         0 1px 2px rgba(15, 23, 42, 0.05),
         0 8px 18px rgba(15, 23, 42, 0.06);
@@ -497,12 +497,7 @@ onBeforeUnmount(() => {
     display: block;
 }
 
-:global(.theme-dark) .wmexpress-page__customer-logo-box {
-    border-color: color-mix(in oklab, var(--color-brand) 22%, var(--color-surface-border));
-    background: color-mix(in oklab, #ffffff 94%, #c5d8ff 6%);
-}
-
-:global(.theme-dark) .wmexpress-page__cta-btn {
+html.theme-dark .wmexpress-page__cta-btn {
     color: #16203a;
 }
 

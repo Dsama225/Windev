@@ -1,6 +1,6 @@
 [
   {
-    "region": "NORTH AMERICA",
+    "region": "AMÉRIQUE DU NORD",
     "countries": [
       {
         "href": "https://windev.com/pcsoft/distributors/canada.htm",
@@ -8,20 +8,20 @@
       },
       {
         "href": "https://windev.com/pcsoft/distributors/united-states.htm",
-        "label": "United States"
+        "label": "États-Unis"
       }
     ]
   },
   {
-    "region": "AFRICA",
+    "region": "AFRIQUE",
     "countries": [
       {
         "href": "https://windev.com/pcsoft/distributors/algeria.htm",
-        "label": "Algeria"
+        "label": "Algérie"
       },
       {
         "href": "https://windev.com/pcsoft/distributors/benin.htm",
-        "label": "Benin"
+        "label": "Bénin"
       },
       {
         "href": "https://windev.com/pcsoft/distributors/south-africa.htm",
@@ -33,19 +33,19 @@
       },
       {
         "href": "https://windev.com/pcsoft/distributors/contact.htm",
-        "label": "Cameroon"
+        "label": "Cameroun"
       },
       {
         "href": "https://windev.com/pcsoft/distributors/contact.htm",
-        "label": "Cape Verde"
+        "label": "Cap-Vert"
       },
       {
         "href": "https://windev.com/pcsoft/distributors/contact.htm",
-        "label": "Chad"
+        "label": "Tchad"
       },
       {
         "href": "https://windev.com/pcsoft/distributors/contact.htm",
-        "label": "Comoros"
+        "label": "Comores"
       },
       {
         "href": "https://windev.com/pcsoft/distributors/contact.htm",
@@ -53,7 +53,7 @@
       },
       {
         "href": "https://windev.com/pcsoft/distributors/contact.htm",
-        "label": "Egypt"
+        "label": "Égypte"
       },
       {
         "href": "https://windev.com/pcsoft/distributors/contact.htm",
@@ -61,11 +61,11 @@
       },
       {
         "href": "https://windev.com/pcsoft/distributors/guinea.htm",
-        "label": "Guinea"
+        "label": "Guinée"
       },
       {
         "href": "https://windev.com/pcsoft/distributors/ivory-coast.htm",
-        "label": "Ivory Coast"
+        "label": "Côte d'Ivoire"
       },
       {
         "href": "https://windev.com/pcsoft/distributors/contact.htm",
@@ -77,19 +77,19 @@
       },
       {
         "href": "https://windev.com/pcsoft/distributors/morocco.htm",
-        "label": "Morocco"
+        "label": "Maroc"
       },
       {
         "href": "https://windev.com/pcsoft/distributors/mauritania.htm",
-        "label": "Mauritania"
+        "label": "Mauritanie"
       },
       {
         "href": "https://windev.com/pcsoft/distributors/contact.htm",
-        "label": "Mauritius"
+        "label": "Maurice"
       },
       {
         "href": "https://windev.com/pcsoft/distributors/south-africa.htm",
-        "label": "Namibia"
+        "label": "Namibie"
       },
       {
         "href": "https://windev.com/pcsoft/distributors/contact.htm",
@@ -109,19 +109,19 @@
       },
       {
         "href": "https://windev.com/pcsoft/distributors/contact.htm",
-        "label": "Senegal"
+        "label": "Sénégal"
       },
       {
         "href": "https://windev.com/pcsoft/distributors/south-africa.htm",
-        "label": "South Africa"
+        "label": "Afrique du Sud"
       },
       {
         "href": "https://windev.com/pcsoft/distributors/south-africa.htm",
-        "label": "Swaziland"
+        "label": "Eswatini"
       },
       {
         "href": "https://windev.com/pcsoft/distributors/contact.htm",
-        "label": "Tanzania"
+        "label": "Tanzanie"
       },
       {
         "href": "https://windev.com/pcsoft/distributors/contact.htm",
@@ -129,32 +129,32 @@
       },
       {
         "href": "https://windev.com/pcsoft/distributors/tunisia.htm",
-        "label": "Tunisia"
+        "label": "Tunisie"
       }
     ]
   },
   {
-    "region": "LATIN AMERICA",
+    "region": "AMÉRIQUE LATINE",
     "countries": [
       {
         "href": "https://windev.com/pcsoft/distributors/argentina.htm",
-        "label": "Argentina"
+        "label": "Argentine"
       },
       {
         "href": "https://windev.com/pcsoft/distributors/contact.htm",
-        "label": "Bolivia"
+        "label": "Bolivie"
       },
       {
         "href": "https://windev.com/pcsoft/distributors/contact.htm",
-        "label": "Brazil"
+        "label": "Brésil"
       },
       {
         "href": "https://windev.com/pcsoft/distributors/chile.htm",
-        "label": "Chile"
+        "label": "Chili"
       },
       {
         "href": "https://windev.com/pcsoft/distributors/colombia.htm",
-        "label": "Colombia"
+        "label": "Colombie"
       },
       {
         "href": "https://windev.com/pcsoft/distributors/costa-rica.htm",
@@ -162,7 +162,7 @@
       },
       {
         "href": "https://windev.com/pcsoft/distributors/ecuador.htm",
-        "label": "Ecuador"
+        "label": "Équateur"
       },
       {
         "href": "https://windev.com/pcsoft/distributors/honduras.htm",
@@ -170,7 +170,7 @@
       },
       {
         "href": "https://windev.com/pcsoft/distributors/contact.htm",
-        "label": "Mexico"
+        "label": "Mexique"
       },
       {
         "href": "https://windev.com/pcsoft/distributors/panama.htm",
@@ -182,7 +182,7 @@
       },
       {
         "href": "https://windev.com/pcsoft/distributors/peru.htm",
-        "label": "Peru"
+        "label": "Pérou"
       },
       {
         "href": "https://windev.com/pcsoft/distributors/uruguay.htm",
@@ -191,15 +191,15 @@
     ]
   },
   {
-    "region": "OCEANIA",
+    "region": "OCÉANIE",
     "countries": [
       {
         "href": "https://windev.com/pcsoft/distributors/australia.htm",
-        "label": "Australia"
+        "label": "Australie"
       },
       {
         "href": "https://windev.com/pcsoft/distributors/australia.htm",
-        "label": "New Zealand"
+        "label": "Nouvelle-Zélande"
       }
     ]
   },
@@ -208,35 +208,35 @@
     "countries": [
       {
         "href": "https://windev.com/pcsoft/distributors/germany.htm",
-        "label": "Germany"
+        "label": "Allemagne"
       },
       {
         "href": "https://windev.com/pcsoft/distributors/austria.htm",
-        "label": "Austria"
+        "label": "Autriche"
       },
       {
         "href": "https://windev.com/pcsoft/distributors/belgium.htm",
-        "label": "Belgium"
+        "label": "Belgique"
       },
       {
         "href": "https://windev.com/pcsoft/distributors/contact.htm",
-        "label": "Bulgaria"
+        "label": "Bulgarie"
       },
       {
         "href": "https://windev.com/pcsoft/distributors/contact.htm",
-        "label": "Cyprus"
+        "label": "Chypre"
       },
       {
         "href": "https://windev.com/pcsoft/distributors/contact.htm",
-        "label": "Croatia"
+        "label": "Croatie"
       },
       {
         "href": "https://windev.com/pcsoft/distributors/contact.htm",
-        "label": "Denmark"
+        "label": "Danemark"
       },
       {
         "href": "https://windev.com/pcsoft/distributors/contact.htm",
-        "label": "Finland"
+        "label": "Finlande"
       },
       {
         "href": "https://windev.com/pcsoft/distributors/france.htm",
@@ -244,23 +244,23 @@
       },
       {
         "href": "https://windev.com/pcsoft/distributors/greece.htm",
-        "label": "Greece"
+        "label": "Grèce"
       },
       {
         "href": "https://windev.com/pcsoft/distributors/contact.htm",
-        "label": "Hungary"
+        "label": "Hongrie"
       },
       {
         "href": "https://windev.com/pcsoft/distributors/contact.htm",
-        "label": "Ireland"
+        "label": "Irlande"
       },
       {
         "href": "https://windev.com/pcsoft/distributors/contact.htm",
-        "label": "Iceland"
+        "label": "Islande"
       },
       {
         "href": "https://windev.com/pcsoft/distributors/italy.htm",
-        "label": "Italy"
+        "label": "Italie"
       },
       {
         "href": "https://windev.com/pcsoft/distributors/belgium.htm",
@@ -268,15 +268,15 @@
       },
       {
         "href": "https://windev.com/pcsoft/distributors/contact.htm",
-        "label": "Norway"
+        "label": "Norvège"
       },
       {
         "href": "https://windev.com/pcsoft/distributors/belgium.htm",
-        "label": "Netherlands"
+        "label": "Pays-Bas"
       },
       {
         "href": "https://windev.com/pcsoft/distributors/poland.htm",
-        "label": "Poland"
+        "label": "Pologne"
       },
       {
         "href": "https://windev.com/pcsoft/distributors/portugal.htm",
@@ -284,48 +284,48 @@
       },
       {
         "href": "https://windev.com/pcsoft/distributors/contact.htm",
-        "label": "Romania"
+        "label": "Roumanie"
       },
       {
         "href": "https://windev.com/pcsoft/distributors/contact.htm",
-        "label": "Serbia"
+        "label": "Serbie"
       },
       {
         "href": "https://windev.com/pcsoft/distributors/spain.htm",
-        "label": "Spain"
+        "label": "Espagne"
       },
       {
         "href": "https://windev.com/pcsoft/distributors/contact.htm",
-        "label": "Sweden"
+        "label": "Suède"
       },
       {
         "href": "https://windev.com/pcsoft/distributors/switzerland.htm",
-        "label": "Switzerland"
+        "label": "Suisse"
       },
       {
         "href": "https://windev.com/pcsoft/distributors/united-kingdom.htm",
-        "label": "United Kingdom"
+        "label": "Royaume-Uni"
       }
     ]
   },
   {
-    "region": "ASIA",
+    "region": "ASIE",
     "countries": [
       {
         "href": "https://windev.com/pcsoft/distributors/contact.htm",
-        "label": "India"
+        "label": "Inde"
       },
       {
         "href": "https://windev.com/pcsoft/distributors/contact.htm",
-        "label": "Indonesia"
+        "label": "Indonésie"
       },
       {
         "href": "https://windev.com/pcsoft/distributors/contact.htm",
-        "label": "Japan"
+        "label": "Japon"
       },
       {
         "href": "https://windev.com/pcsoft/distributors/malaysia.htm",
-        "label": "Malaysia"
+        "label": "Malaisie"
       },
       {
         "href": "https://windev.com/pcsoft/distributors/contact.htm",
@@ -333,52 +333,52 @@
       },
       {
         "href": "https://windev.com/pcsoft/distributors/singapore.htm",
-        "label": "Singapore"
+        "label": "Singapour"
       },
       {
         "href": "https://windev.com/pcsoft/distributors/contact.htm",
-        "label": "South Korea"
+        "label": "Corée du Sud"
       },
       {
         "href": "https://windev.com/pcsoft/distributors/contact.htm",
-        "label": "Taiwan"
+        "label": "Taïwan"
       },
       {
         "href": "https://windev.com/pcsoft/distributors/contact.htm",
-        "label": "Thailand"
+        "label": "Thaïlande"
       },
       {
         "href": "https://windev.com/pcsoft/distributors/contact.htm",
-        "label": "Vietnam"
+        "label": "Viêt Nam"
       }
     ]
   },
   {
-    "region": "MIDDLE EAST",
+    "region": "MOYEN-ORIENT",
     "countries": [
       {
         "href": "https://windev.com/pcsoft/distributors/contact.htm",
-        "label": "Israel"
+        "label": "Israël"
       },
       {
         "href": "https://windev.com/pcsoft/distributors/contact.htm",
-        "label": "Jordan"
+        "label": "Jordanie"
       },
       {
         "href": "https://windev.com/pcsoft/distributors/contact.htm",
-        "label": "Kuwait"
+        "label": "Koweït"
       },
       {
         "href": "https://windev.com/pcsoft/distributors/contact.htm",
-        "label": "Saudi Arabia"
+        "label": "Arabie saoudite"
       },
       {
         "href": "https://windev.com/pcsoft/distributors/turkey.htm",
-        "label": "Turkey"
+        "label": "Turquie"
       },
       {
         "href": "https://windev.com/pcsoft/distributors/contact.htm",
-        "label": "United Arab Emirates"
+        "label": "Émirats arabes unis"
       },
       {
         "href": "https://windev.com/windev",
@@ -394,7 +394,7 @@
       },
       {
         "href": "//us.pcsoft-windev-webdev.com/WX2026-Features.pdf?202510201505",
-        "label": "New features"
+        "label": "Nouveautés"
       },
       {
         "href": "//us.pcsoft-windev-webdev.com/windev-us.pdf?202305241106",
@@ -410,27 +410,27 @@
       },
       {
         "href": "//us.pcsoft-windev-webdev.com/application-portability.pdf?202407181038",
-        "label": "Application portability"
+        "label": "Portabilité des applications"
       },
       {
         "href": "//us.pcsoft-windev-webdev.com/visuels/universal-access-to-data.pdf?202510211134",
-        "label": "Universal database connectors"
+        "label": "Connecteurs universels de bases de données"
       },
       {
         "href": "//us.pcsoft-windev-webdev.com/visuels/multi-platform-development.pdf?202510211134",
-        "label": "Cross-platform development"
+        "label": "Développement multi-plateforme"
       },
       {
         "href": "https://windev.com/pcsoft/videos.html",
-        "label": "Technical videos"
+        "label": "Vidéos techniques"
       },
       {
         "href": "/",
-        "label": "Home"
+        "label": "Accueil"
       },
       {
         "href": "https://windev.com/windev",
-        "label": "Software"
+        "label": "Logiciels"
       },
       {
         "href": "https://windev.com/windev",
@@ -446,11 +446,11 @@
       },
       {
         "href": "https://windev.com/newfeatures",
-        "label": "New Features of version 2026"
+        "label": "Nouveautés de la version 2026"
       },
       {
         "href": "https://windev.com/nativeconnectors/clientserver.htm",
-        "label": "Native Connectors to databases"
+        "label": "Connecteurs natifs aux bases de données"
       },
       {
         "href": "https://windev.com/pcsoft/documentations.html",
@@ -458,7 +458,7 @@
       },
       {
         "href": "https://windev.com/pcsoft/videos.html",
-        "label": "Technical videos"
+        "label": "Vidéos techniques"
       },
       {
         "href": "https://windev.com/pcsoft/hfsql.htm",
@@ -474,11 +474,11 @@
       },
       {
         "href": "https://windev.com/ts",
-        "label": "Technical Support"
+        "label": "Assistance technique"
       },
       {
         "href": "https://windev.com/ad",
-        "label": "Direct Assistance"
+        "label": "Assistance directe"
       },
       {
         "href": "//forum.pcsoft.fr/en-US/index.awp",
@@ -490,47 +490,47 @@
       },
       {
         "href": "https://windev.com/ts/useful_resources.htm",
-        "label": "Useful resources"
+        "label": "Ressources utiles"
       },
       {
         "href": "//repository.windev.com",
-        "label": "Online repository"
+        "label": "Référentiel en ligne"
       },
       {
         "href": "//help.windev.com/en-US",
-        "label": "Online help"
+        "label": "Aide en ligne"
       },
       {
         "href": "https://windev.com/ts/assistance.htm",
-        "label": "Training"
+        "label": "Formation"
       },
       {
         "href": "https://windev.com/ts/assistance.htm",
-        "label": "Consulting"
+        "label": "Conseil"
       },
       {
         "href": "https://windev.com/ad",
-        "label": "Direct Assistance"
+        "label": "Assistance directe"
       },
       {
         "href": "https://windev.com/ts/educational_institutions.htm",
-        "label": "Education"
+        "label": "Éducation"
       },
       {
         "href": "/neo",
-        "label": "Subscribe"
+        "label": "S'abonner"
       },
       {
         "href": "https://windev.com/pcsoft/request/request-a-quote.html",
-        "label": "Request a quote"
+        "label": "Demander un devis"
       },
       {
         "href": "https://windev.com/pcsoft/distributors",
-        "label": "International distributors"
+        "label": "Distributeurs internationaux"
       },
       {
         "href": "https://download.windev.com/uk/dongle.awp",
-        "label": "Download center"
+        "label": "Centre de téléchargement"
       },
       {
         "href": "https://windev.com/windev/WD-Express.htm",
@@ -542,23 +542,23 @@
       },
       {
         "href": "https://download.windev.com/uk/index.awp",
-        "label": "Subscription version"
+        "label": "Version abonnement"
       },
       {
         "href": "https://download.windev.com/uk/dongle.awp",
-        "label": "Dongle version"
+        "label": "Version dongle"
       },
       {
         "href": "https://windev.com/pcsoft/visuals.html",
-        "label": "Reusable visual elements"
+        "label": "Éléments visuels réutilisables"
       },
       {
         "href": "https://windev.com/pcsoft/environmental-policy.htm",
-        "label": "Our values"
+        "label": "Nos valeurs"
       },
       {
         "href": "https://windev.com/pcsoft/environmental-policy.htm",
-        "label": "Environmental policy"
+        "label": "Politique environnementale"
       },
       {
         "href": "https://windev.com/pcsoft/index.html",
@@ -566,11 +566,11 @@
       },
       {
         "href": "https://windev.com/sitemap.htm",
-        "label": "Site map"
+        "label": "Plan du site"
       },
       {
         "href": "https://windev.com/pcsoft/contact/need-more-information.html",
-        "label": "Contact us"
+        "label": "Nous contacter"
       },
       {
         "href": "https://windev.com/pcsoft/contact/need-more-information.html",
@@ -582,7 +582,7 @@
       },
       {
         "href": "https://windev.com/pcsoft/distributors",
-        "label": "International distributors"
+        "label": "Distributeurs internationaux"
       },
       {
         "href": "https://windev.com/pcsoft/data-protection-policy.htm",
@@ -590,11 +590,11 @@
       },
       {
         "href": "https://windev.com/pcsoft/general-terms-and-conditions.htm",
-        "label": "General terms and conditions"
+        "label": "Conditions générales"
       },
       {
         "href": "https://windev.com/pcsoft/copyright.htm",
-        "label": "Registered trademarks. Copyright © 2026 PC SOFT. All rights reserved"
+        "label": "Marques déposées. Copyright © 2026 PC SOFT. Tous droits réservés"
       }
     ]
   }

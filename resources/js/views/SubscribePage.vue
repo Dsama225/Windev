@@ -13,38 +13,38 @@
 
                     <div class="subscribe-page__intro">
                         <p>
-                            To support your development projects and provide you with even better products,
+                            Pour accompagner vos projets de développement et vous proposer des produits toujours plus performants,
                             <br />
-                            we are making some changes to our solutions.
+                            nous apportons des modifications à nos solutions.
                         </p>
                         <p>
-                            Until now, our solutions have been available as individual software subscriptions.
+                            Jusqu'à présent, nos solutions étaient disponibles sous forme d'abonnements logiciels individuels.
                             <br />
-                            We are now introducing
-                            <strong>comprehensive, coherent offers, adapted to the size of your organization</strong>, in the form of
-                            integrated software suites and services.
+                            Nous introduisons désormais
+                            <strong>des offres complètes et cohérentes, adaptées à la taille de votre organisation</strong>, sous la forme de
+                            suites logicielles et de services intégrés.
                         </p>
                         <p>
-                            These changes have a clear purpose:
-                            <strong>Provide you with greater value, performance and simplicity, through an offer better suited to your business needs.</strong>
+                            Ces changements ont un objectif clair :
+                            <strong>vous apporter plus de valeur, de performance et de simplicité, grâce à une offre mieux adaptée aux besoins de votre entreprise.</strong>
                         </p>
-                        <p class="subscribe-page__small-note">*Please fill in the questionnaire to help us better understand your needs.</p>
+                        <p class="subscribe-page__small-note">*Veuillez remplir le questionnaire pour nous aider à mieux comprendre vos besoins.</p>
                     </div>
 
-                    <a href="#" class="subscribe-page__contact-btn">Contact our sales department</a>
+                    <a href="#" class="subscribe-page__contact-btn">Contacter notre service commercial</a>
                 </div>
             </div>
         </section>
 
         <section class="section-shell subscribe-page__faq">
             <div class="subscribe-page__faq-card glass-frame">
-                <h1 class="subscribe-page__faq-title">Frequently Asked Questions (FAQ)</h1>
+                <h1 class="subscribe-page__faq-title">Foire aux questions (FAQ)</h1>
 
-                <div class="subscribe-page__tabs" role="tablist" aria-label="FAQ categories">
+                <div class="subscribe-page__tabs" role="tablist" aria-label="Catégories FAQ">
                     <button type="button" class="subscribe-page__tab subscribe-page__tab--active" role="tab" aria-selected="true">
-                        Subscription
+                        Abonnement
                     </button>
-                    <button type="button" class="subscribe-page__tab" role="tab" aria-selected="false">Security key</button>
+                    <button type="button" class="subscribe-page__tab" role="tab" aria-selected="false">Clé de sécurité</button>
                 </div>
 
                 <ul class="subscribe-page__faq-list">
@@ -57,10 +57,10 @@
                     </li>
                 </ul>
 
-                <p class="subscribe-page__contact-line">Didn't find the answer you were looking for?</p>
-                <p class="subscribe-page__contact-line">Feel free to contact us:</p>
-                <p class="subscribe-page__contact-line">Email : <a href="mailto:info@windev.com">info@windev.com</a></p>
-                <p class="subscribe-page__contact-line">Tel : + 33 (0)4 67 032 032</p>
+                <p class="subscribe-page__contact-line">Vous n'avez pas trouvé la réponse que vous cherchiez ?</p>
+                <p class="subscribe-page__contact-line">N'hésitez pas à nous contacter :</p>
+                <p class="subscribe-page__contact-line">E-mail : <a href="mailto:info@windev.com">info@windev.com</a></p>
+                <p class="subscribe-page__contact-line">Tél. : + 33 (0)4 67 032 032</p>
             </div>
         </section>
     </main>
@@ -79,20 +79,20 @@ function onLogoError(event) {
 }
 
 const questions = [
-    'What are the advantages of a subscription?',
-    'Which versions are available in the subscription-based model?',
-    'My subscription plan allows me to use several products. How to manage these products and their subscriptions?',
-    'I work on different computers at home, at work, etc. Can I switch from one computer to another?',
-    'What are the "one-time initial fees"?',
-    'How do I cancel my subscription?',
-    'I own one or more dongle-based licenses. What happens to these dongles?',
-    'I am not located in France and I purchase software through an official distributor in my country. Can I continue to do so?',
-    'Is Technical Support still free?',
-    'Does subscription-based software require a dongle?',
-    'With a subscription, do I still own my source code and project elements?',
-    "I'm stopping my subscription. Can I still distribute my applications?",
-    'Can I suspend my subscription, resume it and get my old source code and project elements back?',
-    'I have a dongle and it has stopped working. Can I replace it?',
+    'Quels sont les avantages d\'un abonnement ?',
+    'Quelles versions sont disponibles dans le modèle par abonnement ?',
+    'Mon abonnement me permet d\'utiliser plusieurs produits. Comment gérer ces produits et leurs abonnements ?',
+    'Je travaille sur différents ordinateurs, à la maison, au bureau, etc. Puis-je passer d\'un ordinateur à l\'autre ?',
+    'Que sont les « frais initiaux uniques » ?',
+    'Comment résilier mon abonnement ?',
+    'Je possède une ou plusieurs licences avec dongle. Que deviennent ces dongles ?',
+    'Je ne suis pas en France et j\'achète mes logiciels via un distributeur officiel dans mon pays. Puis-je continuer ?',
+    'L\'assistance technique est-elle toujours gratuite ?',
+    'Un logiciel par abonnement nécessite-t-il un dongle ?',
+    'Avec un abonnement, est-ce que je conserve la propriété de mon code source et de mes éléments de projet ?',
+    'J\'arrête mon abonnement. Puis-je continuer à distribuer mes applications ?',
+    'Puis-je suspendre mon abonnement, le reprendre et retrouver mon ancien code source et mes éléments de projet ?',
+    'J\'ai un dongle qui ne fonctionne plus. Puis-je le remplacer ?',
 ];
 </script>
 
@@ -175,7 +175,7 @@ const questions = [
     text-align: center;
     font-weight: 400;
     font-size: clamp(1.5rem, 3.5vw, 2rem);
-    color: #526dc2;
+    color: var(--color-brand);
 }
 
 .subscribe-page__tabs {
@@ -195,7 +195,7 @@ const questions = [
 }
 
 .subscribe-page__tab--active {
-    color: #5a74c7;
+    color: var(--color-brand-strong);
     text-decoration: underline;
     text-underline-offset: 0.2rem;
 }

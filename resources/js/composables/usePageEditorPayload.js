@@ -1,5 +1,7 @@
 import { reactive } from 'vue';
 import { createPageComponent, normalizePageComponent } from '../data/pageEditorComponents';
+import { adminCmsService } from '../services/adminCmsService';
+import { collectComponentAssetPaths, deleteCmsAsset, deleteCmsAssets } from '../utils/cmsAssets';
 
 function reorderArray(arr, fromIndex, toIndex) {
     if (fromIndex === toIndex || fromIndex < 0 || toIndex < 0 || fromIndex >= arr.length || toIndex >= arr.length) {
@@ -29,6 +31,29 @@ export function createEmptySection(id = 'section') {
         paragraphs: [],
         list: [],
         table: null,
+        cards: [],
+    };
+}
+
+export function createEmptySectionCard() {
+    return {
+        title: '',
+        body: '',
+        image_src: '',
+        image_alt: '',
+        link: '',
+        link_label: '',
+    };
+}
+
+export function createEmptyDocument(index = 0) {
+    return {
+        id: `doc-${index + 1}`,
+        label: '',
+        url: '',
+        filename: '',
+        mime: 'application/pdf',
+        size: 0,
     };
 }
 
@@ -66,6 +91,8 @@ export function createPageEditorState() {
     const resourceLinks = reactive([]);
 
     const publicationBody = reactive({ html: '' });
+
+    const documents = reactive([]);
 
     const homeForm = reactive({
         cta_title: '',
@@ -159,6 +186,15 @@ export function createPageEditorState() {
         })));
 
         publicationBody.html = payload.body ?? '';
+
+        documents.splice(0, documents.length, ...(payload.documents ?? []).map((doc, i) => ({
+            id: doc.id ?? `doc-${i + 1}`,
+            label: doc.label ?? doc.title ?? '',
+            url: doc.url ?? doc.path ?? '',
+            filename: doc.filename ?? '',
+            mime: doc.mime ?? 'application/pdf',
+            size: doc.size ?? 0,
+        })));
 
         const cta = payload.cta ?? {};
         homeForm.cta_title = cta.title ?? '';
@@ -299,6 +335,17 @@ export function createPageEditorState() {
             payload.note = homeForm.note;
         }
 
+        payload.documents = documents
+            .filter((doc) => doc.url?.trim())
+            .map((doc) => ({
+                id: doc.id,
+                label: doc.label?.trim() || doc.filename || 'Document',
+                url: doc.url,
+                filename: doc.filename,
+                mime: doc.mime,
+                size: doc.size,
+            }));
+
         return payload;
     }
 
@@ -313,13 +360,17 @@ export function createPageEditorState() {
         features,
         resourceLinks,
         publicationBody,
+        documents,
         homeForm,
         hydrateFromPage,
         buildPayload,
         addSection() {
             sections.push(createEmptySection(`section-${sections.length + 1}`));
         },
-        removeSection(index) {
+        async removeSection(index, routeName) {
+            const section = sections[index];
+            const imagePaths = (section?.cards ?? []).map((card) => card.image_src).filter(Boolean);
+            await deleteCmsAssets(routeName, imagePaths);
             sections.splice(index, 1);
         },
         moveSection(index, direction) {
@@ -338,10 +389,72 @@ export function createPageEditorState() {
                 clone.id = `section-${sections.length + 1}`;
             });
         },
+        addSectionCard(sectionIndex) {
+            const section = sections[sectionIndex];
+            if (!section) {
+                return;
+            }
+            if (!Array.isArray(section.cards)) {
+                section.cards = [];
+            }
+            section.cards.push(createEmptySectionCard());
+        },
+        async removeSectionCard(sectionIndex, cardIndex, routeName) {
+            const section = sections[sectionIndex];
+            const card = section?.cards?.[cardIndex];
+
+            if (card?.image_src) {
+                await deleteCmsAsset(routeName, card.image_src);
+            }
+
+            section?.cards?.splice(cardIndex, 1);
+        },
+        async uploadDocument(file, routeName) {
+            const asset = await adminCmsService.uploadAsset(routeName, file, 'document');
+            const doc = {
+                id: `doc-${documents.length + 1}`,
+                label: file.name.replace(/\.pdf$/i, '').replace(/[-_]/g, ' '),
+                url: asset.url ?? asset.path ?? '',
+                filename: asset.filename ?? file.name,
+                mime: asset.mime ?? 'application/pdf',
+                size: asset.size ?? file.size,
+            };
+            documents.push(doc);
+
+            return doc;
+        },
+        async removeDocument(index, routeName) {
+            const doc = documents[index];
+
+            if (!doc) {
+                return;
+            }
+
+            if (doc.url) {
+                await deleteCmsAsset(routeName, doc.url);
+
+                for (let i = links.length - 1; i >= 0; i -= 1) {
+                    if (links[i].type === 'document' && links[i].target === doc.url) {
+                        links.splice(i, 1);
+                    }
+                }
+            }
+
+            documents.splice(index, 1);
+        },
+        addLinkFromDocument(doc) {
+            links.push({
+                label: doc.label || doc.filename || 'Document PDF',
+                type: 'document',
+                target: doc.url,
+            });
+        },
         addComponent(type = 'card', preset = {}) {
             components.push(createPageComponent(type, components.length, preset));
         },
-        removeComponent(index) {
+        async removeComponent(index, routeName) {
+            const component = components[index];
+            await deleteCmsAssets(routeName, collectComponentAssetPaths(component));
             components.splice(index, 1);
         },
         duplicateComponent(index) {
@@ -371,11 +484,18 @@ export function createPageEditorState() {
             }
             component.slides.push({ image_src: '', title: '', body: '' });
         },
-        removeCarouselSlide(componentIndex, slideIndex) {
+        async removeCarouselSlide(componentIndex, slideIndex, routeName) {
             const component = components[componentIndex];
-            if (component?.slides?.length > 1) {
-                component.slides.splice(slideIndex, 1);
+            if (!component?.slides || component.slides.length <= 1) {
+                return;
             }
+
+            const slide = component.slides[slideIndex];
+            if (slide?.image_src) {
+                await deleteCmsAsset(routeName, slide.image_src);
+            }
+
+            component.slides.splice(slideIndex, 1);
         },
         addLink() {
             links.push({ label: '', type: 'internal', target: '' });
@@ -400,7 +520,13 @@ export function createPageEditorState() {
         addMedia() {
             media.push({ role: 'image', src: '', alt: '' });
         },
-        removeMedia(index) {
+        async removeMedia(index, routeName) {
+            const item = media[index];
+
+            if (item?.src) {
+                await deleteCmsAsset(routeName, item.src);
+            }
+
             media.splice(index, 1);
         },
         moveMedia(index, direction) {

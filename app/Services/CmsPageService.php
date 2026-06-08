@@ -4,14 +4,13 @@ namespace App\Services;
 
 use App\Data\ConnectorContentCatalog;
 use App\Data\SitePageCatalog;
-use App\Data\SupportContentCatalog;
 use App\Models\SitePage;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Str;
 
 class CmsPageService
 {
-    public function findPublished(string $routeName, string $locale = 'en', ?string $previewToken = null): ?SitePage
+    public function findPublished(string $routeName, string $locale = 'fr', ?string $previewToken = null): ?SitePage
     {
         $allowDraft = false;
 
@@ -62,7 +61,7 @@ class CmsPageService
                 'meta_description' => $entry['meta_description'],
                 'page_type' => $entry['page_type'],
                 'status' => 'published',
-                'locale' => 'en',
+                'locale' => 'fr',
                 'payload' => $payload,
             ],
         );
@@ -93,7 +92,7 @@ class CmsPageService
                     'meta_description' => $entry['meta_description'],
                     'page_type' => $entry['page_type'],
                     'status' => 'published',
-                    'locale' => 'en',
+                    'locale' => 'fr',
                     'payload' => $payload,
                 ],
             );
@@ -120,17 +119,6 @@ class CmsPageService
      */
     private function enrichPayload(string $routeName, array $payload): array
     {
-        $supportPages = SupportContentCatalog::pages();
-        if (isset($supportPages[$routeName])) {
-            $support = $supportPages[$routeName];
-            $payload = array_merge($payload, array_filter([
-                'hero' => $support['hero'] ?? null,
-                'sections' => $support['sections'] ?? null,
-                'note' => $support['note'] ?? null,
-                'media' => $support['media'] ?? null,
-            ]));
-        }
-
         $connectors = ConnectorContentCatalog::connectors();
         if (isset($connectors[$routeName])) {
             $connector = $connectors[$routeName];

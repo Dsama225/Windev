@@ -1,14 +1,14 @@
 <template>
     <AppNavbar />
-    <main v-if="page" class="pcsoft-page pb-10">
-        <section class="section-shell pcsoft-page__suite-line" aria-label="Product positioning">
-            <p class="pcsoft-page__suite-text">Cross-platform application development software suite</p>
+    <main class="pcsoft-page pb-10">
+        <section class="section-shell pcsoft-page__suite-line" aria-label="Positionnement produit">
+            <p class="pcsoft-page__suite-text">Suite de logiciels de développement d'applications multi-plateformes</p>
             <div class="pcsoft-page__os-row" aria-hidden="true">
                 <span v-for="n in 7" :key="n" class="pcsoft-page__os-dot" />
             </div>
         </section>
 
-        <section class="section-shell pcsoft-page__layout" :aria-label="page.title">
+        <section v-if="page" class="section-shell pcsoft-page__layout" :aria-label="page.title">
             <div class="pcsoft-page__main glass-frame">
                 <header class="pcsoft-page__header">
                     <h1 class="pcsoft-page__title">{{ page.title }}</h1>
@@ -32,6 +32,7 @@
                 </template>
 
                 <template v-if="page.offices?.length">
+                    <p v-if="page.formNote" class="pcsoft-page__body">{{ page.formNote }}</p>
                     <div class="pcsoft-page__offices">
                         <article
                             v-for="office in page.offices"
@@ -44,23 +45,12 @@
                             </p>
                         </article>
                     </div>
-                    <p v-if="page.formNote" class="pcsoft-page__body">{{ page.formNote }}</p>
-                    <p class="pcsoft-page__cta">
-                        <a
-                            class="pcsoft-page__cta-link"
-                            :href="page.formUrl"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            {{ page.formLabel }}
-                        </a>
-                    </p>
                 </template>
 
                 <section
                     v-if="isDistributors"
                     class="pcsoft-page__distributors"
-                    aria-label="Distributors by region"
+                    aria-label="Distributeurs par région"
                 >
                     <div class="pcsoft-page__distributors-grid">
                         <section
@@ -85,7 +75,7 @@
                     </div>
                 </section>
 
-                <section v-if="isSitemap" class="pcsoft-page__sitemap" aria-label="Site map links">
+                <section v-if="isSitemap" class="pcsoft-page__sitemap" aria-label="Liens du plan du site">
                     <div
                         v-for="group in sitemapGroups"
                         :key="group.label"
@@ -103,7 +93,7 @@
                 </section>
             </div>
 
-            <aside class="pcsoft-page__sidebar glass-frame" aria-label="Related links">
+            <aside class="pcsoft-page__sidebar glass-frame" aria-label="Liens associés">
                 <figure class="pcsoft-page__logo-wrap">
                     <img
                         :src="pcsoftLogoUrl"
@@ -117,28 +107,23 @@
                 <div class="pcsoft-page__sidebar-block">
                     <h3 class="pcsoft-page__sidebar-title">PC SOFT</h3>
                     <ul class="pcsoft-page__sidebar-list">
-                        <li><RouterLink class="pcsoft-page__text-link" to="/pc-soft">About us</RouterLink></li>
+                        <li><RouterLink class="pcsoft-page__text-link" to="/pc-soft">À propos de nous</RouterLink></li>
                         <li>
-                            <a
-                                class="pcsoft-page__text-link"
-                                href="https://pcsoft.fr/fr-fr/contact"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                Contact form
-                            </a>
+                            <RouterLink class="pcsoft-page__text-link" to="/pc-soft/contact">
+                                Formulaire de contact
+                            </RouterLink>
                         </li>
                         <li>
                             <RouterLink class="pcsoft-page__text-link" to="/pc-soft/distributors">
-                                International distributors
+                                Distributeurs internationaux
                             </RouterLink>
                         </li>
-                        <li><RouterLink class="pcsoft-page__text-link" to="/pc-soft/sitemap">Site map</RouterLink></li>
+                        <li><RouterLink class="pcsoft-page__text-link" to="/pc-soft/sitemap">Plan du site</RouterLink></li>
                     </ul>
                 </div>
 
                 <div class="pcsoft-page__sidebar-block">
-                    <h3 class="pcsoft-page__sidebar-title">Useful links</h3>
+                    <h3 class="pcsoft-page__sidebar-title">Liens utiles</h3>
                     <ul class="pcsoft-page__sidebar-list">
                         <li>
                             <a
@@ -147,7 +132,7 @@
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                Request a quote
+                                Demander un devis
                             </a>
                         </li>
                         <li>
@@ -157,7 +142,7 @@
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                Environmental policy
+                                Politique environnementale
                             </a>
                         </li>
                     </ul>
@@ -166,12 +151,12 @@
         </section>
 
         <section
-            v-if="page.relatedLinks?.length"
+            v-if="page?.relatedLinks?.length"
             class="section-shell pcsoft-page__related"
-            aria-label="Related PC SOFT pages"
+            aria-label="Pages PC SOFT associées"
         >
             <div class="pcsoft-page__related-inner glass-frame">
-                <p class="pcsoft-page__related-label">Related pages</p>
+                <p class="pcsoft-page__related-label">Pages associées</p>
                 <nav class="pcsoft-page__related-nav">
                     <template v-for="link in page.relatedLinks" :key="link.to ?? link.href">
                         <RouterLink
@@ -216,15 +201,13 @@ const isSitemap = computed(() => route.name === 'pcsoft.sitemap');
 const pcsoftLogoUrl = SHARED_IMAGES.pcsoftLogoDark.src;
 
 const sitemapGroupLabels = {
-    home: 'Home',
+    home: 'Accueil',
     workspace: 'Workspace',
-    product: 'Software',
+    product: 'Logiciels',
     publication: 'Publications',
-    connector: 'Native connectors',
-    subscribe: 'Subscribe',
-    download: 'Download',
-    support: 'Technical support',
-    training: 'Training',
+    connector: 'Connecteurs natifs',
+    subscribe: 'S\'abonner',
+    download: 'Télécharger',
     pcsoft: 'PC SOFT',
 };
 
@@ -268,7 +251,7 @@ watch(
     font-weight: 700;
     letter-spacing: 0.11em;
     text-transform: uppercase;
-    color: #5f6f8c;
+    color: var(--color-eyebrow);
 }
 
 .pcsoft-page__os-row {
@@ -283,8 +266,8 @@ watch(
     width: 0.85rem;
     height: 0.85rem;
     border-radius: 9999px;
-    border: 2px solid #d6dce7;
-    background: #f4f6fa;
+    border: 2px solid var(--color-dot-border);
+    background: var(--color-dot-fill);
 }
 
 .pcsoft-page__layout {
@@ -329,21 +312,23 @@ watch(
 .pcsoft-page__offices {
     display: grid;
     gap: 0.85rem;
-    margin-top: 0.75rem;
+    margin-top: 1.25rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--color-border);
 }
 
 .pcsoft-page__office-card {
     padding: 0.85rem;
     border-radius: var(--radius-md);
-    border: 1px solid #dbe1ec;
-    background: #fafbfd;
+    border: 1px solid var(--color-border-strong);
+    background: var(--color-muted-surface);
 }
 
 .pcsoft-page__office-title {
     margin: 0 0 0.4rem;
     font-size: 0.95rem;
     font-weight: 800;
-    color: #c9a000;
+    color: var(--color-gold);
 }
 
 .pcsoft-page__cta {
@@ -377,7 +362,7 @@ watch(
 }
 
 .pcsoft-page__region {
-    border: 1px solid #dbe1ec;
+    border: 1px solid var(--color-border-strong);
     border-radius: var(--radius-md);
     overflow: hidden;
 }
@@ -430,7 +415,7 @@ watch(
     margin: 0 0 0.4rem;
     font-size: 0.88rem;
     font-weight: 800;
-    color: #c9a000;
+    color: var(--color-gold);
     text-transform: uppercase;
     letter-spacing: 0.05em;
 }
@@ -468,6 +453,10 @@ watch(
     height: auto;
 }
 
+html.theme-dark .pcsoft-page__logo {
+    filter: brightness(0) invert(1);
+}
+
 .pcsoft-page__sidebar-title {
     margin: 0;
     font-size: 0.78rem;
@@ -503,7 +492,7 @@ watch(
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: #5f6f8c;
+    color: var(--color-eyebrow);
 }
 
 .pcsoft-page__related-nav {

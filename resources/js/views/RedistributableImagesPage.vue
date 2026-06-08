@@ -1,12 +1,12 @@
 <template>
     <AppNavbar />
     <main class="visuals-page pb-10">
-        <section class="section-shell visuals-page__suite-line" aria-label="Product positioning">
-            <p class="visuals-page__suite-text">Cross-platform application development software suite</p>
+        <section class="section-shell visuals-page__suite-line" aria-label="Positionnement produit">
+            <p class="visuals-page__suite-text">Suite de logiciels de développement d'applications multi-plateformes</p>
             <figure class="visuals-page__cross-platform">
                 <img
                     :src="crossPlatform.src"
-                    alt="Platform icons: Windows, Java, PHP, HTML5, Linux, Android, iOS, and Web."
+                    alt="Icônes des plateformes : Windows, Java, PHP, HTML5, Linux, Android, iOS et Web."
                     width="520"
                     height="48"
                     loading="lazy"
@@ -20,25 +20,25 @@
             <div class="visuals-page__card glass-frame">
                 <div class="visuals-page__grid">
                     <article class="visuals-page__main-col">
-                        <h1 id="visuals-title" class="visuals-page__title">REUSABLE VISUAL ELEMENTS</h1>
+                        <h1 id="visuals-title" class="visuals-page__title">ÉLÉMENTS VISUELS RÉUTILISABLES</h1>
 
                         <p class="visuals-page__copy">
-                            This page proposes visual elements (images, logos, animations, etc.) that may be reused,
-                            under specific conditions, in your own applications and sites developed with PC SOFT products
-                            (WINDEV and/or WEBDEV and/or WINDEV Mobile).
+                            Cette page propose des éléments visuels (images, logos, animations, etc.) pouvant être réutilisés,
+                            sous certaines conditions, dans vos propres applications et sites développés avec les produits PC SOFT
+                            (WINDEV et/ou WEBDEV et/ou WINDEV Mobile).
                         </p>
 
                         <p class="visuals-page__copy visuals-page__copy--important">
-                            <strong>IMPORTANT:</strong>
-                            All images and logos displayed on this page are protected by copyrights. Please read the
-                            Conditions of use before downloading and using any element.
+                            <strong>IMPORTANT :</strong>
+                            Toutes les images et logos affichés sur cette page sont protégés par des droits d'auteur. Veuillez lire les
+                            conditions d'utilisation avant de télécharger et d'utiliser un élément.
                         </p>
 
                         <p class="visuals-page__copy visuals-page__copy--spaced">
-                            To download a visual element, click one of the images below:
+                            Pour télécharger un élément visuel, cliquez sur l'une des images ci-dessous :
                         </p>
 
-                        <div class="visuals-page__gallery" role="list" aria-label="Downloadable visual elements">
+                        <div class="visuals-page__gallery" role="list" aria-label="Éléments visuels téléchargeables">
                             <div
                                 v-for="row in visualRows"
                                 :key="row.key"
@@ -56,7 +56,7 @@
                                         class="visuals-page__gallery-image-link"
                                         :href="item.downloadUrl"
                                         :download="item.file"
-                                        :title="`Download ${item.label}`"
+                                        :title="`Télécharger ${item.label}`"
                                     >
                                         <img
                                             :src="item.url"
@@ -72,7 +72,7 @@
                                             :href="item.downloadUrl"
                                             :download="item.file"
                                         >
-                                            Download
+                                            Télécharger
                                         </a>
                                     </figcaption>
                                 </figure>
@@ -81,25 +81,25 @@
 
                         <section class="visuals-page__legal" aria-labelledby="trademarks-heading">
                             <h2 id="trademarks-heading" class="visuals-page__section-title">
-                                Trademarks and copyrights
+                                Marques et droits d'auteur
                             </h2>
                             <p class="visuals-page__copy">
-                                WINDEV, WEBDEV, WINDEV Mobile, and PC SOFT are registered trademarks of PC SOFT
-                                (trademarks registered in Europe, USA, Canada and many other countries).
+                                WINDEV, WEBDEV, WINDEV Mobile et PC SOFT sont des marques déposées de PC SOFT
+                                (marques enregistrées en Europe, aux États-Unis, au Canada et dans de nombreux autres pays).
                             </p>
                             <ul class="visuals-page__list">
                                 <li>
-                                    When mentioned for the first time, WINDEV, WEBDEV or WINDEV Mobile must include
-                                    the ® symbol. For example: WINDEV® (® symbol in HTML: "&amp;reg;")
+                                    Lors de la première mention, WINDEV, WEBDEV ou WINDEV Mobile doivent inclure
+                                    le symbole ®. Par exemple : WINDEV® (symbole ® en HTML : « &amp;reg; »)
                                 </li>
                                 <li>
-                                    In all cases, any site or application that uses one or more trademarks of PC SOFT
-                                    must specify that such trademarks are the property of PC SOFT. For example: PC SOFT
-                                    and "WINDEV" are registered trademarks of PC SOFT.
+                                    Dans tous les cas, tout site ou application utilisant une ou plusieurs marques de PC SOFT
+                                    doit préciser que ces marques sont la propriété de PC SOFT. Par exemple : PC SOFT
+                                    et « WINDEV » sont des marques déposées de PC SOFT.
                                 </li>
                                 <li>
-                                    The names of the products must be written as follows: "WINDEV", "WEBDEV" and
-                                    "WINDEV Mobile".
+                                    Les noms des produits doivent être écrits comme suit : « WINDEV », « WEBDEV » et
+                                    « WINDEV Mobile ».
                                 </li>
                             </ul>
                         </section>
@@ -107,106 +107,105 @@
                         <section class="visuals-page__legal" aria-labelledby="images-heading">
                             <h2 id="images-heading" class="visuals-page__section-title">Images</h2>
                             <p class="visuals-page__copy">
-                                The images available on our website are protected by the intellectual property law.
-                                These images are property of PC SOFT.
+                                Les images disponibles sur notre site web sont protégées par le droit de la propriété intellectuelle.
+                                Ces images sont la propriété de PC SOFT.
                             </p>
                             <p class="visuals-page__copy">
-                                You may use the images provided on this page, free of charge, without any compensation
-                                from PC SOFT, on the condition of following the guidelines established by PC SOFT.
+                                Vous pouvez utiliser gratuitement les images fournies sur cette page, sans compensation de la part de
+                                PC SOFT, à condition de respecter les directives établies par PC SOFT.
                             </p>
                             <ul class="visuals-page__list">
-                                <li>The physical name of the images must not be changed.</li>
+                                <li>Le nom physique des images ne doit pas être modifié.</li>
                                 <li>
-                                    Images must not be distorted, and must keep their original proportions, i.e., the
-                                    "height/width" ratio. Many graphic tools offer the "stretched" option, which distorts
-                                    the image. Make sure you use the "homothetic" option.
+                                    Les images ne doivent pas être déformées et doivent conserver leurs proportions d'origine, c'est-à-dire le
+                                    rapport « hauteur/largeur ». De nombreux outils graphiques proposent l'option « étiré », qui déforme
+                                    l'image. Assurez-vous d'utiliser l'option « homothétique ».
                                 </li>
-                                <li>The quality of the images must be preserved.</li>
-                                <li>Color tones must not be changed.</li>
-                                <li>Fonts must not be changed.</li>
-                                <li>Images must not be modified under any circumstances.</li>
+                                <li>La qualité des images doit être préservée.</li>
+                                <li>Les tons de couleur ne doivent pas être modifiés.</li>
+                                <li>Les polices ne doivent pas être modifiées.</li>
+                                <li>Les images ne doivent en aucun cas être modifiées.</li>
                             </ul>
                             <p class="visuals-page__copy">
-                                It is not possible to use other images (property of PC SOFT) than those available on
-                                this page without the written consent of PC SOFT.
-                                <a href="#" class="visuals-page__link">Contact us</a>
-                                for more information.
+                                Il n'est pas possible d'utiliser d'autres images (propriété de PC SOFT) que celles disponibles sur
+                                cette page sans le consentement écrit de PC SOFT.
+                                <a href="#" class="visuals-page__link">Contactez-nous</a>
+                                pour plus d'informations.
                             </p>
                         </section>
 
                         <section class="visuals-page__legal" aria-labelledby="guidelines-heading">
                             <h2 id="guidelines-heading" class="visuals-page__section-title">
-                                Guidelines for using trademarks and images.
+                                Directives d'utilisation des marques et des images.
                             </h2>
                             <p class="visuals-page__copy">
-                                These conditions apply in particular to websites that use trademarks or images owned by
+                                Ces conditions s'appliquent notamment aux sites web utilisant des marques ou des images appartenant à
                                 PC SOFT.
                             </p>
 
-                            <h3 class="visuals-page__subsection-title">Conditions:</h3>
+                            <h3 class="visuals-page__subsection-title">Conditions :</h3>
                             <ul class="visuals-page__list">
                                 <li>
-                                    The site must not be confusing for web users: they must know that they are not on an
-                                    official PC SOFT website.
+                                    Le site ne doit pas induire les internautes en erreur : ils doivent savoir qu'ils ne se trouvent pas sur un
+                                    site officiel de PC SOFT.
                                 </li>
                                 <li>
-                                    The website must comply with French regulations and those of the country where it
-                                    was created.
+                                    Le site web doit respecter la réglementation française et celle du pays où il a été créé.
                                 </li>
-                                <li>The information presented on the website must be clear, verifiable and accurate.</li>
+                                <li>Les informations présentées sur le site web doivent être claires, vérifiables et exactes.</li>
                             </ul>
 
                             <h3 class="visuals-page__subsection-title">
-                                The following are not allowed to use these trademarks and images:
+                                Les personnes suivantes ne sont pas autorisées à utiliser ces marques et images :
                             </h3>
                             <ul class="visuals-page__list">
                                 <li>
-                                    Any person, company or organization, whose interest is not the provision of clear,
-                                    verifiable and accurate information about our software and/or PC SOFT.
+                                    Toute personne, entreprise ou organisation dont l'intérêt n'est pas la fourniture d'informations claires,
+                                    vérifiables et exactes sur nos logiciels et/ou PC SOFT.
                                 </li>
                                 <li>
-                                    PC SOFT's competitors, and their affiliates in any form whatsoever, and in
-                                    particular the so-called "associative" websites.
+                                    Les concurrents de PC SOFT, et leurs affiliés sous quelque forme que ce soit, et en
+                                    particulier les sites dits « associatifs ».
                                 </li>
-                                <li>Employees of PC SOFT's competitors.</li>
+                                <li>Les employés des concurrents de PC SOFT.</li>
                                 <li>
-                                    People who have already been found guilty of acting illegally against the interests
-                                    of PC SOFT.
+                                    Les personnes déjà reconnues coupables d'agir illégalement contre les intérêts
+                                    de PC SOFT.
                                 </li>
                                 <li>
-                                    Any action intended to appropriate or divert the reputation of a trademark or image
-                                    owned by PC SOFT in order to make a profit, to harm the legitimate interests of PC
-                                    SOFT, or to deceive web users.
+                                    Toute action visant à s'approprier ou à détourner la réputation d'une marque ou d'une image
+                                    appartenant à PC SOFT afin de réaliser un profit, de porter atteinte aux intérêts légitimes de
+                                    PC SOFT ou de tromper les internautes.
                                 </li>
-                                <li>Any website not authorized by PC SOFT to use its images.</li>
+                                <li>Tout site web non autorisé par PC SOFT à utiliser ses images.</li>
                             </ul>
 
                             <h3 class="visuals-page__subsection-title">
-                                Trademarks and images can be used, among others:
+                                Les marques et images peuvent être utilisées, entre autres :
                             </h3>
                             <ul class="visuals-page__list">
-                                <li>On e-commerce websites.</li>
-                                <li>On websites containing lists of software products.</li>
+                                <li>Sur des sites de commerce électronique.</li>
+                                <li>Sur des sites contenant des listes de produits logiciels.</li>
                                 <li>
-                                    On personal sites presenting, for example, utilities related to PC SOFT software,
-                                    tips and tricks, etc.
+                                    Sur des sites personnels présentant, par exemple, des utilitaires liés aux logiciels PC SOFT,
+                                    des astuces, etc.
                                 </li>
-                                <li>In software or software packages (after written consent of PC SOFT).</li>
+                                <li>Dans des logiciels ou des progiciels (après consentement écrit de PC SOFT).</li>
                             </ul>
 
                             <p class="visuals-page__copy">
-                                Do not hesitate to
-                                <a href="mailto:info@windev.com" class="visuals-page__link">contact PC SOFT</a>
-                                for any further details.
+                                N'hésitez pas à
+                                <a href="mailto:info@windev.com" class="visuals-page__link">contacter PC SOFT</a>
+                                pour tout renseignement complémentaire.
                             </p>
                         </section>
                     </article>
 
-                    <aside class="visuals-page__side-col" aria-label="Related resources">
+                    <aside class="visuals-page__side-col" aria-label="Ressources associées">
                         <figure class="visuals-page__packages">
                             <img
                                 :src="packagesSuite.src"
-                                alt="WINDEV 2026, WEBDEV 2026, and WINDEV Mobile 2026 product boxes."
+                                alt="Boîtes produits WINDEV 2026, WEBDEV 2026 et WINDEV Mobile 2026."
                                 loading="lazy"
                                 decoding="async"
                                 @error="onImageError($event, packagesSuite.fallback)"
@@ -214,14 +213,14 @@
                         </figure>
 
                         <p class="visuals-page__side-copy">
-                            The <strong>WINDEV, WEBDEV and WINDEV Mobile</strong> environments are compatible and share
-                            project elements. It has never been easier to build multi-target applications.
+                            Les environnements <strong>WINDEV, WEBDEV et WINDEV Mobile</strong> sont compatibles et partagent
+                            les éléments de projet. Il n'a jamais été aussi simple de créer des applications multi-cibles.
                         </p>
 
                         <section class="visuals-page__side-group">
-                            <h2 class="visuals-page__group-title">Documentation overview</h2>
+                            <h2 class="visuals-page__group-title">Aperçu de la documentation</h2>
                             <ul class="visuals-page__group-list">
-                                <li><a href="#" class="visuals-page__link">New features</a></li>
+                                <li><a href="#" class="visuals-page__link">Nouveautés</a></li>
                                 <li><a href="#" class="visuals-page__link">WINDEV</a></li>
                                 <li><a href="#" class="visuals-page__link">WEBDEV</a></li>
                                 <li><a href="#" class="visuals-page__link">WINDEV Mobile</a></li>
@@ -229,28 +228,28 @@
                         </section>
 
                         <section class="visuals-page__side-group">
-                            <h2 class="visuals-page__group-title">Overview diagrams</h2>
+                            <h2 class="visuals-page__group-title">Schémas de synthèse</h2>
                             <ul class="visuals-page__group-list">
-                                <li><a href="#" class="visuals-page__link">Universal database connectors</a></li>
-                                <li><a href="#" class="visuals-page__link">Cross-platform development</a></li>
+                                <li><a href="#" class="visuals-page__link">Connecteurs universels de bases de données</a></li>
+                                <li><a href="#" class="visuals-page__link">Développement multi-plateforme</a></li>
                             </ul>
                         </section>
 
                         <section class="visuals-page__side-group">
-                            <h2 class="visuals-page__group-title">Videos</h2>
+                            <h2 class="visuals-page__group-title">Vidéos</h2>
                             <ul class="visuals-page__group-list">
-                                <li><a href="#" class="visuals-page__link">Technical videos</a></li>
+                                <li><a href="#" class="visuals-page__link">Vidéos techniques</a></li>
                             </ul>
                         </section>
 
-                        <section class="visuals-page__customer" aria-label="Customer references">
-                            <h2 class="visuals-page__customer-title">They are using WINDEV</h2>
+                        <section class="visuals-page__customer" aria-label="Références clients">
+                            <h2 class="visuals-page__customer-title">Ils utilisent WINDEV</h2>
                             <figure class="visuals-page__customer-figure">
                                 <div class="visuals-page__customer-logo-box">
                                     <img
                                         class="visuals-page__customer-logo-img"
                                         :src="customerCarouselLogos[currentCustomerLogoIndex]"
-                                        alt="WINDEV customer logo"
+                                        alt="Logo client WINDEV"
                                         loading="lazy"
                                         decoding="async"
                                     />
@@ -600,9 +599,9 @@ onBeforeUnmount(() => {
     align-items: center;
     justify-content: center;
     padding: clamp(0.65rem, 3vw, 1rem);
-    border: 1px solid color-mix(in oklab, var(--color-text-secondary) 28%, transparent);
+    border: 1px solid var(--color-border-strong);
     border-radius: var(--radius-md);
-    background: #fff;
+    background: var(--color-input-bg);
     box-shadow:
         0 1px 2px rgba(15, 23, 42, 0.05),
         0 8px 18px rgba(15, 23, 42, 0.06);
@@ -620,10 +619,6 @@ onBeforeUnmount(() => {
     filter: saturate(1.03) contrast(1.02);
 }
 
-:global(.theme-dark) .visuals-page__customer-logo-box {
-    border-color: color-mix(in oklab, var(--color-brand) 22%, var(--color-surface-border));
-    background: color-mix(in oklab, #ffffff 94%, #c5d8ff 6%);
-}
 
 @media (max-width: 980px) {
     .visuals-page__grid {

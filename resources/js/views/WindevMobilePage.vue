@@ -1,14 +1,14 @@
 <template>
     <AppNavbar />
     <main class="wmobile-page pb-10">
-        <section class="section-shell wmobile-page__suite-line" aria-label="Product positioning">
+        <section class="section-shell wmobile-page__suite-line" aria-label="Positionnement produit">
             <p class="wmobile-page__suite-text">
-                <strong>Cross-platform</strong> application development software suite
+                Suite logicielle de développement d'applications <strong>multiplateformes</strong>
             </p>
             <figure class="wmobile-page__suite-platforms">
                 <img
                     :src="windevMobileSuiteCrossPlatform.src"
-                    alt="Integrated software for developing cross-platform applications"
+                    alt="Logiciel intégré pour développer des applications multiplateformes"
                     width="283"
                     height="48"
                     loading="eager"
@@ -18,12 +18,12 @@
             </figure>
         </section>
 
-        <section class="section-shell wmobile-page__hero" aria-label="WINDEV Suite hero">
+        <section class="section-shell wmobile-page__hero" aria-label="Bannière WINDEV Suite">
             <HomeHeroCarousel />
         </section>
 
         <section class="section-shell wmobile-page__intro" aria-labelledby="wmobile-intro-title">
-            <h1 id="wmobile-intro-title" class="wmobile-page__intro-hero">DEVELOP 10 TIMES FASTER</h1>
+            <h1 id="wmobile-intro-title" class="wmobile-page__intro-hero">DÉVELOPPEZ 10 FOIS PLUS VITE</h1>
             <div class="wmobile-page__intro-card glass-frame">
                 <div class="wmobile-page__intro-grid">
                     <figure class="wmobile-page__figure wmobile-page__figure--intro-pack">
@@ -37,7 +37,7 @@
                         />
                     </figure>
                     <div class="wmobile-page__intro-copy">
-                        <h2 class="wmobile-page__intro-heading">WINDEV MOBILE 2026, MOBILE IDE</h2>
+                        <h2 class="wmobile-page__intro-heading">WINDEV MOBILE 2026, IDE MOBILE</h2>
                         <p class="wmobile-page__intro-body">{{ introBody }}</p>
                     </div>
                     <div class="wmobile-page__aside-media">
@@ -57,7 +57,7 @@
             </div>
         </section>
 
-        <section class="section-shell wmobile-page__compat glass-frame" aria-label="Compatibility">
+        <section class="section-shell wmobile-page__compat glass-frame" aria-label="Compatibilité">
             <a href="/software/windev" class="wmobile-page__compat-link">
                 <img
                     class="wmobile-page__compat-badge"
@@ -70,7 +70,7 @@
                     aria-hidden="true"
                     @error="onImageError($event, windevMobileCompatibilityBadge.fallback)"
                 />
-                <span>Your WINDEV Mobile code, windows and data are compatible with WEBDEV and WINDEV</span>
+                <span>Votre code WINDEV Mobile, vos fenêtres et vos données sont compatibles avec WEBDEV et WINDEV</span>
                 <img
                     class="wmobile-page__compat-arrow"
                     :src="windevMobileSuiteArrow.src"
@@ -85,10 +85,10 @@
             </a>
         </section>
 
-        <section class="section-shell wmobile-page__grid-section" aria-label="WINDEV Mobile resources and downloads">
+        <section class="section-shell wmobile-page__grid-section" aria-label="Ressources et téléchargements WINDEV Mobile">
             <div class="wmobile-page__columns glass-frame">
                 <div class="wmobile-page__column">
-                    <h3 class="wmobile-page__column-title">NEW FEATURES</h3>
+                    <h3 class="wmobile-page__column-title">NOUVEAUTÉS</h3>
                     <a
                         class="wmobile-page__card-cover-link"
                         :href="windevMobileNewFeatures2026En.href"
@@ -98,7 +98,7 @@
                         <img
                             class="wmobile-page__card-cover"
                             :src="windevMobileNewFeatures.src"
-                            alt="Version 2026 brings you an incredible amount of useful features"
+                            alt="La version 2026 vous apporte une quantité incroyable de fonctionnalités utiles"
                             loading="lazy"
                             decoding="async"
                             @error="onImageError($event, windevMobileNewFeatures.fallback)"
@@ -106,13 +106,13 @@
                     </a>
                     <ul class="wmobile-page__link-list">
                         <li>
-                            <RouterLink class="wmobile-page__text-link" to="/software/new-features-2026">Learn more</RouterLink>
+                            <RouterLink class="wmobile-page__text-link" to="/software/new-features-2026">En savoir plus</RouterLink>
                         </li>
                         <li class="wmobile-page__ebook-row">
                             <img
                                 class="wmobile-page__flag"
                                 :src="windevMobileFlagUs.src"
-                                alt="English"
+                                alt="Anglais"
                                 width="18"
                                 height="12"
                                 loading="lazy"
@@ -126,7 +126,7 @@
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
-                                    New Features 2026
+                                    Nouveautés 2026
                                 </a>
                                 <span class="wmobile-page__ebook-formats">
                                     (<a
@@ -149,7 +149,7 @@
                             <img
                                 class="wmobile-page__flag"
                                 :src="windevMobileFlagFr.src"
-                                alt="French"
+                                alt="Français"
                                 width="18"
                                 height="12"
                                 loading="lazy"
@@ -185,7 +185,7 @@
                     </ul>
                     <h3 class="wmobile-page__column-title">WINDEV SUITE</h3>
                     <p class="wmobile-page__column-text">
-                        This year, PC SOFT has introduced a <strong>new subscription offer</strong>.
+                        Cette année, PC SOFT a lancé une <strong>nouvelle offre par abonnement</strong>.
                     </p>
                     <img
                         class="wmobile-page__suite-logo"
@@ -195,12 +195,12 @@
                         decoding="async"
                         @error="onImageError($event, windevMobileSuiteIcon.fallback)"
                     />
-                    <p class="wmobile-page__column-text">Yearly plans.</p>
-                    <RouterLink class="wmobile-page__btn-subscribe" to="/software/subscribe">Subscribe</RouterLink>
-                    <h3 class="wmobile-page__column-title wmobile-page__column-title--small">ADDITIONAL TOOLS</h3>
+                    <p class="wmobile-page__column-text">Formules annuelles.</p>
+                    <RouterLink class="wmobile-page__btn-subscribe" to="/software/subscribe">S'abonner</RouterLink>
+                    <h3 class="wmobile-page__column-title wmobile-page__column-title--small">OUTILS COMPLÉMENTAIRES</h3>
                     <ul class="wmobile-page__link-list wmobile-page__link-list--tight">
-                        <li><RouterLink class="wmobile-page__text-link" to="/software/wdmsg">Multilingual projects: WDMSG</RouterLink></li>
-                        <li><RouterLink class="wmobile-page__text-link" to="/software/reports-queries">Reports &amp; Queries (free)</RouterLink></li>
+                        <li><RouterLink class="wmobile-page__text-link" to="/software/wdmsg">Projets multilingues : WDMSG</RouterLink></li>
+                        <li><RouterLink class="wmobile-page__text-link" to="/software/reports-queries">Etats &amp; Requêtes (gratuit)</RouterLink></li>
                     </ul>
                 </div>
 
@@ -215,7 +215,7 @@
                         <img
                             class="wmobile-page__card-cover"
                             :src="windevMobileBrochureCover.src"
-                            alt="WINDEV Mobile brochure"
+                            alt="Brochure WINDEV Mobile"
                             loading="lazy"
                             decoding="async"
                             @error="onImageError($event, windevMobileBrochureCover.fallback)"
@@ -226,7 +226,7 @@
                             <img
                                 class="wmobile-page__flag"
                                 :src="windevMobileFlagUs.src"
-                                alt="English"
+                                alt="Anglais"
                                 width="18"
                                 height="12"
                                 loading="lazy"
@@ -263,7 +263,7 @@
                             <img
                                 class="wmobile-page__flag"
                                 :src="windevMobileFlagFr.src"
-                                alt="French"
+                                alt="Français"
                                 width="18"
                                 height="12"
                                 loading="lazy"
@@ -300,7 +300,7 @@
                             <img
                                 class="wmobile-page__flag"
                                 :src="windevMobileFlagEs.src"
-                                alt="Spanish"
+                                alt="Espagnol"
                                 width="18"
                                 height="12"
                                 loading="lazy"
@@ -342,7 +342,7 @@
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                Create Android applications
+                                Créer des applications Android
                             </a>
                         </li>
                         <li>
@@ -352,7 +352,7 @@
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                Create iOS applications (iPhone/iPad)
+                                Créer des applications iOS (iPhone/iPad)
                             </a>
                         </li>
                         <li>
@@ -362,21 +362,21 @@
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                Technical videos
+                                Vidéos techniques
                             </a>
                         </li>
                         <li>
                             <RouterLink class="wmobile-page__text-link" to="/software/new-features-2026">
-                                New features already available in the subscription version
+                                Nouveautés déjà disponibles dans la version par abonnement
                             </RouterLink>
                         </li>
                     </ul>
-                    <p class="wmobile-page__contact-label">Contact us</p>
+                    <p class="wmobile-page__contact-label">Contactez-nous</p>
                     <p><a href="mailto:info@windev.com" class="wmobile-page__text-link">info@windev.com</a></p>
                 </div>
 
                 <div class="wmobile-page__column">
-                    <h3 class="wmobile-page__column-title">DOWNLOAD</h3>
+                    <h3 class="wmobile-page__column-title">TÉLÉCHARGER</h3>
                     <ul class="wmobile-page__link-list">
                         <li>
                             <a
@@ -395,19 +395,19 @@
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                WINDEV Mobile (Dongle-based version)
+                                WINDEV Mobile (version avec clé dongle)
                             </a>
                         </li>
                         <li>
                             <RouterLink class="wmobile-page__text-link" to="/download/windev-mobile-express">
-                                Download WINDEV Mobile Express (free and time-unlimited)
+                                Télécharger WINDEV Mobile Express (gratuit et sans limite de temps)
                             </RouterLink>
                         </li>
                     </ul>
                     <RouterLink class="wmobile-page__express-visual" to="/download/windev-mobile-express">
                         <img
                             :src="windevMobileExpressDownload.src"
-                            alt="Download Express version (free, click here)"
+                            alt="Télécharger la version Express (gratuite, cliquez ici)"
                             width="205"
                             height="96"
                             loading="lazy"
@@ -415,8 +415,8 @@
                             @error="onImageError($event, windevMobileExpressDownload.fallback)"
                         />
                     </RouterLink>
-                    <h3 class="wmobile-page__column-title wmobile-page__column-title--small">DATABASES</h3>
-                    <p class="wmobile-page__db-lead">WINDEV supports all databases.</p>
+                    <h3 class="wmobile-page__column-title wmobile-page__column-title--small">BASES DE DONNÉES</h3>
+                    <p class="wmobile-page__db-lead">WINDEV prend en charge toutes les bases de données.</p>
                     <ul class="wmobile-page__db-list">
                         <li><RouterLink class="wmobile-page__text-link" to="/software/hfsql">HFSQL</RouterLink></li>
                         <li><RouterLink class="wmobile-page__text-link" to="/software/native-connectors/as400-system-i">AS/400 &amp; IBM i</RouterLink></li>
@@ -448,14 +448,14 @@
                         <li>…</li>
                     </ul>
                     <p class="wmobile-page__db-note">
-                        WINDEV also supports all the databases that use ODBC drivers or OLEDB providers
+                        WINDEV prend également en charge toutes les bases de données utilisant des pilotes ODBC ou des providers OLEDB
                         (InterSystems Caché, Firebird, EasySoft, MapInfo, etc.)
                     </p>
                     <h3 class="wmobile-page__column-title wmobile-page__column-title--small">WLANGUAGE</h3>
                     <ul class="wmobile-page__link-list">
                         <li>
                             <RouterLink class="wmobile-page__text-link" to="/software/wlanguage">
-                                29 WLanguage code samples
+                                29 exemples de code WLanguage
                             </RouterLink>
                         </li>
                     </ul>
@@ -501,20 +501,20 @@ import {
 import { applyImageFallback } from '../utils/pcsoftImages.js';
 
 const introBody =
-    'Only WINDEV Mobile allows you to create powerful applications for Smartphones and Tablets (Android, iOS, Windows 10 IoT, CE, etc.) in just a few hours: embedded or remote databases, GPS, IoT, bar codes, and more.';
+    'Seul WINDEV Mobile vous permet de créer des applications puissantes pour Smartphones et Tablettes (Android, iOS, Windows 10 IoT, CE, etc.) en quelques heures seulement : bases de données embarquées ou distantes, GPS, IoT, codes-barres, et bien plus encore.';
 
 function onImageError(event, fallbackUrl) {
     applyImageFallback(event, fallbackUrl);
 }
 
 onMounted(() => {
-    document.title = 'WINDEV Mobile: Mobile IDE';
+    document.title = 'WINDEV Mobile : IDE Mobile';
 });
 </script>
 
 <style scoped>
 .wmobile-page {
-    color: #1f304f;
+    color: var(--color-text-primary);
 }
 
 .wmobile-page__suite-line {
@@ -526,7 +526,7 @@ onMounted(() => {
 .wmobile-page__suite-text {
     margin: 0 0 0.45rem;
     font-size: clamp(0.95rem, 2vw, 1.15rem);
-    color: #1a2744;
+    color: var(--color-text-primary);
 }
 
 .wmobile-page__suite-platforms {
@@ -548,7 +548,7 @@ onMounted(() => {
     margin: 0 0 0.6rem;
     text-align: center;
     font-size: clamp(1.95rem, 4vw, 2.85rem);
-    color: #1a2c56;
+    color: var(--color-text-primary);
     font-weight: 900;
     font-style: italic;
     letter-spacing: 0.03em;
@@ -557,7 +557,6 @@ onMounted(() => {
 
 .wmobile-page__intro-card {
     padding: clamp(1rem, 2vw, 1.35rem);
-    background: #fff;
 }
 
 .wmobile-page__intro-grid {
@@ -603,13 +602,13 @@ onMounted(() => {
     object-position: center;
     display: block;
     padding: 0.35rem;
-    background: #fff;
+    background: var(--color-input-bg);
 }
 
 .wmobile-page__intro-heading {
     margin: 0 0 0.65rem;
     font-size: clamp(1.15rem, 1.8vw, 1.75rem);
-    color: #14264d;
+    color: var(--color-text-primary);
     font-weight: 800;
     letter-spacing: 0.02em;
     line-height: 1.25;
@@ -619,14 +618,13 @@ onMounted(() => {
     margin: 0;
     font-size: 1.04rem;
     line-height: 1.55;
-    color: #42526d;
+    color: var(--color-text-secondary);
 }
 
 .wmobile-page__compat {
     margin-top: 1.25rem;
     margin-bottom: 0.25rem;
     padding: 1rem 1.25rem;
-    background: #fff;
 }
 
 .wmobile-page__compat-link {
@@ -636,7 +634,7 @@ onMounted(() => {
     gap: 0.35rem 0.5rem;
     font-size: 0.9rem;
     font-weight: 600;
-    color: #3966ad;
+    color: var(--color-brand);
     text-decoration: none;
 }
 
@@ -660,7 +658,6 @@ onMounted(() => {
     gap: clamp(1rem, 2vw, 1.5rem);
     grid-template-columns: repeat(3, minmax(0, 1fr));
     padding: clamp(1rem, 2vw, 1.35rem);
-    background: #fff;
 }
 
 .wmobile-page__column {
@@ -686,7 +683,7 @@ onMounted(() => {
 
 .wmobile-page__column-text {
     margin: 0;
-    color: #42526d;
+    color: var(--color-text-secondary);
 }
 
 .wmobile-page__card-cover-link {
@@ -727,7 +724,7 @@ onMounted(() => {
 .wmobile-page__ebook-formats {
     display: block;
     margin-top: 0.15rem;
-    color: #42526d;
+    color: var(--color-text-secondary);
 }
 
 .wmobile-page__flag {
@@ -736,7 +733,7 @@ onMounted(() => {
 }
 
 .wmobile-page__text-link {
-    color: #2e5ea8;
+    color: var(--color-brand-strong);
     font-weight: 600;
     text-decoration: none;
 }
@@ -749,7 +746,7 @@ onMounted(() => {
 .wmobile-page__bullet-list {
     margin: 0.25rem 0 0;
     padding-left: 1.1rem;
-    color: #42526d;
+    color: var(--color-text-secondary);
 }
 
 .wmobile-page__contact-label {
@@ -774,20 +771,20 @@ onMounted(() => {
 
 .wmobile-page__db-lead {
     margin: 0;
-    color: #42526d;
+    color: var(--color-text-secondary);
 }
 
 .wmobile-page__db-list {
     margin: 0;
     padding-left: 1.1rem;
-    color: #42526d;
+    color: var(--color-text-secondary);
     font-size: 0.82rem;
     line-height: 1.55;
 }
 
 .wmobile-page__db-note {
     margin: 0;
-    color: #42526d;
+    color: var(--color-text-secondary);
     font-size: 0.82rem;
     line-height: 1.55;
 }
@@ -836,4 +833,5 @@ onMounted(() => {
     }
 }
 </style>
+
 
