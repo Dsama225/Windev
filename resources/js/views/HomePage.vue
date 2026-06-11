@@ -22,6 +22,10 @@
             <HomeHeroCarousel />
         </section>
 
+        <section class="section-shell home-page__partner" aria-label="Référence locale Côte d'Ivoire">
+            <MediasoftPartnerCard />
+        </section>
+
         <section
             v-if="cmsComponents.length"
             class="section-shell home-page__cms"
@@ -75,14 +79,7 @@
         <section class="section-shell home-page__customers" aria-label="Références clients">
             <p class="home-page__customers-title">Ils utilisent WINDEV</p>
             <div class="home-page__customers-strip">
-                <img
-                    class="home-page__customers-logo"
-                    :src="currentCustomerLogo.src"
-                    :alt="currentCustomerLogo.alt"
-                    loading="lazy"
-                    decoding="async"
-                    @error="onImageError($event, currentCustomerLogo.fallback)"
-                />
+                <CustomerLogoCarousel variant="strip" />
             </div>
         </section>
 
@@ -99,15 +96,7 @@
                     </p>
                     <RouterLink class="home-page__cross-link" to="/software/windev">En savoir plus</RouterLink>
                 </div>
-                <figure class="home-page__cross-figure">
-                    <img
-                        :src="homeCrossDevices.src"
-                        alt="Applications multiplateformes sur plusieurs appareils"
-                        loading="lazy"
-                        decoding="async"
-                        @error="onImageError($event, homeCrossDevices.fallback)"
-                    />
-                </figure>
+                <CrossPlatformCarousel />
             </div>
         </section>
 
@@ -128,6 +117,34 @@
                     <span aria-hidden="true"> · </span>
                     <RouterLink class="home-page__news-link" to="/software/subscribe">S'abonner</RouterLink>
                 </p>
+            </div>
+        </section>
+
+        <section class="section-shell home-page__express" aria-label="Versions Express gratuites">
+            <p class="home-page__express-text">
+                Essayez WINDEV et WINDEV Mobile — Téléchargez la version GRATUITE et ILLIMITÉE dans le temps.
+            </p>
+            <p class="home-page__express-links">
+                <RouterLink class="home-page__express-link" to="/download/windev-express">WINDEV Express</RouterLink>
+                <span aria-hidden="true"> · </span>
+                <RouterLink class="home-page__express-link" to="/download/windev-mobile-express">
+                    WINDEV Mobile Express
+                </RouterLink>
+            </p>
+        </section>
+
+        <section class="section-shell home-page__keynote" aria-labelledby="home-keynote-title">
+            <div class="home-page__keynote-card">
+                <h2 id="home-keynote-title" class="home-page__keynote-title">WINDEV Keynote</h2>
+                <figure class="home-page__keynote-banner">
+                    <img
+                        :src="homeWindevKeynoteBanner.src"
+                        alt="WINDEV"
+                        loading="lazy"
+                        decoding="async"
+                        @error="onImageError($event, homeWindevKeynoteBanner.fallback)"
+                    />
+                </figure>
             </div>
         </section>
 
@@ -214,34 +231,23 @@
                 </div>
             </div>
         </section>
-
-        <section class="section-shell home-page__express" aria-label="Versions Express gratuites">
-            <p class="home-page__express-text">
-                Essayez WINDEV et WINDEV Mobile — Téléchargez la version GRATUITE et ILLIMITÉE dans le temps.
-            </p>
-            <p class="home-page__express-links">
-                <RouterLink class="home-page__express-link" to="/download/windev-express">WINDEV Express</RouterLink>
-                <span aria-hidden="true"> · </span>
-                <RouterLink class="home-page__express-link" to="/download/windev-mobile-express">
-                    WINDEV Mobile Express
-                </RouterLink>
-            </p>
-        </section>
     </main>
     <AppFooter />
 </template>
 
 <script setup>
-import { computed, onBeforeUnmount, onMounted, ref } from 'vue';
+import { computed, onMounted } from 'vue';
 import AppNavbar from '../components/AppNavbar.vue';
 import AppFooter from '../components/AppFooter.vue';
+import CrossPlatformCarousel from '../components/CrossPlatformCarousel.vue';
+import CustomerLogoCarousel from '../components/CustomerLogoCarousel.vue';
 import HomeHeroCarousel from '../components/HomeHeroCarousel.vue';
+import MediasoftPartnerCard from '../components/MediasoftPartnerCard.vue';
 import PageComponents from '../components/cms/PageComponents.vue';
 import { useCmsPage } from '../composables/useCmsPage';
 import {
-    homeCrossDevices,
-    homeCustomerLogos,
     homeDatabases,
+    homeWindevKeynoteBanner,
     homePackages,
     homeProducts,
     homeSuiteCrossPlatform,
@@ -251,35 +257,6 @@ import { applyImageFallback } from '../utils/pcsoftImages.js';
 
 const { page: cmsPage } = useCmsPage('home');
 const cmsComponents = computed(() => cmsPage.value?.payload?.components ?? []);
-
-const customerLogoMeta = [
-    { alt: 'Porsche' },
-    { alt: 'Seiko' },
-    { alt: 'Clarins' },
-    { alt: 'Bristol-Myers Squibb' },
-    { alt: 'Playmobil' },
-    { alt: 'Bridgestone' },
-    { alt: 'Quiksilver' },
-    { alt: 'John Deere' },
-    { alt: 'Shell' },
-    { alt: 'Segafredo' },
-    { alt: 'Bollinger' },
-    { alt: 'Honda' },
-    { alt: 'Kenzo' },
-    { alt: "L'Oréal" },
-    { alt: 'Siemens' },
-];
-
-const customerLogos = homeCustomerLogos.map((logo, index) => ({
-    src: logo.src,
-    fallback: logo.fallback,
-    alt: customerLogoMeta[index]?.alt ?? 'Logo client WINDEV',
-}));
-
-const currentCustomerLogoIndex = ref(0);
-let customerCarouselTimer = null;
-
-const currentCustomerLogo = computed(() => customerLogos[currentCustomerLogoIndex.value]);
 
 function onImageError(event, fallbackUrl) {
     applyImageFallback(event, fallbackUrl);
@@ -297,21 +274,12 @@ function productRoute(id) {
 
 onMounted(() => {
     document.title = 'PC SOFT WINDEV : Développez 10 fois plus vite';
-    customerCarouselTimer = window.setInterval(() => {
-        currentCustomerLogoIndex.value = (currentCustomerLogoIndex.value + 1) % customerLogos.length;
-    }, 2200);
-});
-
-onBeforeUnmount(() => {
-    if (customerCarouselTimer) {
-        window.clearInterval(customerCarouselTimer);
-    }
 });
 </script>
 
 <style scoped>
 .home-page {
-    color: #1a2744;
+    color: var(--color-text-primary);
 }
 
 .home-page__suite-line {
@@ -323,7 +291,7 @@ onBeforeUnmount(() => {
 .home-page__suite-text {
     margin: 0 0 0.45rem;
     font-size: clamp(0.95rem, 2vw, 1.15rem);
-    color: #1a2744;
+    color: var(--color-text-primary);
 }
 
 .home-page__suite-platforms {
@@ -337,6 +305,10 @@ onBeforeUnmount(() => {
     height: auto;
 }
 
+.home-page__partner {
+    margin-top: 1rem;
+}
+
 .home-page__platform {
     margin-top: 1.1rem;
     text-align: center;
@@ -348,7 +320,7 @@ onBeforeUnmount(() => {
     font-weight: 700;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: #5f6f8c;
+    color: var(--color-eyebrow);
 }
 
 .home-page__platform-title {
@@ -357,7 +329,7 @@ onBeforeUnmount(() => {
     font-weight: 900;
     font-style: italic;
     letter-spacing: 0.03em;
-    color: #123d8c;
+    color: var(--color-brand-strong);
     text-transform: uppercase;
 }
 
@@ -371,9 +343,9 @@ onBeforeUnmount(() => {
 .home-page__product-card {
     padding: 0.85rem;
     border-radius: 1.1rem;
-    background: #fff;
-    border: 1px solid #dbe1ec;
-    box-shadow: 0 6px 18px rgba(22, 38, 68, 0.06);
+    background: var(--color-input-bg);
+    border: 1px solid var(--color-border-strong);
+    box-shadow: var(--shadow-glass);
 }
 
 .home-page__product-link {
@@ -383,7 +355,7 @@ onBeforeUnmount(() => {
 }
 
 .home-page__product-link:hover .home-page__product-title {
-    color: #0b56bf;
+    color: var(--color-brand);
 }
 
 .home-page__product-logo {
@@ -392,11 +364,15 @@ onBeforeUnmount(() => {
     margin: 0 auto 0.35rem;
 }
 
+html.theme-dark .home-page__product-logo {
+    filter: brightness(0) invert(1);
+}
+
 .home-page__product-tagline {
     margin: 0 0 0.5rem;
     font-size: 0.78rem;
     font-weight: 600;
-    color: #5f6f8c;
+    color: var(--color-eyebrow);
     line-height: 1.4;
 }
 
@@ -415,14 +391,14 @@ onBeforeUnmount(() => {
     margin: 0 0 0.35rem;
     font-size: 1rem;
     font-weight: 800;
-    color: #123d8c;
+    color: var(--color-brand-strong);
 }
 
 .home-page__product-copy {
     margin: 0;
     font-size: 0.84rem;
     line-height: 1.55;
-    color: #42526d;
+    color: var(--color-text-secondary);
 }
 
 .home-page__platform-cta-wrap {
@@ -433,7 +409,7 @@ onBeforeUnmount(() => {
     display: inline-flex;
     padding: 0.5rem 1.15rem;
     border-radius: 999px;
-    background: #0b56bf;
+    background: var(--color-brand);
     color: #fff;
     font-size: 0.86rem;
     font-weight: 800;
@@ -441,7 +417,7 @@ onBeforeUnmount(() => {
 }
 
 .home-page__platform-cta:hover {
-    background: #0949a3;
+    background: var(--color-brand-strong);
 }
 
 .home-page__customers {
@@ -455,24 +431,19 @@ onBeforeUnmount(() => {
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: #5f6f8c;
+    color: var(--color-eyebrow);
 }
 
 .home-page__customers-strip {
+    --logo-strip-scale: 1.587;
     border-radius: 1rem;
-    background: #fff;
-    border: 1px solid #dbe1ec;
-    padding: 0.65rem 1rem;
+    background: var(--color-input-bg);
+    border: 1px solid var(--color-border-strong);
+    padding: calc(0.65rem * var(--logo-strip-scale)) 0;
+    overflow: hidden;
+    min-height: calc(3.5rem * var(--logo-strip-scale));
     display: flex;
     align-items: center;
-    justify-content: center;
-    min-height: 3.5rem;
-}
-
-.home-page__customers-logo {
-    max-width: 100%;
-    max-height: 2.75rem;
-    object-fit: contain;
 }
 
 .home-page__cross {
@@ -494,34 +465,24 @@ onBeforeUnmount(() => {
     margin: 0 0 0.5rem;
     font-size: clamp(1.2rem, 2.5vw, 1.65rem);
     font-weight: 900;
-    color: #1a2744;
+    color: var(--color-text-primary);
 }
 
 .home-page__cross-body {
     margin: 0 0 0.5rem;
     font-size: 0.9rem;
     line-height: 1.6;
-    color: #2a3d5c;
+    color: var(--color-text-secondary);
 }
 
 .home-page__cross-link {
     font-weight: 800;
-    color: #0b56bf;
+    color: var(--color-brand);
     text-decoration: none;
 }
 
 .home-page__cross-link:hover {
     text-decoration: underline;
-}
-
-.home-page__cross-figure {
-    margin: 0;
-}
-
-.home-page__cross-figure img {
-    display: block;
-    width: 100%;
-    border-radius: 0.75rem;
 }
 
 .home-page__news {
@@ -531,8 +492,8 @@ onBeforeUnmount(() => {
 .home-page__news-card {
     padding: clamp(1rem, 2vw, 1.35rem);
     border-radius: 1.35rem;
-    background: #fff;
-    border: 1px solid #dbe1ec;
+    background: var(--color-input-bg);
+    border: 1px solid var(--color-border-strong);
     text-align: center;
 }
 
@@ -540,7 +501,7 @@ onBeforeUnmount(() => {
     margin: 0 0 0.5rem;
     font-size: clamp(1.1rem, 2.5vw, 1.45rem);
     font-weight: 900;
-    color: #123d8c;
+    color: var(--color-brand-strong);
 }
 
 .home-page__news-actions {
@@ -550,7 +511,7 @@ onBeforeUnmount(() => {
 }
 
 .home-page__news-link {
-    color: #0b56bf;
+    color: var(--color-brand);
     text-decoration: none;
 }
 
@@ -569,16 +530,16 @@ onBeforeUnmount(() => {
     align-items: center;
     padding: clamp(1rem, 2vw, 1.35rem);
     border-radius: 1.35rem;
-    background: #fff;
-    border: 1px solid #dbe1ec;
-    box-shadow: 0 6px 18px rgba(22, 38, 68, 0.06);
+    background: var(--color-input-bg);
+    border: 1px solid var(--color-border-strong);
+    box-shadow: var(--shadow-glass);
 }
 
 .home-page__databases-title {
     margin: 0 0 0.5rem;
     font-size: clamp(1.2rem, 2.5vw, 1.55rem);
     font-weight: 900;
-    color: #123d8c;
+    color: var(--color-brand-strong);
 }
 
 .home-page__databases-body,
@@ -586,11 +547,11 @@ onBeforeUnmount(() => {
     margin: 0 0 0.5rem;
     font-size: 0.88rem;
     line-height: 1.6;
-    color: #42526d;
+    color: var(--color-text-secondary);
 }
 
 .home-page__inline-link {
-    color: #0b56bf;
+    color: var(--color-brand);
     font-weight: 700;
     text-decoration: none;
 }
@@ -662,6 +623,14 @@ onBeforeUnmount(() => {
     background: #0f1a30;
 }
 
+html.theme-dark .home-page__suite-subscribe {
+    background: var(--color-brand-strong);
+}
+
+html.theme-dark .home-page__suite-subscribe:hover {
+    background: var(--color-brand);
+}
+
 .home-page__express {
     margin-top: 1rem;
     text-align: center;
@@ -671,7 +640,7 @@ onBeforeUnmount(() => {
     margin: 0;
     font-size: 0.9rem;
     font-weight: 600;
-    color: #42526d;
+    color: var(--color-text-secondary);
 }
 
 .home-page__express-links {
@@ -680,13 +649,55 @@ onBeforeUnmount(() => {
 }
 
 .home-page__express-link {
-    color: #0b56bf;
+    color: var(--color-brand);
     font-weight: 800;
     text-decoration: none;
 }
 
 .home-page__express-link:hover {
     text-decoration: underline;
+}
+
+.home-page__keynote {
+    margin-top: 1rem;
+}
+
+.home-page__keynote-card {
+    overflow: hidden;
+    border-radius: 1.35rem;
+    background: var(--color-input-bg);
+    border: 1px solid var(--color-border-strong);
+    box-shadow: var(--shadow-glass);
+}
+
+.home-page__keynote-title {
+    margin: 0;
+    padding: clamp(0.85rem, 2vw, 1.1rem) clamp(1rem, 2vw, 1.35rem) 0.65rem;
+    text-align: center;
+    font-size: clamp(1.1rem, 2.5vw, 1.45rem);
+    font-weight: 900;
+    color: var(--color-brand-strong);
+}
+
+.home-page__keynote-banner {
+    margin: 0;
+}
+
+.home-page__keynote-banner img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+html.theme-dark .home-page__cross-card,
+html.theme-dark .home-page__suite-banner-inner {
+    background: linear-gradient(
+        145deg,
+        color-mix(in oklab, var(--color-accent) 28%, var(--color-bg-end)) 0%,
+        color-mix(in oklab, var(--color-accent) 16%, var(--color-bg-start)) 100%
+    );
+    border: 1px solid color-mix(in oklab, var(--color-accent) 42%, var(--color-border-strong));
+    box-shadow: var(--shadow-glass);
 }
 
 @media (max-width: 960px) {

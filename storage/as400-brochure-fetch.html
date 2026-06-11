@@ -1,0 +1,1163 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <noscript>Désolé, votre navigateur ne supporte pas le javascript.</noscript>
+    
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('consent', 'default', {
+        'ad_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
+        'analytics_storage': 'denied',
+        'functionality_storage': 'denied',
+        'personalization_storage': 'denied',
+        'security_storage': 'granted',
+    });
+    dataLayer.push({'gtm.start': new Date().getTime(), 'event': 'gtm.js'});
+</script>
+
+
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NDB7R7F ');
+</script>
+
+<script type="text/plain" data-type="module" data-category="analytics">
+    !function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+    },s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='//static.ads-twitter.com/uwt.js',
+        a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+    // Insert Twitter Pixel ID and Standard Event data below
+    twq('init','o2tnd');
+    twq('track','PageView');
+</script>
+    <title>WINDEV AS/400 technical brochure</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=10.0, minimum-scale=1.0">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="/favicon-96x96.png?v=2026" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2026" />
+<link rel="shortcut icon" href="/favicon.ico?v=2026" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=2026" />
+<link rel="manifest" href="/site.webmanifest?v=2026" />
+    <link rel="preload" as="style" href="https://windev.com/build/assets/app.14950620.css" /><link rel="preload" as="style" href="https://windev.com/build/assets/app.6b5d5e97.css" /><link rel="modulepreload" href="https://windev.com/build/assets/app.5c7a0808.js" /><link rel="stylesheet" href="https://windev.com/build/assets/app.14950620.css" /><link rel="stylesheet" href="https://windev.com/build/assets/app.6b5d5e97.css" /><script type="module" src="https://windev.com/build/assets/app.5c7a0808.js"></script>    <script src="https://www.google.com/recaptcha/api.js?render=6LfvjtsaAAAAAKeKpfbKAnR263NxCiNHuCGLFXmo"></script>
+</head>
+<body class="font-sans" data-locale="en_US"><span class="none" id="returnToTop"></span>
+
+<div class="bg-primary-500 py-2">
+    <div class="max-w-7xl flex items-center space-x-2 justify-center mx-auto text-center font-semibold">
+
+        <a href="https://download.windev.com/UK/index.awp" title="WINDEV 2026 is now available!" style="color: black;" >
+        <b>WINDEV 2026</b> is now available! - <b><span style="border-bottom: 2px solid black; display: inline-block;">Download</span></b>
+
+        <svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" role="img" class="inline-flex fill-current" width="14" height="14"><defs><symbol id="pplx-icon-arrow-right" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="1.75px" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l14 0 M13 18l6 -6 M13 6l6 6" stroke="#000000" fill="none" stroke-width="1.75px"></path></symbol></defs><use xlink:href="#pplx-icon-arrow-right"></use></svg>
+        </a>
+    </div>
+</div>
+
+<header class="sticky top-0 z-[998]">
+
+    <nav id="pcsoft-navigation" x-data="navigation">
+
+        <div id="navigation-wrapper" class="bg-white relative grid grid-cols-3 xl:flex auto-cols-max items-center px-4 xl:justify-between border-t-2 border-t-primary-500 border-b">
+
+                        <div class="xl:ml-auto">
+                <div class="flex items-center">
+
+                                        <button
+                        id="nav-bars"
+                        class="focus:outline-none"
+                        x-bind="sidebarToggle"
+                    >
+                                                <template x-if="!sidebarOpened">
+                            <span class="fas text-2xl fa-bars"></span>
+                        </template>
+
+                                                <template x-if="sidebarOpened">
+                            <span class="fas text-2xl fa-times"></span>
+                        </template>
+                    </button>
+
+                    
+                                        <ul id="navigation-container" class="flex-shrink-0 flex-col xl:flex-row justify-between">
+                        <li
+                            class="flex-grow text-left xl:text-center"
+                            x-data="navigationDropdown"
+                            x-bind="navigationDropdownRegister"
+                        >
+                            <a
+                                x-bind="navigationDropdownTrigger"
+                                class="FollowParam text-lg px-3 xl:px-5 py-3 xl:py-5 block hover:bg-primary-500 contain-dropdown"
+                                href="#"
+                                title="Software">
+                                Software
+                            </a>
+                            <div x-cloak x-cloak x-bind="navigationDropdownTarget" class="dropdown xl:absolute text-left border-t xl:shadow w-full left-0 bg-white" id="dropdown-produits">
+                                <section class="mx-auto grid grid-cols-1 xl:grid-cols-4 gap-8 text-sm py-5 justify-between px-3 xl:px-0" style="max-width: 1108px;">
+                                    <div>
+                                        <h4>
+                                            <a class="FollowParam font-bold uppercase lg:rounded lg:mb-2 px-2 py-3 xl:py-2 hover:bg-primary-500 block" href="https://windev.com/windev/cross-platform-applications.htm" title="Software Suite">
+                                                Software Suite
+                                                <span class="fas fa-chevron-right ml-2"></span>
+                                            </a>
+                                        </h4>
+                                        <ul>
+                                            <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://windev.com/windev" title="WINDEV">WINDEV</a></li>
+                                            <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://windev.com/webdev" title="WEBDEV">WEBDEV</a></li>
+                                            <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://windev.com/windevmobile" title="WINDEV Mobile">WINDEV Mobile</a></li>
+                                            <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://windev.com/newfeatures" title="New features of version 2026">New Features of version 2026</a></li>
+                                            <li class="my-3 px-3 lg:px-0"><hr /></li>
+                                            <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://windev.com/windev/wdmsg.htm" title="WDMSG">WDMSG</a></li>
+                                            <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://windev.com/pcsoft/hfsql.htm" title="HFSQL">HFSQL</a></li>
+                                            <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://windev.com/wlanguage.htm" title="WLanguage">WLanguage</a></li>
+                                            <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://windev.com/windev/wdetatu.htm" title="Reports &amp; Queries">Reports &amp; Queries</a></li>
+                                            <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://pcscloud.net/UK/INDEX.awp" title="Cloud">Cloud</a></li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h4>
+                                            <a class="FollowParam font-bold uppercase lg:rounded lg:mb-2 px-2 py-3 xl:py-2 hover:bg-primary-500 block" href="https://windev.com/nativeconnectors/clientserver.htm" title="Native Connectors">
+                                                Native Connectors
+                                                <span class="fas fa-chevron-right ml-2"></span>
+                                            </a>
+                                        </h4>
+
+                                        <div class="flex">
+                                            <div>
+                                                <ul>
+                                                    <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://windev.com/pcsoft/hfsql.htm" title="HFSQL">HFSQL</a></li>
+                                                    <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://windev.com/nativeconnectors/as400.htm" title="AS/400 &amp; System i">AS/400 &amp; System i</a></li>
+                                                    <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://windev.com/nativeconnectors/ANOracle.htm" title="Oracle">Oracle</a></li>
+                                                    <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://windev.com/nativeconnectors/ANSQLServer.htm" title="SQL Server">SQL Server</a></li>
+                                                    <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://windev.com/nativeconnectors/ANDB2.htm" title="DB2">DB2</a></li>
+                                                    <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://windev.com/nativeconnectors/ANMySQL.htm" title="MySQL">MySQL</a></li>
+                                                    <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://windev.com/nativeconnectors/ANInformix.htm" title="Informix">Informix</a></li>
+                                                </ul>
+                                            </div>
+                                            <div>
+                                                <ul>
+                                                    <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://windev.com/nativeconnectors/ANPostgreSQL.htm" title="PostgreSQL">PostgreSQL</a></li>
+                                                    <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://windev.com/nativeconnectors/ANProgress.htm" title="Progress">Progress</a></li>
+                                                    <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://windev.com/nativeconnectors/ANSybase.htm" title="SAP ASE">SAP ASE</a></li>
+                                                    <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://windev.com/nativeconnectors/ANxBase.htm" title="xBase">xBase</a></li>
+                                                    <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://windev.com/nativeconnectors/ANSQLite.htm" title="SQLite">SQLite</a></li>
+                                                    <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://windev.com/nativeconnectors/ANAccess.htm" title="Access">Access</a></li>
+                                                    <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://windev.com/nativeconnectors/ANMariaDB.htm" title="MariaDB">MariaDB</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <h4>
+                                            <a class="FollowParam font-bold uppercase lg:rounded lg:mb-2 px-2 py-3 xl:py-2 hover:bg-primary-500 block" href="/neo" title="Subscribe" >
+                                                Subscribe
+                                                <span class="fas fa-chevron-right ml-2"></span>
+                                            </a>
+                                        </h4>
+                                        <ul>
+                                            <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="/neo/new" title="Subscribe">Subscribe</a></li>
+
+
+
+                                        </ul>
+                                    </div>
+                                </section>
+                            </div>
+                        </li>
+                        <li
+                            class="flex-grow text-left xl:text-center"
+
+
+                        >
+                            <a
+
+                                class="FollowParam text-lg px-3 xl:px-5 py-3 xl:py-5 block hover:bg-primary-500"
+                                href="/neo"
+                                title="
+
+	Subscribe
+								"
+                            >
+	Subscribe
+
+                            </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        </li>
+                        <li
+                            class="flex-grow text-left xl:text-center"
+                            x-data="navigationDropdown"
+                            x-bind="navigationDropdownRegister"
+                        >
+                            <a
+                                x-bind="navigationDropdownTrigger"
+                                class="FollowParam text-lg px-3 xl:px-5 py-3 xl:py-5 block hover:bg-primary-500 contain-dropdown"
+                                href="#"
+                                title="Download"
+                            >
+                                Download
+                            </a>
+                            <div x-cloak x-bind="navigationDropdownTarget" class="dropdown xl:absolute text-left border-t xl:shadow w-full left-0 bg-white" id="dropdown-telecharger">
+                                <section class="mx-auto grid grid-cols-1 xl:grid-cols-4 gap-8 text-sm py-5 justify-between px-3 xl:px-0" style="max-width: 1108px;">
+                                    <div>
+                                        <h4>
+                                            <a class="FollowParam font-bold uppercase lg:rounded lg:mb-2 px-2 py-3 xl:py-2 hover:bg-primary-500 block" href="https://windev.com/windev/WD-Express.htm" title="Express version (free)">
+                                                Express version (free)
+                                                <span class="fas fa-chevron-right ml-2"></span>
+                                            </a>
+                                        </h4>
+                                        <ul>
+                                            <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://windev.com/windev/WD-Express.htm" title="WINDEV Express">WINDEV Express</a></li>
+                                            <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://windev.com/windevmobile/WM-Express.htm" title="WINDEV Mobile Express">WINDEV Mobile Express</a></li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h4>
+
+											<a class="FollowParam font-bold uppercase lg:rounded lg:mb-2 px-2 py-3 xl:py-2 hover:bg-primary-500 block" href="
+https://download.windev.com/uk/index.awp
+
+" title="Download center">
+                                                Download center
+                                                <span class="fas fa-chevron-right ml-2"></span>
+                                            </a>
+                                        </h4>
+                                        <ul>
+                                            <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://download.windev.com/uk/index.awp" target="_blank" title="Subscription version">Subscription version</a></li>
+											<li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://download.windev.com/uk/dongle.awp" title="Dongle version">Dongle version</a></li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h4>
+                                            <a class="FollowParam font-bold uppercase lg:rounded lg:mb-2 px-2 py-3 xl:py-2 hover:bg-primary-500 block" href="https://windev.com/ts/useful_resources.htm" title="Resources">
+                                                Resources
+                                                <span class="fas fa-chevron-right ml-2"></span>
+                                            </a>
+                                        </h4>
+                                        <ul>
+                                            <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://windev.com/pcsoft/visuals.html" title="Redistributable images">Redistributable images</a></li>
+                                            <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://repository.windev.com/" title="Online repository">Online repository</a></li>
+                                        </ul>
+                                    </div>
+                                </section>
+                            </div>
+                        </li>
+                        <li
+                            class="flex-grow text-left xl:text-center"
+                            x-data="navigationDropdown"
+                            x-bind="navigationDropdownRegister"
+                        >
+                            <a
+                                x-bind="navigationDropdownTrigger"
+                                class="FollowParam text-lg px-3 xl:px-5 py-3 xl:py-5 block hover:bg-primary-500 contain-dropdown"
+                                href="#"
+                                title="Technical Support"
+                            >
+                                Technical Support
+                            </a>
+                            <div x-cloak x-bind="navigationDropdownTarget" class="dropdown xl:absolute text-left border-t xl:shadow w-full left-0 bg-white" id="dropdown-support-technique">
+                                <section class="mx-auto grid grid-cols-1 xl:grid-cols-4 gap-8 text-sm py-5 justify-between px-3 xl:px-0" style="max-width: 1108px;">
+                                    <div>
+                                        <h4>
+                                            <a class="FollowParam font-bold uppercase lg:rounded lg:mb-2 px-2 py-3 xl:py-2 hover:bg-primary-500 block" href="https://windev.com/ts" title="Our services">
+                                                Our services
+                                                <span class="fas fa-chevron-right ml-2"></span>
+                                            </a>
+                                        </h4>
+                                        <ul>
+                                            <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://windev.com/ts" title="Technical Support">Technical Support</a></li>
+                                            <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://windev.com/ad" title="Direct Assistance">Direct Assistance</a></li>
+                                            <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://windev.com/ts/assistance.htm" title="Remote consulting">Remote consulting</a></li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h4>
+                                            <a class="FollowParam font-bold uppercase lg:rounded lg:mb-2 px-2 py-3 xl:py-2 hover:bg-primary-500 block" href="https://forum.pcsoft.fr/en-US/index.awp" title="Community / Help">
+                                                Community / Help
+                                                <span class="fas fa-chevron-right ml-2"></span>
+                                            </a>
+                                        </h4>
+                                        <ul>
+                                            <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://help.windev.com/en-US/" title="Online help">Online help</a></li>
+                                            <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://forum.pcsoft.fr/en-US/index.awp" title="Forums">Forums</a></li>
+                                            <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://faq.windev.com/" title="FAQ">FAQ</a></li>
+                                            <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://repository.windev.com" title="Online repository">Online repository</a></li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h4>
+                                            <a class="FollowParam font-bold uppercase lg:rounded lg:mb-2 px-2 py-3 xl:py-2 hover:bg-primary-500 block" href="https://download.windev.com/uk/dongle.awp" title="Additional information">
+                                                Additional information
+                                                <span class="fas fa-chevron-right ml-2"></span>
+                                            </a>
+                                        </h4>
+                                        <ul>
+                                            <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://windev.com/ts/useful_resources.htm" title="Resources">Resources</a></li>
+                                        </ul>
+                                    </div>
+                                </section>
+                            </div>
+                        </li>
+                        <li class="flex-grow text-left xl:text-center"
+                            x-data="navigationDropdown"
+                            x-bind="navigationDropdownRegister"
+                        >
+                            <a
+                                x-bind="navigationDropdownTrigger"
+                                class="FollowParam text-lg px-3 xl:px-5 py-3 xl:py-5 block hover:bg-primary-500 contain-dropdown"
+                                href="#"
+                                title="Training"
+                            >
+                                Training
+                            </a>
+                            <div x-cloak x-bind="navigationDropdownTarget" class="dropdown xl:absolute text-left border-t xl:shadow w-full left-0 bg-white" id="dropdown-support-technique">
+                                <section class="mx-auto grid grid-cols-1 xl:grid-cols-4 gap-8 text-sm py-5 justify-between px-3 xl:px-0" style="max-width: 1108px;">
+                                    <div>
+                                        <h4>
+                                            <a class="FollowParam font-bold uppercase lg:rounded lg:mb-2 px-2 py-3 xl:py-2 hover:bg-primary-500 block" href="https://windev.com/training/in-house-training-sessions.html" title="Train your developers">
+                                                Train your developers
+                                                <span class="fas fa-chevron-right ml-2"></span>
+                                            </a>
+                                        </h4>
+                                        <ul>
+                                            <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://windev.com/training/in-house-training-sessions.html" title="In-house training">In-house training</a></li>
+                                            <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://windev.com/ts/assistance.htm" title="Remote consulting">Remote consulting</a></li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h4>
+                                            <a class="FollowParam font-bold uppercase lg:rounded lg:mb-2 px-2 py-3 xl:py-2 hover:bg-primary-500 block" href="https://windev.com/ts/educational_institutions.htm" title="Education">
+                                                Education
+                                                <span class="fas fa-chevron-right ml-2"></span>
+                                            </a>
+                                        </h4>
+                                        <ul>
+                                            <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://windev.com/ts/educational_institutions.htm" title="Education">Education</a></li>
+                                            <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://windev.com/windev/WD-Express.htm" title="Express version (free)">Express version (free)</a></li>
+                                        </ul>
+                                    </div>
+                                </section>
+                            </div>
+                        </li>
+                        <li class="flex-grow text-left xl:text-center"
+                            x-data="navigationDropdown"
+                            x-bind="navigationDropdownRegister"
+                        >
+                            <a
+                                x-bind="navigationDropdownTrigger"
+                                class="FollowParam text-lg px-3 xl:px-5 py-3 xl:py-5 block hover:bg-primary-500 contain-dropdown"
+                                href="#"
+                                title="PC SOFT"
+                            >
+                                PC SOFT
+                            </a>
+                            <div x-cloak x-bind="navigationDropdownTarget" class="dropdown xl:absolute text-left border-t xl:shadow w-full left-0 bg-white" id="dropdown-support-technique">
+                                <section class="mx-auto grid grid-cols-1 xl:grid-cols-4 gap-8 text-sm py-5 justify-between px-3 xl:px-0" style="max-width: 1108px;">
+                                    <div>
+                                        <h4>
+                                            <a class="FollowParam font-bold uppercase lg:rounded lg:mb-2 px-2 py-3 xl:py-2 hover:bg-primary-500 block" href="https://windev.com/sitemap.htm" title="Find information">
+                                                Find information
+                                                <span class="fas fa-chevron-right ml-2"></span>
+                                            </a>
+                                        </h4>
+                                        <ul>
+                                            <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://windev.com/sitemap.htm" title="Site map">Site map</a></li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h4>
+                                            <a class="FollowParam font-bold uppercase lg:rounded lg:mb-2 px-2 py-3 xl:py-2 hover:bg-primary-500 block" href="https://windev.com/pcsoft/contact/need-more-information.html" title="Contact us">
+                                                Contact us
+                                                <span class="fas fa-chevron-right ml-2"></span>
+                                            </a>
+                                        </h4>
+                                        <ul>
+                                            <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://windev.com/pcsoft/contact/need-more-information.html" title="Contact form">Contact form</a></li>
+                                            <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://windev.com/pcsoft/distributors" title="International distributors">International distributors</a></li>
+                                        </ul>
+                                    </div>
+                                </section>
+                            </div>
+                        </li>
+                        <li class="flex-grow text-left xl:text-center"><a class="FollowParam text-lg px-3 xl:px-5 py-3 xl:py-5 block hover:bg-primary-500" href="https://windev.com/pcsoft/contact/need-more-information.html" title="Contact form">Contact form</a></li>
+                    </ul>
+                </div>
+            </div>
+
+                        <div class="xl:order-first ">
+                <a href="/">
+                    <img id="logo-large" class="mx-auto xl:mx-0" style="max-height: 28px;" src="https://logo.assets.pcsoft.fr/svg/LOGO_PCSOFT_Dark.svg" alt="PCSoft Logo">
+                    <img id="logo-min" style="max-height: 28px;" src="https://logo.assets.pcsoft.fr/svg/PictoPCS_Color.svg" alt="PCSoft Logo">
+                </a>
+            </div>
+
+                        <div class="ml-auto">
+                <div class="flex space-x-4 items-center relative">
+
+                    <button @click="$dispatch('toggleNavigationSearch')" class="flex items-center outline-none justify-center">
+                        <span class="fa text-2xl fa-search"></span>
+                    </button>
+
+                    <div class="relative">
+                        <div
+                            x-data="navigationDropdown"
+                            x-bind="navigationDropdownRegister"
+                        >
+                            <a
+                                x-bind="navigationDropdownTrigger"
+                                class="hover:shadow p-1 rounded cursor-pointer"
+                            >
+                                                                    <span class="fi fi-us"></span>
+                                                            </a>
+
+                            <div x-cloak x-bind="navigationDropdownTarget" class="bg-white flex-col space-y-3 rounded-bl absolute mt-3 xl:mt-5 py-3 px-5 border" style="margin-left: -1.25rem">
+
+                                
+                                
+                                                                    <div>
+                                        <a class="FollowParam" href="https://www.windev.es/" target="_blank" rel="noopener" title="Español">
+                                            <span class="fi fi-es"></span>
+                                        </a>
+                                    </div>
+                                                                <div>
+                                    <a class="FollowParam" href="https://www.pcsoft.fr/index.html" title="Français" target="_blank" rel="noopener">
+                                        <span class="fi fi-fr"></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+                <aside
+            id="pcsoft-navigation-mobile"
+            class="flex-shrink-0 flex-col bg-white fixed h-full overflow-y-scroll xl:hidden z-[998] pb-20" style="width: 320px;"
+            x-cloak
+            x-bind="sidebarRegister"
+        >
+        </aside>
+    </nav>
+
+        <div
+        id="pcsoft-navigation-search"
+        x-cloak
+        x-data="navigationSearch"
+        x-bind="searchRegister"
+        class="relative w-full border-t border-b bg-white shadow-xl"
+    >
+        <div class="container px-6 mx-auto max-w-6xl py-4 text-black">
+            <form action="https://windev.com/search/search.php" method="get">
+                <div x-bind="searchInputContainer" class="overflow-hidden flex border-2 rounded">
+                    <input
+                        x-ref="searchField"
+                        x-bind="searchInput"
+                        id="searchField"
+                        type="search"
+                        name="s"
+                        class="w-full px-4 py-2 rounded outline-none" placeholder="Rechercher..."
+                    >
+
+                    <button class="flex items-center justify-center px-4 border-l rounded-tr rounded-br">
+                        <i class="fas fa-search" :class="{'text-gray-black': isFocused, 'text-gray-800': !isFocused}"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</header>
+
+<!-- Accroche produits -->
+<section id="accroche-produits-v2" class="bg-[#f9f9f9] p-3 xl:py-4">
+    <div class="container mx-auto text-center">
+        <a class="text-black inline-block mr-3 align-middle mb-3 xl:mb-0 visited:text-black" href="https://windev.com/windev/cross-platform-applications.htm" title="With WINDEV, WEBDEV and WINDEV Mobile, the same source application can be run on different platforms">
+            <span class="font-bold font-sans text-2xl"><strong>Cross-platform</strong> application development software suite</span>
+        </a>
+        <a class="inline-block align-middle" href="https://windev.com/windev/cross-platform-applications.htm">
+            <img
+                class="max-w-[283px] h-auto"
+                src="https://windev.com/storage/en_US/img/home/cross-plateformes.png?202503051149"
+                title="Integrated software for developing cross-platform applications"
+                alt="Integrated software for developing cross-platform applications"
+            >
+        </a>
+    </div>
+</section>
+<main>
+    <div class="container mx-auto px-3 mt-6 xl:mt-12">
+        <div class="flex flex-wrap">
+            <section class="w-full xl:w-3/4 xl:px-12 text-sm">
+                <h1 class="font-bold text-3xl mb-6">WINDEV AS/400 TECHNICAL BROCHURE <br>PRODUCT OVERVIEW</h1>
+                <p class="mb-6"><b>WINDEV, WEBDEV and WINDEV Mobile are a complete Integrated Development Environment (IDE).</b></p>
+
+                <figure class="mb-6">
+                    <img src="https://windev.com/storage/en_US/img/windev/AS400/windev-application-on-windows-with-as400-data.jpg" class="mb-1">
+                    <figcaption>
+                        Application examples - above on Windows, below on a Web browser (left)<br>and on a Tablet (right). <br />
+                        ll with data from AS/400!
+                    </figcaption>
+                </figure>
+
+                <div class="mb-6">
+                    <img src="https://windev.com/storage/en_US/img/windev/AS400/webdev-application-browser-with-as400-data.jpg" class="inline-block border border-black">
+                    <img src="https://windev.com/storage/en_US/img/windev/AS400/windev-mobile-application-on-tablet-with-as400-data.jpg" class="inline-block border border-black">
+                </div>
+
+                <p class="mb-6">
+                    These Integrated Development Environments come with all the modules required for developing applications for individual users, network and Client/Server modes, for Internet or Intranet sites and for mobile devices. <br />
+                    rom the conceptual phase to the deployment of your applications, all the modules are included with the products.
+                </p>
+
+                <p class="mb-12">
+                    &quot;WINDEV AS/400&quot; includes the full WINDEV version, plus the Native AS/400 Connector. This Native Connector lets you access AS/400 without using ODBC, OLEDB, or ActiveX, and allows you to benefit from all the features described in this document. &quot;WEBDEV AS/400&quot; is the version of WEBDEV that includes the Native AS/400 Connector. With WINDEV AS/400 you will be able to offer your users this type of applications, which will work with AS/400 data.
+                </p>
+
+                <span class="block mb-6 text-purple-700 font-bold">WINDEV and WEBDEV AS/400: AS/400 integration</span>
+                <p class="mb-6">
+                    WINDEV and WEBDEV allow for real-time, native access to AS/400 databases (without ODBC, OLEDB, or ActiveX), and give you access to AS/400 programs and commands. <br />
+                    t's revolutionary! <br />
+                    With WINDEV, you can exploit the AS/400 features and its UI in your development projects: the best of both worlds. <br />
+                    ou capitalize on your information system, while making the development process faster. Up to 10 times faster! <br />
+                    egardless of the client platform, Windows PC, Web browser, mobile device, etc., applications and pages are developed using the same 5th generation language.
+                </p>
+                <p class="mb-6">
+                    Same well-known WINDEV programming. No AS/400 programming (RPG, Cobol, etc.) needed to use WINDEV AS/400. Program the applications built with WINDEV and WEBDEV automatically work with AS/400 data, if needed. Applications are portable straight away.
+                </p>
+                <p class="mb-6">
+                    From the same application developed with WINDEV AS/400, you can access native AS/400 files, WINDEV databases (HFSQL), as well as other databases (Oracle, XML, etc.) and operating systems (Linux, etc.) with total transparency. <br />
+                    his allows you to keep your data where best suited and avoid duplication. <br />
+                    fter installing the Native AS/400 Connector, you won't have to perform any operation in AS/400.
+                </p>
+                <p class="mb-6">
+                    All the AS/400 security features to access files and programs and to manage transactions are preserved. <br />
+                    our applications will be able to lock records and files opened in Read/Write mode, using the conflict management rules of AS/400, without interfering with other applications.
+                </p>
+                <p class="mb-12">
+                    Applications developed with WINDEV or WEBDEV can send AS/400 commands, for example, to generate &quot;OVRDBF&quot; or &quot;OPNQRYF&quot; commands on data files before opening them with WINDEV commands, or to modify the work environment or allocate objects.
+                </p>
+
+                <span class="block mb-6 text-purple-700 font-bold">Native Connectors: security, speed and performance</span>
+                <p class="mb-12">
+                    Client computers running Windows benefit from the development power of WINDEV as well as the speed of native access to AS/400 data. <br />
+                    ith WINDEV AS/400 you can easily: <br />
+                    - Communicate with AS/400, without any specific development. <br />
+                    - Integrate the description of an AS/400 database to a WINDEV analysis. <br />
+                    - Read, update, insert, or delete records on AS/400 databases, in parallel with existing "5250" applications. <br />
+                    - Perform read or write operations in optimized mode (using buffers). <br />
+                    - Perform searches using simple or composite keys. <br />
+                    - Create transactional applications. <br />
+                    - Use Data Queues and Data Areas. <br />
+                    - Send CL commands using parameters. <br />
+                    - Call RPG, Cobol, and C programs and procedures using parameters.
+                </p>
+
+                <span class="block mb-6 text-purple-700 font-bold">Information System Architecture</span>
+                <p class="mb-6">
+                    It is very easy to configure the different workstations. <br />
+                    INDEV and WEBDEV communicate with AS/400 either through the APPC protocol of your router, or through TCP/IP.
+                </p>
+                <p class="mb-6">
+                    <b>Client computer: PC</b> <br />
+                    . Windows 10, 8, 7, etc. <br />
+                     Any APPC router (Client access, NS Router, Netware for SAA, Microsoft SNA Server, PCS, etc.) or TCP /IP
+                </p>
+                <p class="mb-6">
+                    <b>Server: AS/400 or IBM i</b> <br />
+                    . All OSs since version 4R3 included <br />
+                    . TCP/IP
+                </p>
+                <p class="mb-12">
+                    <b>Connection</b> <br />
+                    The connection between the PC and AS/400 relies on the network architecture: Ethernet, Token Ring, SDLC, Twinax, etc. <br />
+                    f TCP/IP are used, a router is not required. If TCP/IP are not used, a router is required.
+                </p>
+
+                <span class="block text-lg mb-6 font-bold">DEVELOPMENT METHOD</span>
+                <p class="mb-6">
+                    Let's illustrate the ease-of-use and the development power of WINDEV AS/400 using a concrete example: a sales management application. <br />
+                    EBDEV AS/400 and WINDEV Mobile rely on the same development method. In the deployment phase, only the runtime platform changes, while the UI remains the same: Browsers in WEBDEV, Windows in WINDEV and Pocket PCs, Smartphones or Tablets in WINDEV Mobile.
+                </p>
+                <p class="mb-6">
+                    Note: to simplify the text in the rest of this document, we&#039;ll just use the term WINDEV. In this example, the application will run on a PC with data files on AS/400.
+                </p>
+                <p>The development of this application can be broken down into 5 steps:</p>
+                <ol class="list-decimal ml-4 mb-6">
+                    <li>Create the project and the &quot;analysis&quot; (DDS import)</li>
+                    <li>Use the RAD tool (optional step)</li>
+                    <li>Program the application</li>
+                    <li>Create the executable</li>
+                    <li>Deploy the application</li>
+                </ol>
+                <p class="mb-12">These steps cover the usual development cycle. Each step can be completed with the standard modules included in WINDEV AS/400.</p>
+
+                <span class="block mb-6 text-purple-700 font-bold">STEP 1: PROJECT AND ANALYSIS</span>
+                <p class="mb-6">Let&#039;s create a new project in WINDEV (new application): a CRM project.</p>
+                <p class="mb-6 md:ml-4"><b>1st case: Import DDS</b> (reverse engineering)</p>
+                <p class="mb-6">If there is existing data on your AS/400 database or your client&#039;s AS/400 database, simply import the DDS into WINDEV to use this data.</p>
+                <p class="mb-6">
+                    Then, specify the type of files that will be used in the application (you can modify this information later). <br />
+                    elect the option that corresponds to the desired type of files.
+                </p>
+                <p class="mb-6">
+                    The data files can be of the following type: <br />
+                    - HFSQL (Client/Server database engine included with WINDEV and WEBDEV) <br />
+                    - xBase (*.dbf) <br />
+                    - XML <br />
+                    - Native AS/400 <br />
+                    - External database (RDBMS such as: Oracle, SAP ASE, Ingres, Informix, Access, SQL Server, etc.)
+                </p>
+                <p class="mb-6">The analysis tool requires an AS/400 connection.</p>
+                <p class="mb-6">
+                    WINDEV AS/400 knows how to access physical and logical files, the same way an application written in RPG (GAP) or COBOL would. <br />
+                    imply select the files needed for Client/Server development. <br />
+                    or our sales management application we will select the following data files:<br />
+                    "CLIENT", "ORDER", "ORDER LINE", "PRODUCT" and "SUPPLIER"
+                </p>
+                <p class="mb-6">WINDEV automatically retrieves the structure of the data files and creates a Metadata repository by reverse engineering.</p>
+                <figure class="mb-6">
+                    <img src="https://windev.com/storage/en_US/img/windev/AS400/automatic-file-structure-retrieval-by-windev.jpg" alt="Automatic data file structure retrieval by WINDEV">
+                    <figcaption>Automatic data file structure retrieval by WINDEV</figcaption>
+                </figure>
+                <p class="mb-6">
+                    WINDEV AS/400 converts AS/400 controls to Windows format. However, the data remains in AS/400 format. <br />
+                    ach of the logical files becomes a key for WINDEV (unique key in underlined bold, multiple key in bold only). <br />
+                    INDEV infers the relationship between the data files based on the definition of the keys. It then retrieves the integrity constraints defined for the AS/400 database.
+                </p>
+                <p class="mb-6">The analysis diagram can be printed (along with the full documentation) using the documentation generation module provided with WINDEV.</p>
+                <p class="mb-6 md:ml-4"><b>2nd case: DDS export</b></p>
+                <p class="mb-6">If you want to create new files in the AS/400, simply define these files in the WINDEV analysis editor and export the DDS to the AS/400.</p>
+                <p class="mb-6">Then, select the file structures to export from the analysis.</p>
+                <p class="mb-6">For each of the selected files, the DDS are created and compiled on the AS/400, in the library of your choice (*LIBL).</p>
+                <p class="mb-6">WINDEV AS/400 converts PC controls to AS/400 format.</p>
+                <p class="mb-6">
+                    <b>How does WINDEV determine if files exist on the AS/400?</b> <br />
+                    After importing the files of the AS/400 into the analysis, you can define the different connection parameters. You can work with files from different AS/400. <br />
+                    o open a connection with a specific AS/400, simply use HOpenConnection.
+                </p>
+                <p class="mb-6">
+                    Furthermore, for each file whose description has been imported from the AS/400 (DDS import), extended information is imported into the WINDEV analysis description. <br />
+                    he extended information about the file and the keys replaces the ".as" alias files used in previous versions.
+                </p>
+                <p class="mb-6">
+                    How to switch from AS/400 to HFSQL and vice-versa? <br />
+                    You can change the connection with AS/400 files or HFSQL files at any time. HChangeConnection allows you to change the connection associated with a data file. This new connection will be used the next time the data file is opened.
+                </p>
+                <p class="mb-6">Remember that, with WINDEV, programming is the same, regardless of the database (HFSQL or other): the source code is fully portable.</p>
+                <p class="mb-6">This technology allows for great freedom of development and deployment:</p>
+                <p class="mb-6">
+                    <b class="mb-1">- You work for a consulting company that doesn&#039;t own an AS/400.</b>
+                    <span class="ml-2 md:ml-4 block">
+                        Your client asks you to develop an application for AS/400, using existing data files. <br />
+                        n that case, you can import the DDS from your client's AS/400 and proceed with the development at your company, <br />
+                        on your computers, using local WINDEV data files (HFSQL). <br />
+                        hen, you can simply change the connection, and your application will work in Client/Server mode on the AS/400.
+                    </span>
+                </p>
+                <p class="mb-6">
+                    <b class="mb-1">- You have developed an application with WINDEV AS/400.</b>
+                    <span class="ml-2 md:ml-4 block">
+                        A client, who travels very often, wants to use this same application on their laptop. Simply transfer the application using the installer included with WINDEV, and dynamically change the connection (through a simple menu option, for example). <br />
+                        he application now works with the HFSQL data files located on the laptop (or on the mobile device for an application built with WINDEV Mobile).
+                    </span>
+                </p>
+                <p class="mb-6">
+                    <b class="mb-1">- You have developed an application with WINDEV using HFSQL data files.</b>
+<span class="ml-2 md:ml-4 block">Simply export the DSS to the AS/400 and define a new connection to work with data files located on the AS/400.</span>
+                </p>
+                <p class="mb-6">
+                    <b class="mb-1">- You don't want to overload your AS/400 during the test phase.</b>
+<span class="ml-2 md:ml-4 block">You can test your application locally by changing the connection.</span>
+                </p>
+                <p class="mb-12">
+                    <b class="mb-1">- You want to make information available online on your Internet or Intranet site.</b>
+<span class="ml-2 md:ml-4 block">If the data is located on the AS/400 and you don't want it to be accessible by Internet, simply convert this data to HFSQL format.</span>
+                </p>
+
+                <span class="block mb-6 text-purple-700 font-bold">STEP 2: RAD (OPTIONAL STEP)</span>
+                <p class="mb-6">
+                    This method is optional. <br />
+                    AD means "Rapid Application Development". This technology allows you to create a fully functional application in a few minutes, using WINDEV. <br />
+                    n WINDEV, this technology generates all the processes required for managing data files in the analysis: create windows, pages, menus; modify, add or delete data; print reports, etc.
+                </p>
+                <p class="mb-6">To generate the application or the site, simply answer a series of simple questions in the RAD tool.</p>
+                <p class="mb-6">
+                    WINDEV asks which type of code you want to generate: SQL, Object, Procedural, etc. <br />
+                    n our example we will choose "Procedural" because it is the type of programming generally used by AS/400 developers. Of course, you could also choose an object method (OOP), or several RAD patterns optimized for a given situation (remote access, etc.)
+                </p>
+                <p class="mb-6">WINDEV generates the code to support concurrent access (lock records). These locks are recognized by programs written on the AS/400. AS/400 programs coexist with the programs written with WINDEV AS/400 and share the same data in real time.</p>
+                <p class="mb-6">
+                    You can define other parameters, such as the window size, menu background image, etc. <br />
+                    ou can also define your own generation patterns.
+                </p>
+                <p class="mb-6">
+                    Then, you can select the data files from the analysis that will be included in the application. <br />
+                    eminder: in our example, the data files are located on the AS/400.
+                </p>
+                <p class="mb-6">WINDEV creates all the windows and writes the associated code.</p>
+                <p class="mb-6">And that&#039;s it! The RAD tool has created the application!</p>
+                <p class="mb-6">
+                    To test it, simply connect to the AS/400 and run the application. &lt;br /&gt;
+                    ere&#039;s one of the screens automatically generated by WINDEV.
+                </p>
+                <p class="mb-6">The application can be tested from the WINDEV environment or by creating an executable.</p>
+                <figure class="mb-6">
+                    <img src="https://windev.com/storage/en_US/img/windev/AS400/18.jpg">
+                    <figcaption>Example of a generated window: client form</figcaption>
+                </figure>
+                <p class="mb-6">All the read, search and link processes are generated automatically.</p>
+                <p class="mb-6">
+                    Imagine the time it would have taken without WINDEV! <br />
+                    Everything can be modified and customized: the style of the windows, controls, buttons, code, etc.
+                </p>
+                <p class="mb-6"><b>Program the application execution as seen from the AS/400</b></p>
+                <p class="mb-6">
+                    What happens on the AS/400 when a WINDEV program is running? <br />
+                    For each WINDEV application running, there is a physical connection to a job on the AS/400: here the EAC_CLIENT job. <br />
+                    his job also depends on the profile defined: here "WINDEV"
+                </p>
+                <figure class="mb-6">
+                    <img src="https://windev.com/storage/en_US/img/windev/AS400/19.jpg">
+                    <figcaption>View of the EAC_CLIENT job linked to<br>the execution of our application developed with WINDEV.</figcaption>
+                </figure>
+                <p class="mb-6">
+                    The program running below uses the CLIENT data file and 1 key (either a physical (PHY) or a logical (LGL) key). <br />
+                    he "CL01CLUKEY" logical data file is the index for the "client numbers", the "CL02CLINAME" logical data file is the index for the "client names".
+                </p>
+                <figure class="mb-12">
+                    <img src="https://windev.com/storage/en_US/img/windev/AS400/20.jpg">
+                    <figcaption>
+                        View of the I/O on the AS/400. <br />
+                        he I/O buffer can be set for each file. It will help you optimize performance according to your needs.
+                    </figcaption>
+                </figure>
+
+                <span class="block mb-6 text-purple-700 font-bold">STEP 3: PROGRAM THE APPLICATION</span>
+                <p class="mb-6">
+                    WINDEV's RAD (remember we use "WINDEV" indifferently for WINDEV, WEBDEV and WINDEV Mobile in this document) allows you to create an application, but you'll probably want to customize this application, add management rules, and more. You'll probably also want to develop some applications from the ground up.<br />
+                    <br />
+                    verything generated by the RAD tool can be modified.
+                </p>
+                <p class="mb-6">
+                    <b>Queries</b> <br />
+                    WINDEV comes with a query editor. It allows you to easily create queries using a wizard.
+                </p>
+                <img src="https://windev.com/storage/en_US/img/windev/AS400/25.jpg" class="mb-6">
+                <p class="mb-6">You can easily export a query result (to Text, Excel, World, XML, etc.) through a context menu automatically generated by WINDEV. It can also be used as a base for a printed form or a table.</p>
+                <p class="mb-6">
+                    <b>Printing</b> <br />
+                    WINDEV comes with a report generator. <br />
+                    t allows you to easily create reports from data files located on the AS/400 or the PC. <br />
+                    ar codes, images, labels and page backgrounds are supported automatically. <br />
+                    <br />
+                    he result can be: <br />
+                    . a print preview, <br />
+                    . a printout, <br />
+                    . an HTML document, <br />
+                    . a PDF document. <br />
+                    he printer can be connected with the PC locally or through a network, but can also be defined as a "VIRTUAL PRINTER" of the AS/400.
+                </p>
+                <p class="mb-6">
+                    Communication with the AS/400 <br />
+                    WINDEV AS/400 lets you very easily use your AS/400 and iSeries legacy: <br />
+                    - batch or CL calls with parameters, <br />
+                    - support for Data Queues and Data Areas, <br />
+                    - execution of AS/400 commands (e.g. CHGPRF).
+                </p>
+                <p class="mb-6">Various specific AS/400 commands are available in WINDEV AS/400:</p>
+                <table class="w-full mb-12">
+                    <tr>
+                        <td>ASCallRtv</td>
+                        <td>Runs an AS/400 command that returns variables (RTVJOBA type)</td>
+                    </tr>
+                    <tr>
+                        <td>ASRtvResult</td>
+                        <td>Gets the result of the last ASCallRtv command</td>
+                    </tr>
+                    <tr>
+                        <td>ASRunRPC</td>
+                        <td>Runs an AS/400 program that returns parameters</td>
+                    </tr>
+                    <tr>
+                        <td>ASExec</td>
+                        <td>Calls all the AS/400 commands in the command line, in the context of the current session, with an AS/400 authenticated user profile</td>
+                    </tr>
+                    <tr>
+                        <td>ASUser</td>
+                        <td>Changes the current AS/400 user profile to open a session with different privileges</td>
+                    </tr>
+                </table>
+
+                <span class="block mb-6 text-purple-700 font-bold">STEP 4: CREATE THE EXECUTABLE</span>
+                <p class="mb-6">
+                    After you've finished developing your application, you need to create the executable. <br />
+                    f needed, WINDEV will automatically manage a version number for your application.
+                </p>
+                <p class="mb-6">WINDEV includes a version management module which allows you to restore a previous version of your application. </p>
+                <p class="mb-12">
+                    When creating the executable, WINDEV offers to create a native EXE file. The same program will work in Windows 10, 8, 7, etc. Thus, you don't have to worry about the target platform of your application when writing your code. The applications created with WINDEV will work on all Windows machines (on a browser, for applications developed with WEBDEV; and on a Pocket PC, Smartphone or Mobile device, for applications developed with WINDEV Mobile). <br />
+                    imilarly, with WINDEV you can easily create .NET assemblies, Web services and more: simply click the corresponding menu!
+                </p>
+
+                <span class="block mb-6 text-purple-700 font-bold">STEP 5: DEPLOY THE APPLICATION</span>
+                <p class="mb-6">
+                    <b>1. Installer</b>                    WINDEV comes with a setup program generator. This module lets you create a custom procedure for installing your application.  Everything can be customized. The features of this setup program are detailed in the documentation specific to each product.
+                </p>
+                <p class="mb-6">Applications can be deployed via CD ROM, DVD, a network or the Internet.</p>
+
+                <p class="mb-6">
+                    <b>2. Technical documentation</b> <br />
+                    With WINDEV, you can print the full technical documentation of an application though reverse engineering at any time: analysis, screens, code, reports, etc.
+                </p>
+                <p class="mb-6">
+                    You can define the level of details of the documentation. <br />
+                    his documentation can be generated in HTML, e.g. to share it on an Intranet, or as a PDF file to be included in an e-mail. <br />
+                    his will save you valuable time for future development projects. <br />
+                    his documentation is always up to date since it is based on the current state of your application.
+                </p>
+                <p class="mb-6">WINDEV and WEBDEV are complete environments.</p>
+                <img src="https://windev.com/storage/en_US/img/windev/AS400/28.jpg" class="mb-12">
+
+                <h2 class="text-2xl font-bold mb-6 block">WINDEV AS/400:</h2>
+                <p class="mb-6">Please note that not all the modules included with WINDEV and WEBDEV have been described in this document, which focuses on AS/400. If you are not familiar with WINDEV or WEBDEV, our brochures are a good place to start.</p>
+                <p class="mb-6">
+                    If you want to develop "Client/Server" applications on AS/400, WINDEV and WEBDEV AS/400 are the best solution. <br />
+                    ower, ease of use, clear pricing, efficient technical support, high execution speed, compatibility with your existing elements, self-training within one week: all the assets for fast and powerful development are here.
+                </p>
+                <a href="/neo" class="mb-6 inline-block"><u>See pricing</u></a>
+
+                <span class="block mb-1 text-purple-700 font-bold">WEBDEV AS/400</span>
+                <p class="mb-6">
+                    This page mainly focuses on WINDEV AS/400. However, WEBDEV, the development environment for creating dynamic Internet and Intranet sites, also supports this system. <br />
+                    t follows the same method and provides the same advantages.
+                </p>
+                <figure class="mb-6">
+                    <img src="https://windev.com/storage/en_US/img/windev/AS400/50-graphe3d.jpg" class="mb-1">
+                    <figcaption>
+                        Charts have the same aspect in WINDEV and WEBDEV AS/400. <br />
+                        ou can generate this type of chart automatically <br>for your end users via a popup menu.
+                    </figcaption>
+                </figure>
+
+                <h2 class="text-2xl font-bold mb-6 block">FAQ</h2>
+                <span class="block mb-6 text-purple-700 font-bold">GENERAL FAQ</span>
+
+                <p class="mb-6">
+                    <b>I currently have WINDEV programs; can I transform them immediately into Client/Server programs for AS/400?</b> <br />
+                    Yes
+                </p>
+                <p class="mb-6">
+                    <b>I have AS/400 data files, can I access them from the PC while other AS/400 applications are using these files?</b> <br />
+                    Yes
+                </p>
+                <p class="mb-6">
+                    <b>If I write a Client/Server program for the AS/400 with WINDEV, would I be able to run it with files from the PC?</b> <br />
+                    Yes
+                </p>
+                <p class="mb-6">
+                    <b>I don't know WINDEV, how long will it take to learn?</b> <br />
+                    It generally takes an AS/400 developer one week. WINDEV comes with a tutorial.
+                </p>
+                <p class="mb-6">
+                    <b>I don't know AS/400, can I still develop applications?</b> <br />
+                    Yes, you will just need to spend one hour reading the specific help section.
+                </p>
+                <p class="mb-6">
+                    <b>How come applications developed with WINDEV AS/400 are so fast?</b> <br />
+                    Primarily because native access is very fast but also because the applications use the PC processor for data entry and display operations, thus freeing the AS/400.
+                </p>
+                <p class="mb-12">
+                    <b>I have an ERP system, can I develop add-on applications for it with WINDEV or WEBDEV?</b> <br />
+                    Yes
+                </p>
+
+                <span class="block mb-6 text-purple-700 font-bold">TECHNICAL FAQ</span>
+                <p class="mb-6">
+                    <b>1. How are the AS/400 locks managed and what is the difference with RPG programs?</b> <br />
+                    With AS/400, an application can only set a lock per open file. When a lock is added, the previous lock for the same open file is canceled. WINDEV's "HRead*" functions manage these AS/400 functions directly. <br />
+                    ith RPG, you decide whether a file will be READ ONLY or READ/WRITE when opening it. <br />
+                    INDEV AS/400 uses the same principle. You specify a read option in your program (hLockWrite, hLockReadWrite). Additionally, WINDEV AS/400 has a new feature: implicit locks. Everything is managed automatically.
+                </p>
+                <p class="mb-6">
+                    <b>2. Can several AS/400 or IBM i be used?</b> <br />
+                    Yes, the "Connections" option in the WINDEV analysis editor allows you to add several types of connections. Therefore, you can work with data files from different AS/400s.
+                </p>
+                <p class="mb-6">
+                    <b>3. Does WINDEV support version levels of AS/400 files?</b> <br />
+                    Yes, LVLCHK (level Checking) should be added in the "advanced" information entered in the analysis. If this level checking exists, simply compare it to the real level and refuse the opening of previous levels.
+                </p>
+                <p class="mb-6">
+                    <b>4. Does WINDEV handle log files for AS/400?</b> <br />
+                    Yes, log files are managed transparently by WINDEV log commands.
+                </p>
+                <p class="mb-6">
+                    <b>5. Does WINDEV handle files with members?</b> <br />
+                    Yes, either through the WINDEV analysis editor or by executing a programming order (ASExec("ovrdbf(filename) on a file (libname/filename mbr(membername)).
+                </p>
+                <p class="mb-6">
+                    <b>6. How does WINDEV handle joint files?</b> <br />
+                    In WINDEV, a joint file is considered as a regular read-only file with only one key. Simply import the DDS as for any logical file.
+                </p>
+                <p class="mb-6">
+                    <b>7. How do you call an AS/400 interactive program from WINDEV?</b> <br />
+                    An AS/400 and a WINDEV program can communicate via a Data Queue.
+                </p>
+                <p class="mb-6">
+                    <b>8. How do you call a WINDEV program from an AS/400 menu?</b> <br />
+                    You can create a WINDEV program that reads a Data Queue (fed by the AS/400 menu) whose task is to launch other programs.
+                </p>
+                <p class="mb-6">
+                    <b>9. Does WINDEV handle logical elements with omissions or conditions?</b> <br />
+                    Yes. Logical elements with omissions or conditions are not considered as physical file indexes. Simply add these files manually as indexes in the analysis and in the "advanced information" entered in the analysis. <br />
+                    ou can also use them as master files with only one index. You will only need to import their DDS.
+                </p>
+                <p class="mb-6">
+                    <b>10. Can I manage DDM files from WINDEV?</b> <br />
+                    Yes, WINDEV AS/400 handles DDM files transparently (files opened on one AS/400 that are physically on another AS/400).
+                </p>
+                <p class="mb-6">
+                    <b>11. Can several libraries be managed with WINDEV?</b> <br />
+                    Yes. You can use files from different libraries, either through the LIBL file or by writing their name directly into the "advanced information". If a library name has not been specified, WINDEV AS/400 will search for the files in the LIBL libraries.
+                </p>
+                <p class="mb-6"><b>If you have additional questions, please contact us.</b></p>
+
+                <span class="block mb-6 font-bold text-xl">
+                    <span class="text-black text-2xl">WINDEV:</span>
+                    <span class="text-purple-700">EVERYTHING IS INCLUDED IN A TOTALLY INTEGRADED ENVIRONMENT</span>
+                </span>
+
+                <p class="mb-6">
+                    Here is a summary of the main features: <br />
+                    . Integrated Development Environment (IDE) <br />
+                    . Technical Support <br />
+                    . Free deployment <br />
+                    . Secure .EXE, J2EE Web Services, .NET and Linux applications <br />
+                    . Teamwork <br />
+                    . RAD: Complete application generator <br />
+                    . AAA (Automatic Application Architecture): create your own custom RAD for your teams <br />
+                    . Free option: Java RAD <br />
+                    . HFSQL, integrated Client/Server databases in Windows and Linux (free distribution) <br />
+                    . Third-party databases: Oracle, AS/400, SQL Server, DB2, MySQL, Access, xBase, and more. <br />
+                     Native XML <br />
+                    . Control Center for databases and deployed applications <br />
+                    . UML analysis center: code generated from the analysis, reverse engineering <br />
+                    . Creation of analysis and programming documentation through reverse engineering <br />
+                    . Business logic components <br />
+                    . Visual SQL generator <br />
+                    . Automatic UI creation with automatic style guide <br />
+                    . 5th generation language (5GL), write up to 90% less code <br />
+                    . Compatible with 4GL: C++, C#, Java, VB, Cobol, etc. <br />
+                     Import Access and Visual Basic applications <br />
+                    . Intelligent code editor with instant testing <br />
+                    . Refactoring <br />
+                    . Debugger <br />
+                    . Performance optimization center <br />
+                    . Up to 64 different languages per application <br />
+                    . Report generator (PDF, pre-printed form, bar codes, etc.) <br />
+                    . CHM help generator <br />
+                    . Integrated Internet access (page analysis...) <br />
+                    . UMC (User Macro Code): end users can add their macros to their applications <br />
+                    . AAF (Automatic Application Features): automatic export menu for end users. Export to Word, Excel, XML, PDF, 3D graphics, etc., automatic e-mail sending, creation of PDF files and more. <br />
+                    . RS 232 serial link, USB <br />
+                    . TAPI telephony <br />
+                    . Multimedia (image, sound, video) <br />
+                    . Version management <br />
+                    . Setup management center, automatic management of deployed applications <br />
+                    . Automatic test scenarios <br />
+                    . More than 100 detailed examples <br />
+                    . Self-training in 1 week (tutorial provided)
+                </p>
+            </section>
+            <aside class="hidden xl:block xl:w-1/4">
+                    <div class="column_packages_products text-sm mb-12">
+                <img src="https://windev.com/storage/en_US/img/2026/packages-windev-webdev-windev-mobile-2026.png?202410281104" alt="WINDEV, WEBDEV and WINDEV Mobile" title="WINDEV, WEBDEV and WINDEV Mobile" class="mb-4">
+                <p>
+                    The <a href="https://windev.com/windev" title="WINDEV" class="font-bold">WINDEV</a>,                    <a href="https://windev.com/webdev" title="WEBDEV" class="font-bold">WEBDEV</a> and                    <a href="https://windev.com/windevmobile" title="WINDEV Mobile" class="font-bold">WINDEV Mobile</a> environments                    are compatible and share project elements. It has never been easier to build                    multi-target applications.
+                </p>
+            </div>
+                        <div class="column_documentation mb-12">
+                <h2 class="font-bold text-lg mb-1">Documentation overview</h2>
+                <ul class="list-inside text-sm">
+                    <li><a href="//us.pcsoft-windev-webdev.com/WX2026-Features.pdf?202510201505" title="New features" target="_blank">New features</a></li>
+                    <li><a href="//us.pcsoft-windev-webdev.com/windev-us.pdf?202305241106" title="WINDEV" target="_blank">WINDEV</a></li>
+                    <li><a href="//us.pcsoft-windev-webdev.com/webdev-us.pdf?202305241106" title="WEBDEV" target="_blank">WEBDEV</a></li>
+                    <li><a href="//us.pcsoft-windev-webdev.com/windev-mobile-us.pdf?202305241106" title="WINDEV Mobile" target="_blank">WINDEV Mobile</a></li>
+                    <!--<li><a href="//us.pcsoft-windev-webdev.com/application-portability.pdf?202407181038" title="Application portability" target="_blank">Application portability</a></li>-->
+                </ul>
+            </div>
+                        <div class="column_diagram mb-12">
+                <h2 class="font-bold text-lg mb-1">Overview diagrams</h2>
+                <ul class="list-inside text-sm">
+                     <li><a href="//us.pcsoft-windev-webdev.com/visuels/universal-access-to-data.pdf?202510211134" title="Universal database connectors" target="_blank">Universal database connectors</a></li>                      <li><a href="//us.pcsoft-windev-webdev.com/visuels/multi-platform-development.pdf?202510211134" title="Cross-platform development" target="_blank">Cross-platform development</a></li>                 </ul>
+            </div>
+                        <div class="column_videos mb-12">
+                <h2 class="font-bold text-lg mb-1">Videos</h2>
+                <ul class="list-inside text-sm">
+                    <li><a href="https://windev.com/pcsoft/videos.html" title="Technical videos">Technical videos</a></li>
+                </ul>
+            </div>
+                        <div class="column_videos mb-12">
+                <h2 class="font-bold text-lg mb-1">They are using WINDEV</h2>
+                <div class="border" style="display:block; width: 205px; height: 205px; position: relative;">
+                    <ul class="list-none" data-plugin="innerfade">
+                        <li><img src="https://windev.com/storage/en_US/img/testimonials/logos/porsche.jpg" title="Porsche" alt="Porsche" width="205" height="205"></li>
+                        <li><img src="https://windev.com/storage/en_US/img/testimonials/logos/clarins.jpg" title="Clarins" alt="Clarins" width="205" height="205"></li>
+                        <li><img src="https://windev.com/storage/en_US/img/testimonials/logos/bristol.jpg" title="Bristol-Myers Squibb" alt="Bristol-Myers Squibb" width="205" height="205"></li>
+                        <li><img src="https://windev.com/storage/en_US/img/testimonials/logos/pmf.jpg" title="Playmobil" alt="Playmobil" width="205" height="205"></li>
+                        <li><img src="https://windev.com/storage/en_US/img/testimonials/logos/bridgestone.jpg" title="Bridgestone" alt="Bridgestone" width="205" height="205"></li>
+                        <li><img src="https://windev.com/storage/en_US/img/testimonials/logos/quiksilver.jpg" title="Quicksilver" alt="Quicksilver" width="205" height="205"></li>
+                        <li><img src="https://windev.com/storage/en_US/img/testimonials/logos/johndeere.jpg" title="John Deere" alt="John Deere" width="205" height="205"></li>
+                        <li><img src="https://windev.com/storage/en_US/img/testimonials/logos/shell.jpg" title="Shell" alt="Shell" width="205" height="205"></li>
+                        <li><img src="https://windev.com/storage/en_US/img/testimonials/logos/segafredo.jpg" title="Segafredo Zenetti" alt="Segafredo Zenetti" width="205" height="205"></li>
+                        <li><img src="https://windev.com/storage/en_US/img/testimonials/logos/bollinger.jpg" title="Bollinger" alt="Bollinger" width="205" height="205"></li>
+                        <li><img src="https://windev.com/storage/en_US/img/testimonials/logos/honda.jpg" title="Honda" alt="Honda" width="205" height="205"></li>
+                        <li><img src="https://windev.com/storage/en_US/img/testimonials/logos/kenzo.jpg" title="Kenzo" alt="Kenzo" width="205" height="205"></li>
+                        <li><img src="https://windev.com/storage/en_US/img/testimonials/logos/l-oreal.jpg" title="L'Oréal" alt="L'Oréal" width="205" height="205"></li>
+                        <li><img src="https://windev.com/storage/en_US/img/testimonials/logos/lafarge.jpg" title="Lafarge" alt="Lafarge" width="205" height="205"></li>
+                        <li><img src="https://windev.com/storage/en_US/img/testimonials/logos/siemens.jpg" title="Siemens Vai" alt="Siemens Vai" width="205" height="205"></li>
+                        <li><img src="https://windev.com/storage/en_US/img/testimonials/logos/hitachi.jpg" title="Hitachi" alt="Hitachi" width="205" height="205"></li>
+                        <li><img src="https://windev.com/storage/en_US/img/testimonials/logos/axa.jpg" title="AXA" alt="AXA" width="205" height="205"></li>
+                        <li><img src="https://windev.com/storage/en_US/img/testimonials/logos/seiko.jpg" title="Seiko" alt="Seiko" width="205" height="205"></li>
+                        <li><img src="https://windev.com/storage/en_US/img/testimonials/logos/sharp.jpg" title="Sharp" alt="Sharp" width="205" height="205"></li>
+                        <li><img src="https://windev.com/storage/en_US/img/testimonials/logos/volkswagen-bank.jpg" title="Volkswagen Bank" alt="Volkswagen Bank" width="205" height="205"></li>
+                        <li><img src="https://windev.com/storage/en_US/img/testimonials/logos/ricoh.jpg" title="Ricoh" alt="Ricoh" width="205" height="205"></li>
+                        <li><img src="https://windev.com/storage/en_US/img/testimonials/logos/wwf.jpg" title="World Wide Fund for Nature" alt="World Wide Fund for Nature" width="205" height="205"></li>
+                    </ul>
+                </div>
+            </div>
+                </aside>
+            </div>
+    </div>
+</main>
+<footer class="bg-[#333] pt-6 text-white text-sm">
+    <div class="container mx-auto px-3">
+        <div class="flex flex-wrap mb-3">
+            <div class="w-full md:w-1/2 lg:w-1/4">
+                <ul>
+                    <li class="mb-4"><a class="!text-white" href="/" title="Home">Home</a></li>
+                    <li class="mb-1 md:mb-0-5"><a class="!text-white" href="https://windev.com/windev" title="Software">Software</a></li>
+                    <li class="mb-1 md:mb-0-5"><a class="!text-[#d2d2d2] !hover:text-white" href="https://windev.com/windev" title="WINDEV">WINDEV</a></li>
+                    <li class="mb-1 md:mb-0-5"><a class="!text-[#d2d2d2] !hover:text-white" href="https://windev.com/webdev" title="WEBDEV">WEBDEV</a></li>
+                    <li class="mb-1 md:mb-0-5"><a class="!text-[#d2d2d2] !hover:text-white" href="https://windev.com/windevmobile" title="WINDEV Mobile">WINDEV Mobile</a></li>
+                    <li class="mb-1 md:mb-0-5"><a class="!text-[#d2d2d2] !hover:text-white" href="https://windev.com/newfeatures" title="New Features of version 2026">New Features of version 2026</a></li>
+                    <li class="mb-1 md:mb-0-5"><a class="!text-[#d2d2d2] !hover:text-white" href="https://windev.com/nativeconnectors/clientserver.htm" title="Native Connectors to databases">Native Connectors to databases</a></li>
+                    <li class="mb-1 md:mb-0-5"><a class="!text-[#d2d2d2] !hover:text-white" href="https://windev.com/pcsoft/documentations.html" title="Documentation">Documentation</a></li>
+                    <li class="mb-1 md:mb-0-5"><a class="!text-[#d2d2d2] !hover:text-white" href="https://windev.com/pcsoft/videos.html" title="Technical videos">Technical videos</a></li>
+                    <li class="mb-1 md:mb-0-5"><a class="!text-[#d2d2d2] !hover:text-white" href="https://windev.com/pcsoft/hfsql.htm" title="HFSQL">HFSQL</a></li>
+                    <li class="mb-1 md:mb-0-5"><a class="!text-[#d2d2d2] !hover:text-white" href="https://windev.com/wlanguage.htm" title="WLanguage">WLanguage</a></li>
+                    <li class="mb-1 md:mb-0-5"><a class="!text-[#d2d2d2] !hover:text-white" href="//pcscloud.net/UK/INDEX.awp" title="Cloud" rel="noopener" target="_blank">Cloud</a></li>
+                    <li class="mb-1 md:mb-0-5"><button type="button" class="!text-[#d2d2d2] !hover:text-white" title="Manange cookies" data-cc="show-preferencesModal">Manage cookies</button></li>
+                </ul>
+            </div>
+            <div class="w-full md:w-1/2 lg:w-1/4">
+                <ul>
+                    <li class="mb-1 md:mb-0-5"><a class="!text-white" href="https://windev.com/ts" title="Technical Support">Technical Support</a></li>
+                    <li class="mb-1 md:mb-0-5"><a class="!text-[#d2d2d2] !hover:text-white" href="https://windev.com/ad" title="Direct Assistance">Direct Assistance</a></li>
+                    <li class="mb-1 md:mb-0-5"><a class="!text-[#d2d2d2] !hover:text-white" href="//forum.pcsoft.fr/en-US/index.awp" title="Forums" rel="noopener" target="_blank">Forums</a></li>
+                    <li class="mb-1 md:mb-0-5"><a class="!text-[#d2d2d2] !hover:text-white" href="//faq.windev.com" rel="noopener" title="FAQ" target="_blank">FAQ</a></li>
+                    <li class="mb-1 md:mb-0-5"><a class="!text-[#d2d2d2] !hover:text-white" href="https://windev.com/ts/useful_resources.htm" title="Useful resources">Useful resources</a></li>
+                    <li class="mb-1 md:mb-0-5"><a class="!text-[#d2d2d2] !hover:text-white" href="//repository.windev.com" title="Online repository" rel="noopener" target="_blank">Online repository</a></li>
+                    <li class="mb-1 md:mb-0-5"><a class="!text-[#d2d2d2] !hover:text-white" href="//help.windev.com/en-US" title="Online help" rel="noopener" target="_blank">Online help</a></li>
+                    <li class="mt-3"><a class="!text-white" href="https://windev.com/ts/assistance.htm" title="Training">Training</a></li>
+                    <li class="mb-1 md:mb-0-5"><a class="!text-[#d2d2d2] !hover:text-white" href="https://windev.com/ts/assistance.htm" title="Direct Assistance">Consulting</a></li>
+                    <li class="mb-1 md:mb-0-5"><a class="!text-[#d2d2d2] !hover:text-white" href="https://windev.com/ad" title="Direct Assistance">Direct Assistance</a></li>
+                    <li class="mb-1 md:mb-0-5"><a class="!text-[#d2d2d2] !hover:text-white" href="https://windev.com/ts/educational_institutions.htm" title="Education">Education</a></li>
+                </ul>
+            </div>
+            <div class="w-full md:w-1/2 lg:w-1/4">
+                <ul>
+                    <li class="mb-1 md:mb-0-5"><a class="!text-white" href="/neo" title="Subscribe">Subscribe</a></li>
+                    <li class="mb-1 md:mb-0-5"><a class="!text-[#d2d2d2] !hover:text-white" title="Request a quote" href="https://windev.com/pcsoft/request/request-a-quote.html">Request a quote</a></li>
+                    <li class="mb-4"><a class="!text-[#d2d2d2] !hover:text-white" title="International distributors" href="https://windev.com/pcsoft/distributors">International distributors</a></li>
+                    <li class="mb-1 md:mb-0-5"><a class="!text-white" href="https://download.windev.com/uk/dongle.awp" title="Download center">Download center</a></li>
+                    <li class="mb-1 md:mb-0-5"><a class="!text-[#d2d2d2] !hover:text-white" href="https://windev.com/windev/WD-Express.htm" title="WINDEV Express">WINDEV Express</a></li>
+                    <li class="mb-1 md:mb-0-5"><a class="!text-[#d2d2d2] !hover:text-white" href="https://windev.com/windevmobile/WM-Express.htm" title="WINDEV Mobile Express">WINDEV Mobile Express</a></li>
+                    <li class="mb-1 md:mb-0-5"><a class="!text-[#d2d2d2] !hover:text-white" href="https://download.windev.com/uk/index.awp">Subscription version</a></li>
+                    <li class="mb-1 md:mb-0-5"><a class="!text-[#d2d2d2] !hover:text-white" href="https://download.windev.com/uk/dongle.awp" title="Dongle version">Dongle version</a></li>
+                    <li class="mb-1 md:mb-0-5"><a class="!text-[#d2d2d2] !hover:text-white" href="https://windev.com/pcsoft/visuals.html" title="Reusable visual elements">Reusable visual elements</a></li>
+                    <li class="mt-3"><a class="!text-white" href="https://windev.com/pcsoft/environmental-policy.htm" title="Our values">Our values</a></li>
+                    <li class="mb-1 md:mb-0-5"><a class="!text-[#d2d2d2] !hover:text-white" href="https://windev.com/pcsoft/environmental-policy.htm" title="Environmental policy">Environmental policy</a></li>
+                </ul>
+            </div>
+            <div class="w-full md:w-1/2 lg:w-1/4">
+                <ul>
+                    <li class="mb-1 md:mb-0-5"><a class="!text-white" href="https://windev.com/pcsoft/index.html" title="PC SOFT">PC SOFT</a></li>
+                    <li class="mb-1 md:mb-0-5"><a class="!text-[#d2d2d2] !hover:text-white" href="https://windev.com/sitemap.htm" title="Site map">Site map</a></li>
+                    <li class="mb-4"><a class="!text-[#d2d2d2] !hover:text-white" href="https://windev.com/pcsoft/contact/need-more-information.html" title="Contact us">Contact us</a></li>
+                    <li class="mb-1 md:mb-0-5"><a class="!text-white" href="https://windev.com/pcsoft/contact/need-more-information.html" title="Contact">Contact</a></li>
+                    <li class="mb-1 md:mb-0-5"><a class="!text-[#d2d2d2] !hover:text-white" href="https://windev.com/pcsoft/contact/need-more-information.html" title="PC SOFT">PC SOFT</a></li>
+                    <li class="mb-1 md:mb-0-5"><a class="!text-[#d2d2d2] !hover:text-white" href="https://windev.com/pcsoft/distributors" title="International distributors">International distributors</a></li>
+					<li class="mb-1 md:mb-0-5"><a class="!text-[#d2d2d2] !hover:text-white" href="https://windev.com/pcsoft/data-protection-policy.htm" title="DPO">DPO</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="flex flex-wrap">
+            <div class="w-1/2 flex md:justify-end"><img class="object-scale-down" data-original="https://windev.com/storage/en_US/img/2014/recompenses.png" alt="PC WORLD, Computer Magazine, ..." src="https://windev.com/storage/en_US/img/2014/recompenses.png" style="display: inline;"></div>
+            <div class="w-1/2 flex md:justify-end">
+                <a class="mr-2" href="https://www.youtube.com/watch?v=hFLfSNN-k0g&amp;list=PLI6fRsLPTA4jHtJSSFsLpxxQ9Q7RM-BDL" rel="noopener" target="_blank"><img class="lazy" data-original="https://windev.com/storage/en_US/img/2014/communaute_youtube.gif" alt="YouTube" width="47" height="47" border="0" src="https://windev.com/storage/en_US/img/2014/communaute_youtube.gif" style="display: inline;"></a>
+                <a id="btn-send-to-friend" class="text-white" href="//us.pcsoft-windev-webdev.com/contact/send-to-a-friend/send-to-a-friend.php" title="Send to a friend" rel="noopener" target="_blank" onclick="window.open('//us.pcsoft-windev-webdev.com/contact/send-to-a-friend/send-to-a-friend.php?url=' + encodeURIComponent(location.href), 'email','toolbar=no,width=528,height=628'); return false;"><img class="lazy" data-original="https://windev.com/storage/en_US/img/2014/communaute_email.gif" alt="Send to a friend" width="47" height="47" border="0" src="https://windev.com/storage/en_US/img/2014/communaute_email.gif" style="display: inline;"></a>
+            </div>
+        </div>
+    </div>
+
+    <section class="footer-baseline bg-gray-1f mt-6 py-3">
+        <div class="container mx-auto px-3 md:text-center">
+            <ul>
+                <li class="inline-block my-0-5"><a class="!text-[#d2d2d2] !hover:text-white" href="https://windev.com/pcsoft/general-terms-and-conditions.htm" title="General terms and conditions">General terms and conditions</a></li>
+                <li class="hidden md:inline-block my-0-5">|</li>
+                <li class="inline-block my-0-5"><a class="!text-[#d2d2d2] !hover:text-white" href="https://windev.com/pcsoft/copyright.htm" title="Registered trademarks. Copyright © 2026 PC SOFT. All rights reserved.">Registered trademarks. Copyright © 2026 PC SOFT. All rights reserved</a></li>
+            </ul>
+        </div>
+    </section>
+</footer>
+
+<div id="btnReturnToTop" style="position: fixed; display: none; right: 10px; bottom: 10px; z-index: 9999;">
+    <a class="bg-white border hover:bg-gray-200 text-lg px-3 py-2 inline-block" href="#returnToTop" title="Back to top">
+        <i class="fa-solid fa-arrow-up text-gray-900"></i>
+    </a>
+</div>
+<script src="/js/dist/jquery.min.js"></script>
+<script src="/js/dist/stickyfill.min.js"></script>
+<script src="/js/dist/tablesaw.jquery.min.js"></script>
+<script src="/js/dist/tablesaw-init.min.js"></script>
+<script src="/js/dist/responsiveslides.min.js"></script>
+<script src="/js/dist/polyfill/sticky.min.js"></script>
+<script src="/js/dist/responsiveslides.min.js"></script>
+<script src="/js/dist/jquery.innerfade.custom.js"></script>
+<script src="/js/dist/innerfade.min.js"></script>
+<script src="/js/dist/smoothscroll.min.js"></script>
+<script src="/js/dist/infobulle.min.js"></script>
+<script src="/library/script.js"></script>
+<script src="/js/dist/scripts.min.js"></script>
+<script>$('.rslides').responsiveSlides({pager: true});</script>
+</body>
+</html>

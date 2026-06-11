@@ -2,15 +2,18 @@
     <div class="admin-shell">
         <aside class="admin-sidebar">
             <RouterLink to="/windevadmin" class="admin-sidebar__brand">
-                <img
-                    :src="brandLogo.src"
-                    alt="PC SOFT"
-                    class="admin-sidebar__brand-logo"
-                    width="108"
-                    height="28"
-                    decoding="async"
-                    @error="onBrandLogoError"
-                />
+                <div class="admin-sidebar__brand-mark">
+                    <img
+                        :src="brandLogo.src"
+                        alt="PC SOFT"
+                        class="admin-sidebar__brand-logo"
+                        width="108"
+                        height="28"
+                        decoding="async"
+                        @error="onBrandLogoError"
+                    />
+                    <span class="admin-sidebar__brand-prefix" title="Côte d'Ivoire">CI</span>
+                </div>
                 <span class="admin-sidebar__brand-label">Windevadmin</span>
             </RouterLink>
             <nav class="admin-sidebar__nav" aria-label="Navigation admin">

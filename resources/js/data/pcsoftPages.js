@@ -39,6 +39,14 @@ export const pcsoftPageCatalog = {
         showContactForm: true,
         offices: [
             {
+                name: 'Mediasoftlafayette - Côte d\'Ivoire',
+                lines: [
+                    'Abidjan - Cocody - Deux plateaux les vallons - non loin du club House.',
+                    '+225 27 22 51 42 42',
+                    'infos@mediasoftci.net',
+                ],
+            },
+            {
                 name: 'Siège social — Montpellier',
                 lines: [
                     'PC SOFT',

@@ -1,7 +1,40 @@
 <template>
+    <div
+        v-if="variant === 'strip'"
+        class="customer-logo-carousel customer-logo-carousel--strip"
+        aria-label="Logos clients"
+    >
+        <div class="customer-logo-carousel__track">
+            <ul class="customer-logo-carousel__row">
+                <li v-for="(logo, index) in customerLogos" :key="`a-${index}`" class="customer-logo-carousel__item">
+                    <img
+                        class="customer-logo-carousel__image"
+                        :src="logo.src"
+                        :alt="logo.alt"
+                        loading="lazy"
+                        decoding="async"
+                        @error="onImageError($event, logo.fallback)"
+                    />
+                </li>
+            </ul>
+            <ul class="customer-logo-carousel__row" aria-hidden="true">
+                <li v-for="(logo, index) in customerLogos" :key="`b-${index}`" class="customer-logo-carousel__item">
+                    <img
+                        class="customer-logo-carousel__image"
+                        :src="logo.src"
+                        :alt="logo.alt"
+                        loading="lazy"
+                        decoding="async"
+                        @error="onImageError($event, logo.fallback)"
+                    />
+                </li>
+            </ul>
+        </div>
+    </div>
+
     <figure
-        class="customer-logo-carousel"
-        :class="{ 'customer-logo-carousel--compact': variant === 'compact' }"
+        v-else
+        class="customer-logo-carousel customer-logo-carousel--compact"
     >
         <img
             class="customer-logo-carousel__image"
@@ -52,7 +85,7 @@ const customerLogoMeta = [
 const customerLogos = homeCustomerLogos.map((logo, index) => ({
     src: logo.src,
     fallback: logo.fallback,
-    alt: customerLogoMeta[index]?.alt ?? 'WINDEV customer logo',
+    alt: customerLogoMeta[index]?.alt ?? 'Logo client WINDEV',
 }));
 
 const currentIndex = ref(0);
@@ -65,6 +98,10 @@ function onImageError(event, fallbackUrl) {
 }
 
 onMounted(() => {
+    if (props.variant !== 'compact') {
+        return;
+    }
+
     carouselTimer = window.setInterval(() => {
         currentIndex.value = (currentIndex.value + 1) % customerLogos.length;
     }, props.intervalMs);
@@ -80,6 +117,52 @@ onBeforeUnmount(() => {
 <style scoped>
 .customer-logo-carousel {
     margin: 0;
+}
+
+.customer-logo-carousel--strip {
+    --logo-strip-scale: 1.587;
+    overflow: hidden;
+    width: 100%;
+    min-height: calc(2.75rem * var(--logo-strip-scale));
+}
+
+.customer-logo-carousel__track {
+    display: flex;
+    width: max-content;
+    animation: customer-logo-scroll 45s linear infinite;
+}
+
+.customer-logo-carousel--strip:hover .customer-logo-carousel__track {
+    animation-play-state: paused;
+}
+
+.customer-logo-carousel__row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: clamp(calc(1.5rem * var(--logo-strip-scale, 1)), calc(4vw * var(--logo-strip-scale, 1)), calc(3rem * var(--logo-strip-scale, 1)));
+    flex-shrink: 0;
+    margin: 0;
+    padding: 0 calc(1rem * var(--logo-strip-scale, 1));
+    list-style: none;
+    min-height: calc(2.75rem * var(--logo-strip-scale, 1));
+}
+
+.customer-logo-carousel__item {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(2.75rem * var(--logo-strip-scale, 1));
+}
+
+.customer-logo-carousel--strip .customer-logo-carousel__image {
+    display: block;
+    width: auto;
+    height: calc(2.75rem * var(--logo-strip-scale));
+    max-width: calc(8rem * var(--logo-strip-scale));
+    object-fit: contain;
 }
 
 .customer-logo-carousel--compact {
@@ -104,13 +187,26 @@ onBeforeUnmount(() => {
     filter: saturate(1.03) contrast(1.02);
 }
 
-.customer-logo-carousel:not(.customer-logo-carousel--compact) .customer-logo-carousel__image {
-    display: block;
-    max-width: 12.5rem;
-    max-height: 5.5rem;
-    width: auto;
-    height: auto;
-    margin: 0 auto;
-    object-fit: contain;
+@keyframes customer-logo-scroll {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .customer-logo-carousel__track {
+        animation: none;
+        flex-wrap: wrap;
+        width: 100%;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .customer-logo-carousel__row[aria-hidden='true'] {
+        display: none;
+    }
 }
 </style>

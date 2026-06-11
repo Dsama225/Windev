@@ -202,16 +202,29 @@ watch(
 .contact-page__offices {
     display: grid;
     gap: 0.85rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: stretch;
     margin-top: 1.25rem;
     padding-top: 1rem;
     border-top: 1px solid var(--color-border);
 }
 
 .contact-page__office-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
     padding: 0.85rem;
     border-radius: var(--radius-md);
     border: 1px solid var(--color-border-strong);
     background: var(--color-muted-surface);
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
+}
+
+.contact-page__office-card .contact-page__body {
+    text-align: justify;
+    text-align-last: left;
 }
 
 .contact-page__office-title {
@@ -219,6 +232,8 @@ watch(
     font-size: 0.95rem;
     font-weight: 800;
     color: var(--color-gold);
+    text-align: justify;
+    text-align-last: left;
 }
 
 .contact-page__sidebar {
@@ -298,6 +313,10 @@ html.theme-dark .contact-page__logo {
 
 @media (max-width: 900px) {
     .contact-page__layout {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-page__offices {
         grid-template-columns: 1fr;
     }
 }

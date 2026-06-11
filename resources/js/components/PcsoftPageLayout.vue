@@ -3,9 +3,17 @@
     <main class="pcsoft-page pb-10">
         <section class="section-shell pcsoft-page__suite-line" aria-label="Positionnement produit">
             <p class="pcsoft-page__suite-text">Suite de logiciels de développement d'applications multi-plateformes</p>
-            <div class="pcsoft-page__os-row" aria-hidden="true">
-                <span v-for="n in 7" :key="n" class="pcsoft-page__os-dot" />
-            </div>
+            <figure class="pcsoft-page__cross-platform">
+                <img
+                    :src="suiteCrossPlatform.src"
+                    alt="Logiciels intégrés pour le développement d'applications multi-plateformes"
+                    width="283"
+                    height="48"
+                    loading="eager"
+                    decoding="async"
+                    @error="onImageError($event, suiteCrossPlatform.fallback)"
+                />
+            </figure>
         </section>
 
         <section v-if="page" class="section-shell pcsoft-page__layout" :aria-label="page.title">
@@ -191,7 +199,7 @@ import AppFooter from './AppFooter.vue';
 import { getPcsoftPage } from '../data/pcsoftPages.js';
 import distributorRegions from '../data/distributorRegions.json';
 import { PUBLIC_SITE_PAGES as publicSitePages } from '../data/publicSitePages.js';
-import { SHARED_IMAGES } from '../utils/pcsoftImages.js';
+import { applyImageFallback, SHARED_IMAGES } from '../utils/pcsoftImages.js';
 
 const route = useRoute();
 const page = computed(() => getPcsoftPage(route.name));
@@ -199,6 +207,11 @@ const isDistributors = computed(() => route.name === 'pcsoft.distributors');
 const isSitemap = computed(() => route.name === 'pcsoft.sitemap');
 
 const pcsoftLogoUrl = SHARED_IMAGES.pcsoftLogoDark.src;
+const suiteCrossPlatform = SHARED_IMAGES.crossPlatform;
+
+function onImageError(event, fallbackUrl) {
+    applyImageFallback(event, fallbackUrl);
+}
 
 const sitemapGroupLabels = {
     home: 'Accueil',
@@ -254,20 +267,15 @@ watch(
     color: var(--color-eyebrow);
 }
 
-.pcsoft-page__os-row {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: 0.45rem;
+.pcsoft-page__cross-platform {
+    margin: 0 auto;
+    max-width: 18rem;
 }
 
-.pcsoft-page__os-dot {
-    width: 0.85rem;
-    height: 0.85rem;
-    border-radius: 9999px;
-    border: 2px solid var(--color-dot-border);
-    background: var(--color-dot-fill);
+.pcsoft-page__cross-platform img {
+    display: block;
+    width: 100%;
+    height: auto;
 }
 
 .pcsoft-page__layout {

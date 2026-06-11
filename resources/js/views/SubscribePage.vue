@@ -31,7 +31,14 @@
                         <p class="subscribe-page__small-note">*Veuillez remplir le questionnaire pour nous aider à mieux comprendre vos besoins.</p>
                     </div>
 
-                    <a href="#" class="subscribe-page__contact-btn">Contacter notre service commercial</a>
+                    <a
+                        class="subscribe-page__contact-btn"
+                        :href="SUBSCRIBE_SALES_CONTACT_URL"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Contacter notre service commercial
+                    </a>
                 </div>
             </div>
         </section>
@@ -41,26 +48,114 @@
                 <h1 class="subscribe-page__faq-title">Foire aux questions (FAQ)</h1>
 
                 <div class="subscribe-page__tabs" role="tablist" aria-label="Catégories FAQ">
-                    <button type="button" class="subscribe-page__tab subscribe-page__tab--active" role="tab" aria-selected="true">
-                        Abonnement
+                    <button
+                        v-for="section in subscribeFaqSections"
+                        :key="section.id"
+                        type="button"
+                        class="subscribe-page__tab"
+                        :class="{ 'subscribe-page__tab--active': activeFaqSection === section.id }"
+                        role="tab"
+                        :aria-selected="activeFaqSection === section.id"
+                        :aria-controls="`subscribe-faq-panel-${section.id}`"
+                        @click="activeFaqSection = section.id"
+                    >
+                        {{ section.label }}
                     </button>
-                    <button type="button" class="subscribe-page__tab" role="tab" aria-selected="false">Clé de sécurité</button>
                 </div>
 
-                <ul class="subscribe-page__faq-list">
-                    <li v-for="(question, index) in questions" :key="question" class="subscribe-page__faq-item">
-                        <button type="button" class="subscribe-page__question-btn">
-                            <span class="subscribe-page__chevron" aria-hidden="true">›</span>
-                            <span>{{ question }}</span>
-                        </button>
-                        <div v-if="index !== questions.length - 1" class="subscribe-page__line" aria-hidden="true" />
-                    </li>
-                </ul>
+                <div
+                    v-for="section in subscribeFaqSections"
+                    :id="`subscribe-faq-panel-${section.id}`"
+                    :key="`panel-${section.id}`"
+                    v-show="activeFaqSection === section.id"
+                    role="tabpanel"
+                    :aria-labelledby="`subscribe-faq-tab-${section.id}`"
+                >
+                    <ul class="subscribe-page__faq-list">
+                        <li
+                            v-for="(item, index) in section.items"
+                            :key="item.question"
+                            class="subscribe-page__faq-item"
+                        >
+                            <button
+                                type="button"
+                                class="subscribe-page__question-btn"
+                                :aria-expanded="openFaqKey === faqItemKey(section.id, index)"
+                                :aria-controls="`subscribe-faq-answer-${section.id}-${index}`"
+                                @click="toggleFaqItem(section.id, index)"
+                            >
+                                <span
+                                    class="subscribe-page__chevron"
+                                    :class="{ 'subscribe-page__chevron--open': openFaqKey === faqItemKey(section.id, index) }"
+                                    aria-hidden="true"
+                                >
+                                    ›
+                                </span>
+                                <span>{{ item.question }}</span>
+                            </button>
+
+                            <div
+                                v-show="openFaqKey === faqItemKey(section.id, index)"
+                                :id="`subscribe-faq-answer-${section.id}-${index}`"
+                                class="subscribe-page__answer"
+                            >
+                                <div
+                                    v-for="(block, blockIndex) in item.answer"
+                                    :key="`${item.question}-${blockIndex}`"
+                                    class="subscribe-page__answer-block"
+                                >
+                                    <p v-if="block.type === 'p' && block.text" class="subscribe-page__answer-text">
+                                        {{ block.text }}
+                                    </p>
+                                    <p v-else-if="block.type === 'p' && block.segments" class="subscribe-page__answer-text">
+                                        <template v-for="(segment, segmentIndex) in block.segments" :key="segmentIndex">
+                                            <span v-if="segment.kind === 'text'">{{ segment.value }}</span>
+                                            <a
+                                                v-else-if="segment.kind === 'link'"
+                                                class="subscribe-page__answer-link"
+                                                :href="segment.href"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                            >
+                                                {{ segment.text }}
+                                            </a>
+                                        </template>
+                                    </p>
+                                    <ul v-else-if="block.type === 'ul'" class="subscribe-page__answer-list">
+                                        <li v-for="listItem in block.items" :key="listItem">{{ listItem }}</li>
+                                    </ul>
+                                    <ol v-else-if="block.type === 'ol'" class="subscribe-page__answer-list subscribe-page__answer-list--ordered">
+                                        <li v-for="listItem in block.items" :key="listItem">{{ listItem }}</li>
+                                    </ol>
+                                </div>
+                            </div>
+
+                            <div v-if="index !== section.items.length - 1" class="subscribe-page__line" aria-hidden="true" />
+                        </li>
+                    </ul>
+
+                    <div
+                        v-if="section.id === 'security-key'"
+                        class="subscribe-page__video-note"
+                    >
+                        <p>
+                            Regardez cette vidéo pour en savoir plus sur la clé de sécurité :
+                            <a
+                                class="subscribe-page__answer-link"
+                                :href="SUBSCRIBE_SECURITY_KEY_VIDEO_URL"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                {{ SUBSCRIBE_SECURITY_KEY_VIDEO_URL }}
+                            </a>
+                        </p>
+                    </div>
+                </div>
 
                 <p class="subscribe-page__contact-line">Vous n'avez pas trouvé la réponse que vous cherchiez ?</p>
                 <p class="subscribe-page__contact-line">N'hésitez pas à nous contacter :</p>
                 <p class="subscribe-page__contact-line">E-mail : <a href="mailto:info@windev.com">info@windev.com</a></p>
-                <p class="subscribe-page__contact-line">Tél. : + 33 (0)4 67 032 032</p>
+                <p class="subscribe-page__contact-line">Tél. : <a href="tel:+33467032032">+ 33 (0)4 67 032 032</a></p>
             </div>
         </section>
     </main>
@@ -68,32 +163,36 @@
 </template>
 
 <script setup>
+import { ref, watch } from 'vue';
 import AppNavbar from '../components/AppNavbar.vue';
 import AppFooter from '../components/AppFooter.vue';
+import {
+    SUBSCRIBE_SALES_CONTACT_URL,
+    SUBSCRIBE_SECURITY_KEY_VIDEO_URL,
+    subscribeFaqSections,
+} from '../data/subscribePageContent.js';
 import { applyImageFallback, SHARED_IMAGES } from '../utils/pcsoftImages.js';
 
 const pcsoftLogo = SHARED_IMAGES.pcsoftLogoDark;
+const activeFaqSection = ref('subscription');
+const openFaqKey = ref(null);
 
 function onLogoError(event) {
     applyImageFallback(event, pcsoftLogo.fallback);
 }
 
-const questions = [
-    'Quels sont les avantages d\'un abonnement ?',
-    'Quelles versions sont disponibles dans le modèle par abonnement ?',
-    'Mon abonnement me permet d\'utiliser plusieurs produits. Comment gérer ces produits et leurs abonnements ?',
-    'Je travaille sur différents ordinateurs, à la maison, au bureau, etc. Puis-je passer d\'un ordinateur à l\'autre ?',
-    'Que sont les « frais initiaux uniques » ?',
-    'Comment résilier mon abonnement ?',
-    'Je possède une ou plusieurs licences avec dongle. Que deviennent ces dongles ?',
-    'Je ne suis pas en France et j\'achète mes logiciels via un distributeur officiel dans mon pays. Puis-je continuer ?',
-    'L\'assistance technique est-elle toujours gratuite ?',
-    'Un logiciel par abonnement nécessite-t-il un dongle ?',
-    'Avec un abonnement, est-ce que je conserve la propriété de mon code source et de mes éléments de projet ?',
-    'J\'arrête mon abonnement. Puis-je continuer à distribuer mes applications ?',
-    'Puis-je suspendre mon abonnement, le reprendre et retrouver mon ancien code source et mes éléments de projet ?',
-    'J\'ai un dongle qui ne fonctionne plus. Puis-je le remplacer ?',
-];
+function faqItemKey(sectionId, index) {
+    return `${sectionId}-${index}`;
+}
+
+function toggleFaqItem(sectionId, index) {
+    const key = faqItemKey(sectionId, index);
+    openFaqKey.value = openFaqKey.value === key ? null : key;
+}
+
+watch(activeFaqSection, () => {
+    openFaqKey.value = null;
+});
 </script>
 
 <style scoped>
@@ -226,9 +325,74 @@ const questions = [
 
 .subscribe-page__chevron {
     display: inline-block;
+    flex-shrink: 0;
     font-size: 1.25rem;
     line-height: 1;
     color: color-mix(in oklab, var(--color-text-primary) 85%, transparent);
+    transition: transform 0.2s ease;
+}
+
+.subscribe-page__chevron--open {
+    transform: rotate(90deg);
+}
+
+.subscribe-page__answer {
+    margin: 0 0 0.5rem 1.9rem;
+    padding: 0.85rem 1rem;
+    border-radius: 0.5rem;
+    background: #f1f4ff;
+    color: #010110;
+}
+
+html.theme-dark .subscribe-page__answer {
+    background: color-mix(in oklab, var(--color-surface) 88%, #4a5f9a 12%);
+    color: var(--color-text-primary);
+}
+
+.subscribe-page__answer-block + .subscribe-page__answer-block {
+    margin-top: 0.65rem;
+}
+
+.subscribe-page__answer-text {
+    margin: 0;
+    font-size: 0.92rem;
+    line-height: 1.6;
+}
+
+.subscribe-page__answer-list {
+    margin: 0.35rem 0 0;
+    padding-left: 1.2rem;
+    font-size: 0.92rem;
+    line-height: 1.55;
+}
+
+.subscribe-page__answer-list li + li {
+    margin-top: 0.2rem;
+}
+
+.subscribe-page__answer-link {
+    color: var(--color-brand);
+    font-weight: 600;
+    text-decoration: none;
+    word-break: break-all;
+}
+
+.subscribe-page__answer-link:hover {
+    text-decoration: underline;
+    text-underline-offset: 0.15rem;
+}
+
+.subscribe-page__video-note {
+    margin-top: 0.5rem;
+    padding: 0.75rem 0;
+    border-top: 1px solid color-mix(in oklab, var(--color-text-secondary) 26%, transparent);
+    font-size: 0.92rem;
+    line-height: 1.55;
+    color: var(--color-text-secondary);
+}
+
+.subscribe-page__video-note p {
+    margin: 0;
 }
 
 .subscribe-page__line {
@@ -260,6 +424,10 @@ const questions = [
 @media (max-width: 720px) {
     .subscribe-page__question-btn {
         font-size: 0.9rem;
+    }
+
+    .subscribe-page__answer {
+        margin-left: 1.25rem;
     }
 }
 </style>

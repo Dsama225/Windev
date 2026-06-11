@@ -164,17 +164,7 @@
 
                         <section class="wexpress-page__customer" aria-label="Références clients">
                             <h2 class="wexpress-page__customer-title">Ils utilisent WINDEV</h2>
-                            <figure class="wexpress-page__customer-figure">
-                                <div class="wexpress-page__customer-logo-box">
-                                    <img
-                                        class="wexpress-page__customer-logo-img"
-                                        :src="customerCarouselLogos[currentCustomerLogoIndex]"
-                                        alt="Logo client WINDEV"
-                                        loading="lazy"
-                                        decoding="async"
-                                    />
-                                </div>
-                            </figure>
+                            <CustomerLogoCarousel variant="compact" />
                         </section>
                     </aside>
                 </div>
@@ -185,10 +175,10 @@
 </template>
 
 <script setup>
-import { onBeforeUnmount, onMounted, ref } from 'vue';
 import { RouterLink } from 'vue-router';
 import AppNavbar from '../components/AppNavbar.vue';
 import AppFooter from '../components/AppFooter.vue';
+import CustomerLogoCarousel from '../components/CustomerLogoCarousel.vue';
 import { applyImageFallback, DOWNLOAD_LINKS, SHARED_IMAGES } from '../utils/pcsoftImages.js';
 
 const crossPlatform = SHARED_IMAGES.crossPlatform;
@@ -197,40 +187,6 @@ const packagesSuite = SHARED_IMAGES.packagesSuite;
 function onImageError(event, fallbackUrl) {
     applyImageFallback(event, fallbackUrl);
 }
-
-const customerCarouselLogos = [
-    '/img/bande/1.jpg',
-    '/img/bande/2.jpg',
-    '/img/bande/3.jpg',
-    '/img/bande/4.jpg',
-    '/img/bande/5.jpg',
-    '/img/bande/6.png',
-    '/img/bande/7.jpg',
-    '/img/bande/8.jpg',
-    '/img/bande/9.jpg',
-    '/img/bande/10.svg',
-    '/img/bande/11.gif',
-    '/img/bande/12.jpg',
-    '/img/bande/13.jpg',
-    '/img/bande/14.svg',
-    '/img/bande/15.png',
-];
-
-const currentCustomerLogoIndex = ref(0);
-let customerCarouselTimer = null;
-
-onMounted(() => {
-    customerCarouselTimer = window.setInterval(() => {
-        currentCustomerLogoIndex.value =
-            (currentCustomerLogoIndex.value + 1) % customerCarouselLogos.length;
-    }, 2200);
-});
-
-onBeforeUnmount(() => {
-    if (customerCarouselTimer) {
-        window.clearInterval(customerCarouselTimer);
-    }
-});
 </script>
 
 <style scoped>
@@ -466,36 +422,8 @@ onBeforeUnmount(() => {
     line-height: 1.2;
 }
 
-.wexpress-page__customer-figure {
-    margin: 0;
-}
-
-.wexpress-page__customer-logo-box {
-    aspect-ratio: 1 / 1;
-    width: 100%;
-    max-width: 220px;
+.wexpress-page__customer :deep(.customer-logo-carousel--compact) {
     margin-inline: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: clamp(0.65rem, 3vw, 1rem);
-    border: 1px solid var(--color-border-strong);
-    border-radius: var(--radius-md);
-    background: var(--color-input-bg);
-    box-shadow:
-        0 1px 2px rgba(15, 23, 42, 0.05),
-        0 8px 18px rgba(15, 23, 42, 0.06);
-    overflow: hidden;
-}
-
-.wexpress-page__customer-logo-img {
-    max-width: 90%;
-    max-height: 90%;
-    width: auto;
-    height: auto;
-    object-fit: contain;
-    object-position: center;
-    display: block;
 }
 
 html.theme-dark .wexpress-page__cta-btn {

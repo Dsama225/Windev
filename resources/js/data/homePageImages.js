@@ -11,10 +11,15 @@ export const homeHeroBackground = pcsoftImage('img/home/neo-fond.jpg', '2024/neo
 
 export const homeHeroBadge = pcsoftImage('img/home/nouveau.svg', '2024/nouveau.svg');
 
-export const homeCrossDevices = pcsoftImage(
-    'img/home/fond_cross-plateformes_1.png',
-    '2025/fond_cross-plateformes_1.png',
-);
+/** Carousel « Native cross-platform applications » — https://windev.com/ (5 visuels) */
+export const homeCrossPlatformSlides = [
+    pcsoftImage('img/home/fond_cross-plateformes_1.png', '2025/fond_cross-plateformes_1.png'),
+    ...[2, 3, 4, 5].map((index) =>
+        pcsoftImage(`img/2025/fond_cross-plateformes_${index}.png`, `2025/fond_cross-plateformes_${index}.png`),
+    ),
+];
+
+export const homeCrossDevices = homeCrossPlatformSlides[0];
 
 export const homeSeminar = pcsoftImage(
     'img/home/new-version-update_accueil.jpg',
@@ -28,6 +33,8 @@ export const homeHeroVersionMobile = pcsoftImage(
 
 export const homeDatabases = pcsoftImage('img/home/all-the-databases.jpg', '2014/all-the-databases.jpg');
 
+export const homeWindevKeynoteBanner = pcsoftImage('img/home/windev.webp', 'windev/windev.jpg');
+
 export const homePackages = pcsoftImage(
     'img/2026/packages-windev-webdev-windev-mobile-2026.png',
     '2026/packages-windev-webdev-windev-mobile-2026.png',
@@ -36,6 +43,11 @@ export const homePackages = pcsoftImage(
 export const homeSuiteLogo = pcsoftImage(
     'img/home/logo_windev-suite_texte-noir-light.svg',
     '2024/logo_windev-suite_texte-noir-light.svg',
+);
+
+export const homeHeroMediasoftBanner = pcsoftImage(
+    'img/mediasoft/2.png',
+    'img/mediasoft/2.png',
 );
 
 export const homeProducts = [

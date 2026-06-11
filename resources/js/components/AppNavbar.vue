@@ -1,17 +1,20 @@
 <template>
     <header class="section-shell app-navbar">
         <div class="app-navbar__row">
-            <RouterLink to="/" class="app-navbar__brand" @click="uiStore.closeMobileMenu()">
-                <img
-                    :src="brandLogo.src"
-                    alt="PC SOFT"
-                    class="app-navbar__brand-logo"
-                    width="108"
-                    height="28"
-                    decoding="async"
-                    @error="onBrandLogoError"
-                />
-            </RouterLink>
+            <div class="app-navbar__brand-group">
+                <RouterLink to="/" class="app-navbar__brand" @click="uiStore.closeMobileMenu()">
+                    <img
+                        :src="brandLogo.src"
+                        alt="PC SOFT"
+                        class="app-navbar__brand-logo"
+                        width="108"
+                        height="28"
+                        decoding="async"
+                        @error="onBrandLogoError"
+                    />
+                </RouterLink>
+                <span class="app-navbar__brand-prefix" title="Côte d'Ivoire">CI</span>
+            </div>
             <nav class="app-navbar__links" aria-label="Menu principal">
                 <div class="app-navbar__dropdown">
                     <button
@@ -266,12 +269,46 @@ onBeforeUnmount(() => {
     z-index: 4001;
 }
 
-.app-navbar__brand {
+.app-navbar__brand-group {
     flex-shrink: 0;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    isolation: isolate;
+}
+
+.app-navbar__brand-prefix {
+    flex-shrink: 0;
+    position: relative;
+    z-index: 3;
+    display: inline-flex;
+    align-items: center;
+    height: 32px;
+    margin-left: 0.25rem;
+    padding-left: 0.15rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    line-height: 1;
+    text-transform: uppercase;
+    color: #4c493d;
+    background: var(--color-elevated-bg);
+}
+
+.app-navbar__brand {
+    order: 0;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
     display: flex;
     align-items: center;
     text-decoration: none;
     line-height: 0;
+}
+
+html.theme-dark .app-navbar__brand-prefix {
+    color: var(--color-text-primary);
 }
 
 .app-navbar__brand-logo {

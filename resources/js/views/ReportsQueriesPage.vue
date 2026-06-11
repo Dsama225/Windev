@@ -5,12 +5,13 @@
             <p class="rq-page__suite-text">Suite logicielle de développement d'applications multiplateformes</p>
             <figure class="rq-page__cross-platform">
                 <img
-                    :src="crossPlatformImageUrl"
-                    alt="Icônes de plateformes : Windows, Java, PHP, HTML5, Linux, Android, iOS et Web."
-                    width="520"
+                    :src="reportsQueriesSuiteCrossPlatform.src"
+                    alt="Logiciel intégré pour développer des applications multiplateformes"
+                    width="283"
                     height="48"
-                    loading="lazy"
+                    loading="eager"
                     decoding="async"
+                    @error="onImageError($event, reportsQueriesSuiteCrossPlatform.fallback)"
                 />
             </figure>
         </section>
@@ -59,10 +60,12 @@
                     <div class="rq-page__figures">
                         <figure class="rq-page__figure">
                             <img
-                                :src="printPreviewImageUrl"
-                                alt="Aperçu avant impression d'un tableau de données avec Etats &amp; Requêtes."
+                                class="rq-page__figure-img rq-page__figure-img--preview"
+                                :src="reportsQueriesPrintPreview.src"
+                                alt="Exemple d'aperçu avant impression réalisé par Etats &amp; Requêtes"
                                 loading="lazy"
                                 decoding="async"
+                                @error="onImageError($event, reportsQueriesPrintPreview.fallback)"
                             />
                             <figcaption class="rq-page__caption">
                                 Exemple d'aperçu avant impression avec « Etats &amp; Requêtes »
@@ -70,10 +73,12 @@
                         </figure>
                         <figure class="rq-page__figure">
                             <img
-                                :src="queryBuilderImageUrl"
-                                alt="Editeur de requêtes — interface graphique pour construire une requête sur la base de données."
+                                class="rq-page__figure-img"
+                                :src="reportsQueriesQueryBuilder.src"
+                                alt="Créez des requêtes sans effort et visualisez les résultats"
                                 loading="lazy"
                                 decoding="async"
+                                @error="onImageError($event, reportsQueriesQueryBuilder.fallback)"
                             />
                             <figcaption class="rq-page__caption">
                                 Créez des requêtes sans effort et visualisez les résultats
@@ -85,10 +90,11 @@
                 <aside class="rq-page__sidebar" aria-label="Produits et ressources associés">
                     <figure class="rq-page__product-boxes">
                         <img
-                            :src="productBoxesImageUrl"
-                            alt="Boîtes produits WINDEV 2026, WEBDEV 2026 et WINDEV Mobile 2026."
+                            :src="reportsQueriesPackages.src"
+                            alt="WINDEV, WEBDEV et WINDEV Mobile"
                             loading="lazy"
                             decoding="async"
+                            @error="onImageError($event, reportsQueriesPackages.fallback)"
                         />
                     </figure>
 
@@ -100,41 +106,94 @@
                     <div class="rq-page__sidebar-block">
                         <h2 class="rq-page__sidebar-heading">Présentation de la documentation</h2>
                         <ul class="rq-page__list rq-page__list--dots">
-                            <li class="rq-page__dot rq-page__dot--primary"><a href="#" class="rq-page__sidebar-link">Nouveautés</a></li>
-                            <li class="rq-page__dot rq-page__dot--muted"><a href="#" class="rq-page__sidebar-link">WINDEV</a></li>
-                            <li class="rq-page__dot rq-page__dot--muted"><a href="#" class="rq-page__sidebar-link">WEBDEV</a></li>
-                            <li class="rq-page__dot rq-page__dot--muted"><a href="#" class="rq-page__sidebar-link">WINDEV Mobile</a></li>
+                            <li class="rq-page__dot rq-page__dot--primary">
+                                <a
+                                    class="rq-page__sidebar-link"
+                                    :href="reportsQueriesNewFeaturesPdf.href"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    Nouveautés
+                                </a>
+                            </li>
+                            <li class="rq-page__dot rq-page__dot--muted">
+                                <a
+                                    class="rq-page__sidebar-link"
+                                    :href="reportsQueriesWindevBrochureEn.href"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    WINDEV
+                                </a>
+                            </li>
+                            <li class="rq-page__dot rq-page__dot--muted">
+                                <a
+                                    class="rq-page__sidebar-link"
+                                    :href="reportsQueriesWebdevBrochureEn.href"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    WEBDEV
+                                </a>
+                            </li>
+                            <li class="rq-page__dot rq-page__dot--muted">
+                                <a
+                                    class="rq-page__sidebar-link"
+                                    :href="reportsQueriesWindevMobileBrochureEn.href"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    WINDEV Mobile
+                                </a>
+                            </li>
                         </ul>
                     </div>
 
                     <div class="rq-page__sidebar-block">
                         <h2 class="rq-page__sidebar-heading">Schémas de présentation</h2>
                         <ul class="rq-page__list rq-page__list--dots">
-                            <li class="rq-page__dot rq-page__dot--muted"><a href="#" class="rq-page__sidebar-link">Connecteurs bases de données universels</a></li>
-                            <li class="rq-page__dot rq-page__dot--muted"><a href="#" class="rq-page__sidebar-link">Développement multiplateforme</a></li>
+                            <li class="rq-page__dot rq-page__dot--muted">
+                                <a
+                                    class="rq-page__sidebar-link"
+                                    :href="reportsQueriesUniversalConnectorsPdf.href"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    Connecteurs bases de données universels
+                                </a>
+                            </li>
+                            <li class="rq-page__dot rq-page__dot--muted">
+                                <a
+                                    class="rq-page__sidebar-link"
+                                    :href="reportsQueriesCrossPlatformDevPdf.href"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    Développement multiplateforme
+                                </a>
+                            </li>
                         </ul>
                     </div>
 
                     <div class="rq-page__sidebar-block">
                         <h2 class="rq-page__sidebar-heading">Vidéos</h2>
                         <ul class="rq-page__list rq-page__list--dots">
-                            <li class="rq-page__dot rq-page__dot--muted"><a href="#" class="rq-page__sidebar-link">Vidéos techniques</a></li>
+                            <li class="rq-page__dot rq-page__dot--muted">
+                                <a
+                                    class="rq-page__sidebar-link"
+                                    :href="REPORTS_QUERIES_TECHNICAL_VIDEOS_URL"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    Vidéos techniques
+                                </a>
+                            </li>
                         </ul>
                     </div>
 
                     <div class="rq-page__customer" aria-label="Références clients">
                         <p id="rq-success-heading" class="rq-page__customer-title">Ils utilisent WINDEV</p>
-                        <figure class="rq-page__customer-figure">
-                            <div class="rq-page__customer-logo-box">
-                                <img
-                                    class="rq-page__customer-logo-img"
-                                    :src="customerCarouselLogos[currentCustomerLogoIndex]"
-                                    alt="Logo client WINDEV"
-                                    loading="lazy"
-                                    decoding="async"
-                                />
-                            </div>
-                        </figure>
+                        <CustomerLogoCarousel variant="compact" />
                     </div>
                 </aside>
             </div>
@@ -144,50 +203,29 @@
 </template>
 
 <script setup>
-import { onBeforeUnmount, onMounted, ref } from 'vue';
 import AppNavbar from '../components/AppNavbar.vue';
 import AppFooter from '../components/AppFooter.vue';
+import CustomerLogoCarousel from '../components/CustomerLogoCarousel.vue';
+import {
+    REPORTS_QUERIES_TECHNICAL_VIDEOS_URL,
+    reportsQueriesCrossPlatformDevPdf,
+    reportsQueriesNewFeaturesPdf,
+    reportsQueriesUniversalConnectorsPdf,
+    reportsQueriesWebdevBrochureEn,
+    reportsQueriesWindevBrochureEn,
+    reportsQueriesWindevMobileBrochureEn,
+} from '../data/reportsQueriesPageDocuments.js';
+import {
+    reportsQueriesPackages,
+    reportsQueriesPrintPreview,
+    reportsQueriesQueryBuilder,
+    reportsQueriesSuiteCrossPlatform,
+} from '../data/reportsQueriesPageImages.js';
+import { applyImageFallback } from '../utils/pcsoftImages.js';
 
-const crossPlatformImageUrl = '/img/reports-queries-img/cross-plateformes.webp';
-const printPreviewImageUrl = '/img/reports-queries-img/print-preview.jpg';
-const queryBuilderImageUrl = '/img/reports-queries-img/define-a-query-by-drawing-it.jpg';
-const productBoxesImageUrl =
-    '/img/reports-queries-img/packages-windev-webdev-windev-mobile-2026.webp';
-
-/** Same banner strip assets as HfsqlPage / BrandLogoStrip; bound URLs avoid Vite static import. */
-const customerCarouselLogos = [
-    '/img/bande/1.jpg',
-    '/img/bande/2.jpg',
-    '/img/bande/3.jpg',
-    '/img/bande/4.jpg',
-    '/img/bande/5.jpg',
-    '/img/bande/6.png',
-    '/img/bande/7.jpg',
-    '/img/bande/8.jpg',
-    '/img/bande/9.jpg',
-    '/img/bande/10.svg',
-    '/img/bande/11.gif',
-    '/img/bande/12.jpg',
-    '/img/bande/13.jpg',
-    '/img/bande/14.svg',
-    '/img/bande/15.png',
-];
-
-const currentCustomerLogoIndex = ref(0);
-let customerCarouselTimer = null;
-
-onMounted(() => {
-    customerCarouselTimer = window.setInterval(() => {
-        currentCustomerLogoIndex.value =
-            (currentCustomerLogoIndex.value + 1) % customerCarouselLogos.length;
-    }, 2200);
-});
-
-onBeforeUnmount(() => {
-    if (customerCarouselTimer) {
-        window.clearInterval(customerCarouselTimer);
-    }
-});
+function onImageError(event, fallbackUrl) {
+    applyImageFallback(event, fallbackUrl);
+}
 </script>
 
 <style scoped>
@@ -233,14 +271,13 @@ onBeforeUnmount(() => {
 }
 
 .rq-page__cross-platform {
-    margin: 0;
-    display: flex;
-    justify-content: center;
+    margin: 0 auto;
+    max-width: 18rem;
 }
 
 .rq-page__cross-platform img {
     display: block;
-    width: min(100%, 32rem);
+    width: 100%;
     height: auto;
 }
 
@@ -366,10 +403,18 @@ onBeforeUnmount(() => {
     background: color-mix(in oklab, var(--color-surface) 94%, transparent);
 }
 
-.rq-page__figure img {
+.rq-page__figure-img {
     display: block;
     width: 100%;
     height: auto;
+    margin-inline: auto;
+}
+
+.rq-page__figure-img--preview {
+    max-height: 306px;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
 }
 
 .rq-page__placeholder {
@@ -419,7 +464,7 @@ onBeforeUnmount(() => {
 
 .rq-page__product-boxes img {
     display: block;
-    width: 70%;
+    width: 100%;
     height: auto;
 }
 
@@ -446,54 +491,21 @@ onBeforeUnmount(() => {
 }
 
 .rq-page__customer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-top: 0.25rem;
-    border: 1px solid color-mix(in oklab, var(--color-text-secondary) 22%, transparent);
-    border-radius: var(--radius-md);
-    padding: 0.75rem;
-    background: color-mix(in oklab, var(--color-surface) 92%, transparent);
-    text-align: center;
 }
 
 .rq-page__customer-title {
-    margin: 0 0 0.65rem;
-    font-size: 0.72rem;
-    font-weight: 800;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    color: var(--color-text-secondary);
-}
-
-.rq-page__customer-figure {
-    margin: 0;
-}
-
-.rq-page__customer-logo-box {
-    aspect-ratio: 1 / 1;
+    margin: 0 0 0.45rem;
     width: 100%;
-    max-width: 220px;
-    margin-inline: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: clamp(0.65rem, 3vw, 1rem);
-    border: 1px solid var(--color-border-strong);
-    border-radius: var(--radius-md);
-    background: var(--color-input-bg);
-    box-shadow:
-        0 1px 2px rgba(15, 23, 42, 0.05),
-        0 8px 18px rgba(15, 23, 42, 0.06);
-    overflow: hidden;
-}
-
-.rq-page__customer-logo-img {
-    max-width: 90%;
-    max-height: 90%;
-    width: auto;
-    height: auto;
-    object-fit: contain;
-    object-position: center;
-    display: block;
-    filter: saturate(1.03) contrast(1.02);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #5f6f8c;
+    text-align: center;
 }
 
 @media (max-width: 900px) {

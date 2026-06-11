@@ -63,7 +63,7 @@
                     </div>
                 </div>
                 <RouterLink
-                    v-else
+                    v-else-if="heroSlideIndex === 1"
                     id="home-hero-slide-version"
                     key="version"
                     role="tabpanel"
@@ -84,6 +84,36 @@
                         />
                     </picture>
                 </RouterLink>
+                <div
+                    v-else
+                    id="home-hero-slide-mediasoft"
+                    key="mediasoft"
+                    role="tabpanel"
+                    tabindex="-1"
+                    :aria-labelledby="'home-hero-tab-mediasoft'"
+                    class="home-hero-carousel__slide home-hero-carousel__slide--mediasoft"
+                >
+                    <div class="home-hero-carousel__version-media home-hero-carousel__mediasoft-media">
+                        <img
+                            class="home-hero-carousel__version-image home-hero-carousel__mediasoft-image"
+                            :src="homeHeroMediasoftBanner.src"
+                            alt="Mediasoft Lafayette — Partenaire officiel Côte d'Ivoire"
+                            loading="eager"
+                            decoding="async"
+                            @error="onImageError($event, homeHeroMediasoftBanner.fallback)"
+                        />
+                    </div>
+                    <div class="home-hero-carousel__mediasoft-contact">
+                        <a
+                            class="home-hero-carousel__mediasoft-btn"
+                            :href="mediasoftPartnerContent.links.website.href"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            {{ mediasoftPartnerContent.links.website.label }}
+                        </a>
+                    </div>
+                </div>
             </Transition>
         </div>
         <div class="home-hero-carousel__dots" role="tablist" aria-label="Choisir une bannière">
@@ -110,10 +140,12 @@ import { computed, onBeforeUnmount, onMounted, ref } from 'vue';
 import {
     homeHeroBackground,
     homeHeroBadge,
+    homeHeroMediasoftBanner,
     homeHeroVersionMobile,
     homeSeminar,
     homeSuiteLogo,
 } from '../data/homePageImages.js';
+import { mediasoftPartnerContent } from '../data/mediasoftPartnerContent.js';
 import { applyImageFallback } from '../utils/pcsoftImages.js';
 
 const HERO_CAROUSEL_INTERVAL_MS = 4500;
@@ -121,6 +153,7 @@ const HERO_CAROUSEL_INTERVAL_MS = 4500;
 const heroSlides = [
     { id: 'suite', label: 'WINDEV Suite' },
     { id: 'version', label: 'Version 2026' },
+    { id: 'mediasoft', label: 'Mediasoft Lafayette' },
 ];
 
 const heroCarouselRef = ref(null);
@@ -219,7 +252,7 @@ onBeforeUnmount(() => {
     position: relative;
     border-radius: 1.35rem;
     overflow: hidden;
-    box-shadow: 0 10px 28px rgba(30, 45, 80, 0.1);
+    box-shadow: var(--shadow-glass);
 }
 
 .home-hero-carousel__stage {
@@ -276,6 +309,63 @@ onBeforeUnmount(() => {
     height: 100%;
     object-fit: cover;
     object-position: center;
+}
+
+.home-hero-carousel__slide--mediasoft {
+    --ml-navy: #263569;
+    --ml-navy-dark: #1a2548;
+    display: block;
+    background: #fff;
+}
+
+.home-hero-carousel__mediasoft-media {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.home-hero-carousel__mediasoft-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center top;
+}
+
+.home-hero-carousel__mediasoft-contact {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0.35rem;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.55rem clamp(0.85rem, 4vw, 2.75rem);
+    padding: 0 0.85rem;
+    pointer-events: none;
+}
+
+.home-hero-carousel__mediasoft-contact a {
+    pointer-events: auto;
+}
+
+.home-hero-carousel__mediasoft-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.42rem 1.05rem;
+    border-radius: 999px;
+    background: var(--ml-navy);
+    color: #fff;
+    font-size: clamp(0.62rem, 1.35vw, 0.84rem);
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.home-hero-carousel__mediasoft-btn:hover {
+    background: var(--ml-navy-dark);
 }
 
 .home-hero-carousel__dots {

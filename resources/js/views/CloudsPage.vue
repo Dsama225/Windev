@@ -3,11 +3,46 @@
     <main class="clouds-page pb-10">
         <section class="section-shell clouds-page__top-nav" aria-label="Navigation Cloud">
             <div class="glass-frame clouds-page__top-nav-inner">
-                <RouterLink to="/software/clouds" class="clouds-page__brand-link">Découvrir PCSCloud</RouterLink>
-                <a href="#" class="clouds-page__top-link">FAQ</a>
-                <a href="#" class="clouds-page__top-link">Guides</a>
-                <a href="#" class="clouds-page__top-link">Contact</a>
-                <a href="#" class="clouds-page__dashboard-link">Tableau de bord</a>
+                <a
+                    class="clouds-page__brand-link"
+                    :href="PCS_CLOUD_HOME"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Découvrir PCSCloud
+                </a>
+                <a
+                    class="clouds-page__top-link"
+                    :href="PCS_CLOUD_FAQ"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    FAQ
+                </a>
+                <a
+                    class="clouds-page__top-link"
+                    :href="PCS_CLOUD_GUIDES"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Guides
+                </a>
+                <a
+                    class="clouds-page__top-link"
+                    :href="PCS_CLOUD_CONTACT"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Contact
+                </a>
+                <a
+                    class="clouds-page__dashboard-link"
+                    :href="PCS_CLOUD_DASHBOARD"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Tableau de bord
+                </a>
             </div>
         </section>
 
@@ -15,10 +50,11 @@
             <div class="glass-frame clouds-page__hero-frame">
                 <img
                     class="clouds-page__hero-image"
-                    :src="'/img/PCSCloud/Untitled-design-88.png'"
+                    :src="cloudsHeroBanner.src"
                     alt=""
                     loading="eager"
                     decoding="async"
+                    @error="onImageError($event, cloudsHeroBanner.fallback)"
                 />
                 <div class="clouds-page__hero-overlay" aria-hidden="true"></div>
                 <div class="clouds-page__hero-copy">
@@ -34,14 +70,22 @@
                     <h2 class="clouds-page__service-title">{{ service.title }}</h2>
                     <div class="clouds-page__service-image">
                         <img
-                            :src="service.image"
+                            :src="service.image.src"
                             :alt="service.imageAlt"
                             loading="lazy"
                             decoding="async"
+                            @error="onImageError($event, service.image.fallback)"
                         />
                     </div>
                     <p class="clouds-page__service-description">{{ service.description }}</p>
-                    <a href="#" class="clouds-page__learn-more">En savoir plus</a>
+                    <a
+                        class="clouds-page__learn-more"
+                        :href="service.href"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        En savoir plus
+                    </a>
                 </article>
             </div>
         </section>
@@ -58,10 +102,11 @@
                 </div>
                 <figure class="clouds-page__about-figure">
                     <img
-                        :src="'/img/PCSCloud/cloud_nuage.png'"
+                        :src="cloudsAboutCloud.src"
                         alt="Nuage jaune stylisé avec des icônes de sécurité, paramètres et analytique."
                         loading="lazy"
                         decoding="async"
+                        @error="onImageError($event, cloudsAboutCloud.fallback)"
                     />
                 </figure>
             </div>
@@ -69,12 +114,54 @@
 
         <section class="section-shell clouds-page__bottom-links" aria-label="Liens de pied de page Cloud">
             <div class="glass-frame clouds-page__bottom-links-inner">
-                <a href="#" class="clouds-page__footer-link">Accueil</a>
-                <a href="#" class="clouds-page__footer-link">Ouvrir un compte</a>
-                <a href="#" class="clouds-page__footer-link">Tableau de bord</a>
-                <a href="#" class="clouds-page__footer-link">Guides</a>
-                <a href="#" class="clouds-page__footer-link">Contactez-nous</a>
-                <a href="#" class="clouds-page__footer-link">Mentions légales</a>
+                <a
+                    class="clouds-page__footer-link"
+                    :href="PCS_CLOUD_HOME"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Accueil
+                </a>
+                <a
+                    class="clouds-page__footer-link"
+                    :href="PCS_CLOUD_CREATE_ACCOUNT"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Ouvrir un compte
+                </a>
+                <a
+                    class="clouds-page__footer-link"
+                    :href="PCS_CLOUD_DASHBOARD"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Tableau de bord
+                </a>
+                <a
+                    class="clouds-page__footer-link"
+                    :href="PCS_CLOUD_GUIDES"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Guides
+                </a>
+                <a
+                    class="clouds-page__footer-link"
+                    :href="PCS_CLOUD_CONTACT"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Contactez-nous
+                </a>
+                <a
+                    class="clouds-page__footer-link"
+                    :href="PCS_CLOUD_LEGAL"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Mentions légales
+                </a>
             </div>
         </section>
     </main>
@@ -82,46 +169,81 @@
 </template>
 
 <script setup>
-import { RouterLink } from 'vue-router';
 import AppNavbar from '../components/AppNavbar.vue';
 import AppFooter from '../components/AppFooter.vue';
+import {
+    cloudsAboutCloud,
+    cloudsHeroBanner,
+    cloudsServiceAi,
+    cloudsServiceApplications,
+    cloudsServiceDevelopment,
+    cloudsServiceEmailSending,
+    cloudsServiceTelemetry,
+    cloudsServiceWebdevCluster,
+} from '../data/cloudsPageImages.js';
+import {
+    PCS_CLOUD_CONTACT,
+    PCS_CLOUD_CREATE_ACCOUNT,
+    PCS_CLOUD_DASHBOARD,
+    PCS_CLOUD_FAQ,
+    PCS_CLOUD_GUIDES,
+    PCS_CLOUD_HOME,
+    PCS_CLOUD_LEGAL,
+    PCS_CLOUD_SERVICE_AI,
+    PCS_CLOUD_SERVICE_APPLICATIONS,
+    PCS_CLOUD_SERVICE_DEVELOPMENT,
+    PCS_CLOUD_SERVICE_EMAIL,
+    PCS_CLOUD_SERVICE_TELEMETRY,
+    PCS_CLOUD_SERVICE_WEBDEV_CLUSTER,
+} from '../data/cloudsPageLinks.js';
+import { applyImageFallback } from '../utils/pcsoftImages.js';
+
+function onImageError(event, fallbackUrl) {
+    applyImageFallback(event, fallbackUrl);
+}
 
 const services = [
     {
         title: 'Applications',
         description: 'Plateforme d\'exploitation (sites WEBDEV, Webservices, bases de données HFSQL, etc.)',
-        image: '/img/PCSCloud/type_exploitation.svg',
+        image: cloudsServiceApplications,
         imageAlt: 'Icône globe représentant la plateforme d\'exploitation.',
+        href: PCS_CLOUD_SERVICE_APPLICATIONS,
     },
     {
         title: 'WEBDEV Cluster',
         description: 'Cluster d\'applications WEBDEV (sites WEBDEV et Webservices)',
-        image: '/img/PCSCloud/type_cluster.svg',
+        image: cloudsServiceWebdevCluster,
         imageAlt: 'Icône de cluster de serveurs pour les applications WEBDEV.',
+        href: PCS_CLOUD_SERVICE_WEBDEV_CLUSTER,
     },
     {
         title: 'Développement',
         description: 'Plateforme de développement (GDS Gestionnaire de sources, Centres de contrôle, etc.)',
-        image: '/img/PCSCloud/type_gds.svg',
+        image: cloudsServiceDevelopment,
         imageAlt: 'Icône de collaboration d\'équipe pour la plateforme de développement.',
+        href: PCS_CLOUD_SERVICE_DEVELOPMENT,
     },
     {
         title: 'Télémétrie',
         description: 'Plateforme de télémétrie',
-        image: '/img/PCSCloud/type_tlm.svg',
+        image: cloudsServiceTelemetry,
         imageAlt: 'Icône engrenage et graphique pour la plateforme de télémétrie.',
+        href: PCS_CLOUD_SERVICE_TELEMETRY,
     },
     {
         title: 'Envoi d\'e-mails',
         description: 'Plateforme d\'envoi d\'e-mails',
-        image: '/img/PCSCloud/type_SMTP.svg',
+        image: cloudsServiceEmailSending,
         imageAlt: 'Icône nuage et enveloppe pour la plateforme d\'envoi d\'e-mails.',
+        href: PCS_CLOUD_SERVICE_EMAIL,
     },
     {
         title: 'Service IA',
         description: 'Service IA (embedding de texte)',
-        image: '/img/PCSCloud/type_ServiceIA.svg',
+        image: cloudsServiceAi,
         imageAlt: 'Icône de code binaire pour le service IA.',
+        href: PCS_CLOUD_SERVICE_AI,
     },
 ];
 </script>
@@ -190,7 +312,7 @@ const services = [
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center;
+    object-position: center bottom;
 }
 
 .clouds-page__hero-overlay {

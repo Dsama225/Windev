@@ -13,6 +13,19 @@ const WlanguagePage = () => import('../views/WlanguagePage.vue');
 const ReportsQueriesPage = () => import('../views/ReportsQueriesPage.vue');
 const CloudsPage = () => import('../views/CloudsPage.vue');
 const ConnectorPage = () => import('../components/layout/ConnectorPageLayout.vue');
+const As400SystemIPage = () => import('../views/As400SystemIPage.vue');
+const As400BrochurePage = () => import('../views/As400BrochurePage.vue');
+const OracleConnectorPage = () => import('../views/OracleConnectorPage.vue');
+const SqlServerConnectorPage = () => import('../views/SqlServerConnectorPage.vue');
+const Db2ConnectorPage = () => import('../views/Db2ConnectorPage.vue');
+const MysqlConnectorPage = () => import('../views/MysqlConnectorPage.vue');
+const InformixConnectorPage = () => import('../views/InformixConnectorPage.vue');
+const PostgresqlConnectorPage = () => import('../views/PostgresqlConnectorPage.vue');
+const SapAseConnectorPage = () => import('../views/SapAseConnectorPage.vue');
+const XbaseConnectorPage = () => import('../views/XbaseConnectorPage.vue');
+const SqliteConnectorPage = () => import('../views/SqliteConnectorPage.vue');
+const AccessConnectorPage = () => import('../views/AccessConnectorPage.vue');
+const MariadbConnectorPage = () => import('../views/MariadbConnectorPage.vue');
 const SubscribePage = () => import('../views/SubscribePage.vue');
 const WindevExpressPage = () => import('../views/WindevExpressPage.vue');
 const WindevMobileExpressPage = () => import('../views/WindevMobileExpressPage.vue');
@@ -42,22 +55,23 @@ const publicRoutes = [
     { path: '/software/wlanguage', name: 'software.wlanguage', component: WlanguagePage },
     { path: '/software/reports-queries', name: 'software.reports-queries', component: ReportsQueriesPage },
     { path: '/software/clouds', name: 'software.clouds', component: CloudsPage },
-    { path: '/software/native-connectors/oracle', name: 'software.native-connectors.oracle', component: ConnectorPage },
-    { path: '/software/native-connectors/sql-server', name: 'software.native-connectors.sql-server', component: ConnectorPage },
-    { path: '/software/native-connectors/mysql', name: 'software.native-connectors.mysql', component: ConnectorPage },
-    { path: '/software/native-connectors/mariadb', name: 'software.native-connectors.mariadb', component: ConnectorPage },
+    { path: '/software/native-connectors/oracle', name: 'software.native-connectors.oracle', component: OracleConnectorPage },
+    { path: '/software/native-connectors/sql-server', name: 'software.native-connectors.sql-server', component: SqlServerConnectorPage },
+    { path: '/software/native-connectors/mysql', name: 'software.native-connectors.mysql', component: MysqlConnectorPage },
+    { path: '/software/native-connectors/mariadb', name: 'software.native-connectors.mariadb', component: MariadbConnectorPage },
     {
         path: '/software/native-connectors/postgresql',
         name: 'software.native-connectors.postgresql',
-        component: ConnectorPage,
+        component: PostgresqlConnectorPage,
     },
-    { path: '/software/native-connectors/as400-system-i', name: 'software.native-connectors.as400-system-i', component: ConnectorPage },
-    { path: '/software/native-connectors/db2', name: 'software.native-connectors.db2', component: ConnectorPage },
-    { path: '/software/native-connectors/informix', name: 'software.native-connectors.informix', component: ConnectorPage },
-    { path: '/software/native-connectors/sap-ase', name: 'software.native-connectors.sap-ase', component: ConnectorPage },
-    { path: '/software/native-connectors/xbase', name: 'software.native-connectors.xbase', component: ConnectorPage },
-    { path: '/software/native-connectors/sqlite', name: 'software.native-connectors.sqlite', component: ConnectorPage },
-    { path: '/software/native-connectors/access', name: 'software.native-connectors.access', component: ConnectorPage },
+    { path: '/software/native-connectors/as400-system-i', name: 'software.native-connectors.as400-system-i', component: As400SystemIPage },
+    { path: '/software/windev/as400', name: 'software.windev.as400', component: As400BrochurePage },
+    { path: '/software/native-connectors/db2', name: 'software.native-connectors.db2', component: Db2ConnectorPage },
+    { path: '/software/native-connectors/informix', name: 'software.native-connectors.informix', component: InformixConnectorPage },
+    { path: '/software/native-connectors/sap-ase', name: 'software.native-connectors.sap-ase', component: SapAseConnectorPage },
+    { path: '/software/native-connectors/xbase', name: 'software.native-connectors.xbase', component: XbaseConnectorPage },
+    { path: '/software/native-connectors/sqlite', name: 'software.native-connectors.sqlite', component: SqliteConnectorPage },
+    { path: '/software/native-connectors/access', name: 'software.native-connectors.access', component: AccessConnectorPage },
     { path: '/software/subscribe', name: 'software.subscribe', component: SubscribePage },
     { path: '/download/windev-express', name: 'download.windev-express', component: WindevExpressPage },
     {

@@ -2,13 +2,25 @@
     <AppNavbar />
     <main class="wlanguage-page pb-10">
         <section class="section-shell wlanguage-page__suite-line" aria-label="Positionnement produit">
-            <p class="wlanguage-page__suite-text">Suite logicielle de développement d'applications multiplateformes</p>
-            <div class="wlanguage-page__os-row" aria-hidden="true">
-                <span v-for="n in 7" :key="n" class="wlanguage-page__os-dot" />
-            </div>
+            <p class="wlanguage-page__suite-text">
+                Suite logicielle de développement d'applications <strong>multiplateformes</strong>
+            </p>
+            <figure class="wlanguage-page__suite-platforms">
+                <img
+                    :src="wlanguageSuiteCrossPlatform.src"
+                    alt="Logiciel intégré pour développer des applications multiplateformes"
+                    width="283"
+                    height="48"
+                    loading="eager"
+                    decoding="async"
+                    @error="onImageError($event, wlanguageSuiteCrossPlatform.fallback)"
+                />
+            </figure>
         </section>
 
-        <HeroSection :slides="heroSlides" />
+        <section class="section-shell wlanguage-page__hero" aria-label="Bannière WINDEV Suite">
+            <HomeHeroCarousel />
+        </section>
 
         <section class="section-shell wlanguage-page__layout" aria-label="Présentation WLanguage">
             <div class="wlanguage-page__main glass-frame">
@@ -16,22 +28,23 @@
                     <figure class="wlanguage-page__logo-figure">
                         <img
                             class="wlanguage-page__logo-img"
-                            :src="logoImageUrl"
+                            :src="wlanguageLogo.src"
                             alt="WLanguage — langage de programmation de 5e génération"
-                            width="320"
-                            height="80"
-                            loading="lazy"
+                            width="531"
+                            height="106"
+                            loading="eager"
                             decoding="async"
+                            @error="onImageError($event, wlanguageLogo.fallback)"
                         />
                     </figure>
-                    <p class="wlanguage-page__tagline">Le langage de programmation de 5e génération de PC SOFT</p>
                 </header>
 
                 <h1 id="wlanguage-main-title" class="wlanguage-page__title">29 EXEMPLES DE CODE WLANGUAGE (5GL)</h1>
+                <p class="wlanguage-page__subtitle">Cette page présente des exemples de code WLanguage.</p>
                 <p class="wlanguage-page__lead">
-                    Cette page présente des exemples de code WLanguage. Voici à quoi ressemble du code 5GL — et rappelez-vous que pour de
-                    nombreuses fonctions, il n'y a rien à coder : l'IDE vous propose les choix. Ces exemples présentent uniquement le
-                    langage.
+                    <strong>Voici à quoi ressemble du code 5GL !</strong><br />
+                    (et rappelez-vous que pour de nombreuses fonctions, il n'y a rien à coder : il suffit de cliquer sur les
+                    choix proposés par l'IDE ; ces exemples présentent uniquement le langage).
                 </p>
 
                 <section
@@ -41,7 +54,16 @@
                     :aria-labelledby="'wlanguage-sample-' + sample.id"
                 >
                     <h2 :id="'wlanguage-sample-' + sample.id" class="wlanguage-page__sample-title">
-                        Exemple {{ sample.id }} : {{ sample.title }}
+                        <a
+                            v-if="sample.docUrl"
+                            class="wlanguage-page__sample-link"
+                            :href="sample.docUrl"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Exemple {{ sample.id }} : {{ sample.title }}
+                        </a>
+                        <template v-else>Exemple {{ sample.id }} : {{ sample.title }}</template>
                     </h2>
                     <p v-if="sample.description" class="wlanguage-page__body">{{ sample.description }}</p>
                     <pre class="wlanguage-page__code"><code>{{ sample.code }}</code></pre>
@@ -51,26 +73,86 @@
             <aside class="wlanguage-page__sidebar glass-frame" aria-label="Liens associés">
                 <figure class="wlanguage-page__product-boxes">
                     <img
-                        :src="packagesImageUrl"
-                        alt="Boîtes produits WINDEV 2026, WEBDEV 2026 et WINDEV Mobile 2026"
+                        :src="wlanguagePackages.src"
+                        alt="WINDEV, WEBDEV et WINDEV Mobile"
                         loading="lazy"
                         decoding="async"
+                        @error="onImageError($event, wlanguagePackages.fallback)"
                     />
                 </figure>
                 <p class="wlanguage-page__sidebar-text">
-                    Les environnements <strong>WINDEV, WEBDEV et WINDEV Mobile</strong> partagent le même langage : WLanguage.
+                    Les environnements
+                    <RouterLink class="wlanguage-page__text-link" to="/software/windev"><strong>WINDEV</strong></RouterLink>,
+                    <RouterLink class="wlanguage-page__text-link" to="/software/webdev"><strong>WEBDEV</strong></RouterLink> et
+                    <RouterLink class="wlanguage-page__text-link" to="/software/windevmobile"><strong>WINDEV Mobile</strong></RouterLink>
+                    sont compatibles et partagent les éléments de projet. Il n'a jamais été aussi simple de créer des applications multi-cibles.
                 </p>
+
+                <div class="wlanguage-page__sidebar-block">
+                    <h3 class="wlanguage-page__sidebar-product-title">Fonctions WLanguage (3480)</h3>
+                    <ul class="wlanguage-page__sidebar-list">
+                        <li>
+                            <RouterLink class="wlanguage-page__text-link" to="/software/wlanguage">
+                                29 exemples de code WLanguage
+                            </RouterLink>
+                        </li>
+                    </ul>
+                    <p class="wlanguage-page__sidebar-text">WLanguage propose le typage statique et le typage dynamique.</p>
+                    <p class="wlanguage-page__sidebar-text">
+                        Il inclut un système de gestion des types flexible qui permet un développement rapide, en utilisant le typage dynamique tout en
+                        profitant du typage statique.
+                    </p>
+                    <p class="wlanguage-page__sidebar-text">
+                        Sa machine virtuelle intègre un système de gestion automatique de la mémoire.
+                    </p>
+                    <p class="wlanguage-page__sidebar-text">
+                        Des types de données avancés sont disponibles ainsi que des numériques haute précision (38 chiffres significatifs).<br />
+                        Il prend en charge plusieurs paradigmes de programmation : orienté objet, procédural et impératif.
+                    </p>
+                </div>
 
                 <div class="wlanguage-page__sidebar-block">
                     <h3 class="wlanguage-page__sidebar-title">Présentation de la documentation</h3>
                     <ul class="wlanguage-page__sidebar-list">
                         <li>
-                            <RouterLink class="wlanguage-page__text-link" to="/software/new-features-2026">Nouveautés</RouterLink>
+                            <a
+                                class="wlanguage-page__text-link"
+                                :href="wlanguageNewFeaturesPdf.href"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                Nouveautés
+                            </a>
                         </li>
-                        <li><RouterLink class="wlanguage-page__text-link" to="/software/windev">WINDEV</RouterLink></li>
-                        <li><RouterLink class="wlanguage-page__text-link" to="/software/webdev">WEBDEV</RouterLink></li>
                         <li>
-                            <RouterLink class="wlanguage-page__text-link" to="/software/windevmobile">WINDEV Mobile</RouterLink>
+                            <a
+                                class="wlanguage-page__text-link"
+                                :href="wlanguageWindevBrochureEn.href"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                WINDEV
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                class="wlanguage-page__text-link"
+                                :href="wlanguageWebdevBrochureEn.href"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                WEBDEV
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                class="wlanguage-page__text-link"
+                                :href="wlanguageWindevMobileBrochureEn.href"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                WINDEV Mobile
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -78,31 +160,48 @@
                 <div class="wlanguage-page__sidebar-block">
                     <h3 class="wlanguage-page__sidebar-title">Schémas de présentation</h3>
                     <ul class="wlanguage-page__sidebar-list">
-                        <li><a href="#" class="wlanguage-page__text-link">Connecteurs bases de données client/serveur</a></li>
-                        <li><a href="#" class="wlanguage-page__text-link">Développement multiplateforme</a></li>
+                        <li>
+                            <a
+                                class="wlanguage-page__text-link"
+                                :href="wlanguageUniversalConnectorsPdf.href"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                Connecteurs bases de données client/serveur
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                class="wlanguage-page__text-link"
+                                :href="wlanguageCrossPlatformDevPdf.href"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                Développement multiplateforme
+                            </a>
+                        </li>
                     </ul>
                 </div>
 
                 <div class="wlanguage-page__sidebar-block">
                     <h3 class="wlanguage-page__sidebar-title">Vidéos</h3>
                     <ul class="wlanguage-page__sidebar-list">
-                        <li><a href="#" class="wlanguage-page__text-link">Vidéos techniques</a></li>
+                        <li>
+                            <a
+                                class="wlanguage-page__text-link"
+                                :href="WLANGUAGE_TECHNICAL_VIDEOS_URL"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                Vidéos techniques
+                            </a>
+                        </li>
                     </ul>
                 </div>
 
                 <div class="wlanguage-page__customer" aria-label="Références clients">
                     <p class="wlanguage-page__customer-title">Ils utilisent WINDEV</p>
-                    <figure class="wlanguage-page__customer-figure">
-                        <div class="wlanguage-page__customer-logo-box">
-                            <img
-                                class="wlanguage-page__customer-logo-img"
-                                :src="customerCarouselLogos[currentCustomerLogoIndex]"
-                                alt="Logo client WINDEV"
-                                loading="lazy"
-                                decoding="async"
-                            />
-                        </div>
-                    </figure>
+                    <CustomerLogoCarousel variant="compact" />
                 </div>
             </aside>
         </section>
@@ -111,72 +210,26 @@
 </template>
 
 <script setup>
-import { onBeforeUnmount, onMounted, ref } from 'vue';
 import AppNavbar from '../components/AppNavbar.vue';
 import AppFooter from '../components/AppFooter.vue';
-import HeroSection from '../components/HeroSection.vue';
+import CustomerLogoCarousel from '../components/CustomerLogoCarousel.vue';
+import HomeHeroCarousel from '../components/HomeHeroCarousel.vue';
+import {
+    WLANGUAGE_TECHNICAL_VIDEOS_URL,
+    wlanguageCrossPlatformDevPdf,
+    wlanguageNewFeaturesPdf,
+    wlanguageUniversalConnectorsPdf,
+    wlanguageWebdevBrochureEn,
+    wlanguageWindevBrochureEn,
+    wlanguageWindevMobileBrochureEn,
+} from '../data/wlanguagePageDocuments.js';
+import { wlanguageLogo, wlanguagePackages, wlanguageSuiteCrossPlatform } from '../data/wlanguagePageImages.js';
 import { wlanguageSamples } from '../data/wlanguageSamples.js';
+import { applyImageFallback } from '../utils/pcsoftImages.js';
 
-const logoImageUrl = '/img/wlangarge/logo-wlanguage.png';
-const packagesImageUrl = '/img/wlangarge/packages-windev-webdev-windev-mobile-2026.webp';
-
-const customerCarouselLogos = [
-    '/img/bande/1.jpg',
-    '/img/bande/2.jpg',
-    '/img/bande/3.jpg',
-    '/img/bande/4.jpg',
-    '/img/bande/5.jpg',
-    '/img/bande/6.png',
-    '/img/bande/7.jpg',
-    '/img/bande/8.jpg',
-    '/img/bande/9.jpg',
-    '/img/bande/10.svg',
-    '/img/bande/11.gif',
-    '/img/bande/12.jpg',
-    '/img/bande/13.jpg',
-    '/img/bande/14.svg',
-    '/img/bande/15.png',
-];
-
-const currentCustomerLogoIndex = ref(0);
-let customerCarouselTimer = null;
-
-const heroSlides = [
-    {
-        id: 'wlanguage-overview',
-        description: 'WLanguage est le langage de 5e génération partagé par WINDEV, WEBDEV et WINDEV Mobile.',
-        topImage: '/img/nouveau.svg',
-        topImageAlt: 'Nouveau',
-        image: '/img/logo_windev-suite_texte-noir-light.svg',
-        imageAlt: 'Logo WINDEV Suite',
-        buttons: [
-            { label: 'Exemples de code', variant: 'primary' },
-            { label: 'Documentation', variant: 'ghost' },
-            { label: 'S\'abonner', variant: 'ghost' },
-        ],
-    },
-    {
-        id: 'wlanguage-release',
-        description: '',
-        responsiveImageDesktop: '/img/new-version-update_accueil.jpg',
-        responsiveImageMobile: '/img/new-version-update_accueil_mobile.jpg',
-        responsiveImageAlt: 'Nouvelle version WINDEV',
-        buttons: [],
-    },
-];
-
-onMounted(() => {
-    customerCarouselTimer = window.setInterval(() => {
-        currentCustomerLogoIndex.value =
-            (currentCustomerLogoIndex.value + 1) % customerCarouselLogos.length;
-    }, 2200);
-});
-
-onBeforeUnmount(() => {
-    if (customerCarouselTimer) {
-        window.clearInterval(customerCarouselTimer);
-    }
-});
+function onImageError(event, fallbackUrl) {
+    applyImageFallback(event, fallbackUrl);
+}
 </script>
 
 <style scoped>
@@ -199,20 +252,19 @@ onBeforeUnmount(() => {
     color: #5f6f8c;
 }
 
-.wlanguage-page__os-row {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: 0.45rem;
+.wlanguage-page__suite-platforms {
+    margin: 0 auto;
+    max-width: 18rem;
 }
 
-.wlanguage-page__os-dot {
-    width: 0.85rem;
-    height: 0.85rem;
-    border-radius: 9999px;
-    border: 2px solid #d6dce7;
-    background: #f4f6fa;
+.wlanguage-page__suite-platforms img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.wlanguage-page__hero {
+    margin-bottom: 0.25rem;
 }
 
 .wlanguage-page__layout {
@@ -228,8 +280,7 @@ onBeforeUnmount(() => {
 }
 
 .wlanguage-page__product-header {
-    text-align: center;
-    margin-bottom: 1.25rem;
+    margin-bottom: 1rem;
 }
 
 .wlanguage-page__logo-figure {
@@ -237,14 +288,8 @@ onBeforeUnmount(() => {
 }
 
 .wlanguage-page__logo-img {
-    max-width: min(100%, 320px);
+    max-width: min(100%, 531px);
     height: auto;
-}
-
-.wlanguage-page__tagline {
-    margin: 0.75rem 0 0;
-    font-size: 0.92rem;
-    color: var(--color-text-secondary);
 }
 
 .wlanguage-page__title {
@@ -254,6 +299,13 @@ onBeforeUnmount(() => {
     letter-spacing: 0.04em;
     text-transform: uppercase;
     line-height: 1.15;
+}
+
+.wlanguage-page__subtitle {
+    margin: 0 0 0.65rem;
+    font-size: 1.05rem;
+    font-weight: 800;
+    line-height: 1.35;
 }
 
 .wlanguage-page__lead {
@@ -280,6 +332,17 @@ onBeforeUnmount(() => {
     font-size: 0.95rem;
     font-weight: 800;
     color: var(--color-text-primary);
+}
+
+.wlanguage-page__sample-link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.wlanguage-page__sample-link:hover {
+    color: var(--color-brand);
+    text-decoration: underline;
+    text-underline-offset: 0.15rem;
 }
 
 .wlanguage-page__body {
@@ -322,6 +385,10 @@ onBeforeUnmount(() => {
     align-content: start;
 }
 
+.wlanguage-page__product-boxes {
+    margin: 0;
+}
+
 .wlanguage-page__product-boxes img {
     display: block;
     width: 100%;
@@ -340,10 +407,16 @@ onBeforeUnmount(() => {
     gap: 0.45rem;
 }
 
+.wlanguage-page__sidebar-product-title,
 .wlanguage-page__sidebar-title {
     margin: 0;
-    font-size: 0.78rem;
+    font-size: 0.95rem;
     font-weight: 800;
+    line-height: 1.3;
+}
+
+.wlanguage-page__sidebar-title {
+    font-size: 0.78rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
 }
@@ -363,27 +436,6 @@ onBeforeUnmount(() => {
     text-transform: uppercase;
     letter-spacing: 0.06em;
     color: #5f6f8c;
-}
-
-.wlanguage-page__customer-figure {
-    margin: 0;
-}
-
-.wlanguage-page__customer-logo-box {
-    min-height: 3.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.5rem;
-    border-radius: var(--radius-md);
-    border: 1px solid var(--color-border);
-    background: #fff;
-}
-
-.wlanguage-page__customer-logo-img {
-    max-width: 100%;
-    max-height: 3rem;
-    object-fit: contain;
 }
 
 @media (max-width: 900px) {

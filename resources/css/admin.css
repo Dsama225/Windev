@@ -32,6 +32,32 @@
     text-decoration: none;
 }
 
+.admin-sidebar__brand-mark {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    isolation: isolate;
+}
+
+.admin-sidebar__brand-prefix {
+    flex-shrink: 0;
+    position: relative;
+    z-index: 3;
+    display: inline-flex;
+    align-items: center;
+    height: 32px;
+    margin-left: 0.55rem;
+    padding-left: 0.15rem;
+    font-size: 1.0925rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    line-height: 1;
+    text-transform: uppercase;
+    color: #4c493d;
+    background: #f7f9fc;
+}
+
 .admin-sidebar__brand-logo {
     display: block;
     width: auto;

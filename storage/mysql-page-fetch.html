@@ -1,0 +1,809 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <noscript>Désolé, votre navigateur ne supporte pas le javascript.</noscript>
+    
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('consent', 'default', {
+        'ad_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
+        'analytics_storage': 'denied',
+        'functionality_storage': 'denied',
+        'personalization_storage': 'denied',
+        'security_storage': 'granted',
+    });
+    dataLayer.push({'gtm.start': new Date().getTime(), 'event': 'gtm.js'});
+</script>
+
+
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NDB7R7F ');
+</script>
+
+<script type="text/plain" data-type="module" data-category="analytics">
+    !function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+    },s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='//static.ads-twitter.com/uwt.js',
+        a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+    // Insert Twitter Pixel ID and Standard Event data below
+    twq('init','o2tnd');
+    twq('track','PageView');
+</script>
+    <title>PC SOFT WINDEV: Native MySQL Connector</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=10.0, minimum-scale=1.0">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="/favicon-96x96.png?v=2026" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2026" />
+<link rel="shortcut icon" href="/favicon.ico?v=2026" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=2026" />
+<link rel="manifest" href="/site.webmanifest?v=2026" />
+    <link rel="preload" as="style" href="https://windev.com/build/assets/app.14950620.css" /><link rel="preload" as="style" href="https://windev.com/build/assets/app.6b5d5e97.css" /><link rel="modulepreload" href="https://windev.com/build/assets/app.5c7a0808.js" /><link rel="stylesheet" href="https://windev.com/build/assets/app.14950620.css" /><link rel="stylesheet" href="https://windev.com/build/assets/app.6b5d5e97.css" /><script type="module" src="https://windev.com/build/assets/app.5c7a0808.js"></script>    <script src="https://www.google.com/recaptcha/api.js?render=6LfvjtsaAAAAAKeKpfbKAnR263NxCiNHuCGLFXmo"></script>
+</head>
+<body class="font-sans" data-locale="en_US">
+<span class="none" id="returnToTop"></span>
+
+<div class="bg-primary-500 py-2">
+    <div class="max-w-7xl flex items-center space-x-2 justify-center mx-auto text-center font-semibold">
+
+        <a href="https://download.windev.com/UK/index.awp" title="WINDEV 2026 is now available!" style="color: black;" >
+        <b>WINDEV 2026</b> is now available! - <b><span style="border-bottom: 2px solid black; display: inline-block;">Download</span></b>
+
+        <svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" role="img" class="inline-flex fill-current" width="14" height="14"><defs><symbol id="pplx-icon-arrow-right" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="1.75px" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l14 0 M13 18l6 -6 M13 6l6 6" stroke="#000000" fill="none" stroke-width="1.75px"></path></symbol></defs><use xlink:href="#pplx-icon-arrow-right"></use></svg>
+        </a>
+    </div>
+</div>
+
+<header class="sticky top-0 z-[998]">
+
+    <nav id="pcsoft-navigation" x-data="navigation">
+
+        <div id="navigation-wrapper" class="bg-white relative grid grid-cols-3 xl:flex auto-cols-max items-center px-4 xl:justify-between border-t-2 border-t-primary-500 border-b">
+
+                        <div class="xl:ml-auto">
+                <div class="flex items-center">
+
+                                        <button
+                        id="nav-bars"
+                        class="focus:outline-none"
+                        x-bind="sidebarToggle"
+                    >
+                                                <template x-if="!sidebarOpened">
+                            <span class="fas text-2xl fa-bars"></span>
+                        </template>
+
+                                                <template x-if="sidebarOpened">
+                            <span class="fas text-2xl fa-times"></span>
+                        </template>
+                    </button>
+
+                    
+                                        <ul id="navigation-container" class="flex-shrink-0 flex-col xl:flex-row justify-between">
+                        <li
+                            class="flex-grow text-left xl:text-center"
+                            x-data="navigationDropdown"
+                            x-bind="navigationDropdownRegister"
+                        >
+                            <a
+                                x-bind="navigationDropdownTrigger"
+                                class="FollowParam text-lg px-3 xl:px-5 py-3 xl:py-5 block hover:bg-primary-500 contain-dropdown"
+                                href="#"
+                                title="Software">
+                                Software
+                            </a>
+                            <div x-cloak x-cloak x-bind="navigationDropdownTarget" class="dropdown xl:absolute text-left border-t xl:shadow w-full left-0 bg-white" id="dropdown-produits">
+                                <section class="mx-auto grid grid-cols-1 xl:grid-cols-4 gap-8 text-sm py-5 justify-between px-3 xl:px-0" style="max-width: 1108px;">
+                                    <div>
+                                        <h4>
+                                            <a class="FollowParam font-bold uppercase lg:rounded lg:mb-2 px-2 py-3 xl:py-2 hover:bg-primary-500 block" href="https://windev.com/windev/cross-platform-applications.htm" title="Software Suite">
+                                                Software Suite
+                                                <span class="fas fa-chevron-right ml-2"></span>
+                                            </a>
+                                        </h4>
+                                        <ul>
+                                            <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://windev.com/windev" title="WINDEV">WINDEV</a></li>
+                                            <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://windev.com/webdev" title="WEBDEV">WEBDEV</a></li>
+                                            <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://windev.com/windevmobile" title="WINDEV Mobile">WINDEV Mobile</a></li>
+                                            <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://windev.com/newfeatures" title="New features of version 2026">New Features of version 2026</a></li>
+                                            <li class="my-3 px-3 lg:px-0"><hr /></li>
+                                            <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://windev.com/windev/wdmsg.htm" title="WDMSG">WDMSG</a></li>
+                                            <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://windev.com/pcsoft/hfsql.htm" title="HFSQL">HFSQL</a></li>
+                                            <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://windev.com/wlanguage.htm" title="WLanguage">WLanguage</a></li>
+                                            <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://windev.com/windev/wdetatu.htm" title="Reports &amp; Queries">Reports &amp; Queries</a></li>
+                                            <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://pcscloud.net/UK/INDEX.awp" title="Cloud">Cloud</a></li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h4>
+                                            <a class="FollowParam font-bold uppercase lg:rounded lg:mb-2 px-2 py-3 xl:py-2 hover:bg-primary-500 block" href="https://windev.com/nativeconnectors/clientserver.htm" title="Native Connectors">
+                                                Native Connectors
+                                                <span class="fas fa-chevron-right ml-2"></span>
+                                            </a>
+                                        </h4>
+
+                                        <div class="flex">
+                                            <div>
+                                                <ul>
+                                                    <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://windev.com/pcsoft/hfsql.htm" title="HFSQL">HFSQL</a></li>
+                                                    <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://windev.com/nativeconnectors/as400.htm" title="AS/400 &amp; System i">AS/400 &amp; System i</a></li>
+                                                    <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://windev.com/nativeconnectors/ANOracle.htm" title="Oracle">Oracle</a></li>
+                                                    <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://windev.com/nativeconnectors/ANSQLServer.htm" title="SQL Server">SQL Server</a></li>
+                                                    <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://windev.com/nativeconnectors/ANDB2.htm" title="DB2">DB2</a></li>
+                                                    <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://windev.com/nativeconnectors/ANMySQL.htm" title="MySQL">MySQL</a></li>
+                                                    <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://windev.com/nativeconnectors/ANInformix.htm" title="Informix">Informix</a></li>
+                                                </ul>
+                                            </div>
+                                            <div>
+                                                <ul>
+                                                    <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://windev.com/nativeconnectors/ANPostgreSQL.htm" title="PostgreSQL">PostgreSQL</a></li>
+                                                    <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://windev.com/nativeconnectors/ANProgress.htm" title="Progress">Progress</a></li>
+                                                    <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://windev.com/nativeconnectors/ANSybase.htm" title="SAP ASE">SAP ASE</a></li>
+                                                    <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://windev.com/nativeconnectors/ANxBase.htm" title="xBase">xBase</a></li>
+                                                    <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://windev.com/nativeconnectors/ANSQLite.htm" title="SQLite">SQLite</a></li>
+                                                    <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://windev.com/nativeconnectors/ANAccess.htm" title="Access">Access</a></li>
+                                                    <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://windev.com/nativeconnectors/ANMariaDB.htm" title="MariaDB">MariaDB</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <h4>
+                                            <a class="FollowParam font-bold uppercase lg:rounded lg:mb-2 px-2 py-3 xl:py-2 hover:bg-primary-500 block" href="/neo" title="Subscribe" >
+                                                Subscribe
+                                                <span class="fas fa-chevron-right ml-2"></span>
+                                            </a>
+                                        </h4>
+                                        <ul>
+                                            <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="/neo/new" title="Subscribe">Subscribe</a></li>
+
+
+
+                                        </ul>
+                                    </div>
+                                </section>
+                            </div>
+                        </li>
+                        <li
+                            class="flex-grow text-left xl:text-center"
+
+
+                        >
+                            <a
+
+                                class="FollowParam text-lg px-3 xl:px-5 py-3 xl:py-5 block hover:bg-primary-500"
+                                href="/neo"
+                                title="
+
+	Subscribe
+								"
+                            >
+	Subscribe
+
+                            </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        </li>
+                        <li
+                            class="flex-grow text-left xl:text-center"
+                            x-data="navigationDropdown"
+                            x-bind="navigationDropdownRegister"
+                        >
+                            <a
+                                x-bind="navigationDropdownTrigger"
+                                class="FollowParam text-lg px-3 xl:px-5 py-3 xl:py-5 block hover:bg-primary-500 contain-dropdown"
+                                href="#"
+                                title="Download"
+                            >
+                                Download
+                            </a>
+                            <div x-cloak x-bind="navigationDropdownTarget" class="dropdown xl:absolute text-left border-t xl:shadow w-full left-0 bg-white" id="dropdown-telecharger">
+                                <section class="mx-auto grid grid-cols-1 xl:grid-cols-4 gap-8 text-sm py-5 justify-between px-3 xl:px-0" style="max-width: 1108px;">
+                                    <div>
+                                        <h4>
+                                            <a class="FollowParam font-bold uppercase lg:rounded lg:mb-2 px-2 py-3 xl:py-2 hover:bg-primary-500 block" href="https://windev.com/windev/WD-Express.htm" title="Express version (free)">
+                                                Express version (free)
+                                                <span class="fas fa-chevron-right ml-2"></span>
+                                            </a>
+                                        </h4>
+                                        <ul>
+                                            <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://windev.com/windev/WD-Express.htm" title="WINDEV Express">WINDEV Express</a></li>
+                                            <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://windev.com/windevmobile/WM-Express.htm" title="WINDEV Mobile Express">WINDEV Mobile Express</a></li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h4>
+
+											<a class="FollowParam font-bold uppercase lg:rounded lg:mb-2 px-2 py-3 xl:py-2 hover:bg-primary-500 block" href="
+https://download.windev.com/uk/index.awp
+
+" title="Download center">
+                                                Download center
+                                                <span class="fas fa-chevron-right ml-2"></span>
+                                            </a>
+                                        </h4>
+                                        <ul>
+                                            <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://download.windev.com/uk/index.awp" target="_blank" title="Subscription version">Subscription version</a></li>
+											<li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://download.windev.com/uk/dongle.awp" title="Dongle version">Dongle version</a></li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h4>
+                                            <a class="FollowParam font-bold uppercase lg:rounded lg:mb-2 px-2 py-3 xl:py-2 hover:bg-primary-500 block" href="https://windev.com/ts/useful_resources.htm" title="Resources">
+                                                Resources
+                                                <span class="fas fa-chevron-right ml-2"></span>
+                                            </a>
+                                        </h4>
+                                        <ul>
+                                            <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://windev.com/pcsoft/visuals.html" title="Redistributable images">Redistributable images</a></li>
+                                            <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://repository.windev.com/" title="Online repository">Online repository</a></li>
+                                        </ul>
+                                    </div>
+                                </section>
+                            </div>
+                        </li>
+                        <li
+                            class="flex-grow text-left xl:text-center"
+                            x-data="navigationDropdown"
+                            x-bind="navigationDropdownRegister"
+                        >
+                            <a
+                                x-bind="navigationDropdownTrigger"
+                                class="FollowParam text-lg px-3 xl:px-5 py-3 xl:py-5 block hover:bg-primary-500 contain-dropdown"
+                                href="#"
+                                title="Technical Support"
+                            >
+                                Technical Support
+                            </a>
+                            <div x-cloak x-bind="navigationDropdownTarget" class="dropdown xl:absolute text-left border-t xl:shadow w-full left-0 bg-white" id="dropdown-support-technique">
+                                <section class="mx-auto grid grid-cols-1 xl:grid-cols-4 gap-8 text-sm py-5 justify-between px-3 xl:px-0" style="max-width: 1108px;">
+                                    <div>
+                                        <h4>
+                                            <a class="FollowParam font-bold uppercase lg:rounded lg:mb-2 px-2 py-3 xl:py-2 hover:bg-primary-500 block" href="https://windev.com/ts" title="Our services">
+                                                Our services
+                                                <span class="fas fa-chevron-right ml-2"></span>
+                                            </a>
+                                        </h4>
+                                        <ul>
+                                            <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://windev.com/ts" title="Technical Support">Technical Support</a></li>
+                                            <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://windev.com/ad" title="Direct Assistance">Direct Assistance</a></li>
+                                            <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://windev.com/ts/assistance.htm" title="Remote consulting">Remote consulting</a></li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h4>
+                                            <a class="FollowParam font-bold uppercase lg:rounded lg:mb-2 px-2 py-3 xl:py-2 hover:bg-primary-500 block" href="https://forum.pcsoft.fr/en-US/index.awp" title="Community / Help">
+                                                Community / Help
+                                                <span class="fas fa-chevron-right ml-2"></span>
+                                            </a>
+                                        </h4>
+                                        <ul>
+                                            <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://help.windev.com/en-US/" title="Online help">Online help</a></li>
+                                            <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://forum.pcsoft.fr/en-US/index.awp" title="Forums">Forums</a></li>
+                                            <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://faq.windev.com/" title="FAQ">FAQ</a></li>
+                                            <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://repository.windev.com" title="Online repository">Online repository</a></li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h4>
+                                            <a class="FollowParam font-bold uppercase lg:rounded lg:mb-2 px-2 py-3 xl:py-2 hover:bg-primary-500 block" href="https://download.windev.com/uk/dongle.awp" title="Additional information">
+                                                Additional information
+                                                <span class="fas fa-chevron-right ml-2"></span>
+                                            </a>
+                                        </h4>
+                                        <ul>
+                                            <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://windev.com/ts/useful_resources.htm" title="Resources">Resources</a></li>
+                                        </ul>
+                                    </div>
+                                </section>
+                            </div>
+                        </li>
+                        <li class="flex-grow text-left xl:text-center"
+                            x-data="navigationDropdown"
+                            x-bind="navigationDropdownRegister"
+                        >
+                            <a
+                                x-bind="navigationDropdownTrigger"
+                                class="FollowParam text-lg px-3 xl:px-5 py-3 xl:py-5 block hover:bg-primary-500 contain-dropdown"
+                                href="#"
+                                title="Training"
+                            >
+                                Training
+                            </a>
+                            <div x-cloak x-bind="navigationDropdownTarget" class="dropdown xl:absolute text-left border-t xl:shadow w-full left-0 bg-white" id="dropdown-support-technique">
+                                <section class="mx-auto grid grid-cols-1 xl:grid-cols-4 gap-8 text-sm py-5 justify-between px-3 xl:px-0" style="max-width: 1108px;">
+                                    <div>
+                                        <h4>
+                                            <a class="FollowParam font-bold uppercase lg:rounded lg:mb-2 px-2 py-3 xl:py-2 hover:bg-primary-500 block" href="https://windev.com/training/in-house-training-sessions.html" title="Train your developers">
+                                                Train your developers
+                                                <span class="fas fa-chevron-right ml-2"></span>
+                                            </a>
+                                        </h4>
+                                        <ul>
+                                            <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://windev.com/training/in-house-training-sessions.html" title="In-house training">In-house training</a></li>
+                                            <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://windev.com/ts/assistance.htm" title="Remote consulting">Remote consulting</a></li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h4>
+                                            <a class="FollowParam font-bold uppercase lg:rounded lg:mb-2 px-2 py-3 xl:py-2 hover:bg-primary-500 block" href="https://windev.com/ts/educational_institutions.htm" title="Education">
+                                                Education
+                                                <span class="fas fa-chevron-right ml-2"></span>
+                                            </a>
+                                        </h4>
+                                        <ul>
+                                            <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://windev.com/ts/educational_institutions.htm" title="Education">Education</a></li>
+                                            <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://windev.com/windev/WD-Express.htm" title="Express version (free)">Express version (free)</a></li>
+                                        </ul>
+                                    </div>
+                                </section>
+                            </div>
+                        </li>
+                        <li class="flex-grow text-left xl:text-center"
+                            x-data="navigationDropdown"
+                            x-bind="navigationDropdownRegister"
+                        >
+                            <a
+                                x-bind="navigationDropdownTrigger"
+                                class="FollowParam text-lg px-3 xl:px-5 py-3 xl:py-5 block hover:bg-primary-500 contain-dropdown"
+                                href="#"
+                                title="PC SOFT"
+                            >
+                                PC SOFT
+                            </a>
+                            <div x-cloak x-bind="navigationDropdownTarget" class="dropdown xl:absolute text-left border-t xl:shadow w-full left-0 bg-white" id="dropdown-support-technique">
+                                <section class="mx-auto grid grid-cols-1 xl:grid-cols-4 gap-8 text-sm py-5 justify-between px-3 xl:px-0" style="max-width: 1108px;">
+                                    <div>
+                                        <h4>
+                                            <a class="FollowParam font-bold uppercase lg:rounded lg:mb-2 px-2 py-3 xl:py-2 hover:bg-primary-500 block" href="https://windev.com/sitemap.htm" title="Find information">
+                                                Find information
+                                                <span class="fas fa-chevron-right ml-2"></span>
+                                            </a>
+                                        </h4>
+                                        <ul>
+                                            <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://windev.com/sitemap.htm" title="Site map">Site map</a></li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h4>
+                                            <a class="FollowParam font-bold uppercase lg:rounded lg:mb-2 px-2 py-3 xl:py-2 hover:bg-primary-500 block" href="https://windev.com/pcsoft/contact/need-more-information.html" title="Contact us">
+                                                Contact us
+                                                <span class="fas fa-chevron-right ml-2"></span>
+                                            </a>
+                                        </h4>
+                                        <ul>
+                                            <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://windev.com/pcsoft/contact/need-more-information.html" title="Contact form">Contact form</a></li>
+                                            <li><a class="FollowParam px-2 py-3 xl:py-2 hover:bg-primary-500 lg:rounded block show-on-mobile" href="https://windev.com/pcsoft/distributors" title="International distributors">International distributors</a></li>
+                                        </ul>
+                                    </div>
+                                </section>
+                            </div>
+                        </li>
+                        <li class="flex-grow text-left xl:text-center"><a class="FollowParam text-lg px-3 xl:px-5 py-3 xl:py-5 block hover:bg-primary-500" href="https://windev.com/pcsoft/contact/need-more-information.html" title="Contact form">Contact form</a></li>
+                    </ul>
+                </div>
+            </div>
+
+                        <div class="xl:order-first ">
+                <a href="/">
+                    <img id="logo-large" class="mx-auto xl:mx-0" style="max-height: 28px;" src="https://logo.assets.pcsoft.fr/svg/LOGO_PCSOFT_Dark.svg" alt="PCSoft Logo">
+                    <img id="logo-min" style="max-height: 28px;" src="https://logo.assets.pcsoft.fr/svg/PictoPCS_Color.svg" alt="PCSoft Logo">
+                </a>
+            </div>
+
+                        <div class="ml-auto">
+                <div class="flex space-x-4 items-center relative">
+
+                    <button @click="$dispatch('toggleNavigationSearch')" class="flex items-center outline-none justify-center">
+                        <span class="fa text-2xl fa-search"></span>
+                    </button>
+
+                    <div class="relative">
+                        <div
+                            x-data="navigationDropdown"
+                            x-bind="navigationDropdownRegister"
+                        >
+                            <a
+                                x-bind="navigationDropdownTrigger"
+                                class="hover:shadow p-1 rounded cursor-pointer"
+                            >
+                                                                    <span class="fi fi-us"></span>
+                                                            </a>
+
+                            <div x-cloak x-bind="navigationDropdownTarget" class="bg-white flex-col space-y-3 rounded-bl absolute mt-3 xl:mt-5 py-3 px-5 border" style="margin-left: -1.25rem">
+
+                                
+                                
+                                                                    <div>
+                                        <a class="FollowParam" href="https://www.windev.es/" target="_blank" rel="noopener" title="Español">
+                                            <span class="fi fi-es"></span>
+                                        </a>
+                                    </div>
+                                                                <div>
+                                    <a class="FollowParam" href="https://www.pcsoft.fr/index.html" title="Français" target="_blank" rel="noopener">
+                                        <span class="fi fi-fr"></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+                <aside
+            id="pcsoft-navigation-mobile"
+            class="flex-shrink-0 flex-col bg-white fixed h-full overflow-y-scroll xl:hidden z-[998] pb-20" style="width: 320px;"
+            x-cloak
+            x-bind="sidebarRegister"
+        >
+        </aside>
+    </nav>
+
+        <div
+        id="pcsoft-navigation-search"
+        x-cloak
+        x-data="navigationSearch"
+        x-bind="searchRegister"
+        class="relative w-full border-t border-b bg-white shadow-xl"
+    >
+        <div class="container px-6 mx-auto max-w-6xl py-4 text-black">
+            <form action="https://windev.com/search/search.php" method="get">
+                <div x-bind="searchInputContainer" class="overflow-hidden flex border-2 rounded">
+                    <input
+                        x-ref="searchField"
+                        x-bind="searchInput"
+                        id="searchField"
+                        type="search"
+                        name="s"
+                        class="w-full px-4 py-2 rounded outline-none" placeholder="Rechercher..."
+                    >
+
+                    <button class="flex items-center justify-center px-4 border-l rounded-tr rounded-br">
+                        <i class="fas fa-search" :class="{'text-gray-black': isFocused, 'text-gray-800': !isFocused}"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</header>
+
+<!-- Accroche produits -->
+<section id="accroche-produits-v2" class="bg-[#f9f9f9] p-3 xl:py-4">
+    <div class="container mx-auto text-center">
+        <a class="text-black inline-block mr-3 align-middle mb-3 xl:mb-0 visited:text-black" href="https://windev.com/windev/cross-platform-applications.htm" title="With WINDEV, WEBDEV and WINDEV Mobile, the same source application can be run on different platforms">
+            <span class="font-bold font-sans text-2xl"><strong>Cross-platform</strong> application development software suite</span>
+        </a>
+        <a class="inline-block align-middle" href="https://windev.com/windev/cross-platform-applications.htm">
+            <img
+                class="max-w-[283px] h-auto"
+                src="https://windev.com/storage/en_US/img/home/cross-plateformes.png?202503051149"
+                title="Integrated software for developing cross-platform applications"
+                alt="Integrated software for developing cross-platform applications"
+            >
+        </a>
+    </div>
+</section>
+<main>
+    <div class="container mx-auto px-3 mt-6 xl:mt-12">
+        <div class="flex flex-wrap">
+            <section class="w-full xl:w-3/4 xl:px-12">
+                <h1 class="font-bold text-xl mb-4">NATIVE MYSQL CONNECTOR (FROM VERSION 3.23.52)</h1>
+                <p class="text-sm mb-4">
+                    <span class="font-bold">WINDEV and WEBDEV</span> connect to MySQL using a fast and powerful <span class="font-bold">"Native Connector"</span>, as well as ODBC and OLEDB. All the features of the environment are available.<br />
+                    installation is extremely simple.
+                </p>
+                <ul class="list-inside mb-4">
+                    <li><a target="_blank" href="https://download.windev.com/uk/download/neo/NativesConnectors/2026.awp" title="Download the Native MySQL Connector">Download the Native MySQL Connector</a></li>
+                </ul>
+                <p class="text-sm mb-4">
+                    Here is a list of the main features of the Native MySQL Connector:
+                </p>
+
+                <table class="text-sm striped border w-full mb-4">
+                    <tbody>
+                        <tr>
+                            <td>Use SQL commands</td>
+                            <td class="text-center">Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Use HRead* commands for programming without knowledge of SQL</td>
+                            <td class="text-center">Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Compatibility with HFSQL programming (file, query)</td>
+                            <td class="text-center">Yes</td>
+                        </tr>
+                        <tr>
+                            <td>WINDEV syntax &quot;Table.column&quot;, &quot;Query.Column&quot; available when coding</td>
+                            <td class="text-center">Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Automatic assignment of screen buffers to a table: FileToScreen, ScreenToFile</td>
+                            <td class="text-center">Yes</td>
+                        </tr>
+                        <tr>
+                            <td>RAD</td>
+                            <td class="text-center">Full</td>
+                        </tr>
+                        <tr>
+                            <td>Automatic browse tables</td>
+                            <td class="text-center">Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Automatic input tables (Add/Modify/Delete)</td>
+                            <td class="text-center">Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Tables: automatic search</td>
+                            <td class="text-center">Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Tables: automatic integrity management</td>
+                            <td class="text-center">Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Table completion using partial fetch (no wait)</td>
+                            <td class="text-center">Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Integration with the environment (assisted input, structure import, etc.)</td>
+                            <td class="text-center">Yes</td>
+                        </tr>
+                        <tr>
+                            <td>WDMAP file viewer</td>
+                            <td class="text-center">Yes</td>
+                        </tr>
+                        <tr>
+                            <td>WDETAT</td>
+                            <td class="text-center">Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Query editor</td>
+                            <td class="text-center">Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Installation</td>
+                            <td class="text-center">Automatic</td>
+                        </tr>
+                        <tr>
+                            <td>MDAC layer</td>
+                            <td class="text-center">Not required</td>
+                        </tr>
+                        <tr>
+                            <td>Speed</td>
+                            <td class="text-center">Very high</td>
+                        </tr>
+                        <tr>
+                            <td>Automatic management of modification conflicts</td>
+                            <td class="text-center">Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Automatic management of duplicates</td>
+                            <td class="text-center">Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Automatic management of required items</td>
+                            <td class="text-center">Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Technical Support via Direct Assistance</td>
+                            <td class="text-center">Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Table locking</td>
+                            <td class="text-center">Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Management of automatic identifiers</td>
+                            <td class="text-center">Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Filter/Search on queries</td>
+                            <td class="text-center">Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Add/Delete/Modify in queries</td>
+                            <td class="text-center">Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Traffic and resource optimization</td>
+                            <td class="text-center">Yes</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            <aside class="hidden xl:block xl:w-1/4">
+                    <div class="column_packages_products text-sm mb-12">
+                <img src="https://windev.com/storage/en_US/img/2026/packages-windev-webdev-windev-mobile-2026.png?202410281104" alt="WINDEV, WEBDEV and WINDEV Mobile" title="WINDEV, WEBDEV and WINDEV Mobile" class="mb-4">
+                <p>
+                    The <a href="https://windev.com/windev" title="WINDEV" class="font-bold">WINDEV</a>,                    <a href="https://windev.com/webdev" title="WEBDEV" class="font-bold">WEBDEV</a> and                    <a href="https://windev.com/windevmobile" title="WINDEV Mobile" class="font-bold">WINDEV Mobile</a> environments                    are compatible and share project elements. It has never been easier to build                    multi-target applications.
+                </p>
+            </div>
+                        <div class="column_documentation mb-12">
+                <h2 class="font-bold text-lg mb-1">Documentation overview</h2>
+                <ul class="list-inside text-sm">
+                    <li><a href="//us.pcsoft-windev-webdev.com/WX2026-Features.pdf?202510201505" title="New features" target="_blank">New features</a></li>
+                    <li><a href="//us.pcsoft-windev-webdev.com/windev-us.pdf?202305241106" title="WINDEV" target="_blank">WINDEV</a></li>
+                    <li><a href="//us.pcsoft-windev-webdev.com/webdev-us.pdf?202305241106" title="WEBDEV" target="_blank">WEBDEV</a></li>
+                    <li><a href="//us.pcsoft-windev-webdev.com/windev-mobile-us.pdf?202305241106" title="WINDEV Mobile" target="_blank">WINDEV Mobile</a></li>
+                    <!--<li><a href="//us.pcsoft-windev-webdev.com/application-portability.pdf?202407181038" title="Application portability" target="_blank">Application portability</a></li>-->
+                </ul>
+            </div>
+                        <div class="column_diagram mb-12">
+                <h2 class="font-bold text-lg mb-1">Overview diagrams</h2>
+                <ul class="list-inside text-sm">
+                     <li><a href="//us.pcsoft-windev-webdev.com/visuels/universal-access-to-data.pdf?202510211134" title="Universal database connectors" target="_blank">Universal database connectors</a></li>                      <li><a href="//us.pcsoft-windev-webdev.com/visuels/multi-platform-development.pdf?202510211134" title="Cross-platform development" target="_blank">Cross-platform development</a></li>                 </ul>
+            </div>
+                        <div class="column_videos mb-12">
+                <h2 class="font-bold text-lg mb-1">Videos</h2>
+                <ul class="list-inside text-sm">
+                    <li><a href="https://windev.com/pcsoft/videos.html" title="Technical videos">Technical videos</a></li>
+                </ul>
+            </div>
+                        <div class="column_videos mb-12">
+                <h2 class="font-bold text-lg mb-1">They are using WINDEV</h2>
+                <div class="border" style="display:block; width: 205px; height: 205px; position: relative;">
+                    <ul class="list-none" data-plugin="innerfade">
+                        <li><img src="https://windev.com/storage/en_US/img/testimonials/logos/porsche.jpg" title="Porsche" alt="Porsche" width="205" height="205"></li>
+                        <li><img src="https://windev.com/storage/en_US/img/testimonials/logos/clarins.jpg" title="Clarins" alt="Clarins" width="205" height="205"></li>
+                        <li><img src="https://windev.com/storage/en_US/img/testimonials/logos/bristol.jpg" title="Bristol-Myers Squibb" alt="Bristol-Myers Squibb" width="205" height="205"></li>
+                        <li><img src="https://windev.com/storage/en_US/img/testimonials/logos/pmf.jpg" title="Playmobil" alt="Playmobil" width="205" height="205"></li>
+                        <li><img src="https://windev.com/storage/en_US/img/testimonials/logos/bridgestone.jpg" title="Bridgestone" alt="Bridgestone" width="205" height="205"></li>
+                        <li><img src="https://windev.com/storage/en_US/img/testimonials/logos/quiksilver.jpg" title="Quicksilver" alt="Quicksilver" width="205" height="205"></li>
+                        <li><img src="https://windev.com/storage/en_US/img/testimonials/logos/johndeere.jpg" title="John Deere" alt="John Deere" width="205" height="205"></li>
+                        <li><img src="https://windev.com/storage/en_US/img/testimonials/logos/shell.jpg" title="Shell" alt="Shell" width="205" height="205"></li>
+                        <li><img src="https://windev.com/storage/en_US/img/testimonials/logos/segafredo.jpg" title="Segafredo Zenetti" alt="Segafredo Zenetti" width="205" height="205"></li>
+                        <li><img src="https://windev.com/storage/en_US/img/testimonials/logos/bollinger.jpg" title="Bollinger" alt="Bollinger" width="205" height="205"></li>
+                        <li><img src="https://windev.com/storage/en_US/img/testimonials/logos/honda.jpg" title="Honda" alt="Honda" width="205" height="205"></li>
+                        <li><img src="https://windev.com/storage/en_US/img/testimonials/logos/kenzo.jpg" title="Kenzo" alt="Kenzo" width="205" height="205"></li>
+                        <li><img src="https://windev.com/storage/en_US/img/testimonials/logos/l-oreal.jpg" title="L'Oréal" alt="L'Oréal" width="205" height="205"></li>
+                        <li><img src="https://windev.com/storage/en_US/img/testimonials/logos/lafarge.jpg" title="Lafarge" alt="Lafarge" width="205" height="205"></li>
+                        <li><img src="https://windev.com/storage/en_US/img/testimonials/logos/siemens.jpg" title="Siemens Vai" alt="Siemens Vai" width="205" height="205"></li>
+                        <li><img src="https://windev.com/storage/en_US/img/testimonials/logos/hitachi.jpg" title="Hitachi" alt="Hitachi" width="205" height="205"></li>
+                        <li><img src="https://windev.com/storage/en_US/img/testimonials/logos/axa.jpg" title="AXA" alt="AXA" width="205" height="205"></li>
+                        <li><img src="https://windev.com/storage/en_US/img/testimonials/logos/seiko.jpg" title="Seiko" alt="Seiko" width="205" height="205"></li>
+                        <li><img src="https://windev.com/storage/en_US/img/testimonials/logos/sharp.jpg" title="Sharp" alt="Sharp" width="205" height="205"></li>
+                        <li><img src="https://windev.com/storage/en_US/img/testimonials/logos/volkswagen-bank.jpg" title="Volkswagen Bank" alt="Volkswagen Bank" width="205" height="205"></li>
+                        <li><img src="https://windev.com/storage/en_US/img/testimonials/logos/ricoh.jpg" title="Ricoh" alt="Ricoh" width="205" height="205"></li>
+                        <li><img src="https://windev.com/storage/en_US/img/testimonials/logos/wwf.jpg" title="World Wide Fund for Nature" alt="World Wide Fund for Nature" width="205" height="205"></li>
+                    </ul>
+                </div>
+            </div>
+                </aside>
+    </div>
+    </div>
+</main>
+<footer class="bg-[#333] pt-6 text-white text-sm">
+    <div class="container mx-auto px-3">
+        <div class="flex flex-wrap mb-3">
+            <div class="w-full md:w-1/2 lg:w-1/4">
+                <ul>
+                    <li class="mb-4"><a class="!text-white" href="/" title="Home">Home</a></li>
+                    <li class="mb-1 md:mb-0-5"><a class="!text-white" href="https://windev.com/windev" title="Software">Software</a></li>
+                    <li class="mb-1 md:mb-0-5"><a class="!text-[#d2d2d2] !hover:text-white" href="https://windev.com/windev" title="WINDEV">WINDEV</a></li>
+                    <li class="mb-1 md:mb-0-5"><a class="!text-[#d2d2d2] !hover:text-white" href="https://windev.com/webdev" title="WEBDEV">WEBDEV</a></li>
+                    <li class="mb-1 md:mb-0-5"><a class="!text-[#d2d2d2] !hover:text-white" href="https://windev.com/windevmobile" title="WINDEV Mobile">WINDEV Mobile</a></li>
+                    <li class="mb-1 md:mb-0-5"><a class="!text-[#d2d2d2] !hover:text-white" href="https://windev.com/newfeatures" title="New Features of version 2026">New Features of version 2026</a></li>
+                    <li class="mb-1 md:mb-0-5"><a class="!text-[#d2d2d2] !hover:text-white" href="https://windev.com/nativeconnectors/clientserver.htm" title="Native Connectors to databases">Native Connectors to databases</a></li>
+                    <li class="mb-1 md:mb-0-5"><a class="!text-[#d2d2d2] !hover:text-white" href="https://windev.com/pcsoft/documentations.html" title="Documentation">Documentation</a></li>
+                    <li class="mb-1 md:mb-0-5"><a class="!text-[#d2d2d2] !hover:text-white" href="https://windev.com/pcsoft/videos.html" title="Technical videos">Technical videos</a></li>
+                    <li class="mb-1 md:mb-0-5"><a class="!text-[#d2d2d2] !hover:text-white" href="https://windev.com/pcsoft/hfsql.htm" title="HFSQL">HFSQL</a></li>
+                    <li class="mb-1 md:mb-0-5"><a class="!text-[#d2d2d2] !hover:text-white" href="https://windev.com/wlanguage.htm" title="WLanguage">WLanguage</a></li>
+                    <li class="mb-1 md:mb-0-5"><a class="!text-[#d2d2d2] !hover:text-white" href="//pcscloud.net/UK/INDEX.awp" title="Cloud" rel="noopener" target="_blank">Cloud</a></li>
+                    <li class="mb-1 md:mb-0-5"><button type="button" class="!text-[#d2d2d2] !hover:text-white" title="Manange cookies" data-cc="show-preferencesModal">Manage cookies</button></li>
+                </ul>
+            </div>
+            <div class="w-full md:w-1/2 lg:w-1/4">
+                <ul>
+                    <li class="mb-1 md:mb-0-5"><a class="!text-white" href="https://windev.com/ts" title="Technical Support">Technical Support</a></li>
+                    <li class="mb-1 md:mb-0-5"><a class="!text-[#d2d2d2] !hover:text-white" href="https://windev.com/ad" title="Direct Assistance">Direct Assistance</a></li>
+                    <li class="mb-1 md:mb-0-5"><a class="!text-[#d2d2d2] !hover:text-white" href="//forum.pcsoft.fr/en-US/index.awp" title="Forums" rel="noopener" target="_blank">Forums</a></li>
+                    <li class="mb-1 md:mb-0-5"><a class="!text-[#d2d2d2] !hover:text-white" href="//faq.windev.com" rel="noopener" title="FAQ" target="_blank">FAQ</a></li>
+                    <li class="mb-1 md:mb-0-5"><a class="!text-[#d2d2d2] !hover:text-white" href="https://windev.com/ts/useful_resources.htm" title="Useful resources">Useful resources</a></li>
+                    <li class="mb-1 md:mb-0-5"><a class="!text-[#d2d2d2] !hover:text-white" href="//repository.windev.com" title="Online repository" rel="noopener" target="_blank">Online repository</a></li>
+                    <li class="mb-1 md:mb-0-5"><a class="!text-[#d2d2d2] !hover:text-white" href="//help.windev.com/en-US" title="Online help" rel="noopener" target="_blank">Online help</a></li>
+                    <li class="mt-3"><a class="!text-white" href="https://windev.com/ts/assistance.htm" title="Training">Training</a></li>
+                    <li class="mb-1 md:mb-0-5"><a class="!text-[#d2d2d2] !hover:text-white" href="https://windev.com/ts/assistance.htm" title="Direct Assistance">Consulting</a></li>
+                    <li class="mb-1 md:mb-0-5"><a class="!text-[#d2d2d2] !hover:text-white" href="https://windev.com/ad" title="Direct Assistance">Direct Assistance</a></li>
+                    <li class="mb-1 md:mb-0-5"><a class="!text-[#d2d2d2] !hover:text-white" href="https://windev.com/ts/educational_institutions.htm" title="Education">Education</a></li>
+                </ul>
+            </div>
+            <div class="w-full md:w-1/2 lg:w-1/4">
+                <ul>
+                    <li class="mb-1 md:mb-0-5"><a class="!text-white" href="/neo" title="Subscribe">Subscribe</a></li>
+                    <li class="mb-1 md:mb-0-5"><a class="!text-[#d2d2d2] !hover:text-white" title="Request a quote" href="https://windev.com/pcsoft/request/request-a-quote.html">Request a quote</a></li>
+                    <li class="mb-4"><a class="!text-[#d2d2d2] !hover:text-white" title="International distributors" href="https://windev.com/pcsoft/distributors">International distributors</a></li>
+                    <li class="mb-1 md:mb-0-5"><a class="!text-white" href="https://download.windev.com/uk/dongle.awp" title="Download center">Download center</a></li>
+                    <li class="mb-1 md:mb-0-5"><a class="!text-[#d2d2d2] !hover:text-white" href="https://windev.com/windev/WD-Express.htm" title="WINDEV Express">WINDEV Express</a></li>
+                    <li class="mb-1 md:mb-0-5"><a class="!text-[#d2d2d2] !hover:text-white" href="https://windev.com/windevmobile/WM-Express.htm" title="WINDEV Mobile Express">WINDEV Mobile Express</a></li>
+                    <li class="mb-1 md:mb-0-5"><a class="!text-[#d2d2d2] !hover:text-white" href="https://download.windev.com/uk/index.awp">Subscription version</a></li>
+                    <li class="mb-1 md:mb-0-5"><a class="!text-[#d2d2d2] !hover:text-white" href="https://download.windev.com/uk/dongle.awp" title="Dongle version">Dongle version</a></li>
+                    <li class="mb-1 md:mb-0-5"><a class="!text-[#d2d2d2] !hover:text-white" href="https://windev.com/pcsoft/visuals.html" title="Reusable visual elements">Reusable visual elements</a></li>
+                    <li class="mt-3"><a class="!text-white" href="https://windev.com/pcsoft/environmental-policy.htm" title="Our values">Our values</a></li>
+                    <li class="mb-1 md:mb-0-5"><a class="!text-[#d2d2d2] !hover:text-white" href="https://windev.com/pcsoft/environmental-policy.htm" title="Environmental policy">Environmental policy</a></li>
+                </ul>
+            </div>
+            <div class="w-full md:w-1/2 lg:w-1/4">
+                <ul>
+                    <li class="mb-1 md:mb-0-5"><a class="!text-white" href="https://windev.com/pcsoft/index.html" title="PC SOFT">PC SOFT</a></li>
+                    <li class="mb-1 md:mb-0-5"><a class="!text-[#d2d2d2] !hover:text-white" href="https://windev.com/sitemap.htm" title="Site map">Site map</a></li>
+                    <li class="mb-4"><a class="!text-[#d2d2d2] !hover:text-white" href="https://windev.com/pcsoft/contact/need-more-information.html" title="Contact us">Contact us</a></li>
+                    <li class="mb-1 md:mb-0-5"><a class="!text-white" href="https://windev.com/pcsoft/contact/need-more-information.html" title="Contact">Contact</a></li>
+                    <li class="mb-1 md:mb-0-5"><a class="!text-[#d2d2d2] !hover:text-white" href="https://windev.com/pcsoft/contact/need-more-information.html" title="PC SOFT">PC SOFT</a></li>
+                    <li class="mb-1 md:mb-0-5"><a class="!text-[#d2d2d2] !hover:text-white" href="https://windev.com/pcsoft/distributors" title="International distributors">International distributors</a></li>
+					<li class="mb-1 md:mb-0-5"><a class="!text-[#d2d2d2] !hover:text-white" href="https://windev.com/pcsoft/data-protection-policy.htm" title="DPO">DPO</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="flex flex-wrap">
+            <div class="w-1/2 flex md:justify-end"><img class="object-scale-down" data-original="https://windev.com/storage/en_US/img/2014/recompenses.png" alt="PC WORLD, Computer Magazine, ..." src="https://windev.com/storage/en_US/img/2014/recompenses.png" style="display: inline;"></div>
+            <div class="w-1/2 flex md:justify-end">
+                <a class="mr-2" href="https://www.youtube.com/watch?v=hFLfSNN-k0g&amp;list=PLI6fRsLPTA4jHtJSSFsLpxxQ9Q7RM-BDL" rel="noopener" target="_blank"><img class="lazy" data-original="https://windev.com/storage/en_US/img/2014/communaute_youtube.gif" alt="YouTube" width="47" height="47" border="0" src="https://windev.com/storage/en_US/img/2014/communaute_youtube.gif" style="display: inline;"></a>
+                <a id="btn-send-to-friend" class="text-white" href="//us.pcsoft-windev-webdev.com/contact/send-to-a-friend/send-to-a-friend.php" title="Send to a friend" rel="noopener" target="_blank" onclick="window.open('//us.pcsoft-windev-webdev.com/contact/send-to-a-friend/send-to-a-friend.php?url=' + encodeURIComponent(location.href), 'email','toolbar=no,width=528,height=628'); return false;"><img class="lazy" data-original="https://windev.com/storage/en_US/img/2014/communaute_email.gif" alt="Send to a friend" width="47" height="47" border="0" src="https://windev.com/storage/en_US/img/2014/communaute_email.gif" style="display: inline;"></a>
+            </div>
+        </div>
+    </div>
+
+    <section class="footer-baseline bg-gray-1f mt-6 py-3">
+        <div class="container mx-auto px-3 md:text-center">
+            <ul>
+                <li class="inline-block my-0-5"><a class="!text-[#d2d2d2] !hover:text-white" href="https://windev.com/pcsoft/general-terms-and-conditions.htm" title="General terms and conditions">General terms and conditions</a></li>
+                <li class="hidden md:inline-block my-0-5">|</li>
+                <li class="inline-block my-0-5"><a class="!text-[#d2d2d2] !hover:text-white" href="https://windev.com/pcsoft/copyright.htm" title="Registered trademarks. Copyright © 2026 PC SOFT. All rights reserved.">Registered trademarks. Copyright © 2026 PC SOFT. All rights reserved</a></li>
+            </ul>
+        </div>
+    </section>
+</footer>
+
+<div id="btnReturnToTop" style="position: fixed; display: none; right: 10px; bottom: 10px; z-index: 9999;">
+    <a class="bg-white border hover:bg-gray-200 text-lg px-3 py-2 inline-block" href="#returnToTop" title="Back to top">
+        <i class="fa-solid fa-arrow-up text-gray-900"></i>
+    </a>
+</div>
+<script src="/js/dist/jquery.min.js"></script>
+<script src="/js/dist/stickyfill.min.js"></script>
+<script src="/js/dist/tablesaw.jquery.min.js"></script>
+<script src="/js/dist/tablesaw-init.min.js"></script>
+<script src="/js/dist/responsiveslides.min.js"></script>
+<script src="/js/dist/polyfill/sticky.min.js"></script>
+<script src="/js/dist/responsiveslides.min.js"></script>
+<script src="/js/dist/jquery.innerfade.custom.js"></script>
+<script src="/js/dist/innerfade.min.js"></script>
+<script src="/js/dist/smoothscroll.min.js"></script>
+<script src="/js/dist/infobulle.min.js"></script>
+<script src="/library/script.js"></script>
+<script src="/js/dist/scripts.min.js"></script>
+<script>$('.rslides').responsiveSlides({pager: true});</script>
+</body>
+</html>
