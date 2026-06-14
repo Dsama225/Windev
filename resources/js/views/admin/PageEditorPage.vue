@@ -5,7 +5,7 @@
 
         <template v-else>
             <div class="admin-page-editor__head">
-                <RouterLink to="/windevadmin/pages" class="admin-page-editor__back">← Retour aux pages</RouterLink>
+                <RouterLink :to="adminRoute('pages')" class="admin-page-editor__back">← Retour aux pages</RouterLink>
                 <div class="admin-page-editor__head-meta">
                     <div>
                         <h1 class="admin-page-editor__title">{{ page.title }}</h1>
@@ -107,6 +107,7 @@ import { createPageEditorState } from '../../composables/usePageEditorPayload';
 import { PAGE_STATUSES, pageStatusClass, pageStatusLabel, pageTypeMeta } from '../../data/adminCmsMeta';
 import { defaultActiveTab, editorTabsForPageType } from '../../data/pageEditorTabs';
 import { adminCmsService } from '../../services/adminCmsService';
+import { adminRoute } from '../../utils/adminPath';
 
 const PageEditorAlertTab = defineAsyncComponent(() => import('../../components/admin/page-editor/PageEditorAlertTab.vue'));
 const PageEditorHeroTab = defineAsyncComponent(() => import('../../components/admin/page-editor/PageEditorHeroTab.vue'));

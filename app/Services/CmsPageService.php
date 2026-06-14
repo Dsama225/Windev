@@ -19,10 +19,7 @@ class CmsPageService
             $allowDraft = $cachedRoute === $routeName;
         }
 
-        $page = SitePage::query()
-            ->where('route_name', $routeName)
-            ->where('locale', $locale)
-            ->first();
+        $page = $this->findPageByRouteAndLocale($routeName, $locale);
 
         if ($page === null) {
             return null;
@@ -140,6 +137,23 @@ class CmsPageService
         }
 
         return $payload;
+    }
+
+    private function findPageByRouteAndLocale(string $routeName, string $locale): ?SitePage
+    {
+        $page = SitePage::query()
+            ->where('route_name', $routeName)
+            ->where('locale', $locale)
+            ->first();
+
+        if ($page !== null || $locale === 'fr') {
+            return $page;
+        }
+
+        return SitePage::query()
+            ->where('route_name', $routeName)
+            ->where('locale', 'fr')
+            ->first();
     }
 
     private function previewCacheKey(string $token): string

@@ -1,6 +1,5 @@
 <template>
     <div class="admin-page">
-        <h1 class="admin-page__title">Tableau de bord</h1>
         <p class="admin-muted">Bienvenue dans Windevadmin — gestion du site PC SOFT.</p>
 
         <div class="admin-module-grid">

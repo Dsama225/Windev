@@ -1,7 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import { useAdminAuthStore } from '../stores/adminAuth.js';
 import { canAccessAdminRoute } from '../data/adminModules';
+import { adminBasePath, adminRoute } from '../utils/adminPath';
 import { normalizeAdminPageEditorRoute, routeNameFromAdminSlug } from '../utils/adminPageRoute';
+
+const adminRoot = adminBasePath();
 
 const AdminLayout = () => import('../layouts/AdminLayout.vue');
 const LoginPage = () => import('../views/admin/LoginPage.vue');
@@ -9,10 +12,14 @@ const DashboardPage = () => import('../views/admin/DashboardPage.vue');
 const PagesListPage = () => import('../views/admin/PagesListPage.vue');
 const PageEditorPage = () => import('../views/admin/PageEditorPage.vue');
 const AudiencePage = () => import('../views/admin/AudiencePage.vue');
+const ProductsListPage = () => import('../views/admin/ProductsListPage.vue');
+const ProductEditorPage = () => import('../views/admin/ProductEditorPage.vue');
+const ProductCategoriesPage = () => import('../views/admin/ProductCategoriesPage.vue');
+const OrdersListPage = () => import('../views/admin/OrdersListPage.vue');
 const PlaceholderPage = () => import('../views/admin/PlaceholderPage.vue');
 
 const adminRoutes = {
-    path: '/windevadmin',
+    path: adminRoot,
     component: AdminLayout,
     meta: { requiresAuth: true },
     children: [
@@ -22,12 +29,32 @@ const adminRoutes = {
             path: 'pages/:routeSlug',
             name: 'admin.page-editor',
             component: PageEditorPage,
-            meta: { adminTitle: 'Éditeur de page' },
+            meta: { adminTitle: 'Éditeur de page', adminHideLayoutTitle: true },
             beforeEnter: normalizeAdminPageEditorRoute,
             props: (route) => ({
                 routeName: routeNameFromAdminSlug(route.params.routeSlug),
             }),
         },
+        { path: 'products', name: 'admin.products', component: ProductsListPage, meta: { adminTitle: 'Produits' } },
+        {
+            path: 'products/categories',
+            name: 'admin.product-categories',
+            component: ProductCategoriesPage,
+            meta: { adminTitle: 'Catégories produits' },
+        },
+        {
+            path: 'products/new',
+            name: 'admin.product-editor',
+            component: ProductEditorPage,
+            meta: { adminTitle: 'Nouveau produit', adminHideLayoutTitle: true },
+        },
+        {
+            path: 'products/:id',
+            name: 'admin.product-editor-existing',
+            component: ProductEditorPage,
+            meta: { adminTitle: 'Éditer le produit', adminHideLayoutTitle: true },
+        },
+        { path: 'orders', name: 'admin.orders', component: OrdersListPage, meta: { adminTitle: 'Commandes' } },
         { path: 'audience', name: 'admin.audience', component: AudiencePage, meta: { adminTitle: 'Audience' } },
         { path: 'posts', name: 'admin.posts', component: PlaceholderPage, props: { title: 'Publications' }, meta: { adminTitle: 'Publications' } },
         { path: 'security', name: 'admin.security', component: PlaceholderPage, props: { title: 'Sécurité MFA' }, meta: { adminTitle: 'Sécurité MFA' } },
@@ -35,7 +62,7 @@ const adminRoutes = {
 };
 
 const routes = [
-    { path: '/windevadmin/login', name: 'admin.login', component: LoginPage, meta: { guestOnly: true } },
+    { path: adminRoute('login'), name: 'admin.login', component: LoginPage, meta: { guestOnly: true } },
     adminRoutes,
 ];
 

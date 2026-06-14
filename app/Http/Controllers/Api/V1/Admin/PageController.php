@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api\V1\Admin;
 
+use App\Http\Controllers\Api\V1\Admin\Concerns\AuthorizesAdminAccess;
 use App\Http\Controllers\Controller;
 use App\Models\SitePage;
 use App\Services\CmsPageService;
@@ -10,6 +11,8 @@ use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
+    use AuthorizesAdminAccess;
+
     public function __construct(private readonly CmsPageService $cmsPages) {}
 
     private function decodeRouteName(string $routeName): string
@@ -17,8 +20,10 @@ class PageController extends Controller
         return str_replace('--', '.', $routeName);
     }
 
-    public function index(): JsonResponse
+    public function index(Request $request): JsonResponse
     {
+        $this->ensureCanViewPages($request->user());
+
         $pages = SitePage::query()
             ->orderBy('title')
             ->get()
@@ -27,8 +32,10 @@ class PageController extends Controller
         return response()->json(['data' => $pages]);
     }
 
-    public function show(string $routeName): JsonResponse
+    public function show(Request $request, string $routeName): JsonResponse
     {
+        $this->ensureCanViewPages($request->user());
+
         $page = $this->cmsPages->resolveForAdmin($this->decodeRouteName($routeName));
 
         return response()->json($page->toPublicArray());
@@ -36,6 +43,8 @@ class PageController extends Controller
 
     public function update(Request $request, string $routeName): JsonResponse
     {
+        $this->ensureCanManagePages($request->user());
+
         $page = $this->cmsPages->resolveForAdmin($this->decodeRouteName($routeName));
 
         $validated = $request->validate([
@@ -51,8 +60,10 @@ class PageController extends Controller
         return response()->json($page->fresh()->toPublicArray());
     }
 
-    public function previewToken(string $routeName): JsonResponse
+    public function previewToken(Request $request, string $routeName): JsonResponse
     {
+        $this->ensureCanManagePages($request->user());
+
         $decoded = $this->decodeRouteName($routeName);
         $this->cmsPages->resolveForAdmin($decoded);
         $token = $this->cmsPages->createPreviewToken($decoded);
@@ -60,8 +71,10 @@ class PageController extends Controller
         return response()->json(['token' => $token]);
     }
 
-    public function syncRoutes(): JsonResponse
+    public function syncRoutes(Request $request): JsonResponse
     {
+        $this->ensureCanManagePages($request->user());
+
         $result = $this->cmsPages->importFromCatalog();
 
         return response()->json($result);

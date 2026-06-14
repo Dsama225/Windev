@@ -1,5 +1,6 @@
 import { computed, ref } from 'vue';
 import { defineStore } from 'pinia';
+import { isValidAdminRole } from '../data/adminRoles';
 import { adminAuthService } from '../services/adminAuthService';
 import { ensureAdminCsrfCookie } from '../services/adminApi';
 
@@ -12,11 +13,19 @@ function withAuthTimeout(promise, ms = AUTH_CHECK_TIMEOUT_MS) {
             setTimeout(() => {
                 const error = new Error('Auth check timeout');
                 error.code = 'ECONNABORTED';
-                error.userMessage = 'Le serveur met trop de temps a repondre.';
+                error.userMessage = 'Le serveur met trop de temps à répondre.';
                 reject(error);
             }, ms);
         }),
     ]);
+}
+
+function acceptUser(me) {
+    if (!me || !isValidAdminRole(me.role)) {
+        return null;
+    }
+
+    return me;
 }
 
 let fetchMePromise = null;
@@ -44,7 +53,7 @@ export const useAdminAuthStore = defineStore('adminAuth', () => {
                         return adminAuthService.me();
                     })(),
                 );
-                user.value = me ?? null;
+                user.value = acceptUser(me);
             } catch {
                 user.value = null;
             } finally {
@@ -62,23 +71,10 @@ export const useAdminAuthStore = defineStore('adminAuth', () => {
         try {
             await ensureAdminCsrfCookie();
             const result = await adminAuthService.login(email, password, remember);
-            if (!result.mfa_required) {
-                user.value = result;
-                checked.value = true;
-            }
-            return result;
-        } finally {
-            loading.value = false;
-        }
-    }
-
-    async function verifyMfa(challengeToken, code) {
-        loading.value = true;
-        try {
-            await ensureAdminCsrfCookie();
-            user.value = await adminAuthService.verifyMfa(challengeToken, code);
+            user.value = acceptUser(result);
             checked.value = true;
-            return user.value;
+
+            return result;
         } finally {
             loading.value = false;
         }
@@ -103,7 +99,6 @@ export const useAdminAuthStore = defineStore('adminAuth', () => {
         needsAuthCheck,
         fetchMe,
         login,
-        verifyMfa,
         logout,
     };
 });

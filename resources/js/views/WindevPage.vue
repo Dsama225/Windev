@@ -1,5 +1,6 @@
 <template>
     <AppNavbar />
+    <PageAlert :alert="cmsAlertPayload" />
     <main class="windev-page pb-10">
         <section class="section-shell windev-page__suite-line" aria-label="Positionnement produit">
             <p class="windev-page__suite-text">
@@ -23,24 +24,24 @@
         </section>
 
         <section class="section-shell windev-page__intro" aria-labelledby="windev-intro-title">
-            <h1 id="windev-intro-title" class="windev-page__intro-hero">DÉVELOPPEZ 10 FOIS PLUS VITE</h1>
+            <h1 id="windev-intro-title" class="windev-page__intro-hero">{{ introHeroTitle }}</h1>
             <div class="windev-page__intro-card glass-frame">
                 <div class="windev-page__intro-grid">
                     <figure class="windev-page__figure windev-page__figure--intro-pack">
                         <img
                             class="windev-page__intro-image"
-                            :src="windevPackage2026.src"
-                            alt="WINDEV 2026"
+                            :src="introPackImage.src"
+                            :alt="introPackImage.alt"
                             loading="lazy"
                             decoding="async"
-                            @error="onImageError($event, windevPackage2026.fallback)"
+                            @error="onImageError($event, introPackImage.fallback)"
                         />
                     </figure>
                     <div class="windev-page__intro-copy">
                         <h2 class="windev-page__intro-heading">
-                            WINDEV 2026, UNE PUISSANTE SUITE IDE ET ALM
+                            {{ introHeadingText }}
                         </h2>
-                        <p class="windev-page__intro-body">{{ introBody }}</p>
+                        <p class="windev-page__intro-body">{{ introBodyText }}</p>
                     </div>
                     <div class="windev-page__aside-media">
                         <figure class="windev-page__figure windev-page__figure--circle">
@@ -57,6 +58,14 @@
                     </div>
                 </div>
             </div>
+        </section>
+
+        <section
+            v-if="showCmsComponents"
+            class="section-shell windev-page__cms"
+            aria-label="Contenu éditorial"
+        >
+            <PageComponents :components="components" />
         </section>
 
         <section class="section-shell windev-page__compat glass-frame" aria-label="Compatibilité">
@@ -459,11 +468,13 @@
 </template>
 
 <script setup>
-import { onMounted } from 'vue';
 import AppNavbar from '../components/AppNavbar.vue';
 import AppFooter from '../components/AppFooter.vue';
+import PageAlert from '../components/cms/PageAlert.vue';
+import PageComponents from '../components/cms/PageComponents.vue';
 import HomeHeroCarousel from '../components/HomeHeroCarousel.vue';
 import CustomerLogoCarousel from '../components/CustomerLogoCarousel.vue';
+import { useProductPageCms } from '../composables/useProductPageCms';
 import {
     windevBrochureEbookEn,
     windevBrochureEbookEs,
@@ -491,16 +502,29 @@ import {
 } from '../data/windevPageImages.js';
 import { applyImageFallback } from '../utils/pcsoftImages.js';
 
-const introBody =
+const STATIC_INTRO_BODY =
     'Grâce à son intégration complète, sa facilité d\'utilisation légendaire et sa technologie avancée, WINDEV vous permet de développer facilement des projets de grande envergure sous Windows, Linux, .NET, Java et bien plus encore ! (Compatibilité totale avec Web, Mobile, Android, iOS, etc.)';
+
+const {
+    components,
+    introHeroTitle,
+    introHeadingText,
+    introBodyText,
+    cmsAlertPayload,
+    showCmsComponents,
+    introPackImage,
+} = useProductPageCms('software.windev', {
+    introHero: 'DÉVELOPPEZ 10 FOIS PLUS VITE',
+    introHeading: 'WINDEV 2026, UNE PUISSANTE SUITE IDE ET ALM',
+    introBody: STATIC_INTRO_BODY,
+    documentTitle: 'WINDEV : Développez 10 fois plus vite',
+    introImageAlt: 'WINDEV 2026',
+    packageImage: windevPackage2026,
+});
 
 function onImageError(event, fallbackUrl) {
     applyImageFallback(event, fallbackUrl);
 }
-
-onMounted(() => {
-    document.title = 'WINDEV : Développez 10 fois plus vite';
-});
 </script>
 
 <style scoped>

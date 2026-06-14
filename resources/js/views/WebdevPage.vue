@@ -1,5 +1,6 @@
 <template>
     <AppNavbar />
+    <PageAlert :alert="cmsAlertPayload" />
     <main class="webdev-page pb-10">
         <section class="section-shell webdev-page__suite-line" aria-label="Positionnement produit">
             <p class="webdev-page__suite-text">
@@ -23,22 +24,22 @@
         </section>
 
         <section class="section-shell webdev-page__intro" aria-labelledby="webdev-intro-title">
-            <h1 id="webdev-intro-title" class="webdev-page__intro-hero">DÉVELOPPEZ 10 FOIS PLUS VITE</h1>
+            <h1 id="webdev-intro-title" class="webdev-page__intro-hero">{{ introHeroTitle }}</h1>
             <div class="webdev-page__intro-card glass-frame">
                 <div class="webdev-page__intro-grid">
                     <figure class="webdev-page__figure webdev-page__figure--intro-pack">
                         <img
                             class="webdev-page__intro-pack-img"
-                            :src="webdevPackage2026.src"
-                            alt="WEBDEV 2026"
+                            :src="introPackImage.src"
+                            :alt="introPackImage.alt"
                             loading="lazy"
                             decoding="async"
-                            @error="onImageError($event, webdevPackage2026.fallback)"
+                            @error="onImageError($event, introPackImage.fallback)"
                         />
                     </figure>
                     <div class="webdev-page__intro-copy">
-                        <h2 class="webdev-page__intro-heading">WEBDEV 2026, IDE WEB</h2>
-                        <p class="webdev-page__intro-body">{{ introBody }}</p>
+                        <h2 class="webdev-page__intro-heading">{{ introHeadingText }}</h2>
+                        <p class="webdev-page__intro-body">{{ introBodyText }}</p>
                     </div>
                     <div class="webdev-page__aside-media">
                         <figure class="webdev-page__figure webdev-page__figure--circle">
@@ -55,6 +56,14 @@
                     </div>
                 </div>
             </div>
+        </section>
+
+        <section
+            v-if="showCmsComponents"
+            class="section-shell webdev-page__cms"
+            aria-label="Contenu éditorial"
+        >
+            <PageComponents :components="components" />
         </section>
 
         <section class="section-shell webdev-page__compat glass-frame" aria-label="Compatibilité">
@@ -471,11 +480,13 @@
 </template>
 
 <script setup>
-import { onMounted } from 'vue';
 import AppNavbar from '../components/AppNavbar.vue';
 import AppFooter from '../components/AppFooter.vue';
+import PageAlert from '../components/cms/PageAlert.vue';
+import PageComponents from '../components/cms/PageComponents.vue';
 import HomeHeroCarousel from '../components/HomeHeroCarousel.vue';
 import CustomerLogoCarousel from '../components/CustomerLogoCarousel.vue';
+import { useProductPageCms } from '../composables/useProductPageCms';
 import {
     webdevBrochureEbookEn,
     webdevBrochureEbookEs,
@@ -504,16 +515,29 @@ import {
 } from '../data/webdevPageImages.js';
 import { applyImageFallback } from '../utils/pcsoftImages.js';
 
-const introBody =
+const STATIC_INTRO_BODY =
     'Responsive Web Design. WEBDEV vous permet de développer facilement des sites et applications Internet et Intranet (WEB et SaaS) pour gérer les données et les processus. WEBDEV génère également du PHP.';
+
+const {
+    components,
+    introHeroTitle,
+    introHeadingText,
+    introBodyText,
+    cmsAlertPayload,
+    showCmsComponents,
+    introPackImage,
+} = useProductPageCms('software.webdev', {
+    introHero: 'DÉVELOPPEZ 10 FOIS PLUS VITE',
+    introHeading: 'WEBDEV 2026, IDE WEB',
+    introBody: STATIC_INTRO_BODY,
+    documentTitle: 'WEBDEV : IDE DevOps pour le Web',
+    introImageAlt: 'WEBDEV 2026',
+    packageImage: webdevPackage2026,
+});
 
 function onImageError(event, fallbackUrl) {
     applyImageFallback(event, fallbackUrl);
 }
-
-onMounted(() => {
-    document.title = 'WEBDEV : IDE DevOps pour le Web';
-});
 </script>
 
 <style scoped>

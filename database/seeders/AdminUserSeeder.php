@@ -11,12 +11,32 @@ class AdminUserSeeder extends Seeder
 {
     public function run(): void
     {
+        $password = Hash::make('WinDevAdmin2026!');
+
         User::query()->updateOrCreate(
             ['email' => 'admin@pcsoft.fr'],
             [
                 'name' => 'Admin PC SOFT',
-                'password' => Hash::make('WinDevAdmin2026!'),
+                'password' => $password,
                 'role' => UserRole::Administrator->value,
+            ],
+        );
+
+        User::query()->updateOrCreate(
+            ['email' => 'editor@pcsoft.fr'],
+            [
+                'name' => 'Éditeur PC SOFT',
+                'password' => $password,
+                'role' => UserRole::Editor->value,
+            ],
+        );
+
+        User::query()->updateOrCreate(
+            ['email' => 'analyst@pcsoft.fr'],
+            [
+                'name' => 'Analyste PC SOFT',
+                'password' => $password,
+                'role' => UserRole::Analyst->value,
             ],
         );
     }

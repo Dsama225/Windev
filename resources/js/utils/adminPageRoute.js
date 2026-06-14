@@ -1,3 +1,5 @@
+import { adminRoute } from './adminPath';
+
 /** Séparateur pour les route_name (ex. software.windev) dans les URLs admin. */
 const SLUG_DOT = '--';
 
@@ -8,7 +10,7 @@ const SLUG_DOT = '--';
 export function adminPageEditorPath(routeName) {
     const slug = String(routeName).replace(/\./g, SLUG_DOT);
 
-    return `/windevadmin/pages/${slug}`;
+    return adminRoute(`pages/${slug}`);
 }
 
 /**

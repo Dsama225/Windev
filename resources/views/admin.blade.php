@@ -7,6 +7,9 @@
         @vite(['resources/css/app.css', 'resources/js/admin.js'])
     </head>
     <body class="admin-body">
-        <div id="admin-app"></div>
+        <div
+            id="admin-app"
+            data-admin-base-path="{{ trim((string) config('cms.admin_path', 'windevadmin'), '/') }}"
+        ></div>
     </body>
 </html>

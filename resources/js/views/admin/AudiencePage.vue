@@ -17,8 +17,22 @@
                 </select>
             </label>
             <template #actions>
-                <button type="button" class="admin-btn admin-btn--secondary" @click="exportCsv">Export CSV</button>
-                <button type="button" class="admin-btn admin-btn--ghost" @click="showSettings = !showSettings">Paramètres</button>
+                <button
+                    v-if="canExport"
+                    type="button"
+                    class="admin-btn admin-btn--secondary"
+                    @click="exportCsv"
+                >
+                    Export CSV
+                </button>
+                <button
+                    v-if="canManageSettings"
+                    type="button"
+                    class="admin-btn admin-btn--ghost"
+                    @click="showSettings = !showSettings"
+                >
+                    Paramètres
+                </button>
             </template>
         </AdminToolbar>
 
@@ -120,7 +134,14 @@ import { computed, onMounted, onUnmounted, ref, watch } from 'vue';
 import AdminKpiCard from '../../components/admin/AdminKpiCard.vue';
 import AdminPanel from '../../components/admin/AdminPanel.vue';
 import AdminToolbar from '../../components/admin/AdminToolbar.vue';
+import { canExportAnalytics, canManageAnalyticsSettings } from '../../data/adminRoles';
 import { adminAnalyticsService } from '../../services/adminAnalyticsService';
+import { useAdminAuthStore } from '../../stores/adminAuth';
+
+const auth = useAdminAuthStore();
+const userRole = computed(() => auth.user?.role ?? 'administrator');
+const canExport = computed(() => canExportAnalytics(userRole.value));
+const canManageSettings = computed(() => canManageAnalyticsSettings(userRole.value));
 
 const loading = ref(true);
 const error = ref('');
@@ -140,11 +161,11 @@ let liveTimer = null;
 
 const sections = [
     { value: 'home', label: 'Accueil' },
-    { value: 'workspace', label: 'Workspace' },
-    { value: 'software-suite', label: 'Software suite' },
+    { value: 'workspace', label: 'Espace de travail' },
+    { value: 'software-suite', label: 'Suite logicielle' },
     { value: 'native-connectors', label: 'Connecteurs natifs' },
-    { value: 'subscribe', label: 'Subscribe' },
-    { value: 'download', label: 'Download' },
+    { value: 'subscribe', label: 'Abonnement' },
+    { value: 'download', label: 'Téléchargement' },
     { value: 'pcsoft', label: 'PC SOFT' },
 ];
 
@@ -210,6 +231,10 @@ async function reloadChart() {
 }
 
 async function loadSettings() {
+    if (!canManageSettings.value) {
+        return;
+    }
+
     try {
         const data = await adminAnalyticsService.settings();
         settingsForm.value = {
@@ -274,19 +299,27 @@ async function reload() {
 }
 
 async function exportCsv() {
+    if (!canExport.value) {
+        return;
+    }
+
     const params = { from: from.value, to: to.value };
 
     if (section.value) {
         params.section = section.value;
     }
 
-    const response = await adminAnalyticsService.exportCsv(params);
-    const url = URL.createObjectURL(response.data);
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = 'analytics-export.csv';
-    link.click();
-    URL.revokeObjectURL(url);
+    try {
+        const response = await adminAnalyticsService.exportCsv(params);
+        const url = URL.createObjectURL(response.data);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = 'analytics-export.csv';
+        link.click();
+        URL.revokeObjectURL(url);
+    } catch {
+        error.value = 'Export CSV non autorisé ou indisponible.';
+    }
 }
 
 function startLivePolling() {

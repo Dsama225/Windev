@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api\V1\Admin;
 
+use App\Http\Controllers\Api\V1\Admin\Concerns\AuthorizesAdminAccess;
 use App\Http\Controllers\Controller;
 use App\Services\CmsPageService;
 use App\Services\CmsUploadService;
@@ -10,6 +11,8 @@ use Illuminate\Http\Request;
 
 class UploadController extends Controller
 {
+    use AuthorizesAdminAccess;
+
     public function __construct(
         private readonly CmsPageService $cmsPages,
         private readonly CmsUploadService $uploads,
@@ -22,6 +25,8 @@ class UploadController extends Controller
 
     public function store(Request $request, string $routeName): JsonResponse
     {
+        $this->ensureCanUploadAssets($request->user());
+
         $page = $this->cmsPages->resolveForAdmin($this->decodeRouteName($routeName));
 
         $validated = $request->validate([
@@ -49,6 +54,8 @@ class UploadController extends Controller
 
     public function destroy(Request $request, string $routeName): JsonResponse
     {
+        $this->ensureCanUploadAssets($request->user());
+
         $this->cmsPages->resolveForAdmin($this->decodeRouteName($routeName));
 
         $validated = $request->validate([

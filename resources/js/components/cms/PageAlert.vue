@@ -12,29 +12,17 @@
 
 <script setup>
 import { computed } from 'vue';
-import { RouterLink, useRoute } from 'vue-router';
-import { adToAlert, useAdvertisement } from '../../composables/useAdvertisement';
+import { RouterLink } from 'vue-router';
 
 const props = defineProps({
     alert: {
         type: Object,
         default: null,
     },
-    placement: {
-        type: String,
-        default: 'page-alert',
-    },
-    path: {
-        type: String,
-        default: null,
-    },
 });
 
-const route = useRoute();
-const resolvedPath = computed(() => props.path ?? route.path);
-const { topAd } = useAdvertisement(props.placement, () => resolvedPath.value);
+const displayAlert = computed(() => props.alert);
 
-const displayAlert = computed(() => adToAlert(topAd.value) ?? props.alert);
 const isExternal = computed(() => {
     const link = displayAlert.value?.link ?? '';
     return link.startsWith('http://') || link.startsWith('https://');
@@ -68,5 +56,5 @@ const linkProps = computed(() => {
     text-decoration: none;
     font-weight: 600;
     text-align: center;
-}</style>
-
+}
+</style>

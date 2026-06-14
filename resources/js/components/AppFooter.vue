@@ -41,6 +41,9 @@
                 >
                     Confidentialité
                 </a>
+                <button class="app-footer__link app-footer__button" type="button" @click="consentStore.openPreferences()">
+                    Cookies
+                </button>
                 <RouterLink class="app-footer__link" to="/pc-soft/contact">
                     Contact
                 </RouterLink>
@@ -51,8 +54,10 @@
 
 <script setup>
 import { mediasoftPartnerContent, mediasoftPartnerLogo } from '../data/mediasoftPartnerContent.js';
+import { useConsentStore } from '../stores/consent';
 
 const year = new Date().getFullYear();
+const consentStore = useConsentStore();
 </script>
 
 <style scoped>
@@ -122,5 +127,13 @@ const year = new Date().getFullYear();
 
 .app-footer__link:hover {
     text-decoration: underline;
+}
+
+.app-footer__button {
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+    font: inherit;
 }
 </style>

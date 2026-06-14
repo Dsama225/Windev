@@ -2,6 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router';
 import { trackPageView } from '../services/analytics';
 
 const HomePage = () => import('../views/HomePage.vue');
+const ProductsCatalogPage = () => import('../views/ProductsCatalogPage.vue');
+const ProductDetailPage = () => import('../views/ProductDetailPage.vue');
 const WorkspacePage = () => import('../views/WorkspacePage.vue');
 const WindevPage = () => import('../views/WindevPage.vue');
 const WindevMobilePage = () => import('../views/WindevMobilePage.vue');
@@ -45,6 +47,8 @@ const pcsoftRoutes = [
 
 const publicRoutes = [
     { path: '/', name: 'home', component: HomePage },
+    { path: '/boutique', name: 'boutique', component: ProductsCatalogPage },
+    { path: '/boutique/:slug', name: 'boutique.product', component: ProductDetailPage },
     { path: '/workspace', name: 'workspace', component: WorkspacePage },
     { path: '/software/windev', name: 'software.windev', component: WindevPage, meta: { cmsLayoutMode: 'shell' } },
     { path: '/software/windevmobile', name: 'software.windevmobile', component: WindevMobilePage },
@@ -88,8 +92,9 @@ const publicRoutes = [
 ];
 
 /**
- * Etape 1 (non disruptive): toutes les routes publiques portent des meta CMS communes.
- * Le rendu client reste inchangé tant que cmsLayoutMode = "legacy".
+ * Meta CMS sur toutes les routes publiques (cmsRouteName).
+ * Étape 4 : intégration via useCmsPageWithFallback + CMS_PUBLIC_ROUTES (liste blanche vide par défaut).
+ * Étape 5+ : activer par groupe (home, software, connectors, download, pcsoft…) sans supprimer les vues existantes.
  */
 const publicRoutesWithCmsMeta = publicRoutes.map((route) => ({
     ...route,

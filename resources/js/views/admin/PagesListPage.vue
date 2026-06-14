@@ -2,7 +2,6 @@
     <div class="admin-page">
         <div class="admin-page__head">
             <div>
-                <h1 class="admin-page__title">Éditeur de page</h1>
                 <p class="admin-muted">{{ pages.length }} page(s) catalogue public.</p>
             </div>
             <button type="button" class="admin-btn admin-btn--secondary" :disabled="syncing" @click="syncCatalog">
@@ -73,8 +72,16 @@ async function loadPages() {
     }
 }
 
+const SYNC_CONFIRM_MESSAGE =
+    'La synchronisation aligne la base sur le catalogue public. Les pages absentes du catalogue seront supprimées définitivement. Continuer ?';
+
 async function syncCatalog() {
+    if (!window.confirm(SYNC_CONFIRM_MESSAGE)) {
+        return;
+    }
+
     syncing.value = true;
+    error.value = '';
 
     try {
         await adminCmsService.syncRoutes();

@@ -14,6 +14,14 @@ const adminApi = axios.create({
 
 let csrfInitialized = false;
 
+adminApi.interceptors.request.use((config) => {
+    if (config.data instanceof FormData) {
+        delete config.headers['Content-Type'];
+    }
+
+    return config;
+});
+
 export async function ensureAdminCsrfCookie() {
     if (csrfInitialized) {
         return;

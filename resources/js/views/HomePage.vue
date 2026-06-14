@@ -1,5 +1,6 @@
 <template>
     <AppNavbar />
+    <PageAlert :alert="cmsAlertPayload" />
     <main class="home-page pb-10">
         <section class="section-shell home-page__suite-line" aria-label="Positionnement produit">
             <p class="home-page__suite-text">
@@ -27,24 +28,24 @@
         </section>
 
         <section
-            v-if="cmsComponents.length"
+            v-if="showCmsComponents"
             class="section-shell home-page__cms"
             aria-label="Contenu éditorial"
         >
-            <PageComponents :components="cmsComponents" />
+            <PageComponents :components="components" />
         </section>
 
         <section class="section-shell home-page__platform" aria-labelledby="home-platform-title">
-            <p class="home-page__platform-eyebrow">Plateforme DevOps intégrée</p>
-            <h1 id="home-platform-title" class="home-page__platform-title">DÉVELOPPEZ 10 FOIS PLUS VITE</h1>
+            <p class="home-page__platform-eyebrow">{{ platformEyebrow }}</p>
+            <h1 id="home-platform-title" class="home-page__platform-title">{{ platformTitle }}</h1>
 
             <div class="home-page__product-grid">
                 <article
-                    v-for="product in homeProducts"
+                    v-for="product in homeProductsDisplay"
                     :key="product.id"
                     class="home-page__product-card"
                 >
-                    <RouterLink class="home-page__product-link" :to="productRoute(product.id)">
+                    <RouterLink class="home-page__product-link" :to="productRoute(product)">
                         <img
                             class="home-page__product-logo"
                             :src="product.logo.src"
@@ -70,8 +71,8 @@
             </div>
 
             <p class="home-page__platform-cta-wrap">
-                <RouterLink class="home-page__platform-cta" to="/software/new-features-2026">
-                    Découvrir les nouveautés de la version 2026
+                <RouterLink class="home-page__platform-cta" :to="platformCtaLink">
+                    {{ platformCtaText }}
                 </RouterLink>
             </p>
         </section>
@@ -236,15 +237,17 @@
 </template>
 
 <script setup>
-import { computed, onMounted } from 'vue';
 import AppNavbar from '../components/AppNavbar.vue';
 import AppFooter from '../components/AppFooter.vue';
+import PageAlert from '../components/cms/PageAlert.vue';
+import PageComponents from '../components/cms/PageComponents.vue';
 import CrossPlatformCarousel from '../components/CrossPlatformCarousel.vue';
 import CustomerLogoCarousel from '../components/CustomerLogoCarousel.vue';
 import HomeHeroCarousel from '../components/HomeHeroCarousel.vue';
 import MediasoftPartnerCard from '../components/MediasoftPartnerCard.vue';
-import PageComponents from '../components/cms/PageComponents.vue';
-import { useCmsPage } from '../composables/useCmsPage';
+import { computed } from 'vue';
+import { useHomePageCms } from '../composables/useHomePageCms';
+import { useProductsCatalog } from '../composables/useProductsCatalog';
 import {
     homeDatabases,
     homeWindevKeynoteBanner,
@@ -254,27 +257,44 @@ import {
     homeSuiteLogo,
 } from '../data/homePageImages.js';
 import { applyImageFallback } from '../utils/pcsoftImages.js';
+import { resolveHomeProducts } from '../utils/productCatalogDisplay';
 
-const { page: cmsPage } = useCmsPage('home');
-const cmsComponents = computed(() => cmsPage.value?.payload?.components ?? []);
+const {
+    components,
+    cmsAlertPayload,
+    platformEyebrow,
+    platformTitle,
+    platformCtaText,
+    platformCtaLink,
+    showCmsComponents,
+} = useHomePageCms({
+    platformEyebrow: 'Plateforme DevOps intégrée',
+    platformTitle: 'DÉVELOPPEZ 10 FOIS PLUS VITE',
+    platformCtaText: 'Découvrir les nouveautés de la version 2026',
+    platformCtaLink: '/software/new-features-2026',
+    documentTitle: 'PC SOFT WINDEV : Développez 10 fois plus vite',
+});
+
+const { products: catalogHomeProducts } = useProductsCatalog('home');
+const homeProductsDisplay = computed(() => resolveHomeProducts(catalogHomeProducts.value, homeProducts));
 
 function onImageError(event, fallbackUrl) {
     applyImageFallback(event, fallbackUrl);
 }
 
-function productRoute(id) {
-    if (id === 'webdev') {
+function productRoute(product) {
+    if (product.linkPath) {
+        return product.linkPath;
+    }
+
+    if (product.id === 'webdev') {
         return '/software/webdev';
     }
-    if (id === 'mobile') {
+    if (product.id === 'mobile' || product.id === 'windev-mobile') {
         return '/software/windevmobile';
     }
     return '/software/windev';
 }
-
-onMounted(() => {
-    document.title = 'PC SOFT WINDEV : Développez 10 fois plus vite';
-});
 </script>
 
 <style scoped>

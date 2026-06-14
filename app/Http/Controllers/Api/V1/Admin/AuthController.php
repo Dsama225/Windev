@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api\V1\Admin;
 
+use App\Enums\UserRole;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
@@ -28,9 +29,21 @@ class AuthController extends Controller
             ]);
         }
 
+        $user = $request->user();
+
+        if ($user === null || ! UserRole::isValid($user->role)) {
+            Auth::guard('web')->logout();
+            $request->session()->invalidate();
+            $request->session()->regenerateToken();
+
+            throw ValidationException::withMessages([
+                'email' => ['Ce compte n\'a pas de rôle administratif autorisé.'],
+            ]);
+        }
+
         $request->session()->regenerate();
 
-        return response()->json($this->userPayload($request->user()));
+        return response()->json($this->userPayload($user));
     }
 
     public function me(Request $request): JsonResponse
@@ -38,6 +51,14 @@ class AuthController extends Controller
         $user = $request->user();
 
         if ($user === null) {
+            return response()->json(null, 204);
+        }
+
+        if (! UserRole::isValid($user->role)) {
+            Auth::guard('web')->logout();
+            $request->session()->invalidate();
+            $request->session()->regenerateToken();
+
             return response()->json(null, 204);
         }
 
@@ -58,12 +79,14 @@ class AuthController extends Controller
      */
     private function userPayload(User $user): array
     {
+        $role = UserRole::resolveForAuth($user->role);
+
         return [
             'id' => $user->id,
             'name' => $user->name,
             'email' => $user->email,
-            'role' => $user->role ?? 'administrator',
-            'mfa_required' => false,
+            'role' => $role->value,
+            'role_label' => $role->label(),
         ];
     }
 }

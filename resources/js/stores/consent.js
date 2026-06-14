@@ -16,6 +16,7 @@ function readPreferences() {
 export const useConsentStore = defineStore('consent', () => {
     const decision = ref(localStorage.getItem(CONSENT_KEY));
     const preferences = ref(readPreferences());
+    const preferencesOpen = ref(false);
 
     const hasDecision = computed(() => Boolean(decision.value));
 
@@ -48,25 +49,31 @@ export const useConsentStore = defineStore('consent', () => {
         persist();
     };
 
-    const manage = () => {
-        decision.value = 'custom';
-        persist();
-    };
+    function openPreferences() {
+        preferencesOpen.value = true;
+    }
+
+    function closePreferences() {
+        preferencesOpen.value = false;
+    }
 
     function setPreferences(next) {
         preferences.value = { ...preferences.value, ...next };
         decision.value = 'custom';
         persist();
+        closePreferences();
     }
 
     return {
         decision,
         preferences,
+        preferencesOpen,
         hasDecision,
         analyticsAllowed,
         acceptAll,
         refuseAll,
-        manage,
+        openPreferences,
+        closePreferences,
         setPreferences,
     };
 });

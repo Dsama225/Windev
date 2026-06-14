@@ -7,6 +7,9 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body>
-        <div id="app"></div>
+        <div
+            id="app"
+            data-cms-public-routes='@json(config('cms.public_integrated_routes', []))'
+        ></div>
     </body>
 </html>

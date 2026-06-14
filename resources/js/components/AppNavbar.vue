@@ -36,9 +36,21 @@
                     >
                         <section class="app-navbar__menu-col" aria-label="Suite logicielle">
                             <p class="app-navbar__dropdown-title">Suite logicielle</p>
-                            <RouterLink class="app-navbar__dropdown-item" to="/software/windev">WINDEV</RouterLink>
-                            <RouterLink class="app-navbar__dropdown-item" to="/software/webdev">WEBDEV</RouterLink>
-                            <RouterLink class="app-navbar__dropdown-item" to="/software/windevmobile">WINDEV Mobile</RouterLink>
+                            <template v-if="navbarProducts.length">
+                                <RouterLink
+                                    v-for="product in navbarProducts"
+                                    :key="product.slug"
+                                    class="app-navbar__dropdown-item"
+                                    :to="navbarProductLink(product)"
+                                >
+                                    {{ product.name }}
+                                </RouterLink>
+                            </template>
+                            <template v-else>
+                                <RouterLink class="app-navbar__dropdown-item" to="/software/windev">WINDEV</RouterLink>
+                                <RouterLink class="app-navbar__dropdown-item" to="/software/webdev">WEBDEV</RouterLink>
+                                <RouterLink class="app-navbar__dropdown-item" to="/software/windevmobile">WINDEV Mobile</RouterLink>
+                            </template>
                             <RouterLink class="app-navbar__dropdown-item" to="/software/new-features-2026">Nouveautés de la version 2026</RouterLink>
                             <div class="app-navbar__menu-sep" aria-hidden="true"></div>
                             <RouterLink class="app-navbar__dropdown-item" to="/software/wdmsg">WDMSG</RouterLink>
@@ -63,12 +75,15 @@
                             <RouterLink class="app-navbar__dropdown-item" to="/software/native-connectors/access">Access</RouterLink>
                             <RouterLink class="app-navbar__dropdown-item" to="/software/native-connectors/mariadb">MariaDB</RouterLink>
                         </section>
-                        <section class="app-navbar__menu-col" aria-label="Abonnement">
-                            <p class="app-navbar__dropdown-title">Abonnement</p>
+                        <section class="app-navbar__menu-col" aria-label="Boutique et abonnement">
+                            <p class="app-navbar__dropdown-title">Boutique</p>
+                            <RouterLink class="app-navbar__dropdown-item" to="/boutique">Catalogue produits</RouterLink>
+                            <p class="app-navbar__dropdown-title app-navbar__dropdown-title--spaced">Abonnement</p>
                             <RouterLink class="app-navbar__dropdown-item" to="/software/subscribe">S'abonner</RouterLink>
                         </section>
                     </div>
                 </div>
+                <RouterLink class="app-navbar__link app-navbar__link--boutique" to="/boutique">Boutique</RouterLink>
                 <RouterLink class="app-navbar__link" to="/software/subscribe">S'abonner</RouterLink>
                 <div class="app-navbar__dropdown">
                     <button
@@ -171,14 +186,28 @@
         <Transition name="fade">
             <nav v-if="uiStore.mobileMenuOpen" class="app-navbar__mobile-links" aria-label="Menu mobile">
                 <RouterLink class="app-navbar__link" to="/software/windev" @click="uiStore.closeMobileMenu()">Logiciels</RouterLink>
-                <RouterLink class="app-navbar__link app-navbar__link--sub" to="/software/webdev" @click="uiStore.closeMobileMenu()">- WEBDEV 2026</RouterLink>
-                <RouterLink class="app-navbar__link app-navbar__link--sub" to="/software/windevmobile" @click="uiStore.closeMobileMenu()">- WINDEV Mobile 2026</RouterLink>
+                <template v-if="navbarProducts.length">
+                    <RouterLink
+                        v-for="product in navbarProducts"
+                        :key="`mobile-${product.slug}`"
+                        class="app-navbar__link app-navbar__link--sub"
+                        :to="navbarProductLink(product)"
+                        @click="uiStore.closeMobileMenu()"
+                    >
+                        - {{ product.name }}
+                    </RouterLink>
+                </template>
+                <template v-else>
+                    <RouterLink class="app-navbar__link app-navbar__link--sub" to="/software/webdev" @click="uiStore.closeMobileMenu()">- WEBDEV 2026</RouterLink>
+                    <RouterLink class="app-navbar__link app-navbar__link--sub" to="/software/windevmobile" @click="uiStore.closeMobileMenu()">- WINDEV Mobile 2026</RouterLink>
+                </template>
                 <RouterLink class="app-navbar__link app-navbar__link--sub" to="/software/new-features-2026" @click="uiStore.closeMobileMenu()">- Nouveautés 2026</RouterLink>
                 <RouterLink class="app-navbar__link app-navbar__link--sub" to="/software/hfsql" @click="uiStore.closeMobileMenu()">- HFSQL</RouterLink>
                 <RouterLink class="app-navbar__link app-navbar__link--sub" to="/software/wdmsg" @click="uiStore.closeMobileMenu()">- WDMSG</RouterLink>
                 <RouterLink class="app-navbar__link app-navbar__link--sub" to="/software/wlanguage" @click="uiStore.closeMobileMenu()">- WLanguage</RouterLink>
                 <RouterLink class="app-navbar__link app-navbar__link--sub" to="/software/reports-queries" @click="uiStore.closeMobileMenu()">- Etats &amp; Requêtes</RouterLink>
                 <RouterLink class="app-navbar__link app-navbar__link--sub" to="/software/clouds" @click="uiStore.closeMobileMenu()">- PCSCloud</RouterLink>
+                <RouterLink class="app-navbar__link" to="/boutique" @click="uiStore.closeMobileMenu()">Boutique</RouterLink>
                 <RouterLink class="app-navbar__link" to="/software/subscribe" @click="uiStore.closeMobileMenu()">S'abonner</RouterLink>
                 <RouterLink class="app-navbar__link" to="/download/windev-express" @click="uiStore.closeMobileMenu()">Télécharger</RouterLink>
                 <RouterLink class="app-navbar__link app-navbar__link--sub" to="/download/windev-mobile-express" @click="uiStore.closeMobileMenu()">- WINDEV Mobile Express</RouterLink>
@@ -202,9 +231,16 @@
 
 <script setup>
 import { onBeforeUnmount, onMounted, ref } from 'vue';
+import { useProductsCatalog } from '../composables/useProductsCatalog';
 import { useThemeStore } from '../stores/theme';
 import { useUiStore } from '../stores/ui';
 import { applyImageFallback, SHARED_IMAGES } from '../utils/pcsoftImages.js';
+
+const { products: navbarProducts } = useProductsCatalog('navbar');
+
+function navbarProductLink(product) {
+    return product.link_path || '/boutique';
+}
 
 const brandLogo = SHARED_IMAGES.pcsoftLogoDark;
 
@@ -262,8 +298,9 @@ onBeforeUnmount(() => {
     border-radius: 999px;
     padding: 1rem 1.5rem;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    gap: 0.9rem;
+    gap: 0.65rem 0.9rem;
     box-shadow: var(--shadow-elevated);
     position: relative;
     z-index: 4001;
@@ -323,12 +360,13 @@ html.theme-dark .app-navbar__brand-logo {
 }
 
 .app-navbar__links {
-    flex: 1;
+    flex: 1 1 16rem;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 0.95rem;
+    gap: 0.55rem 0.85rem;
+    min-width: 0;
 }
 
 .app-navbar__link {
@@ -360,6 +398,11 @@ html.theme-dark .app-navbar__brand-logo {
 
 .app-navbar__link:hover {
     text-decoration: none;
+}
+
+.app-navbar__link--boutique {
+    flex-shrink: 0;
+    color: var(--color-brand-strong);
 }
 
 .app-navbar__link--with-caret {
@@ -516,7 +559,14 @@ html.theme-dark .app-navbar__brand-logo {
     }
 
     .app-navbar__links {
+        flex-basis: 100%;
+        order: 3;
         justify-content: flex-start;
+        padding-top: 0.15rem;
+    }
+
+    .app-navbar__actions {
+        margin-left: auto;
     }
 }
 

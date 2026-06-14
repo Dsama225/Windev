@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Api\V1\Admin;
 
+use App\Http\Controllers\Api\V1\Admin\Concerns\AuthorizesAdminAccess;
 use App\Http\Controllers\Controller;
-use App\Models\User;
 use App\Services\AnalyticsQueryService;
 use Carbon\Carbon;
 use Illuminate\Http\JsonResponse;
@@ -12,11 +12,13 @@ use Illuminate\Http\Response;
 
 class AnalyticsController extends Controller
 {
+    use AuthorizesAdminAccess;
+
     public function __construct(private readonly AnalyticsQueryService $analytics) {}
 
     public function summary(Request $request): JsonResponse
     {
-        $this->ensureCanView($request->user());
+        $this->ensureCanViewAnalytics($request->user());
 
         [$from, $to] = $this->dateRange($request);
 
@@ -32,7 +34,7 @@ class AnalyticsController extends Controller
 
     public function timeseries(Request $request): JsonResponse
     {
-        $this->ensureCanView($request->user());
+        $this->ensureCanViewAnalytics($request->user());
 
         [$from, $to] = $this->dateRange($request);
 
@@ -50,7 +52,7 @@ class AnalyticsController extends Controller
 
     public function topPages(Request $request): JsonResponse
     {
-        $this->ensureCanView($request->user());
+        $this->ensureCanViewAnalytics($request->user());
 
         [$from, $to] = $this->dateRange($request);
         $limit = min(100, max(1, (int) $request->query('limit', 10)));
@@ -62,7 +64,7 @@ class AnalyticsController extends Controller
 
     public function live(Request $request): JsonResponse
     {
-        $this->ensureCanView($request->user());
+        $this->ensureCanViewAnalytics($request->user());
 
         return response()->json([
             'data' => $this->analytics->live($request->query('section')),
@@ -71,7 +73,7 @@ class AnalyticsController extends Controller
 
     public function export(Request $request): Response
     {
-        $this->ensureCanExport($request->user());
+        $this->ensureCanExportAnalytics($request->user());
 
         [$from, $to] = $this->dateRange($request);
         $csv = $this->analytics->exportCsv($from, $to, $request->query('section'), $request->query('path'));
@@ -84,14 +86,14 @@ class AnalyticsController extends Controller
 
     public function settings(Request $request): JsonResponse
     {
-        $this->ensureCanView($request->user());
+        $this->ensureCanManageAnalyticsSettings($request->user());
 
         return response()->json(['data' => $this->analytics->settings()]);
     }
 
     public function updateSettings(Request $request): JsonResponse
     {
-        $this->ensureCanManageSettings($request->user());
+        $this->ensureCanManageAnalyticsSettings($request->user());
 
         $validated = $request->validate([
             'session_timeout_minutes' => ['sometimes', 'integer', 'min:5', 'max:240'],
@@ -110,35 +112,5 @@ class AnalyticsController extends Controller
         $from = Carbon::parse($request->query('from', now()->subDays(6)->toDateString()))->startOfDay();
 
         return [$from, $to];
-    }
-
-    private function ensureCanView(?User $user): void
-    {
-        abort_unless($this->roleValue($user) !== null, 403);
-    }
-
-    private function ensureCanExport(?User $user): void
-    {
-        abort_unless(in_array($this->roleValue($user), ['administrator', 'analyst'], true), 403);
-    }
-
-    private function ensureCanManageSettings(?User $user): void
-    {
-        abort_unless($this->roleValue($user) === 'administrator', 403);
-    }
-
-    private function roleValue(?User $user): ?string
-    {
-        if ($user === null) {
-            return null;
-        }
-
-        $role = $user->role ?? 'administrator';
-
-        if (! in_array($role, ['administrator', 'analyst', 'editor'], true)) {
-            return null;
-        }
-
-        return $role;
     }
 }

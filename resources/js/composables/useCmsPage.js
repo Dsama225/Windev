@@ -1,10 +1,7 @@
 import { ref, unref, watch } from 'vue';
 import { useRoute } from 'vue-router';
 import api from '../services/api';
-
-function encodeRouteName(routeName) {
-    return String(routeName).replace(/\./g, '--');
-}
+import { encodeCmsRouteName } from '../utils/cmsPageHelpers';
 
 export function useCmsPage(routeNameSource) {
     const page = ref(null);
@@ -25,7 +22,7 @@ export function useCmsPage(routeNameSource) {
 
         try {
             const params = route.query.preview ? { preview: route.query.preview } : {};
-            const { data } = await api.get(`/pages/${encodeRouteName(routeName)}`, {
+            const { data } = await api.get(`/pages/${encodeCmsRouteName(routeName)}`, {
                 params,
                 skipGlobalLoading: true,
             });

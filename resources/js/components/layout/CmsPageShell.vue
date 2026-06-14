@@ -54,14 +54,14 @@ import PageAlert from '../cms/PageAlert.vue';
 import PageComponents from '../cms/PageComponents.vue';
 import PageSections from '../cms/PageSections.vue';
 import CmsBlockShell from '../cms/CmsBlockShell.vue';
-import { useCmsPage } from '../../composables/useCmsPage';
+import { useCmsPageWithFallback } from '../../composables/useCmsPageWithFallback';
 
 defineProps({
     focusedBlockId: { type: String, default: null },
 });
 
 const route = useRoute();
-const { page } = useCmsPage(() => route.name);
+const { page } = useCmsPageWithFallback(() => route.name, { forceEnabled: true });
 
 const heroBlock = computed(() => {
     const hero = page.value?.payload?.hero;

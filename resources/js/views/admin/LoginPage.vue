@@ -29,13 +29,15 @@
 <script setup>
 import { ref } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
+import { isValidAdminRole } from '../../data/adminRoles';
 import { useAdminAuthStore } from '../../stores/adminAuth';
+import { adminRoute } from '../../utils/adminPath';
 
 const auth = useAdminAuthStore();
 const router = useRouter();
 const route = useRoute();
 
-const email = ref('admin@pcsoft.fr');
+const email = ref(import.meta.env.DEV ? 'admin@pcsoft.fr' : '');
 const password = ref('');
 const remember = ref(false);
 const loading = ref(false);
@@ -48,15 +50,18 @@ async function submit() {
     try {
         const result = await auth.login(email.value, password.value, remember.value);
 
-        if (result.mfa_required) {
-            error.value = 'MFA requis — module non configuré sur cette instance.';
+        if (!result || !isValidAdminRole(result.role) || !auth.isAuthenticated) {
+            await auth.logout();
+            error.value = 'Ce compte n\'a pas de rôle administratif autorisé.';
             return;
         }
 
-        const redirect = typeof route.query.redirect === 'string' ? route.query.redirect : '/windevadmin';
+        const redirect = typeof route.query.redirect === 'string' ? route.query.redirect : adminRoute();
         await router.replace(redirect);
-    } catch {
-        error.value = 'Identifiants invalides ou serveur indisponible.';
+    } catch (err) {
+        const apiMessage = err?.response?.data?.errors?.email?.[0];
+
+        error.value = apiMessage ?? 'Identifiants invalides ou serveur indisponible.';
     } finally {
         loading.value = false;
     }
